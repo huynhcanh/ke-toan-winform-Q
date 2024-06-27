@@ -11,6 +11,7 @@ import com.mycompany.ketoan.utils.AlertUtils;
 import com.mycompany.ketoan.utils.DateTimeUtils;
 import com.mycompany.ketoan.utils.ElementUtils;
 import com.mycompany.ketoan.utils.PriceUtils;
+
 import java.math.BigDecimal;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -43,11 +44,11 @@ public class OrderService {
 	}
 	
 	public static void fillDetailToForm(Integer orderId,
-                                            JTextField idE,
-                                            JComboBox customerE,
-                                            JTextField deliveryDateE,
-                                            JTextField totalMoneyE,
-                                            JTextField noteE) {
+										JTextField idE,
+										JComboBox customerE,
+										JTextField deliveryDateE,
+										JTextField totalMoneyE,
+										JTextField noteE) {
 		OrderDTO orderDTO = OrderRepository.findById(orderId);
 		idE.setText(orderDTO.getId().toString());
 		ElementUtils.setSelectedCombobox(orderDTO.getCustomerId(), customerE);
@@ -67,21 +68,21 @@ public class OrderService {
 	}
 	
 	public static void resetForm(JTextField idE,
-                                    JComboBox customerE,
-                                    JTextField deliveryDateE,
-                                    JTextField totalMoneyE,
-                                    JTextField noteE,
-                                    JButton btnThem_HoaDon) {
+								 JComboBox customerE,
+								 JTextField deliveryDateE,
+								 JTextField totalMoneyE,
+								 JTextField noteE,
+								 JButton btnThem_HoaDon) {
 		idE.setText("");
 		ElementUtils.setSelectedCombobox(null, customerE);
-                deliveryDateE.setText("");
+		deliveryDateE.setText("");
 		totalMoneyE.setText("0");
 		noteE.setText("");
-                
-                btnThem_HoaDon.setEnabled(true);
+		
+		btnThem_HoaDon.setEnabled(true);
 	}
 	
-	public static boolean isValidated(JComboBox customerE,JTextField deliveryDateE) {
+	public static boolean isValidated(JComboBox customerE, JTextField deliveryDateE) {
 		if (ElementUtils.getCbbSelected(customerE) == null
 				|| deliveryDateE.getText().equals("")) {
 			AlertUtils.showAlertValidate();

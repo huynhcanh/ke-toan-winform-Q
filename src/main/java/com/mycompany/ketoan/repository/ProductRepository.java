@@ -51,7 +51,7 @@ public class ProductRepository {
 		return QueryRepository.executeQueryUpdateDB(DELETE_PRODUCT_QUERY, Map.of("MaHH", id));
 	}
 	
-	public static boolean existWarehouseProduct(Integer productId){
+	public static boolean existWarehouseProduct(Integer productId) {
 		return QueryRepository.checkExistQuery(EXIST_PRODUCT_WAREHOUSE_QUERY, Map.of("MaHH", productId));
 	}
 }

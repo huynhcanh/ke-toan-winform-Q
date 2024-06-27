@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EmployeeDTO {
 	
-        @JsonProperty("MaND")
+	@JsonProperty("MaND")
 	private Integer id;
 	
-        @JsonProperty("TenDN")
+	@JsonProperty("TenDN")
 	private String username;
-        
-        @JsonProperty("MatKhau")
-        private String password;
 	
-        @JsonProperty("VaiTro")
+	@JsonProperty("MatKhau")
+	private String password;
+	
+	@JsonProperty("VaiTro")
 	private String role;
 	
 	public Integer getId() {
@@ -39,14 +39,14 @@ public class EmployeeDTO {
 	public void setRole(String role) {
 		this.role = role;
 	}
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-        
-        
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
 }

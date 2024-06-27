@@ -21,7 +21,7 @@ public class AccountRepository {
 		ResultSet rs = QueryRepository.executeQuery(LIST_ACCOUNT_LEVEL_23_QUERY, Map.of("keyword", "%" + keyword + "%"));
 		return ObjectMapper.toDTOs(rs, AccountDTO.class);
 	}
-	
+
 //	public static void main(String[] args) {
 //		List<AccountDTO> list = findAllLevel23("");
 //		System.out.println(list);

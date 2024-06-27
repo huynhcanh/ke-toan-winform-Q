@@ -3,8 +3,8 @@ package com.mycompany.ketoan.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CategoryDTO {
-
-        @JsonProperty("MaLoaiHH")
+	
+	@JsonProperty("MaLoaiHH")
 	private Integer id;
 	
 	@JsonProperty("Ten")
@@ -18,7 +18,6 @@ public class CategoryDTO {
 		this.id = id;
 	}
 	
-
 	
 	public String getName() {
 		return name;

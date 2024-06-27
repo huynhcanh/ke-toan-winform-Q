@@ -46,7 +46,7 @@ public class CustomerRepository {
 		return QueryRepository.executeQueryUpdateDB(DELETE_CUSTOMER_QUERY, Map.of("MaKH", id));
 	}
 	
-	public static boolean existInOrder(Integer customerId){
+	public static boolean existInOrder(Integer customerId) {
 		return QueryRepository.checkExistQuery(EXIST_ORDER_QUERY, Map.of("MaKH", customerId));
 	}
 	
