@@ -23,7 +23,7 @@ public class EmployeeService {
 	}
 	
 	public static void getTables(JTable tblOrder) {
-		Object[] obj = new Object[]{"STT", "Mã Người Dùng", "Tên Đăng Nhập", "Mật Khẩu", "Vai Trò", "Tên", "SDT", "Địa Chỉ"};
+		Object[] obj = new Object[]{"STT", "Mã ND", "Tên DN", "Mật Khẩu", "Vai Trò", "Tên", "SDT", "Địa Chỉ"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
