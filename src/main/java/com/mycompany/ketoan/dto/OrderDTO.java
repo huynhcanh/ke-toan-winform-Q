@@ -27,14 +27,11 @@ public class OrderDTO {
 	@JsonProperty("MaNV")
 	private Integer employeeId;
 	
-	@JsonProperty("TenDN")
+	@JsonProperty("TenNV")
 	private String employeeName;
 	
 	@JsonProperty("NgayTao")
 	private Date createdDate;
-	
-	@JsonProperty("NgayGiao")
-	private Date deliveryDate;
 	
 	@JsonProperty("GhiChu")
 	private String note;
@@ -93,14 +90,6 @@ public class OrderDTO {
 	
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
-	}
-	
-	public Date getDeliveryDate() {
-		return deliveryDate;
-	}
-	
-	public void setDeliveryDate(Date deliveryDate) {
-		this.deliveryDate = deliveryDate;
 	}
 	
 	public String getNote() {
