@@ -277,6 +277,7 @@ public class frmTrangChu extends javax.swing.JFrame {
 
         jTabbedPane3.setBackground(new java.awt.Color(204, 204, 204));
         jTabbedPane3.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabbedPane3.setToolTipText("");
         jTabbedPane3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTabbedPane3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTabbedPane3.setMinimumSize(new java.awt.Dimension(1240, 70));
@@ -710,7 +711,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                 .addGap(141, 141, 141))
         );
 
-        jTabbedPane3.addTab("Phiếu Bán Hàng", null, jPanelHoaDon, "");
+        jTabbedPane3.addTab("Phiếu Bán Hàng", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/HoaDon.png")), jPanelHoaDon, ""); // NOI18N
 
         jTabbedPaneSanPham.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -1099,7 +1100,7 @@ public class frmTrangChu extends javax.swing.JFrame {
 
         jTabbedPaneSanPham.addTab("Hàng Hóa", jPanelSanPham);
 
-        jTabbedPane3.addTab("Hàng Hóa", jTabbedPaneSanPham);
+        jTabbedPane3.addTab("Hàng Hóa", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/SanPham.png")), jTabbedPaneSanPham); // NOI18N
 
         jPanel_KhachHang.setBackground(new java.awt.Color(204, 204, 204));
         jPanel_KhachHang.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -1309,7 +1310,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_KhachHangLayout.createSequentialGroup()
                         .addGroup(jPanel_KhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtTimKiem_KhachHang, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE))
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -1338,7 +1339,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane3.addTab("Khách Hàng", jPanel_KhachHang);
+        jTabbedPane3.addTab("Khách Hàng", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/KhachHang.png")), jPanel_KhachHang); // NOI18N
 
         jTabbedPaneNhanVien.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -1568,7 +1569,7 @@ public class frmTrangChu extends javax.swing.JFrame {
             jPanelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNhanVienLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1593,7 +1594,7 @@ public class frmTrangChu extends javax.swing.JFrame {
 
         jTabbedPaneNhanVien.addTab("Nhân Viên", jPanelNhanVien);
 
-        jTabbedPane3.addTab("Nhân Viên", jTabbedPaneNhanVien);
+        jTabbedPane3.addTab("Nhân Viên", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/employee.png")), jTabbedPaneNhanVien); // NOI18N
 
         jTabbedPaneNhapHang.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -2278,7 +2279,7 @@ public class frmTrangChu extends javax.swing.JFrame {
 
         jTabbedPaneNhapHang.addTab("Phiếu Xuất", jPanelNhaPhanPhoi);
 
-        jTabbedPane3.addTab("Nhập Hàng", jTabbedPaneNhapHang);
+        jTabbedPane3.addTab("Nhập Hàng", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/NhaCungCap.png")), jTabbedPaneNhapHang); // NOI18N
 
         jPanelDoanhThu.setBackground(new java.awt.Color(204, 204, 204));
         jPanelDoanhThu.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -2356,7 +2357,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                     .addGroup(jPanelDoanhThuLayout.createSequentialGroup()
                         .addGap(475, 475, 475)
                         .addComponent(jLabel75)))
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelDoanhThuLayout.setVerticalGroup(
             jPanelDoanhThuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2378,7 +2379,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                 .addGap(70, 70, 70))
         );
 
-        jTabbedPane3.addTab("Bút Toán", jPanelDoanhThu);
+        jTabbedPane3.addTab("Bút Toán", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/user.png")), jPanelDoanhThu); // NOI18N
 
         jPanelAboutMe.setBackground(new java.awt.Color(204, 204, 204));
         jPanelAboutMe.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -2452,7 +2453,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                     .addGroup(jPanelAboutMeLayout.createSequentialGroup()
                         .addGap(407, 407, 407)
                         .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(646, Short.MAX_VALUE))
+                .addContainerGap(578, Short.MAX_VALUE))
         );
         jPanelAboutMeLayout.setVerticalGroup(
             jPanelAboutMeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2490,7 +2491,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                 .addContainerGap(208, Short.MAX_VALUE))
         );
 
-        jTabbedPane3.addTab("Thu/Chi", jPanelAboutMe);
+        jTabbedPane3.addTab("Thu/Chi", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/DoanhThu.png")), jPanelAboutMe); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
