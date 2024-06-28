@@ -23,12 +23,12 @@ public class OrderRepository {
 			"join NhanVien nd on nd.MaNV = pbh.MaNV WHERE pbh.MaPBH = :MaPBH";
 	
 	private static final String INSERT_ORDER_QUERY = "INSERT INTO PhieuBangHang " +
-			"(MaKH, TongTien, MaNV, NgayTao, NgayGiao, GhiChu)" +
-			"VALUES(:MaKH, 0, :MaNV, NOW(), :NgayGiao, :GhiChu)";
+			"(MaKH, MaNV, NgayTao, NgayGiao, GhiChu)" +
+			"VALUES(:MaKH, :MaNV, NOW(), :NgayGiao, :GhiChu)";
 	
 	private static final String DELETE_ORDER_QUERY = "DELETE FROM PhieuBangHang WHERE MaPBH=:MaPBH";
 	
-	private static final String UPDATE_ORDER_QUERY = "UPDATE PhieuBangHang SET TongTien=:TongTien, NgayGiao=:NgayGiao, GhiChu=:GhiChu WHERE MaPBH=:MaPBH";
+	private static final String UPDATE_ORDER_QUERY = "UPDATE PhieuBangHang SET NgayGiao=:NgayGiao, GhiChu=:GhiChu WHERE MaPBH=:MaPBH";
 	
 	public static List<OrderDTO> findAll(String keyword) {
 		ResultSet rs = QueryRepository.executeQuery(LIST_ORDER_QUERY, Map.of("keyword", "%" + keyword + "%"));
@@ -51,7 +51,6 @@ public class OrderRepository {
 		return QueryRepository.executeQueryUpdateDB(UPDATE_ORDER_QUERY, Map.of("MaPBH", orderDTO.getId(),
 				"MaKH", orderDTO.getCustomerId(),
 				"NgayGiao", DateTimeUtils.toString(orderDTO.getDeliveryDate()),
-				"TongTien", orderDTO.getTotalMoney(),
 				"GhiChu", orderDTO.getNote()));
 	}
 	
