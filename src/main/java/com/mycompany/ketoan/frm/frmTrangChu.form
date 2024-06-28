@@ -104,8 +104,8 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="  H&#xf3;a &#x111;&#x1a1;n" toolTip="">
-                <Property name="tabTitle" type="java.lang.String" value="  H&#xf3;a &#x111;&#x1a1;n"/>
+              <JTabbedPaneConstraints tabName="Phi&#x1ebf;u B&#xe1;n H&#xe0;ng" toolTip="">
+                <Property name="tabTitle" type="java.lang.String" value="Phi&#x1ebf;u B&#xe1;n H&#xe0;ng"/>
                 <Property name="tabToolTip" type="java.lang.String" value=""/>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -142,15 +142,15 @@
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="163" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="745" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="767" max="-2" attributes="0"/>
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace min="18" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="221" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="687" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -171,12 +171,10 @@
                           <Component id="jPanel6" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="215" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jScrollPane1" alignment="1" min="-2" pref="215" max="-2" attributes="0"/>
                           <Component id="jPanel3" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
@@ -193,7 +191,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&#x110;&#x1a0;N H&#xc0;NG"/>
+                <Property name="text" type="java.lang.String" value="PHI&#x1ebe;U B&#xc1;N H&#xc0;NG"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -204,7 +202,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="CHI TI&#x1ebe;T &#x110;&#x1a0;N H&#xc0;NG"/>
+                <Property name="text" type="java.lang.String" value="CHI TI&#x1ebe;T PHI&#x1ebe;U B&#xc1;N H&#xc0;NG"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -217,13 +215,12 @@
                 <Component class="javax.swing.JTable" name="tblOrder">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="10">
+                      <Table columnCount="7" rowCount="10">
                         <Column editable="false" title="STT" type="java.lang.Object"/>
                         <Column editable="false" title="M&#xe3; H&#xf3;a &#x110;&#x1a1;n" type="java.lang.Object"/>
                         <Column editable="false" title="Kh&#xe1;ch H&#xe0;ng" type="java.lang.Object"/>
                         <Column editable="false" title="Nh&#xe2;n Vi&#xea;n" type="java.lang.Object"/>
                         <Column editable="false" title="Ng&#xe0;y L&#x1ead;p" type="java.lang.Object"/>
-                        <Column editable="true" title="Ng&#xe0;y Giao" type="java.lang.Object"/>
                         <Column editable="false" title="T&#x1ed5;ng Ti&#x1ec1;n" type="java.lang.Object"/>
                         <Column editable="false" title="Ghi Ch&#xfa;" type="java.lang.Object"/>
                       </Table>
@@ -251,11 +248,6 @@
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -847,7 +839,7 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="89" max="32767" attributes="0"/>
+                              <EmptySpace pref="68" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1323,7 +1315,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="202" max="32767" attributes="0"/>
+                      <EmptySpace pref="181" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1608,8 +1600,8 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Ng&#x1b0;&#x1edd;i D&#xf9;ng">
-                <Property name="tabTitle" type="java.lang.String" value="Ng&#x1b0;&#x1edd;i D&#xf9;ng"/>
+              <JTabbedPaneConstraints tabName="Nh&#xe2;n Vi&#xea;n">
+                <Property name="tabTitle" type="java.lang.String" value="Nh&#xe2;n Vi&#xea;n"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -1627,8 +1619,8 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Ng&#x1b0;&#x1edd;i D&#xf9;ng">
-                    <Property name="tabTitle" type="java.lang.String" value="Ng&#x1b0;&#x1edd;i D&#xf9;ng"/>
+                  <JTabbedPaneConstraints tabName="Nh&#xe2;n Vi&#xea;n">
+                    <Property name="tabTitle" type="java.lang.String" value="Nh&#xe2;n Vi&#xea;n"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -1637,21 +1629,18 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane15" min="-2" pref="1002" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="429" max="-2" attributes="0"/>
-                                  <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="205" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="jScrollPane15" min="-2" pref="1002" max="-2" attributes="0"/>
+                          <EmptySpace pref="184" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -1659,9 +1648,9 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane15" min="-2" pref="249" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jPanel10" max="32767" attributes="0"/>
@@ -1679,7 +1668,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="NG&#x1af;&#x1edc;I D&#xd9;NG"/>
+                    <Property name="text" type="java.lang.String" value="NH&#xc2;N VI&#xca;N"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane15">
@@ -1692,16 +1681,34 @@
                     <Component class="javax.swing.JTable" name="tblNhanVien_NhanVien">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="15">
+                          <Table columnCount="8" rowCount="15">
                             <Column editable="false" title="STT" type="java.lang.Object"/>
                             <Column editable="false" title="M&#xe3; Ng&#x1b0;&#x1edd;i D&#xf9;ng" type="java.lang.Object"/>
                             <Column editable="false" title="T&#xea;n &#x110;&#x103;ng Nh&#x1ead;p" type="java.lang.Object"/>
                             <Column editable="false" title="M&#x1ead;t Kh&#x1ea9;u" type="java.lang.Object"/>
                             <Column editable="false" title="Vai Tr&#xf2;" type="java.lang.Object"/>
+                            <Column editable="false" title="T&#xea;n" type="java.lang.Object"/>
+                            <Column editable="false" title="SDT" type="java.lang.Object"/>
+                            <Column editable="false" title="&#x110;&#x1ecb;a Ch&#x1ec9;" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                               <Title/>
                               <Editor/>
@@ -1753,33 +1760,53 @@
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblMaNhanVien_NhanVien" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="lblTenNhanVien_NhanVien1" min="-2" pref="100" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtMaNhanVien_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblTenNhanVien_NhanVien" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtTenDN_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
+                                      <Component id="txtTen_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblSDT_NhanVien" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <Component id="lblTaiKhoan_NhanVien" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblSDT_NhanVien1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <Component id="lblTaiKhoan_NhanVien1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtMK_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
-                                          <Component id="cbQuyen_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Component id="txtSDT_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Component id="txtDiaChi_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnSua_NhanVien" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
-                                  <Component id="btnThem_NhanVien" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
-                                  <Component id="btnXoa_NhanVien" min="-2" pref="84" max="-2" attributes="0"/>
-                                  <Component id="btnReset_NhanVien" min="-2" pref="84" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblMaNhanVien_NhanVien" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="txtMaNhanVien_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblTenNhanVien_NhanVien" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="txtTenDN_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblSDT_NhanVien" min="-2" pref="100" max="-2" attributes="0"/>
+                                                  <Component id="lblTaiKhoan_NhanVien" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtMK_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
+                                                  <Component id="cbQuyen_NhanVien" min="-2" pref="225" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="btnSua_NhanVien" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="btnThem_NhanVien" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="btnXoa_NhanVien" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="btnReset_NhanVien" min="-2" pref="84" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <EmptySpace pref="478" max="32767" attributes="0"/>
                           </Group>
@@ -1821,7 +1848,22 @@
                                       <Component id="btnReset_NhanVien" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="129" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblTenNhanVien_NhanVien1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtTen_NhanVien" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblSDT_NhanVien1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSDT_NhanVien" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblTaiKhoan_NhanVien1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDiaChi_NhanVien" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="24" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1903,6 +1945,30 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Vai Tr&#xf2;"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblTaiKhoan_NhanVien1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a Ch&#x1ec9;"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblSDT_NhanVien1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="SDT"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblTenNhanVien_NhanVien1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="T&#xea;n"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtTen_NhanVien">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTen_NhanVienActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtSDT_NhanVien">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtDiaChi_NhanVien">
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2736,7 +2802,7 @@
                                   <Component id="jLabel26" min="-2" pref="163" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="81" max="32767" attributes="0"/>
+                          <EmptySpace pref="60" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2991,7 +3057,7 @@
                               <Component id="jLabel75" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="228" max="32767" attributes="0"/>
+                      <EmptySpace pref="207" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3199,7 +3265,7 @@
                               <Component id="jLabel59" min="-2" pref="90" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="667" max="32767" attributes="0"/>
+                      <EmptySpace pref="646" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

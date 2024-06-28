@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class OrderService {
 	
 	public static void getTable(JTable tblOrder, String keyword) {
-		Object[] obj = new Object[]{"STT", "Mã Đơn Hàng", "Nhân Viên ", "Khách Hàng", "Ngày Tạo", "Ngày Giao", "Tổng Tiền", "Ghi Chú"};
+		Object[] obj = new Object[]{"STT", "Mã Đơn Hàng", "Nhân Viên ", "Khách Hàng", "Ngày Tạo", "Tổng Tiền", "Ghi Chú"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
@@ -34,7 +34,6 @@ public class OrderService {
 						orderDTO.getEmployeeName(),
 						orderDTO.getCustomerName(),
 						DateTimeUtils.toString(orderDTO.getCreatedDate()),
-						DateTimeUtils.toString(orderDTO.getDeliveryDate()),
 						PriceUtils.convertToVND(orderDTO.getTotalMoney()),
 						orderDTO.getNote()
 				};

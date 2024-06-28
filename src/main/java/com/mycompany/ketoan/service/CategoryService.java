@@ -43,6 +43,7 @@ public class CategoryService {
 	
 	public static void setComboBoxList(JComboBox comboBox) {
 		List<CategoryDTO> categories = CategoryRepository.findAll();
+                if(categories == null || categories.isEmpty()) return;
 		List<ElementUtils.ComboxModel> dataComboBox = categories.stream().map(c -> new ElementUtils.ComboxModel(c.getId(), c.getName())).toList();
 		comboBox.setModel(ElementUtils.getDataCbb(dataComboBox));
 	}

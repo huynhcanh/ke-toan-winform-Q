@@ -17,12 +17,13 @@ public class EmployeeService {
 	
 	public static void setComboBoxList(JComboBox comboBox) {
 		List<EmployeeDTO> customers = EmployeeRepository.findAll();
+                if(customers == null || customers.isEmpty()) return;
 		List<ComboxModel> dataComboBox = customers.stream().map(c -> new ComboxModel(c.getId(), c.getUsername())).toList();
 		comboBox.setModel(ElementUtils.getDataCbb(dataComboBox));
 	}
 	
 	public static void getTables(JTable tblOrder) {
-		Object[] obj = new Object[]{"STT", "Mã Người Dùng", "Tên Đăng Nhập", "Mật Khẩu", "Vai Trò"};
+		Object[] obj = new Object[]{"STT", "Mã Người Dùng", "Tên Đăng Nhập", "Mật Khẩu", "Vai Trò", "Tên", "SDT", "Địa Chỉ"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
@@ -35,7 +36,10 @@ public class EmployeeService {
 						employeeDTO.getId(),
 						employeeDTO.getUsername(),
 						employeeDTO.getPassword(),
-						employeeDTO.getRole()
+						employeeDTO.getRole(),
+                                                employeeDTO.getName(),
+						employeeDTO.getPhone(),
+						employeeDTO.getAddress(),
 				};
 				tableModel.addRow(item);
 			}
@@ -51,10 +55,16 @@ public class EmployeeService {
 			JTextField idE,
 			JTextField usernameE,
 			JTextField passwordE,
-			JComboBox roleE) {
+			JComboBox roleE,
+                        JTextField nameE,
+                        JTextField phoneE,
+			JTextField addressE) {
 		idE.setText("");
 		usernameE.setText("");
 		passwordE.setText("");
+                nameE.setText("");
+		phoneE.setText("");
+                addressE.setText("");
 		ElementUtils.setSelectedCombobox(null, roleE);
 	}
 	
@@ -62,9 +72,13 @@ public class EmployeeService {
 									  JTextField usernameE,
 									  JTextField passwordE,
 									  JComboBox roleE,
+                                                                          JTextField nameE,
+                                                                            JTextField phoneE,
+                                                                            JTextField addressE,
 									  boolean isAddAction) {
 		if ((!isAddAction && idE.getText().equals("")) || usernameE.getText().equals("")
-				|| passwordE.getText().equals("") || ElementUtils.getCbbSelected(roleE) == null) {
+				|| passwordE.getText().equals("") || ElementUtils.getCbbSelected(roleE) == null
+                                || nameE.getText().equals("") || phoneE.getText().equals("") || addressE.getText().equals("")) {
 			
 			AlertUtils.showAlertValidate();
 			return false;
@@ -77,11 +91,17 @@ public class EmployeeService {
 										JTextField idE,
 										JTextField usernameE,
 										JTextField passwordE,
-										JComboBox roleE) {
+										JComboBox roleE,
+                                                                                JTextField nameE,
+                                                                            JTextField phoneE,
+                                                                            JTextField addressE) {
 		EmployeeDTO employeeDTO = EmployeeRepository.findById(id);
 		idE.setText(employeeDTO.getId().toString());
 		usernameE.setText(employeeDTO.getUsername());
 		passwordE.setText(employeeDTO.getPassword());
 		ElementUtils.setSelectedCombobox(employeeDTO.getRole(), roleE);
+               nameE.setText(employeeDTO.getName());
+		phoneE.setText(employeeDTO.getPhone());
+                addressE.setText(employeeDTO.getAddress());
 	}
 }

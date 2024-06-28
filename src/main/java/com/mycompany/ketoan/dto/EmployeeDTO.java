@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EmployeeDTO {
 	
-	@JsonProperty("MaND")
+	@JsonProperty("MaNV")
 	private Integer id;
 	
 	@JsonProperty("TenDN")
