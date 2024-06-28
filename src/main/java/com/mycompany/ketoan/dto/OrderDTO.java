@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class OrderDTO {
 	
-	@JsonProperty("MaDH")
+	@JsonProperty("MaPBH")
 	private Integer id;
 	
 	@JsonProperty("TongTien")

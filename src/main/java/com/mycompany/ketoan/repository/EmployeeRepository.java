@@ -11,19 +11,19 @@ import java.util.Map;
 
 public class EmployeeRepository {
 	
-	private static final String LOGIN_QUERY = "SELECT * FROM NguoiDung where TenDN = :TenDN and MatKhau = :MatKhau";
+	private static final String LOGIN_QUERY = "SELECT * FROM NhanVien where TenDN = :TenDN and MatKhau = :MatKhau";
 	
-	private static final String LIST_EMPLOYEE_QUERY = "SELECT MaND, TenDN, MatKhau, VaiTro FROM NguoiDung";
+	private static final String LIST_EMPLOYEE_QUERY = "SELECT MaNV, TenDN, MatKhau, VaiTro, Ten, Sdt, DiaChi FROM NhanVien";
 	
-	private static final String DETAIL_EMPLOYEE_QUERY = "SELECT MaND, TenDN, MatKhau, VaiTro FROM NguoiDung WHERE MaND =:MaND ";
+	private static final String DETAIL_EMPLOYEE_QUERY = "SELECT MaNV, TenDN, MatKhau, VaiTro, Ten, Sdt, DiaChi FROM NhanVien WHERE MaNV =:MaNV ";
 	
-	private static final String DELETE_EMPLOYEE_QUERY = "DELETE FROM NguoiDung WHERE MaND =:MaND";
+	private static final String DELETE_EMPLOYEE_QUERY = "DELETE FROM NhanVien WHERE MaNV =:MaNV";
 	
-	private static final String INSERT_EMPLOYEE_QUERY = "INSERT INTO NguoiDung (TenDN, MatKhau, VaiTro) VALUES(:TenDN, :MatKhau, :VaiTro)";
+	private static final String INSERT_EMPLOYEE_QUERY = "INSERT INTO NhanVien (TenDN, MatKhau, VaiTro, Ten, Sdt, DiaChi) VALUES(:TenDN, :MatKhau, :VaiTro, :Ten, :Sdt, :DiaChi)";
 	
-	private static final String UPDATE_EMPLOYEE_QUERY = "UPDATE NguoiDung SET TenDN=:TenDN, MatKhau=:MatKhau, VaiTro=:VaiTro WHERE MaND=:MaND";
+	private static final String UPDATE_EMPLOYEE_QUERY = "UPDATE NhanVien SET TenDN=:TenDN, MatKhau=:MatKhau, VaiTro=:VaiTro, Ten=:Ten, Sdt=:Sdt, DiaChi=:DiaChi WHERE MaNV=:MaNV";
 	
-	private static final String EXISTED_USERNAME_QUERY = "SELECT 1 FROM NguoiDung WHERE TenDN = :TenDN";
+	private static final String EXISTED_USERNAME_QUERY = "SELECT 1 FROM NhanVien WHERE TenDN = :TenDN";
 	
 	public static EmployeeDTO getUser(String username, String password) {
 		ResultSet rs = QueryRepository.executeQuery(LOGIN_QUERY, Map.of("TenDN", username,
@@ -37,12 +37,12 @@ public class EmployeeRepository {
 	}
 	
 	public static EmployeeDTO findById(Integer id) {
-		ResultSet rs = QueryRepository.executeQuery(DETAIL_EMPLOYEE_QUERY, Map.of("MaND", id));
+		ResultSet rs = QueryRepository.executeQuery(DETAIL_EMPLOYEE_QUERY, Map.of("MaNV", id));
 		return ObjectMapper.toDTO(rs, EmployeeDTO.class);
 	}
 	
 	public static int delete(Integer id) throws SQLException {
-		return QueryRepository.executeQueryUpdateDBThrowExceptionIf(DELETE_EMPLOYEE_QUERY, Map.of("MaND", id));
+		return QueryRepository.executeQueryUpdateDBThrowExceptionIf(DELETE_EMPLOYEE_QUERY, Map.of("MaNV", id));
 	}
 	
 	public static int update(EmployeeDTO employeeDTO) {
