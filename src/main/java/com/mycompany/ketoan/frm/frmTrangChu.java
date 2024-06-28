@@ -37,7 +37,7 @@ import javax.swing.table.DefaultTableModel;
 public class frmTrangChu extends javax.swing.JFrame {
 
     public frmTrangChu() {
-        this.setTitle("Quản Lý Căn Tin");
+        this.setTitle("Quản Lý Bán Hàng Quần Áo YODY");
         initComponents();
         this.setVisible(true);
         this.show();
