@@ -188,10 +188,8 @@ CREATE TABLE `NhaCungCap`
 --
 CREATE TABLE `SDDK`
 (
-    `MaTietKhoan` int            NOT NULL,
-    `NgayDauKy`   date           NOT NULL,
-    `SoTienDK`    decimal(10, 2) NOT NULL,
-    `LoaiTK`      varchar(255)   DEFAULT NULL,
+    `MaTietKhoan` int  NOT NULL,
+    `NgayDauKy`   date NOT NULL,
     `DuNo`        decimal(10, 2) DEFAULT NULL,
     `DuCo`        decimal(10, 2) DEFAULT NULL,
     `MaBT`        int            DEFAULT NULL,
@@ -208,22 +206,23 @@ CREATE TABLE `SDDK`
 CREATE TABLE `PhieuThu`
 (
     `MaPT`           int NOT NULL AUTO_INCREMENT,
-    `HoVaTen`        varchar(255)   DEFAULT NULL,
-    `DiaChi`         varchar(20)    DEFAULT NULL,
     `LydoNop`        varchar(255)   DEFAULT NULL,
     `NgayTao`        date           DEFAULT NULL,
-    `GiaTien`        decimal(10, 2) DEFAULT NULL,
+    `SoTien`         decimal(10, 2) DEFAULT NULL,
     `TaiLieuDinhKem` varchar(255)   DEFAULT NULL,
-    `MaTKCTNo`       int            DEFAULT NULL,
-    `MaTKCTCo`       int            DEFAULT NULL,
+    `MaTietKhoanNo`  int            DEFAULT NULL,
+    `MaTietKhoanCo`  int            DEFAULT NULL,
     `QuyenSo`        int            DEFAULT NULL,
     `MaNV`           int            DEFAULT NULL,
     `MaCT`           int            DEFAULT NULL,
+    `MaKH`           int            DEFAULT NULL,
     PRIMARY KEY (`MaPT`),
     KEY              `fk_MaNV_PhieuThu_NhanVien`(`MaNV`),
     KEY              `fk_MaCT_PhieuThu_ChungTu` (`MaCT`),
+    KEY              `fk_MaKH_PhieuThu_KhachHang` (`MaKH`),
     CONSTRAINT `fk_MaNV_PhieuThu_NhanVien` FOREIGN KEY (`MaNV`) REFERENCES `NhanVien` (`MaNV`),
-    CONSTRAINT `fk_MaCT_PhieuThu_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`MaCT`)
+    CONSTRAINT `fk_MaCT_PhieuThu_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`MaCT`),
+    CONSTRAINT `fk_MaKH_PhieuThu_KhachHang` FOREIGN KEY (`MaKH`) REFERENCES `KhachHang` (`MaKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -232,20 +231,21 @@ CREATE TABLE `PhieuThu`
 CREATE TABLE `PhieuChi`
 (
     `MaPC`           int NOT NULL AUTO_INCREMENT,
-    `HoVaTen`        varchar(255)   DEFAULT NULL,
-    `DiaChi`         varchar(20)    DEFAULT NULL,
     `LydoNop`        varchar(255)   DEFAULT NULL,
     `NgayTao`        date           DEFAULT NULL,
-    `GiaTien`        decimal(10, 2) DEFAULT NULL,
+    `SoTien`         decimal(10, 2) DEFAULT NULL,
     `TaiLieuDinhKem` varchar(255)   DEFAULT NULL,
-    `MaTKCTNo`       int            DEFAULT NULL,
-    `MaTKCTCo`       int            DEFAULT NULL,
+    `MaTietKhoanNo`  int            DEFAULT NULL,
+    `MaTietKhoanCo`  int            DEFAULT NULL,
     `QuyenSo`        int            DEFAULT NULL,
     `MaNV`           int            DEFAULT NULL,
     `MaCT`           int            DEFAULT NULL,
+    `MaKH`           int            DEFAULT NULL,
     PRIMARY KEY (`MaPC`),
     KEY              `fk_MaNV_PhieuChi_NhanVien` (`MaNV`),
     KEY              `fk_MaCT_PhieuChi_chungtu` (`MaCT`),
+    KEY              `fk_MaKH_PhieuChi_KhachHang` (`MaKH`),
     CONSTRAINT `fk_MaNV_PhieuChi_NhanVien` FOREIGN KEY (`MaNV`) REFERENCES `NhanVien` (`MaNV`),
-    CONSTRAINT `fk_MaCT_PhieuChi_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`maCT`)
+    CONSTRAINT `fk_MaCT_PhieuChi_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`maCT`),
+    CONSTRAINT `fk_MaKH_PhieuChi_KhachHang` FOREIGN KEY (`MaKH`) REFERENCES `KhachHang` (`MaKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
