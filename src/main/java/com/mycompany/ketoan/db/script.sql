@@ -8,6 +8,7 @@ CREATE TABLE `TaiKhoan`
     PRIMARY KEY (`MaTaiKhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 --
 -- Table structure for table `TieuKhoan`
 --
@@ -20,6 +21,7 @@ CREATE TABLE `TieuKhoan`
     KEY            `fk_MaTaiKhoan_TieuKhoan_TaiKhoan` (`MaTaiKhoan`),
     CONSTRAINT `fk_MaTaiKhoan_TieuKhoan_TaiKhoan` FOREIGN KEY (`MaTaiKhoan`) REFERENCES `TaiKhoan` (`MaTaiKhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 --
 -- Table structure for table `TietKhoan`
@@ -34,6 +36,7 @@ CREATE TABLE `TietKhoan`
     CONSTRAINT `fk_MaTieuKhoan_TietKhoan_TieuKhoan` FOREIGN KEY (`MaTieuKhoan`) REFERENCES `TieuKhoan` (`MaTieuKhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 --
 -- Table structure for table `LoaiChungTu`
 --
@@ -43,6 +46,7 @@ CREATE TABLE `LoaiChungTu`
     `TenCT`    int DEFAULT NULL,
     PRIMARY KEY (`MaLoaiCT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 --
 -- Table structure for table `ChungTu`
@@ -57,6 +61,7 @@ CREATE TABLE `ChungTu`
     KEY        `fk_MaLoaiCT_ChungTu_LoaiChungTu` (`MaLoaiCT`),
     CONSTRAINT `fk_MaLoaiCT_ChungTu_LoaiChungTu` FOREIGN KEY (`MaLoaiCT`) REFERENCES `LoaiChungTu` (`MaLoaiCT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 --
 -- Table structure for table `ButToan`
@@ -80,6 +85,7 @@ CREATE TABLE `ButToan`
     CONSTRAINT `fk_MaCT_ButToan_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`MaCT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 --
 -- Table structure for table `KhachHang`
 --
@@ -89,9 +95,10 @@ CREATE TABLE `KhachHang`
     `Ten`      varchar(100) NOT NULL,
     `DiaChi`   varchar(300) NOT NULL,
     `SDT`      varchar(11)  NOT NULL,
-    `MaSoThue` varchar(100) NOT NULL,
+    `MaSoThue` varchar(100) DEFAULT NULL,
     PRIMARY KEY (`MaKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 --
 -- Table structure for table `NhanVien`
@@ -108,6 +115,7 @@ CREATE TABLE `NhanVien`
     PRIMARY KEY (`MaNV`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 --
 -- Table structure for table `LoaiHangHoa`
 --
@@ -117,6 +125,7 @@ CREATE TABLE `LoaiHangHoa`
     `Ten`      varchar(200) NOT NULL,
     PRIMARY KEY (`MaLoaiHH`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 --
 -- Table structure for table `HangHoa`
@@ -135,6 +144,7 @@ CREATE TABLE `HangHoa`
     CONSTRAINT `fk_MaLoaiHH_HangHoa_LoaiHangHoa` FOREIGN KEY (`MaLoaiHH`) REFERENCES `LoaiHangHoa` (`MaLoaiHH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 --
 -- Table structure for table `PhieuBanHang`
 --
@@ -152,6 +162,7 @@ CREATE TABLE `PhieuBanHang`
     CONSTRAINT `fk_MaNV_PhieuBanHang_NhanVien` FOREIGN KEY (`MaNV`) REFERENCES `NhanVien` (`MaNV`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 --
 -- Table structure for table `ChiTietPhieuBanHang`
 --
@@ -166,6 +177,8 @@ CREATE TABLE `ChiTietPhieuBanHang`
     CONSTRAINT `fk_MaHH_ChiTietPhieuBanHang_HangHoa` FOREIGN KEY (`MaHH`) REFERENCES `HangHoa` (`MaHH`),
     CONSTRAINT `fk_MaHH_ChiTietPhieuBanHang_PhieuBanHang` FOREIGN KEY (`MaPBH`) REFERENCES `PhieuBanHang` (`MaPBH`)
 ) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 
 
 --
@@ -183,13 +196,16 @@ CREATE TABLE `NhaCungCap`
     CONSTRAINT `fk_MaTietKhoan_NhaCungCap_TietKhoan` FOREIGN KEY (`MaTietKhoan`) REFERENCES `TietKhoan` (`MaTietKhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 --
 -- Table structure for table `SDDK`
 --
 CREATE TABLE `SDDK`
 (
-    `MaTietKhoan` int  NOT NULL,
-    `NgayDauKy`   date NOT NULL,
+    `MaTietKhoan` int            NOT NULL,
+    `NgayDauKy`   date           NOT NULL,
+    `SoTienDK`    decimal(10, 2) NOT NULL,
+    `LoaiTK`      varchar(255)   DEFAULT NULL,
     `DuNo`        decimal(10, 2) DEFAULT NULL,
     `DuCo`        decimal(10, 2) DEFAULT NULL,
     `MaBT`        int            DEFAULT NULL,
@@ -200,30 +216,31 @@ CREATE TABLE `SDDK`
     CONSTRAINT `fk_MaBT_SDDK_ButToan` FOREIGN KEY (`MaBT`) REFERENCES `ButToan` (`MaBT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 --
 -- Table structure for table `PhieuThu`
 --
 CREATE TABLE `PhieuThu`
 (
     `MaPT`           int NOT NULL AUTO_INCREMENT,
+    `HoVaTen`        varchar(255)   DEFAULT NULL,
+    `DiaChi`         varchar(20)    DEFAULT NULL,
     `LydoNop`        varchar(255)   DEFAULT NULL,
     `NgayTao`        date           DEFAULT NULL,
-    `SoTien`         decimal(10, 2) DEFAULT NULL,
+    `GiaTien`        decimal(10, 2) DEFAULT NULL,
     `TaiLieuDinhKem` varchar(255)   DEFAULT NULL,
-    `MaTietKhoanNo`  int            DEFAULT NULL,
-    `MaTietKhoanCo`  int            DEFAULT NULL,
+    `MaTKCTNo`       int            DEFAULT NULL,
+    `MaTKCTCo`       int            DEFAULT NULL,
     `QuyenSo`        int            DEFAULT NULL,
     `MaNV`           int            DEFAULT NULL,
     `MaCT`           int            DEFAULT NULL,
-    `MaKH`           int            DEFAULT NULL,
     PRIMARY KEY (`MaPT`),
     KEY              `fk_MaNV_PhieuThu_NhanVien`(`MaNV`),
     KEY              `fk_MaCT_PhieuThu_ChungTu` (`MaCT`),
-    KEY              `fk_MaKH_PhieuThu_KhachHang` (`MaKH`),
     CONSTRAINT `fk_MaNV_PhieuThu_NhanVien` FOREIGN KEY (`MaNV`) REFERENCES `NhanVien` (`MaNV`),
-    CONSTRAINT `fk_MaCT_PhieuThu_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`MaCT`),
-    CONSTRAINT `fk_MaKH_PhieuThu_KhachHang` FOREIGN KEY (`MaKH`) REFERENCES `KhachHang` (`MaKH`)
+    CONSTRAINT `fk_MaCT_PhieuThu_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`MaCT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 --
 -- Table structure for table `PhieuChi`
@@ -231,21 +248,20 @@ CREATE TABLE `PhieuThu`
 CREATE TABLE `PhieuChi`
 (
     `MaPC`           int NOT NULL AUTO_INCREMENT,
+    `HoVaTen`        varchar(255)   DEFAULT NULL,
+    `DiaChi`         varchar(20)    DEFAULT NULL,
     `LydoNop`        varchar(255)   DEFAULT NULL,
     `NgayTao`        date           DEFAULT NULL,
-    `SoTien`         decimal(10, 2) DEFAULT NULL,
+    `GiaTien`        decimal(10, 2) DEFAULT NULL,
     `TaiLieuDinhKem` varchar(255)   DEFAULT NULL,
-    `MaTietKhoanNo`  int            DEFAULT NULL,
-    `MaTietKhoanCo`  int            DEFAULT NULL,
+    `MaTKCTNo`       int            DEFAULT NULL,
+    `MaTKCTCo`       int            DEFAULT NULL,
     `QuyenSo`        int            DEFAULT NULL,
     `MaNV`           int            DEFAULT NULL,
     `MaCT`           int            DEFAULT NULL,
-    `MaKH`           int            DEFAULT NULL,
     PRIMARY KEY (`MaPC`),
     KEY              `fk_MaNV_PhieuChi_NhanVien` (`MaNV`),
     KEY              `fk_MaCT_PhieuChi_chungtu` (`MaCT`),
-    KEY              `fk_MaKH_PhieuChi_KhachHang` (`MaKH`),
     CONSTRAINT `fk_MaNV_PhieuChi_NhanVien` FOREIGN KEY (`MaNV`) REFERENCES `NhanVien` (`MaNV`),
-    CONSTRAINT `fk_MaCT_PhieuChi_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`maCT`),
-    CONSTRAINT `fk_MaKH_PhieuChi_KhachHang` FOREIGN KEY (`MaKH`) REFERENCES `KhachHang` (`MaKH`)
+    CONSTRAINT `fk_MaCT_PhieuChi_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`maCT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
