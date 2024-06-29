@@ -44,7 +44,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d6" green="e4" red="b4" type="rgb"/>
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
 
@@ -108,7 +108,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd; K&#x1ebe; TO&#xc1;N"/>
+            <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd; B&#xc1;N H&#xc0;NG"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">

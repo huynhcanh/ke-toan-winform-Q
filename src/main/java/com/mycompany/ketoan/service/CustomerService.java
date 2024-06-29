@@ -73,6 +73,7 @@ public class CustomerService {
 	
 	public static void setComboBoxList(JComboBox comboBox) {
 		List<CustomerDTO> customers = CustomerRepository.findAll("");
+                if(customers == null || customers.isEmpty()) return;
 		List<ComboxModel> dataComboBox = customers.stream().map(c -> new ComboxModel(c.getId(), c.getName())).toList();
 		comboBox.setModel(ElementUtils.getDataCbb(dataComboBox));
 	}

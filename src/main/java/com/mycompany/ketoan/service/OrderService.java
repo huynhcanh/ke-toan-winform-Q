@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class OrderService {
 	
 	public static void getTable(JTable tblOrder, String keyword) {
-		Object[] obj = new Object[]{"STT", "Mã Đơn Hàng", "Nhân Viên ", "Khách Hàng", "Ngày Tạo", "Ngày Giao", "Tổng Tiền", "Ghi Chú"};
+		Object[] obj = new Object[]{"STT", "Mã Đơn Hàng", "Nhân Viên ", "Khách Hàng", "Ngày Tạo", "Tổng Tiền", "Ghi Chú"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
@@ -34,7 +34,6 @@ public class OrderService {
 						orderDTO.getEmployeeName(),
 						orderDTO.getCustomerName(),
 						DateTimeUtils.toString(orderDTO.getCreatedDate()),
-						DateTimeUtils.toString(orderDTO.getDeliveryDate()),
 						PriceUtils.convertToVND(orderDTO.getTotalMoney()),
 						orderDTO.getNote()
 				};
@@ -46,13 +45,11 @@ public class OrderService {
 	public static void fillDetailToForm(Integer orderId,
 										JTextField idE,
 										JComboBox customerE,
-										JTextField deliveryDateE,
 										JTextField totalMoneyE,
 										JTextField noteE) {
 		OrderDTO orderDTO = OrderRepository.findById(orderId);
 		idE.setText(orderDTO.getId().toString());
 		ElementUtils.setSelectedCombobox(orderDTO.getCustomerId(), customerE);
-		deliveryDateE.setText(DateTimeUtils.toString(orderDTO.getDeliveryDate()));
 		totalMoneyE.setText(PriceUtils.convertToVND(orderDTO.getTotalMoney()));
 		noteE.setText(orderDTO.getNote());
 	}
@@ -69,22 +66,19 @@ public class OrderService {
 	
 	public static void resetForm(JTextField idE,
 								 JComboBox customerE,
-								 JTextField deliveryDateE,
 								 JTextField totalMoneyE,
 								 JTextField noteE,
 								 JButton btnThem_HoaDon) {
 		idE.setText("");
 		ElementUtils.setSelectedCombobox(null, customerE);
-		deliveryDateE.setText("");
 		totalMoneyE.setText("0");
 		noteE.setText("");
 		
 		btnThem_HoaDon.setEnabled(true);
 	}
 	
-	public static boolean isValidated(JComboBox customerE, JTextField deliveryDateE) {
-		if (ElementUtils.getCbbSelected(customerE) == null
-				|| deliveryDateE.getText().equals("")) {
+	public static boolean isValidated(JComboBox customerE) {
+		if (ElementUtils.getCbbSelected(customerE) == null) {
 			AlertUtils.showAlertValidate();
 			return false;
 		}

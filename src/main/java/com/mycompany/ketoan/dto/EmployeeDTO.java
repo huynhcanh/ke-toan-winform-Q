@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EmployeeDTO {
 	
-	@JsonProperty("MaND")
+	@JsonProperty("MaNV")
 	private Integer id;
 	
 	@JsonProperty("TenDN")
@@ -15,6 +15,15 @@ public class EmployeeDTO {
 	
 	@JsonProperty("VaiTro")
 	private String role;
+	
+	@JsonProperty("Ten")
+	private String name;
+	
+	@JsonProperty("Sdt")
+	private String phone;
+	
+	@JsonProperty("DiaChi")
+	private String address;
 	
 	public Integer getId() {
 		return id;
@@ -48,5 +57,27 @@ public class EmployeeDTO {
 		this.password = password;
 	}
 	
+	public String getName() {
+		return name;
+	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+	
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
 }

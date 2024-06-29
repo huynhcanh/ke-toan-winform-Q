@@ -56,6 +56,7 @@ public class ProductService {
 	
 	public static void setComboBoxList(JComboBox comboBox) {
 		List<ProductDTO> products = ProductRepository.findAll("");
+                if(products == null || products.isEmpty()) return;
 		List<ComboxModel> dataComboBox = products.stream().map(c -> new ComboxModel(c.getId(), c.getName())).toList();
 		comboBox.setModel(ElementUtils.getDataCbb(dataComboBox));
 	}

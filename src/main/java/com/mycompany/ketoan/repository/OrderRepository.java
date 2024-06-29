@@ -9,26 +9,31 @@ import com.mycompany.ketoan.mapper.ObjectMapper;
 import com.mycompany.ketoan.utils.DateTimeUtils;
 
 import java.sql.ResultSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class OrderRepository {
 	
-	private static final String LIST_ORDER_QUERY = "SELECT dh.MaDH, dh.TongTien, dh.MaKH, kh.Ten as TenKH, dh.MaNV, nd.TenDN , dh.NgayTao, dh.NgayGiao, dh.GhiChu " +
-			"FROM DonHang dh left join KhachHang kh on kh.MaKH = dh.MaKH " +
-			"join NguoiDung nd on nd.MaND = dh.MaNV WHERE dh.MaDH like :keyword";
+	private static final String LIST_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu " +
+			"FROM PhieuBanHang pbh left join KhachHang kh on kh.MaKH = pbh.MaKH left join NhanVien nv on nv.MaNV = pbh.MaNV " +
+			"LEFT JOIN (SELECT ctpbh.MaPBH, sum(ctpbh.SoLuong * hh.GiaBan) as TongTien " +
+			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH " +
+			"GROUP BY ctpbh.MaPBH ) ctpbhg on ctpbhg.MaPBH = pbh.MaPBH WHERE pbh.MaPBH like :keyword";
 	
-	private static final String DETAIL_ORDER_QUERY = "SELECT dh.MaDH, dh.TongTien, dh.MaKH, kh.Ten as TenKH, dh.MaNV, nd.TenDN , dh.NgayTao, dh.NgayGiao, dh.GhiChu " +
-			"FROM DonHang dh left join KhachHang kh on kh.MaKH = dh.MaKH " +
-			"join NguoiDung nd on nd.MaND = dh.MaNV WHERE dh.MaDH = :MaDH";
+	private static final String DETAIL_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu " +
+			"FROM PhieuBanHang pbh left join KhachHang kh on kh.MaKH = pbh.MaKH left join NhanVien nv on nv.MaNV = pbh.MaNV " +
+			"LEFT JOIN (SELECT ctpbh.MaPBH, sum(ctpbh.SoLuong * hh.GiaBan) as TongTien " +
+			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH " +
+			"GROUP BY ctpbh.MaPBH ) ctpbhg on ctpbhg.MaPBH = pbh.MaPBH WHERE pbh.MaPBH = :MaPBH";
 	
-	private static final String INSERT_ORDER_QUERY = "INSERT INTO DonHang " +
-			"(MaKH, TongTien, MaNV, NgayTao, NgayGiao, GhiChu)" +
-			"VALUES(:MaKH, 0, :MaNV, NOW(), :NgayGiao, :GhiChu)";
+	private static final String INSERT_ORDER_QUERY = "INSERT INTO PhieuBanHang " +
+			"(MaKH, MaNV, NgayTao, GhiChu)" +
+			"VALUES(:MaKH, :MaNV, NOW(), :GhiChu)";
 	
-	private static final String DELETE_ORDER_QUERY = "DELETE FROM DonHang WHERE MaDH=:MaDH";
+	private static final String DELETE_ORDER_QUERY = "DELETE FROM PhieuBanHang WHERE MaPBH=:MaPBH";
 	
-	private static final String UPDATE_ORDER_QUERY = "UPDATE DonHang SET TongTien=:TongTien, NgayGiao=:NgayGiao, GhiChu=:GhiChu WHERE MaDH=:MaDH";
+	private static final String UPDATE_ORDER_QUERY = "UPDATE PhieuBanHang SET MaKH=:MaKH, GhiChu=:GhiChu WHERE MaPBH=:MaPBH";
 	
 	public static List<OrderDTO> findAll(String keyword) {
 		ResultSet rs = QueryRepository.executeQuery(LIST_ORDER_QUERY, Map.of("keyword", "%" + keyword + "%"));
@@ -36,26 +41,25 @@ public class OrderRepository {
 	}
 	
 	public static OrderDTO findById(Integer id) {
-		ResultSet rs = QueryRepository.executeQuery(DETAIL_ORDER_QUERY, Map.of("MaDH", id));
+		ResultSet rs = QueryRepository.executeQuery(DETAIL_ORDER_QUERY, Map.of("MaPBH", id));
 		return ObjectMapper.toDTO(rs, OrderDTO.class);
 	}
 	
 	public static int insert(OrderDTO orderDTO) {
-		return QueryRepository.executeQueryUpdateDB(INSERT_ORDER_QUERY, Map.of("MaNV", orderDTO.getEmployeeId(),
-				"MaKH", orderDTO.getCustomerId(),
-				"NgayGiao", DateTimeUtils.toString(orderDTO.getDeliveryDate()),
-				"GhiChu", orderDTO.getNote()));
+            Map<String, Object> map = new HashMap<>();
+            map.put("MaNV", orderDTO.getEmployeeId());
+				map.put("MaKH", orderDTO.getCustomerId());
+				map.put("GhiChu", orderDTO.getNote());
+		return QueryRepository.executeQueryUpdateDB(INSERT_ORDER_QUERY, map);
 	}
 	
 	public static int update(OrderDTO orderDTO) {
-		return QueryRepository.executeQueryUpdateDB(UPDATE_ORDER_QUERY, Map.of("MaDH", orderDTO.getId(),
+		return QueryRepository.executeQueryUpdateDB(UPDATE_ORDER_QUERY, Map.of("MaPBH", orderDTO.getId(),
 				"MaKH", orderDTO.getCustomerId(),
-				"NgayGiao", DateTimeUtils.toString(orderDTO.getDeliveryDate()),
-				"TongTien", orderDTO.getTotalMoney(),
 				"GhiChu", orderDTO.getNote()));
 	}
 	
 	public static int delete(Integer id) {
-		return QueryRepository.executeQueryUpdateDB(DELETE_ORDER_QUERY, Map.of("MaDH", id));
+		return QueryRepository.executeQueryUpdateDB(DELETE_ORDER_QUERY, Map.of("MaPBH", id));
 	}
 }

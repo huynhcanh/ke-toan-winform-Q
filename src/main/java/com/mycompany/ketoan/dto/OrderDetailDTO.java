@@ -22,7 +22,7 @@ public class OrderDetailDTO {
 	@JsonProperty("GiaBan")
 	private BigDecimal unitPrice;
 	
-	@JsonProperty("MaDH")
+	@JsonProperty("MaPBH")
 	private Integer orderId;
 	
 	public BigDecimal getTotalMoney() {
