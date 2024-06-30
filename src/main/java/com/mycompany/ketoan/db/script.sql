@@ -15,7 +15,7 @@ CREATE TABLE `TaiKhoan`
 CREATE TABLE `TieuKhoan`
 (
     `MaTieuKhoan`  int NOT NULL,
-    `TenTieuKhoan` int NOT NULL,
+    `TenTaiKhoan` varchar(100) NOT NULL,
     `MaTaiKhoan`   int DEFAULT NULL,
     PRIMARY KEY (`MaTieuKhoan`),
     KEY            `fk_MaTaiKhoan_TieuKhoan_TaiKhoan` (`MaTaiKhoan`),
@@ -29,7 +29,7 @@ CREATE TABLE `TieuKhoan`
 CREATE TABLE `TietKhoan`
 (
     `MaTietKhoan`  int NOT NULL,
-    `TenTietKhoan` int NOT NULL,
+    `TenTaiKhoan` varchar(100) NOT NULL,
     `MaTieuKhoan`  int DEFAULT NULL,
     PRIMARY KEY (`MaTietKhoan`),
     KEY            `fk_MaTieuKhoan_TietKhoan_TieuKhoan` (`MaTieuKhoan`),
