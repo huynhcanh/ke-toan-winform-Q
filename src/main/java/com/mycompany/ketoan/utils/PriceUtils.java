@@ -15,7 +15,8 @@ public class PriceUtils {
 	}
 	
 	public static BigDecimal VNDconvertToPrice(String s) {
-		s = s.substring(0, s.length() - 1).replaceAll(",", "");
-		return new BigDecimal(s);
+            if(s.contains("đ")) s = s.substring(0, s.length() - 1);
+            s = s.replaceAll(",", "");
+            return new BigDecimal(s);
 	}
 }

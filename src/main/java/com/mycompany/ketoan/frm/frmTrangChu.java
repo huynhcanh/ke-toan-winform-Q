@@ -166,6 +166,8 @@ public class frmTrangChu extends javax.swing.JFrame {
         txtTen_NhanVien = new javax.swing.JTextField();
         txtSDT_NhanVien = new javax.swing.JTextField();
         txtDiaChi_NhanVien = new javax.swing.JTextField();
+        txtTimKiem_NhanVien = new javax.swing.JTextField();
+        jLabel63 = new javax.swing.JLabel();
         jTabbedPaneNhapHang = new javax.swing.JTabbedPane();
         jPanelPhieuNhap = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -282,6 +284,11 @@ public class frmTrangChu extends javax.swing.JFrame {
         jTabbedPane3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTabbedPane3.setMinimumSize(new java.awt.Dimension(1240, 70));
         jTabbedPane3.setPreferredSize(new java.awt.Dimension(1332, 627));
+        jTabbedPane3.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jTabbedPane3ComponentShown(evt);
+            }
+        });
 
         jPanelHoaDon.setBackground(new java.awt.Color(204, 204, 204));
         jPanelHoaDon.setToolTipText("");
@@ -872,7 +879,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelLoaiSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLoaiSanPhamLayout.createSequentialGroup()
-                        .addGap(0, 22, Short.MAX_VALUE)
+                        .addGap(0, 205, Short.MAX_VALUE)
                         .addComponent(jLabel73)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1310,7 +1317,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_KhachHangLayout.createSequentialGroup()
                         .addGroup(jPanel_KhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtTimKiem_KhachHang, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE))
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 916, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -1331,7 +1338,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTimKiem_KhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE))
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE))
                     .addGroup(jPanel_KhachHangLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1563,13 +1570,27 @@ public class frmTrangChu extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
+        txtTimKiem_NhanVien.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiem_NhanVienKeyReleased(evt);
+            }
+        });
+
+        jLabel63.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel63.setText("Tìm Kiếm Theo Mã");
+
         javax.swing.GroupLayout jPanelNhanVienLayout = new javax.swing.GroupLayout(jPanelNhanVien);
         jPanelNhanVien.setLayout(jPanelNhanVienLayout);
         jPanelNhanVienLayout.setHorizontalGroup(
             jPanelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNhanVienLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+                .addGroup(jPanelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTimKiem_NhanVien)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
+                    .addGroup(jPanelNhanVienLayout.createSequentialGroup()
+                        .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1587,9 +1608,14 @@ public class frmTrangChu extends javax.swing.JFrame {
                 .addGroup(jPanelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelNhanVienLayout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 283, Short.MAX_VALUE))
-                    .addComponent(jScrollPane15))
-                .addContainerGap())
+                        .addContainerGap(465, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNhanVienLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTimKiem_NhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         jTabbedPaneNhanVien.addTab("Nhân Viên", jPanelNhanVien);
@@ -2274,7 +2300,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                             .addComponent(btnXoa_PhanPhoi)
                             .addComponent(btnSua_PhanPhoi)
                             .addComponent(btnReset_PhanPhoi))))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
 
         jTabbedPaneNhapHang.addTab("Phiếu Xuất", jPanelNhaPhanPhoi);
@@ -2362,7 +2388,7 @@ public class frmTrangChu extends javax.swing.JFrame {
         jPanelDoanhThuLayout.setVerticalGroup(
             jPanelDoanhThuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDoanhThuLayout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addContainerGap(252, Short.MAX_VALUE)
                 .addComponent(jLabel75)
                 .addGap(36, 36, 36)
                 .addGroup(jPanelDoanhThuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2453,7 +2479,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                     .addGroup(jPanelAboutMeLayout.createSequentialGroup()
                         .addGap(407, 407, 407)
                         .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(578, Short.MAX_VALUE))
+                .addContainerGap(858, Short.MAX_VALUE))
         );
         jPanelAboutMeLayout.setVerticalGroup(
             jPanelAboutMeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2488,7 +2514,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                 .addGroup(jPanelAboutMeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel57)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(388, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Thu/Chi", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/DoanhThu.png")), jPanelAboutMe); // NOI18N
@@ -2499,16 +2525,15 @@ public class frmTrangChu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+            .addComponent(jTabbedPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
 
         jTabbedPane3.getAccessibleContext().setAccessibleName("Hóa Đơn");
-        jTabbedPane3.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -3410,7 +3435,7 @@ public class frmTrangChu extends javax.swing.JFrame {
     }//GEN-LAST:event_jDateChooserDen_ThongKePropertyChange
 
     private void jTabbedPaneNhanVienComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPaneNhanVienComponentShown
-        EmployeeService.getTables(this.tblNhanVien_NhanVien);
+        EmployeeService.getTables(this.tblNhanVien_NhanVien, "");
 
         this.resetFormEmployee();
 
@@ -3467,7 +3492,7 @@ public class frmTrangChu extends javax.swing.JFrame {
             
             EmployeeRepository.update(employeeDTO);
             
-            EmployeeService.getTables(this.tblNhanVien_NhanVien);
+            EmployeeService.getTables(this.tblNhanVien_NhanVien, "");
             this.resetFormEmployee();
         }
     }//GEN-LAST:event_btnSua_NhanVienActionPerformed
@@ -3484,7 +3509,7 @@ public class frmTrangChu extends javax.swing.JFrame {
                 AlertUtils.showAlertSomeTableExsitEmployee();
             }
                 
-            EmployeeService.getTables(this.tblNhanVien_NhanVien);
+            EmployeeService.getTables(this.tblNhanVien_NhanVien, "");
             this.resetFormEmployee();
         });
     }//GEN-LAST:event_btnXoa_NhanVienActionPerformed
@@ -3509,7 +3534,7 @@ public class frmTrangChu extends javax.swing.JFrame {
             
             EmployeeRepository.insert(employeeDTO);
             
-            EmployeeService.getTables(this.tblNhanVien_NhanVien);
+            EmployeeService.getTables(this.tblNhanVien_NhanVien, "");
             this.resetFormEmployee();
         }  
     }//GEN-LAST:event_btnThem_NhanVienActionPerformed
@@ -3546,6 +3571,10 @@ public class frmTrangChu extends javax.swing.JFrame {
         OrderService.getTable(tblOrder, "");
 
         this.loadAllComboBoxOfOrderPanel();
+        
+        this.resetFormOrder();
+        
+        this.resetFormCTDH();
     }//GEN-LAST:event_jPanelHoaDonComponentShown
 
     private void txtTimKiem_HoaDonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiem_HoaDonKeyReleased
@@ -3768,6 +3797,14 @@ public class frmTrangChu extends javax.swing.JFrame {
 
         this.handleOrderItemCurrent();
     }//GEN-LAST:event_tblOrderMouseClicked
+
+    private void txtTimKiem_NhanVienKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiem_NhanVienKeyReleased
+        EmployeeService.getTables(this.tblNhanVien_NhanVien, this.txtTimKiem_NhanVien.getText());
+    }//GEN-LAST:event_txtTimKiem_NhanVienKeyReleased
+
+    private void jTabbedPane3ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPane3ComponentShown
+        
+    }//GEN-LAST:event_jTabbedPane3ComponentShown
 
 //    public void layDuLieuTaiKhoan() {
 //        String cautruyvan = "";
@@ -4863,6 +4900,7 @@ public class frmTrangChu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
@@ -4995,6 +5033,7 @@ public class frmTrangChu extends javax.swing.JFrame {
     private javax.swing.JTextField txtTen_NhanVien;
     private javax.swing.JTextField txtTimKiem_HoaDon;
     private javax.swing.JTextField txtTimKiem_KhachHang;
+    private javax.swing.JTextField txtTimKiem_NhanVien;
     private javax.swing.JTextField txtTimKiem_SanPham;
     private javax.swing.JTextField txtTongTienCTHD_HoaDon;
     private javax.swing.JTextField txtTongTienCTPN_PhieuNhap;

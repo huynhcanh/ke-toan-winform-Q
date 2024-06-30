@@ -13,7 +13,7 @@ public class EmployeeRepository {
 	
 	private static final String LOGIN_QUERY = "SELECT * FROM NhanVien where TenDN = :TenDN and MatKhau = :MatKhau";
 	
-	private static final String LIST_EMPLOYEE_QUERY = "SELECT MaNV, TenDN, MatKhau, VaiTro, Ten, Sdt, DiaChi FROM NhanVien";
+	private static final String LIST_EMPLOYEE_QUERY = "SELECT MaNV, TenDN, MatKhau, VaiTro, Ten, Sdt, DiaChi FROM NhanVien WHERE MaNV like :keyword";
 	
 	private static final String DETAIL_EMPLOYEE_QUERY = "SELECT MaNV, TenDN, MatKhau, VaiTro, Ten, Sdt, DiaChi FROM NhanVien WHERE MaNV =:MaNV ";
 	
@@ -31,8 +31,8 @@ public class EmployeeRepository {
 		return ObjectMapper.toDTO(rs, EmployeeDTO.class);
 	}
 	
-	public static List<EmployeeDTO> findAll() {
-		ResultSet rs = QueryRepository.executeQuery(LIST_EMPLOYEE_QUERY);
+	public static List<EmployeeDTO> findAll(String keyword) {
+		ResultSet rs = QueryRepository.executeQuery(LIST_EMPLOYEE_QUERY, Map.of("keyword", "%" + keyword + "%"));
 		return ObjectMapper.toDTOs(rs, EmployeeDTO.class);
 	}
 	
