@@ -24,8 +24,8 @@ public class ReceiptRepository {
 			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, :MaKH)";
 	
 	private static final String UPDATE_RECEIPT_QUERY = "UPDATE PhieuThu\n" +
-			" SET LydoNop=:LydoNop, NgayTao=:NgayTao, SoTien=:SoTien, TaiLieuDinhKem=:TaiLieuDinhKem, MaTietKhoanNo=MaTietKhoanNo," +
-			" MaTietKhoanCo=:MaTietKhoanCo, QuyenSo=:QuyenSo\n" +
+			" SET LydoNop=:LydoNop, SoTien=:SoTien, TaiLieuDinhKem=:TaiLieuDinhKem, MaTietKhoanNo=MaTietKhoanNo," +
+			" MaTietKhoanCo=:MaTietKhoanCo, QuyenSo=:QuyenSo, MaNV=:MaNV, MaKH=:MaKH\n" +
 			" WHERE MaPT=:MaPT";
 	
 	private static final String DELETE_RECEIPT_QUERY = "DELETE FROM PhieuThu WHERE MaPT=:MaPT";

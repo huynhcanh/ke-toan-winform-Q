@@ -8,6 +8,7 @@ import com.mycompany.ketoan.repository.ReceiptRepository;
 import com.mycompany.ketoan.utils.AlertUtils;
 import com.mycompany.ketoan.utils.ElementUtils;
 import com.mycompany.ketoan.utils.ElementUtils.ComboxModel;
+import com.mycompany.ketoan.utils.PriceUtils;
 
 import java.util.List;
 import javax.swing.JComboBox;
@@ -34,7 +35,7 @@ public class ReceiptService {
                                                 receiptDTO.getCustomerName(),
 						receiptDTO.getAccountNoId(),
 						receiptDTO.getAccountCoId(),
-                                                receiptDTO.getPrice(),
+                                                PriceUtils.convertToVND(receiptDTO.getPrice()),
 						receiptDTO.getCreatedDate(),
 						receiptDTO.getBookNumber(),
                                                 receiptDTO.getReason()
@@ -89,20 +90,22 @@ public class ReceiptService {
 	
 	
 	public static void fillDetailToForm(Integer id,
-										JTextField idE,
-										JTextField usernameE,
-										JTextField passwordE,
-										JComboBox roleE,
-                                                                                JTextField nameE,
-                                                                            JTextField phoneE,
-                                                                            JTextField addressE) {
-		EmployeeDTO employeeDTO = EmployeeRepository.findById(id);
-		idE.setText(employeeDTO.getId().toString());
-		usernameE.setText(employeeDTO.getUsername());
-		passwordE.setText(employeeDTO.getPassword());
-		ElementUtils.setSelectedCombobox(employeeDTO.getRole(), roleE);
-               nameE.setText(employeeDTO.getName());
-		phoneE.setText(employeeDTO.getPhone());
-                addressE.setText(employeeDTO.getAddress());
+                        JTextField idE,
+			JComboBox employeeE,
+			JComboBox customerE,
+                        JTextField noAccountE,
+                        JTextField coAccountE,
+			JTextField priceE,
+                        JTextField bookNumberE,
+                        JTextArea reasonE) {
+		ReceiptDTO receiptDTO = ReceiptRepository.findById(id);
+		idE.setText(receiptDTO.getId().toString());
+                ElementUtils.setSelectedCombobox(receiptDTO.getEmployeeId(), employeeE);
+                ElementUtils.setSelectedCombobox(receiptDTO.getCustomerId(), customerE);
+		noAccountE.setText(receiptDTO.getAccountNoId() != null? receiptDTO.getAccountNoId().toString(): "");
+		coAccountE.setText(receiptDTO.getAccountCoId() != null? receiptDTO.getAccountCoId().toString() : "");
+                priceE.setText(PriceUtils.convertToVND(receiptDTO.getPrice()));
+		bookNumberE.setText(receiptDTO.getBookNumber() != null ? receiptDTO.getBookNumber().toString(): "");
+                reasonE.setText(receiptDTO.getReason());
 	}
 }

@@ -6,12 +6,14 @@ import com.mycompany.ketoan.dto.EmployeeDTO;
 import com.mycompany.ketoan.dto.OrderDTO;
 import com.mycompany.ketoan.dto.OrderDetailDTO;
 import com.mycompany.ketoan.dto.ProductDTO;
+import com.mycompany.ketoan.dto.ReceiptDTO;
 import com.mycompany.ketoan.repository.CategoryRepository;
 import com.mycompany.ketoan.repository.CustomerRepository;
 import com.mycompany.ketoan.repository.EmployeeRepository;
 import com.mycompany.ketoan.repository.OrderDetailRepository;
 import com.mycompany.ketoan.repository.OrderRepository;
 import com.mycompany.ketoan.repository.ProductRepository;
+import com.mycompany.ketoan.repository.ReceiptRepository;
 import com.mycompany.ketoan.service.AccountService;
 import com.mycompany.ketoan.service.CategoryService;
 import com.mycompany.ketoan.service.CustomerService;
@@ -184,7 +186,7 @@ public class FormMain extends javax.swing.JFrame {
         jTabbedPanelThuChi = new javax.swing.JTabbedPane();
         jPanelPhieuNhap = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        tblPhieuNhap_PhieuNhap = new javax.swing.JTable();
+        tblPhieuThu = new javax.swing.JTable();
         jLabel23 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -195,7 +197,6 @@ public class FormMain extends javax.swing.JFrame {
         btnSua_PhieuNhap = new javax.swing.JButton();
         btnReSet_PhieuNhap = new javax.swing.JButton();
         txtQuyen_PhieuThu = new javax.swing.JTextField();
-        Luu_PhieuNhap = new javax.swing.JButton();
         lblMaPhieuNhap_PhieuNhap = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         cbbKhachHang_PhieuThu = new javax.swing.JComboBox<>();
@@ -1815,8 +1816,8 @@ public class FormMain extends javax.swing.JFrame {
             }
         });
 
-        tblPhieuNhap_PhieuNhap.setBackground(new java.awt.Color(217, 217, 217));
-        tblPhieuNhap_PhieuNhap.setModel(new javax.swing.table.DefaultTableModel(
+        tblPhieuThu.setBackground(new java.awt.Color(217, 217, 217));
+        tblPhieuThu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -1839,22 +1840,25 @@ public class FormMain extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblPhieuNhap_PhieuNhap.getTableHeader().setReorderingAllowed(false);
-        tblPhieuNhap_PhieuNhap.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblPhieuThu.getTableHeader().setReorderingAllowed(false);
+        tblPhieuThu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblPhieuNhap_PhieuNhapMouseClicked(evt);
+                tblPhieuThuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tblPhieuThuMouseEntered(evt);
             }
         });
-        jScrollPane10.setViewportView(tblPhieuNhap_PhieuNhap);
-        if (tblPhieuNhap_PhieuNhap.getColumnModel().getColumnCount() > 0) {
-            tblPhieuNhap_PhieuNhap.getColumnModel().getColumn(0).setResizable(false);
-            tblPhieuNhap_PhieuNhap.getColumnModel().getColumn(1).setResizable(false);
-            tblPhieuNhap_PhieuNhap.getColumnModel().getColumn(2).setResizable(false);
-            tblPhieuNhap_PhieuNhap.getColumnModel().getColumn(3).setResizable(false);
-            tblPhieuNhap_PhieuNhap.getColumnModel().getColumn(4).setResizable(false);
-            tblPhieuNhap_PhieuNhap.getColumnModel().getColumn(5).setResizable(false);
-            tblPhieuNhap_PhieuNhap.getColumnModel().getColumn(6).setResizable(false);
-            tblPhieuNhap_PhieuNhap.getColumnModel().getColumn(7).setResizable(false);
+        jScrollPane10.setViewportView(tblPhieuThu);
+        if (tblPhieuThu.getColumnModel().getColumnCount() > 0) {
+            tblPhieuThu.getColumnModel().getColumn(0).setResizable(false);
+            tblPhieuThu.getColumnModel().getColumn(1).setResizable(false);
+            tblPhieuThu.getColumnModel().getColumn(2).setResizable(false);
+            tblPhieuThu.getColumnModel().getColumn(3).setResizable(false);
+            tblPhieuThu.getColumnModel().getColumn(4).setResizable(false);
+            tblPhieuThu.getColumnModel().getColumn(5).setResizable(false);
+            tblPhieuThu.getColumnModel().getColumn(6).setResizable(false);
+            tblPhieuThu.getColumnModel().getColumn(7).setResizable(false);
         }
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -1912,15 +1916,7 @@ public class FormMain extends javax.swing.JFrame {
             }
         });
 
-        txtQuyen_PhieuThu.setEditable(false);
         txtQuyen_PhieuThu.setBackground(new java.awt.Color(241, 241, 241));
-
-        Luu_PhieuNhap.setText("Lưu");
-        Luu_PhieuNhap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Luu_PhieuNhapActionPerformed(evt);
-            }
-        });
 
         lblMaPhieuNhap_PhieuNhap.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblMaPhieuNhap_PhieuNhap.setText("Mã Phiếu Thu");
@@ -1955,17 +1951,18 @@ public class FormMain extends javax.swing.JFrame {
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cbbKhachHang_PhieuThu, 0, 174, Short.MAX_VALUE)
                                     .addComponent(cbbNhanVien_PhieuThu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(38, 38, 38)))
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnThem_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                            .addComponent(btnSua_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnXoa_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Luu_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnReSet_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(38, 38, 38))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
-                        .addComponent(txtQuyen_PhieuThu, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtQuyen_PhieuThu, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnReSet_PhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnThem_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                        .addComponent(btnSua_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnXoa_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -1990,13 +1987,10 @@ public class FormMain extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQuyen_PhieuThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Luu_PhieuNhap))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnReSet_PhieuNhap)
-                .addGap(137, 137, 137))
+                    .addComponent(btnReSet_PhieuNhap))
+                .addGap(172, 172, 172))
         );
 
-        txtMaTKC_PhieuThu.setEditable(false);
         txtMaTKC_PhieuThu.setBackground(new java.awt.Color(241, 241, 241));
         txtMaTKC_PhieuThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2010,7 +2004,6 @@ public class FormMain extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setText("Mã TKN");
 
-        txtMaTKN_PhieuThu.setEditable(false);
         txtMaTKN_PhieuThu.setBackground(new java.awt.Color(241, 241, 241));
         txtMaTKN_PhieuThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2026,7 +2019,6 @@ public class FormMain extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel24.setText("Lý Do");
 
-        txtTongTien_PhieuNhap.setEditable(false);
         txtTongTien_PhieuNhap.setBackground(new java.awt.Color(241, 241, 241));
         txtTongTien_PhieuNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2937,57 +2929,45 @@ public class FormMain extends javax.swing.JFrame {
         //layDuLieuAboutMe();
     }//GEN-LAST:event_jPanelThuChiComponentShown
 
-    private void tblPhieuNhap_PhieuNhapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhieuNhap_PhieuNhapMouseClicked
-//        txtGhiChu_PhieuNhap.setText("");
-//        int viTriDongVuaBam = tblPhieuNhap_PhieuNhap.getSelectedRow();
-//        txtMaPhieuNhap_PhieuNhap.setText(tblPhieuNhap_PhieuNhap.getValueAt(viTriDongVuaBam, 1).toString());
-//        txtMaNhanVien_PhieuNhap.setText(tblPhieuNhap_PhieuNhap.getValueAt(viTriDongVuaBam, 2).toString());
-//        txtTenNhanVien_PhieuNhap.setText(tblPhieuNhap_PhieuNhap.getValueAt(viTriDongVuaBam, 3).toString());
-//        txtNgayNhap_PhieuNhap.setText(tblPhieuNhap_PhieuNhap.getValueAt(viTriDongVuaBam, 4).toString());
-//        setSelectedCombobox(tblPhieuNhap_PhieuNhap.getValueAt(viTriDongVuaBam, 5).toString(), cbbNhaPhanPhoi_PhieuNhap);
-//        txtTongTien_PhieuNhap.setText(tblPhieuNhap_PhieuNhap.getValueAt(viTriDongVuaBam, 6).toString());
-//        if(tblPhieuNhap_PhieuNhap.getValueAt(viTriDongVuaBam, 7) != null) txtGhiChu_PhieuNhap.setText(tblPhieuNhap_PhieuNhap.getValueAt(viTriDongVuaBam, 7).toString());
-//        LayDuLieuChiTietPhieuNhap(txtMaPhieuNhap_PhieuNhap.getText());
-    }//GEN-LAST:event_tblPhieuNhap_PhieuNhapMouseClicked
+    private void tblPhieuThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhieuThuMouseClicked
+        Integer id = ProductService.getId(this.tblPhieuThu);
+        
+       ReceiptService.fillDetailToForm(id,
+                                        txtMaPhieuThu_PhieuThu,
+                cbbNhanVien_PhieuThu,
+                cbbKhachHang_PhieuThu,
+                txtMaTKN_PhieuThu,
+                txtMaTKC_PhieuThu,
+                txtTongTien_PhieuNhap, 
+                txtQuyen_PhieuThu,
+                txtLyDo_PhieuThu);
+    }//GEN-LAST:event_tblPhieuThuMouseClicked
 
     private void btnThem_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_PhieuNhapActionPerformed
-//        String MaNhanVien,TenNhanVien,NgayNhap;
-//        
-//        String maNhanVien = getMaNhanVienHienTai();
-//        String cautruyvan = "";
-//        cautruyvan = "select MaNhanVien,TenNhanVien from NhanVien where NhanVien.MaNhanVien = '" + maNhanVien + "'";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        try {
-//            if (rs.next()) {
-//                txtMaNhanVien_PhieuNhap.setText(rs.getString("MaNhanVien"));
-//                txtTenNhanVien_PhieuNhap.setText(rs.getString("TenNhanVien"));
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//        
-//        MaNhanVien = txtMaNhanVien_PhieuNhap.getText();
-//        TenNhanVien = txtTenNhanVien_PhieuNhap.getText();
-//        NgayNhap =chuyenDateVeString(date);
-//        
-//        
-//        String MaNhaPhanPhoi, TongTien,GhiChu;
-//        MaNhaPhanPhoi = GetCbbSelected(cbbNhaPhanPhoi_PhieuNhap);
-//        TongTien = "0.0000";
-//        
-//        GhiChu= txtGhiChu_PhieuNhap.getText();
-//        String xuluGhiChu = "NULL";// vẫn để GhiChu trong db là NULL
-//        if(!GhiChu.equalsIgnoreCase(""))xuluGhiChu = "N'" + GhiChu +"'";
-//        
-//        String cautruyvan1 = "insert into PhieuNhap values(" + MaNhanVien + ","+ MaNhaPhanPhoi+ ",'" + NgayNhap + "'," + TongTien + "," + xuluGhiChu + ")";
-//        System.out.println(cautruyvan1);
-//
-//        
-//        FormLogin.connection.ExcuteQueryUpdateDB(cautruyvan1);
-//        System.out.println("Đã Thêm Thành Công");
-//        LayDuLieuPhieuNhap();
+        
+        if(ReceiptService.isValidated(this.txtMaPhieuThu_PhieuThu, 
+                this.cbbNhanVien_PhieuThu, cbbKhachHang_PhieuThu,
+                txtMaTKN_PhieuThu,
+                txtMaTKC_PhieuThu,
+                txtTongTien_PhieuNhap, 
+                txtQuyen_PhieuThu, true)){
+            
+            ReceiptDTO receiptDTO = new ReceiptDTO();
+            receiptDTO.setEmployeeId(Integer.valueOf(ElementUtils.getCbbSelected(cbbNhanVien_PhieuThu).toString()));
+            receiptDTO.setCustomerId(Integer.valueOf(ElementUtils.getCbbSelected(cbbKhachHang_PhieuThu).toString()));
+            receiptDTO.setAccountNoId(Integer.valueOf(txtMaTKN_PhieuThu.getText()));
+            receiptDTO.setAccountCoId(Integer.valueOf(txtMaTKC_PhieuThu.getText()));
+            receiptDTO.setPrice(PriceUtils.VNDconvertToPrice(this.txtTongTien_PhieuNhap.getText()));
+            receiptDTO.setBookNumber(Integer.valueOf(this.txtQuyen_PhieuThu.getText()));
+            receiptDTO.setReason(this.txtLyDo_PhieuThu.getText());
+            
+            ReceiptRepository.insert(receiptDTO);
+            
+            ReceiptService.getTables(this.tblPhieuThu, "");
+            this.resetFormReceipt();
+        }
     }//GEN-LAST:event_btnThem_PhieuNhapActionPerformed
-
+    
     private void btnXoa_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_KhachHangActionPerformed
 
         Integer id = CustomerService.getId(this.tblKhachHang_KhachHang);
@@ -3056,23 +3036,7 @@ public class FormMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXoa_LoaiSanPhamActionPerformed
 
     private void btnReSet_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReSet_PhieuNhapActionPerformed
-//        txtMaPhieuNhap_PhieuNhap.setText("");
-//        String maNhanVien = getMaNhanVienHienTai();
-//        String cautruyvan = "";
-//        cautruyvan = "select MaNhanVien,TenNhanVien from NhanVien where NhanVien.MaNhanVien = '" + maNhanVien + "'";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        try {
-//            if (rs.next()) {
-//                txtMaNhanVien_PhieuNhap.setText(rs.getString("MaNhanVien"));
-//                txtTenNhanVien_PhieuNhap.setText(rs.getString("TenNhanVien"));
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//        txtNgayNhap_PhieuNhap.setText(chuyenDateVeString(date));
-//        cbbNhaPhanPhoi_PhieuNhap.setSelectedIndex(0);
-//        txtTongTien_PhieuNhap.setText("0.0000");
-//        txtGhiChu_PhieuNhap.setText("");
+        this.resetFormReceipt();
     }//GEN-LAST:event_btnReSet_PhieuNhapActionPerformed
 
     private void txtTimKiem_SanPhamKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiem_SanPhamKeyReleased
@@ -3098,37 +3062,29 @@ public class FormMain extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTenKhachHang_KhachHangFocusLost
 
     private void btnSua_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_PhieuNhapActionPerformed
-//        String MaNhaPhanPhoi = GetCbbSelected(cbbNhaPhanPhoi_PhieuNhap);
-//        
-//        String GhiChu= txtGhiChu_PhieuNhap.getText();
-//        String xuluGhiChu = "NULL";// vẫn để GhiChu trong db là NULL
-//        if(!GhiChu.equalsIgnoreCase(""))xuluGhiChu = "N'" + GhiChu +"'";
-//        
-//        String cautruyvan =  "update PhieuNhap set MaNhaPhanPhoi = " + MaNhaPhanPhoi + ","
-//                + " GhiChu=" + xuluGhiChu + " where MaPhieuNhap=" + txtMaPhieuNhap_PhieuNhap.getText();
-//        
-//        
-//        
-//                String ctvKiemThu = "select count(ChiTietPhieuNhap.MaPhieuNhap) as SoChiTietPhieuMua"
-//                    + " from PhieuNhap,ChiTietPhieuNhap where PhieuNhap.MaPhieuNhap=ChiTietPhieuNhap.MaPhieuNhap and "
-//                    + "PhieuNhap.MaPhieuNhap= " + txtMaPhieuNhap_PhieuNhap.getText();
-//                ResultSet rs1 = FormLogin.connection.ExcuteQueryGetTable(ctvKiemThu);
-//                System.out.println(ctvKiemThu);
-//                int so1 = 0;
-//                try {
-//                    if (rs1.next()) {
-//                        so1 = rs1.getInt("SoChiTietPhieuMua");
-//                        if (so1 == 0) {
-//                            FormLogin.connection.ExcuteQueryUpdateDB(cautruyvan);
-//                            System.out.println("Đã Sửa Thành Công");
-//                            LayDuLieuPhieuNhap();
-//                        } else {
-//                            ThongBao("Không Thể Sửa Vì Đã Lưu(Xuất) Phiếu Nhập", "báo lỗi", 2);
-//                        }
-//                    }
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+        
+        if(ReceiptService.isValidated(this.txtMaPhieuThu_PhieuThu, 
+                this.cbbNhanVien_PhieuThu, cbbKhachHang_PhieuThu,
+                txtMaTKN_PhieuThu,
+                txtMaTKC_PhieuThu,
+                txtTongTien_PhieuNhap, 
+                txtQuyen_PhieuThu, false)){
+            
+            Integer id = ReceiptService.getId(tblPhieuThu);
+            ReceiptDTO receiptDTO = ReceiptRepository.findById(id);
+            receiptDTO.setEmployeeId(Integer.valueOf(ElementUtils.getCbbSelected(cbbNhanVien_PhieuThu).toString()));
+            receiptDTO.setCustomerId(Integer.valueOf(ElementUtils.getCbbSelected(cbbKhachHang_PhieuThu).toString()));
+            receiptDTO.setAccountNoId(Integer.valueOf(txtMaTKN_PhieuThu.getText()));
+            receiptDTO.setAccountCoId(Integer.valueOf(txtMaTKC_PhieuThu.getText()));
+            receiptDTO.setPrice(PriceUtils.VNDconvertToPrice(this.txtTongTien_PhieuNhap.getText()));
+            receiptDTO.setBookNumber(Integer.valueOf(this.txtQuyen_PhieuThu.getText()));
+            receiptDTO.setReason(this.txtLyDo_PhieuThu.getText());
+            
+            ReceiptRepository.update(receiptDTO);
+            
+            ReceiptService.getTables(this.tblPhieuThu, "");
+            this.resetFormReceipt();
+        }
     }//GEN-LAST:event_btnSua_PhieuNhapActionPerformed
 
     private void loadAllComboBoxOfOrderPanel(){
@@ -3203,79 +3159,25 @@ public class FormMain extends javax.swing.JFrame {
         btnThem_LoaiSanPham.setEnabled(true);
     }
     
-    private void Luu_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Luu_PhieuNhapActionPerformed
-//        ThongBao("Bạn Hãy Xem Lại Thật Kĩ Vì Xuất Phiếu Thì Không Thể Thực Hiện Các Thao Tác Chỉnh Sữa\n", "Nhắc Nhở", 2);
-//        if(JOptionPane.showConfirmDialog(rootPane, "Ban Có Chắc Chắn Muốn Lưu Phiếu Nhập Này Không?") == JOptionPane.YES_OPTION){
-//            try {
-//                String chuyenSaoLuuSangChiTietPhieuNhap = "select * from SaoLuuChiTietPhieuNhap where MaPhieuNhap = " + txtMaPhieuNhap_PhieuNhap.getText();
-//                ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(chuyenSaoLuuSangChiTietPhieuNhap);
-//                while(rs.next()){
-//                    String x = rs.getString("GhiChu");
-//                    if(x != null) x = "N'" + x + "'";
-//                    else x = "NULL";
-//                    
-//                    String cautruyvan = "insert into ChiTietPhieuNhap values("
-//                            + rs.getString("MaPhieuNhap") + " , " + rs.getString("MaSanPham") + " ," + rs.getString("SoLuong")
-//                            + "," + rs.getString("TongTienSanPham") + "," + x + ")";
-//                    System.out.println(cautruyvan);
-//                    FormLogin.connection.ExcuteQueryUpdateDB(cautruyvan);
-//                    
-//                    int slnhap = Integer.parseInt(rs.getString("SoLuong"));
-//                    int maSanPham = rs.getInt("MaSanPham");
-//                    String cautruyvan2 = "select SoLuongTrongKho from SoLuongSanPhamTrongKho where MaSanPham = " + maSanPham;
-//                    ResultSet rs1 = FormLogin.connection.ExcuteQueryGetTable(cautruyvan2);
-//                    if(rs1.next()){
-//                        int sl = rs1.getInt("SoLuongTrongKho");
-//                        cautruyvan2 = "update SoLuongSanPhamTrongKho set SoLuongTrongKho = " + (sl+ slnhap)+" where MaSanPham = " + maSanPham;
-//                        FormLogin.connection.ExcuteQueryUpdateDB(cautruyvan2);
-//                    }
-//                }
-//                
-//              
-//                String cautruyvan = "delete SaoLuuChiTietPhieuNhap";
-//                FormLogin.connection.ExcuteQueryUpdateDB(cautruyvan);
-//                
-//                
-//                String ctv = "update PhieuNhap set TongTienCaPhieuNhap= " + txtTongTien_PhieuNhap.getText() + " where MaPhieuNhap=" + txtMaPhieuNhap_PhieuNhap.getText();
-//                System.out.println(ctv);
-//                FormLogin.connection.ExcuteQueryUpdateDB(ctv);
-//                LayDuLieuPhieuNhap();
-//            } catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        else{
-//            String cautruyvan = "delete SaoLuuChiTietPhieuNhap";
-//            FormLogin.connection.ExcuteQueryUpdateDB(cautruyvan);
-//        }
-//        LayDuLieuChiTietPhieuNhap(txtMaPhieuNhap_PhieuNhap.getText());
-//        
-//        txtNgayNhap_PhieuNhap.setText(chuyenDateVeString(date));
-//        cbbNhaPhanPhoi_PhieuNhap.setSelectedIndex(0);
-//        txtTongTien_PhieuNhap.setText("0.0000");
-//        txtGhiChu_PhieuNhap.setText("");
-//        txtMaPhieuNhap_PhieuNhap.setText("");
-//        
-//
-    }//GEN-LAST:event_Luu_PhieuNhapActionPerformed
-
     private void jTabbedPanelThuChiComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPanelThuChiComponentShown
-        ReceiptService.getTables(this.tblPhieuNhap_PhieuNhap, "");
+        
+        ReceiptService.getTables(this.tblPhieuThu, "");
+        
+        CustomerService.setComboBoxList(cbbKhachHang_PhieuThu);
+        EmployeeService.setComboBoxList(cbbNhanVien_PhieuThu);
 
         this.resetFormReceipt();
 
-        CustomerService.setComboBoxList(cbbKhachHang_PhieuThu);
-        EmployeeService.setComboBoxList(cbbNhanVien_PhieuThu);
     }//GEN-LAST:event_jTabbedPanelThuChiComponentShown
 
     private void resetFormReceipt(){
         ReceiptService.resetForm(txtMaPhieuThu_PhieuThu,
                 cbbNhanVien_PhieuThu,
                 cbbKhachHang_PhieuThu,
-                txtMaTKC_PhieuThu,
                 txtMaTKN_PhieuThu,
-                txtQuyen_PhieuThu,
+                txtMaTKC_PhieuThu,
                 txtTongTien_PhieuNhap, 
+                txtQuyen_PhieuThu,
                 txtLyDo_PhieuThu);
     }
     
@@ -3700,8 +3602,11 @@ public class FormMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel37MouseClicked
 
+    private void tblPhieuThuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhieuThuMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblPhieuThuMouseEntered
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Luu_PhieuNhap;
     private javax.swing.JButton Reset_LoaiSanPham;
     private javax.swing.JButton bntSua_SanPham;
     private javax.swing.JButton btnReSet_HoaDon;
@@ -3857,7 +3762,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTable tblNhaPhanPhoi_NhaPhanPhoi;
     private javax.swing.JTable tblNhanVien_NhanVien;
     private javax.swing.JTable tblOrder;
-    private javax.swing.JTable tblPhieuNhap_PhieuNhap;
+    private javax.swing.JTable tblPhieuThu;
     private javax.swing.JTable tblSanPham;
     private javax.swing.JTable tblTaiKhoan;
     private javax.swing.JTextField txtDiaChi_KhachHang;

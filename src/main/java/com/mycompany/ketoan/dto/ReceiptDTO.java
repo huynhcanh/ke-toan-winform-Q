@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class ReceiptDTO {
 	
-	@JsonProperty("MaPC")
+	@JsonProperty("MaPT")
 	private Integer id;
 	
 	@JsonProperty("LydoNop")
@@ -16,20 +16,20 @@ public class ReceiptDTO {
 	@JsonProperty("NgayTao")
 	private Date createdDate;
 	
-	@JsonProperty("GiaTien")
+	@JsonProperty("SoTien")
 	private BigDecimal price;
 	
 	@JsonProperty("TaiLieuDinhKem")
 	private String document;
 	
-	@JsonProperty("MaTKCTNo")
+	@JsonProperty("MaTietKhoanNo")
 	private Integer accountNoId;
 	
-	@JsonProperty("MaTKCTCo")
+	@JsonProperty("MaTietKhoanCo")
 	private Integer accountCoId;
 	
 	@JsonProperty("QuyenSo")
-	private String bookNumber;
+	private Integer bookNumber;
 	
 	@JsonProperty("MaNV")
 	private Integer employeeId;
@@ -48,9 +48,6 @@ public class ReceiptDTO {
 	
 	@JsonProperty("TenKH")
 	private String customerName;
-	
-	@JsonProperty("DiaChiKH")
-	private String customerAddress;
 	
 	public Integer getId() {
 		return id;
@@ -108,11 +105,11 @@ public class ReceiptDTO {
 		this.accountCoId = accountCoId;
 	}
 	
-	public String getBookNumber() {
+	public Integer getBookNumber() {
 		return bookNumber;
 	}
 	
-	public void setBookNumber(String bookNumber) {
+	public void setBookNumber(Integer bookNumber) {
 		this.bookNumber = bookNumber;
 	}
 	
@@ -164,11 +161,4 @@ public class ReceiptDTO {
 		this.customerName = customerName;
 	}
 	
-	public String getCustomerAddress() {
-		return customerAddress;
-	}
-	
-	public void setCustomerAddress(String customerAddress) {
-		this.customerAddress = customerAddress;
-	}
 }

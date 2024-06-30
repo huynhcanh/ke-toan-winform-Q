@@ -2747,7 +2747,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="tblPhieuNhap_PhieuNhap">
+                    <Component class="javax.swing.JTable" name="tblPhieuThu">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="d9" green="d9" red="d9" type="rgb"/>
@@ -2825,7 +2825,8 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblPhieuNhap_PhieuNhapMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblPhieuThuMouseClicked"/>
+                        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblPhieuThuMouseEntered"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -2855,7 +2856,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                               <Component id="jLabel33" alignment="1" min="-2" pref="84" max="-2" attributes="0"/>
@@ -2878,18 +2879,20 @@
                                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="btnThem_PhieuNhap" pref="83" max="32767" attributes="0"/>
-                                          <Component id="btnSua_PhieuNhap" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="btnXoa_PhieuNhap" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="Luu_PhieuNhap" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="btnReSet_PhieuNhap" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel37" min="-2" pref="64" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                       <Component id="txtQuyen_PhieuThu" min="-2" pref="174" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnReSet_PhieuNhap" min="-2" pref="83" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="btnThem_PhieuNhap" pref="83" max="32767" attributes="0"/>
+                                      <Component id="btnSua_PhieuNhap" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnXoa_PhieuNhap" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="76" max="32767" attributes="0"/>
@@ -2921,11 +2924,9 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="txtQuyen_PhieuThu" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel37" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="Luu_PhieuNhap" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnReSet_PhieuNhap" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnReSet_PhieuNhap" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2998,19 +2999,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtQuyen_PhieuThu">
                       <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f1" green="f1" red="f1" type="rgb"/>
                         </Property>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="Luu_PhieuNhap">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="L&#x1b0;u"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Luu_PhieuNhapActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblMaPhieuNhap_PhieuNhap">
                       <Properties>
@@ -3062,7 +3054,6 @@
                 </Container>
                 <Component class="javax.swing.JTextField" name="txtMaTKC_PhieuThu">
                   <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
                     </Property>
@@ -3089,7 +3080,6 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtMaTKN_PhieuThu">
                   <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
                     </Property>
@@ -3126,7 +3116,6 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtTongTien_PhieuNhap">
                   <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
                     </Property>
