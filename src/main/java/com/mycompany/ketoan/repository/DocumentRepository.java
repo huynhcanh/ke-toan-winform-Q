@@ -15,7 +15,7 @@ public class DocumentRepository {
 	
 	public static int insert(DocumentDTO documentDTO) {
 		Map<String, Object> param = ObjectMapper.convertToMap(documentDTO);
-		return QueryRepository.executeQueryUpdateDB(INSERT_DOCUMENT_QUERY, param);
+		return QueryRepository.executeQueryUpdateDBReturnId(INSERT_DOCUMENT_QUERY, param);
 	}
 	
 	public static int delete(Integer id) {
