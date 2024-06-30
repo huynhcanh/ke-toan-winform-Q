@@ -4,6 +4,7 @@ import com.mycompany.ketoan.constants.ApplicationConstants.Alert;
 import com.mycompany.ketoan.constants.ApplicationConstants.Application;
 import com.mycompany.ketoan.constants.ApplicationConstants.Form;
 import com.mycompany.ketoan.dto.EmployeeDTO;
+import static com.mycompany.ketoan.frm.FormUtils.frmMain;
 import com.mycompany.ketoan.repository.EmployeeRepository;
 import com.mycompany.ketoan.utils.AlertUtils;
 import com.mycompany.ketoan.utils.SecurityUtils;
@@ -132,14 +133,14 @@ public class FormLogin extends javax.swing.JFrame {
             
             SecurityUtils.setPrincipal(userDTO);
             
-            frmTrangChu frmTC = new frmTrangChu();
-            frmTC.setVisible(true);
+            if(FormUtils.frmMain == null) FormUtils.frmMain = new FormMain();
+            frmMain.setVisible(true);
 
             if (userDTO.getRole().equals(Application.Role.ADMIN)) {
                 AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_ADMIN_CONTENT);
             } else {
                 AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_EMPLOYEE_CONTENT);
-                frmTC.disableTabs();
+                frmMain.disableTabs();
             }
             this.dispose();
         } else {
@@ -155,7 +156,8 @@ public class FormLogin extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormLogin().setVisible(true);
+                FormUtils.frmLogin = new FormLogin();
+                FormUtils.frmLogin.setVisible(true);
             }
         });
     }
