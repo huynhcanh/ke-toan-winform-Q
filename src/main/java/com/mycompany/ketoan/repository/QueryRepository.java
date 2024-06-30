@@ -3,10 +3,7 @@ package com.mycompany.ketoan.repository;
 
 import com.mycompany.ketoan.constants.ApplicationProperties;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +52,23 @@ public class QueryRepository {
 		return 0;
 	}
 	
+	public static int executeQueryUpdateDBReturnId(String query) {
+		try (PreparedStatement stmt = getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+			int affectedRows = stmt.executeUpdate();
+			
+			if (affectedRows > 0) {
+				try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+					if (generatedKeys.next()) {
+						return generatedKeys.getInt(1);
+					}
+				}
+			}
+		} catch (SQLException ex) {
+			LOGGER.log(Level.SEVERE, null, ex);
+		}
+		return 0;
+	}
+	
 	public static int executeQueryUpdateDBThrowExceptionIf(String query) throws SQLException {
 		PreparedStatement stmt = getConnection().prepareStatement(query);
 		return stmt.executeUpdate();
@@ -77,6 +91,12 @@ public class QueryRepository {
 		return executeQueryUpdateDB(processedQuery);
 	}
 	
+	public static int executeQueryUpdateDBReturnId(String query, Map<String, Object> namedParameters) {
+		String processedQuery = replaceNamedParameters(query, namedParameters);
+		LOGGER.log(Level.INFO, processedQuery);
+		return executeQueryUpdateDBReturnId(processedQuery);
+	}
+	
 	public static int executeQueryUpdateDBThrowExceptionIf(String query, Map<String, Object> namedParameters) throws SQLException {
 		String processedQuery = replaceNamedParameters(query, namedParameters);
 		LOGGER.log(Level.INFO, processedQuery);
@@ -90,25 +110,5 @@ public class QueryRepository {
 			query = query.replace(paramPlaceholder, value);
 		}
 		return query;
-	}
-	
-	public static void main(String[] args) {
-//		Map<String, Object> namedParameters = new HashMap<>();
-//		namedParameters.put("maLoai", 1);
-//		namedParameters.put("ten", 1);
-//		namedParameters.put("maLSPGoc", null);
-//		namedParameters.put("maLSP", 1);
-//		String query = "UPDATE loaisanpham SET maLoai=:maLoai, ten=:ten, maLSPGoc=:maLSPGoc WHERE maLSP=:maLSP";
-//		String finalQuery = replaceNamedParameters(query, namedParameters);
-//		System.out.printf(finalQuery);
-		
-		Map<String, Object> namedParameters = new HashMap<>();
-		namedParameters.put("maLSP", 100);
-		String query = "SELECT 1 FROM loaisanpham lsp WHERE lsp.maLSP = :maLSP AND EXISTS(SELECT 1 FROM sanpham sp WHERE sp.maLSP =:maLSP)";
-		boolean result = checkExistQuery(query, namedParameters);
-		if (result) {
-			System.out.print("true");
-		} else System.out.print("false");
-		
 	}
 }
