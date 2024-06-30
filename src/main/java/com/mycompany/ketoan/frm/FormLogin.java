@@ -133,9 +133,11 @@ public class FormLogin extends javax.swing.JFrame {
             
             SecurityUtils.setPrincipal(userDTO);
             
-            if(FormUtils.frmMain == null) FormUtils.frmMain = new FormMain();
+            if(FormUtils.frmMain == null) {
+                FormUtils.frmMain = new FormMain();
+            }
             frmMain.setVisible(true);
-
+            
             if (userDTO.getRole().equals(Application.Role.ADMIN)) {
                 AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_ADMIN_CONTENT);
             } else {
@@ -143,6 +145,8 @@ public class FormLogin extends javax.swing.JFrame {
                 frmMain.disableTabs();
             }
             this.dispose();
+            
+            frmMain.getTabOrder().setSelectedIndex(0);
         } else {
             AlertUtils.showAlertLoginFail(Alert.LoginFail.CONTENT);
         }
