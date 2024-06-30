@@ -12,6 +12,7 @@ import com.mycompany.ketoan.repository.EmployeeRepository;
 import com.mycompany.ketoan.repository.OrderDetailRepository;
 import com.mycompany.ketoan.repository.OrderRepository;
 import com.mycompany.ketoan.repository.ProductRepository;
+import com.mycompany.ketoan.service.AccountService;
 import com.mycompany.ketoan.service.CategoryService;
 import com.mycompany.ketoan.service.CustomerService;
 import com.mycompany.ketoan.service.EmployeeService;
@@ -147,6 +148,12 @@ public class FormMain extends javax.swing.JFrame {
         txtMaSoThue_KhachHang = new javax.swing.JTextField();
         txtTimKiem_KhachHang = new javax.swing.JTextField();
         jLabel62 = new javax.swing.JLabel();
+        jPanel_TaiKhoan = new javax.swing.JPanel();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        tblTaiKhoan = new javax.swing.JTable();
+        txtTimKiem_TaiKhoan = new javax.swing.JTextField();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
         jTabbedPaneNhanVien = new javax.swing.JTabbedPane();
         jPanelNhanVien = new javax.swing.JPanel();
         jLabel40 = new javax.swing.JLabel();
@@ -1426,6 +1433,96 @@ public class FormMain extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("KHÁCH HÀNG", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/KhachHang.png")), jPanel_KhachHang); // NOI18N
 
+        jPanel_TaiKhoan.setBackground(new java.awt.Color(232, 232, 232));
+        jPanel_TaiKhoan.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel_TaiKhoanComponentShown(evt);
+            }
+        });
+
+        tblTaiKhoan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "STT", "Mã Sản Phẩm", "Tên Sản Phẩm", "Kích Thước", "Số Lượng"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblTaiKhoan.getTableHeader().setReorderingAllowed(false);
+        tblTaiKhoan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTaiKhoanMouseClicked(evt);
+            }
+        });
+        jScrollPane20.setViewportView(tblTaiKhoan);
+
+        txtTimKiem_TaiKhoan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiem_TaiKhoanKeyReleased(evt);
+            }
+        });
+
+        jLabel66.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel66.setText("Tìm Kiếm Theo Mã");
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel44.setText("TÀI KHOẢN");
+
+        javax.swing.GroupLayout jPanel_TaiKhoanLayout = new javax.swing.GroupLayout(jPanel_TaiKhoan);
+        jPanel_TaiKhoan.setLayout(jPanel_TaiKhoanLayout);
+        jPanel_TaiKhoanLayout.setHorizontalGroup(
+            jPanel_TaiKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_TaiKhoanLayout.createSequentialGroup()
+                .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel_TaiKhoanLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel_TaiKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtTimKiem_TaiKhoan, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel_TaiKhoanLayout.setVerticalGroup(
+            jPanel_TaiKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_TaiKhoanLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel66)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTimKiem_TaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(185, 185, 185))
+        );
+
+        jTabbedPane3.addTab("TÀI KHOẢN", jPanel_TaiKhoan);
+
         jTabbedPaneNhanVien.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jTabbedPaneNhanVien.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -1939,44 +2036,39 @@ public class FormMain extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addComponent(jLabel24)
-                            .addGap(50, 50, 50)
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8)
-                                .addComponent(lblMaPhieuNhap_PhieuNhap))
-                            .addGap(20, 20, 20)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtMaPhieuNhap_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                                .addComponent(txtMaNhanVien_PhieuNhap))
-                            .addGap(41, 41, 41)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnThem_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                                .addComponent(btnSua_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnXoa_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Luu_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnReSet_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addContainerGap(74, Short.MAX_VALUE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtTenNhanVien_PhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel34)
-                                    .addComponent(lblTongTien_HoaDon1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNgayNhap_PhieuNhap)
-                                    .addComponent(cbbNhaPhanPhoi_PhieuNhap, 0, 174, Short.MAX_VALUE)
-                                    .addComponent(txtTongTien_PhieuNhap))))
-                        .addContainerGap(198, Short.MAX_VALUE))))
+                        .addComponent(jLabel24)
+                        .addGap(50, 50, 50)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(lblMaPhieuNhap_PhieuNhap))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtMaPhieuNhap_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                            .addComponent(txtMaNhanVien_PhieuNhap))
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnThem_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                            .addComponent(btnSua_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnXoa_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Luu_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnReSet_PhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtTenNhanVien_PhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel34)
+                                .addComponent(lblTongTien_HoaDon1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNgayNhap_PhieuNhap)
+                                .addComponent(cbbNhaPhanPhoi_PhieuNhap, 0, 174, Short.MAX_VALUE)
+                                .addComponent(txtTongTien_PhieuNhap)))))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3927,9 +4019,9 @@ public class FormMain extends javax.swing.JFrame {
 
     private void jPanelLogoutComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelLogoutComponentShown
 
-        FormUtils.frmLogin = new FormLogin();
-        FormUtils.frmLogin.show();
-        FormUtils.frmLogin.setVisible(true);
+        FormLogin frmLogin = new FormLogin();
+        frmLogin.show();
+        frmLogin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanelLogoutComponentShown
 
@@ -3941,1027 +4033,17 @@ public class FormMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaNhanVien_PhieuNhapActionPerformed
 
-//    public void layDuLieuTaiKhoan() {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from DangNhap";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Đăng Nhập", "Tên Đăng Nhập", "Mật Khẩu", "Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblTaiKhoan_TaiKhoan.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                c++;
-//                Object[] item = new Object[5];
-//                item[0] = c;
-//                item[1] = rs.getString("MaDangNhap");
-//                item[2] = rs.getString("TaiKhoan");
-//                item[3] = rs.getString("MatKhau");
-//                item[4] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
+    private void tblTaiKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTaiKhoanMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblTaiKhoanMouseClicked
 
-//    public void LayDuLieuSanPham() {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from SanPham,LoaiSanPham,NhaSanXuat,SoLuongSanPhamTrongKho where "
-//                + "SanPham.MaLoaiSanPham=LoaiSanPham.MaLoaiSanPham and SanPham.MaNhaSanXuat=NhaSanXuat.MaNhaSanXuat and SanPham.MaSanPham=SoLuongSanPhamTrongKho.MaSanPham";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Sản Phẩm", "Tên Sản Phẩm", "Loại Sản Phẩm", "Giá Nhập", "Giá Bán", "Nhà Sản Xuất", "Số Lượng", "Ngày Sản Xuất", "Ngày Hết Hạn","Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblSanPham.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                c++;
-//                Object[] item = new Object[11];
-//                item[0] = c;
-//                item[1] = rs.getInt("MaSanPham");
-//                item[2] = rs.getString("TenSanPham");
-//                item[3] = rs.getString("TenLoaiSanPham");
-//                
-//                String tien = rs.getString("GiaNhap").substring(0,rs.getString("GiaNhap").indexOf("."));
-//                Long tien1 = Long.valueOf(tien);
-//                String tien2 = currencyVN.format(tien1);
-//                item[4] = tien2;
-//                
-//                tien = rs.getString("GiaBan").substring(0,rs.getString("GiaBan").indexOf("."));
-//                tien1 = Long.valueOf(tien);
-//                tien2 = currencyVN.format(tien1);
-//                item[5] = tien2;
-//                item[6] = rs.getString("TenNhaSanXuat");
-//                item[7] = rs.getInt("SoLuongTrongKho");
-//                item[8] = rs.getDate("NgaySanXuat");
-//                item[9] = rs.getDate("NgayHetHan");
-//                item[10] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
+    private void txtTimKiem_TaiKhoanKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiem_TaiKhoanKeyReleased
+        AccountService.getTables(tblTaiKhoan, txtTimKiem_TaiKhoan.getText());
+    }//GEN-LAST:event_txtTimKiem_TaiKhoanKeyReleased
 
-//    public void layDuLieuKhachHang() {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from KhachHang";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Khách Hàng", "Tên Khách Hàng", "Giới Tính", "Số Điện Thoại", "Địa Chỉ", "Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblKhachHang_KhachHang.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                c++;
-//                Object[] item = new Object[9];
-//                item[0] = c;
-//                item[1] = rs.getInt("MaKhachHang");
-//                item[2] = rs.getString("TenKhachHang");
-//                if (rs.getBoolean("GioiTinh") == true) {
-//                    item[3] = "Nam";
-//                } else {
-//                    item[3] = "Nữ";
-//                }
-//                item[4] = rs.getString("SoDienThoai");
-//                item[5] = rs.getString("DiaChi");
-//                item[6] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public void layDuLieuNhanVien() {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from NhanVien,PhanQuyen,DangNhap where NhanVien.MaPhanQuyen=PhanQuyen.MaPhanQuyen and NhanVien.MaDangNhap = DangNhap.MaDangNhap";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Nhân Viên", "Tên Nhân Viên",  "Giới Tính","Số Điện Thoại","Địa Chỉ","Ngày Sinh", "Quyền","Tài Khoản","Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblNhanVien_NhanVien.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                c++;
-//                Object[] item = new Object[10];
-//                item[0] = c;
-//                item[1] = rs.getInt("MaNhanVien");
-//                item[2] = rs.getString("TenNhanVien");
-//                if (rs.getBoolean("GioiTinh") == true) {
-//                    item[3] = "Nam";
-//                } else {
-//                    item[3] = "Nữ";
-//                }
-//                item[4] = rs.getString("SoDienThoai");
-//                item[5] = rs.getString("DiaChi");
-//                item[6] = rs.getString("NgaySinh");
-//                item[7] = rs.getString("TenPhanQuyen");
-//                item[8] = rs.getString("TaiKhoan");
-//                item[9] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public void LayDuLieuPhieuNhap() {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from PhieuNhap,NhanVien,NhaPhanPhoi where PhieuNhap.MaNhanVien =NhanVien.MaNhanVien and PhieuNhap.MaNhaPhanPhoi=NhaPhanPhoi.MaNhaPhanPhoi";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Phiếu Nhập", "Mã Nhân Viên", "Nhân Viên", "Ngày Nhập","Nhà Phân phối", "Tổng Tiền", "Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblPhieuNhap_PhieuNhap.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                Object[] item = new Object[8];
-//                c++;
-//                item[0] = c;
-//                item[1] = rs.getInt("MaPhieuNhap");
-//                item[2] = rs.getString("MaNhanVien");
-//                item[3] = rs.getString("TenNhanVien");
-//                item[4] = rs.getString("NgayNhap");
-//                item[5] = rs.getString("TenNhaPhanPhoi");
-//                
-//                String tien = rs.getString("TongTienCaPhieuNhap").substring(0,rs.getString("TongTienCaPhieuNhap").indexOf("."));
-//                Long tien1 = Long.valueOf(tien);
-//                String tien2 = currencyVN.format(tien1);
-//                item[6] = tien2;
-//                item[7] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public void LayDuLieuChiTietPhieuNhap(String MaPhieuNhap) {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from ChiTietPhieuNhap,SanPham where ChiTietPhieuNhap.MaSanPham=SanPham.MaSanPham and ChiTietPhieuNhap.MaPhieuNhap=" + MaPhieuNhap;
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Phiếu Nhập", "Sản Phẩm", "Số Lượng", "Tổng Tiền", "Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblChiTietPhieuNhap_PhieuNhap.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                Object[] item = new Object[6];
-//                c++;
-//                item[0] = c;
-//                item[1] = rs.getInt("MaPhieuNhap");
-//                item[2] = rs.getString("TenSanPham");
-//                item[3] = rs.getInt("SoLuong");
-//                
-//                String tien = rs.getString("TongTienSanPham").substring(0,rs.getString("TongTienSanPham").indexOf("."));
-//                Long tien1 = Long.valueOf(tien);
-//                String tien2 = currencyVN.format(tien1);
-//                item[4] = tien2;
-//                item[5] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public void layDuLieuNhaPhanPhoi() {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from NhaPhanPhoi";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Nhà Phân Phối", "Tên Nhà Phân Phối", "Số Điện Thoại", "Email","Địa chỉ"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblNhaPhanPhoi_NhaPhanPhoi.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                c++;
-//                Object[] item = new Object[7];
-//                item[0] = c;
-//                item[1] = rs.getInt("MaNhaPhanPhoi");
-//                item[2] = rs.getString("TenNhaPhanPhoi");
-//                item[3] = rs.getString("SoDienThoai");
-//                item[4] = rs.getString("Email");
-//                item[5] = rs.getString("DiaChi");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    String getMaNhanVienHienTai(){
-//        String cautruyvan = "";
-//        cautruyvan = "select * from NhanVien where NhanVien.MaDangNhap = '" + FormLogin.maDangNhap +"'";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        try {
-//            if(rs.next()) return rs.getString("MaNhanVien");
-//        } catch (SQLException ex) {
-//            Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return "";
-//    }
-//    public void layDuLieuAboutMe() {
-//        String maNhanVien = getMaNhanVienHienTai();
-//        String cautruyvan = "";
-//        cautruyvan = "select * from NhanVien,PhanQuyen where NhanVien.MaNhanVien = '" + maNhanVien + "' and PhanQuyen.MaPhanQuyen = NhanVien.MaPhanQuyen";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        try {
-//            if (rs.next()) {
-//                jTextField1.setText(String.valueOf(rs.getInt("MaNhanVien")));
-//                jTextField2.setText(rs.getString("TenNhanVien"));
-//                if(rs.getBoolean("GioiTinh") == true){
-//                    jTextField3.setText("Nam");
-//                }else{
-//                    jTextField3.setText("Nữ");
-//                }
-//                jTextField4.setText(rs.getString("SoDienThoai"));
-//                jTextField5.setText(rs.getString("DiaChi"));
-//                jTextField7.setText(rs.getString("NgaySinh"));
-//                jTextField6.setText(rs.getString("TenPhanQuyen"));
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public void LayDuLieuSaoLuuChiTietPhieuNhap(String MaPhieuNhap) {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from SaoLuuChiTietPhieuNhap,SanPham where SaoLuuChiTietPhieuNhap.MaSanPham=SanPham.MaSanPham and SaoLuuChiTietPhieuNhap.MaPhieuNhap=" + MaPhieuNhap;
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Phiếu Nhập", "Sản Phẩm", "Số Lượng", "Tổng Tiền", "Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblChiTietPhieuNhap_PhieuNhap.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                Object[] item = new Object[6];
-//                c++;
-//                item[0] = c;
-//                item[1] = rs.getInt("MaPhieuNhap");
-//                item[2] = rs.getString("TenSanPham");
-//                item[3] = rs.getInt("SoLuong");
-//                
-//                String tien = rs.getString("TongTienSanPham").substring(0,rs.getString("TongTienSanPham").indexOf("."));
-//                Long tien1 = Long.valueOf(tien);
-//                String tien2 = currencyVN.format(tien1);
-//                item[4] = tien2;
-//                
-//                item[5] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public void LayDuLieuSaoLuuChiTietHoaDon(String MaHoaDon) {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from SaoLuuChiTietHoaDon,SanPham where SaoLuuChiTietHoaDon.MaSanPham=SanPham.MaSanPham and SaoLuuChiTietHoaDon.MaHoaDon=" + MaHoaDon;
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Hóa Đơn", "Sản Phẩm", "Số Lượng", "Tổng Tiền", "Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblCTHoaDon_ChiTietHoaDon.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                c++;
-//                Object[] item = new Object[6];
-//                item[0] = c;
-//                item[1] = rs.getString("MaHoaDon");
-//                item[2] = rs.getString("TenSanPham");
-//                item[3] = rs.getString("SoLuong");
-//                
-//                String tien = rs.getString("TongTienSanPham").substring(0,rs.getString("TongTienSanPham").indexOf("."));
-//                Long tien1 = Long.valueOf(tien);
-//                String tien2 = currencyVN.format(tien1);
-//                item[4] = tien2;
-//                item[5] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public void LayDuLieuThongKe() {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from HoaDon,KhachHang,NhanVien where "
-//                + "HoaDon.MaKhachHang =KhachHang.MaKhachHang and HoaDon.MaNhanVien=NhanVien.MaNhanVien ";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Hóa Đơn", "Khách Hàng ", "Nhân Viên", "Ngày Lập HĐ", "Tổng Tiền", "Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tbDoanhThu_DoanhThu.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                String x = chuyenDateVeString(jDateChooserTuNgay_ThongKe.getDate());
-//                String y = chuyenDateVeString(jDateChooserDen_ThongKe.getDate());
-//                String z = rs.getString("ThoiGianLapHoaDon");
-//                if(x.compareTo(z)<=0 && z.compareTo(y)<=0){
-//                    Object[] item = new Object[7];
-//                    c++;
-//                    item[0] = c;
-//                    item[1] = rs.getInt("MaHoaDon");
-//                    item[2] = rs.getString("TenKhachHang");
-//                    item[3] = rs.getString("TenNhanVien");
-//                    item[4] = rs.getString("ThoiGianLapHoaDon");
-//                    
-//                    String tien = rs.getString("TongTienCaHoaDon").substring(0,rs.getString("TongTienCaHoaDon").indexOf("."));
-//                    Long tien1 = Long.valueOf(tien);
-//                    String tien2 = currencyVN.format(tien1);
-//                    item[5] = tien2;
-//                    item[6] = rs.getString("GhiChu");
-//                    tableModel.addRow(item);
-//                }
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public void showThongKe()
-//    {
-//        String cautruyvan = "";
-//        cautruyvan = "select * from HoaDon,KhachHang,NhanVien where "
-//                + "HoaDon.MaKhachHang =KhachHang.MaKhachHang and HoaDon.MaNhanVien=NhanVien.MaNhanVien ";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        
-//        ArrayList list = new ArrayList();
-//        try {
-//            while (rs.next()) {
-//                String x = chuyenDateVeString(jDateChooserTuNgay_ThongKe.getDate());
-//                String y = chuyenDateVeString(jDateChooserDen_ThongKe.getDate());
-//                String z = rs.getString("ThoiGianLapHoaDon");
-//                if(x.compareTo(z)<=0 && z.compareTo(y)<=0){
-//                    list.add(rs.getString("TongTienCaHoaDon"));
-//                }
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//        
-//        
-//        String kqtshdbr = String. valueOf(list.size());
-//        txtKQTSHDBR_ThongKe.setText(kqtshdbr);
-//        
-//        String x,y,z;
-//        long tongTien=0;
-//        for(int i =0;i<list.size();i++){
-//            x = (String) list.get(i);
-//            y = x.substring(0, x.indexOf('.'));
-//            tongTien+=Integer.valueOf(y);
-//        }
-//        Long tien1 = Long.valueOf(tongTien);
-//        String tien2 = currencyVN.format(tien1);
-//        txtKQTSTB_ThongKe.setText(String.valueOf(tien2));
-//        
-//        LayDuLieuThongKe();
-//    }
-    
-//    Date chuyenStringVeDate(String s)
-//    {
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//        try {
-//            return formatter.parse(s);
-//        } catch (ParseException ex) {
-//            Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return null;
-//    }
-//    String chuyenDateVeString(Date d)
-//    {
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//        return formatter.format(d);
-//    }
-//    public String GetCbbSelected(JComboBox cbb) {
-//        Object[] obj = cbb.getSelectedObjects();
-//        displayvalueModel item = (displayvalueModel) obj[0];
-//        return item.displayvalue.toString();
-//    }
-//    public boolean KiemTraNhanSanPham(boolean them) {
-//        String TenSanPham, GiaNhap,GiaBan;
-//        Date NgaySanXuat,NgayHetHan;
-//        boolean kiemtra = false;
-//        
-//        String MaSanPham = txtMaSanPham_SanPham.getText();
-//        TenSanPham = txtTenSanPham_SanPham.getText();
-//        GiaNhap = txtGiaNhap_SanPham.getText();
-//        GiaBan = txtGiaBan_SanPham.getText();
-//        NgaySanXuat = jDateChooserNgaySanXuat.getDate();
-//        NgayHetHan = jDateChooserNgayHetHan.getDate();
-//        
-//        String  ThongBao = "";
-//        if(them == true){
-//            String ctv1 = "select MaSanPham from SanPham where MaSanPham='" + MaSanPham + "'";
-//            ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(ctv1);
-//            try {
-//                if(rs.next()){
-//                    lblMaNhanVien_NhanVien.setForeground(Color.red);
-//                    ThongBao += "Sản Phẩm Đã Tồn Tại! Bạn Hãy Reset Để Thêm Sản Phẩm\n";
-//                }
-//            } catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        if (TenSanPham.equalsIgnoreCase("")) {
-//            ThongBao += "Bạn Chưa Nhập Tên Sản Phẩm\n";
-//            lblTenSanPham_SanPham.setForeground(Color.red);
-//        }
-//        else if (GiaNhap.equalsIgnoreCase("")) {
-//            lblGiaNhap_SanPham.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập Giá Nhập\n";
-//        }
-//        else if (GiaBan.equalsIgnoreCase("")) {
-//            lblGiaBan.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập Giá Bán\n";
-//        }
-//        else if(chuyenDateVeString(jDateChooserNgaySanXuat.getDate()).compareToIgnoreCase(chuyenDateVeString(date))> 0){
-//            ThongBao += "Ngày Sản Xuất Không Thể Lớn Hơn Ngày Hiện Tại\n";
-//            lblNgaySanXuat_SanPham.setForeground(Color.red);
-//        }
-//        else if(NgaySanXuat.compareTo(NgayHetHan) > 0)
-//        {
-//            ThongBao += "Ngày Sản Xuất Không Thể Lớn Hơn Ngày Hết Hạn";
-//            lblNgaySanXuat_SanPham.setForeground(Color.red);
-//            lblNgayHetHan_SanPham.setForeground(Color.red);
-//        }
-//        
-//        if (ThongBao.equalsIgnoreCase("")) {
-//            kiemtra = true;
-//            lblTenSanPham_SanPham.setForeground(Color.black);
-//            lblMaSanPham_SanPham.setForeground(Color.black);
-//            lblGiaBan.setForeground(Color.black);
-//             lblSoLuong_SanPham.setForeground(Color.black);
-//            lblGiaNhap_SanPham.setForeground(Color.black);
-//            lblNgaySanXuat_SanPham.setForeground(Color.black);
-//            lblNgayHetHan_SanPham.setForeground(Color.black);
-//            
-//        } else {
-//            kiemtra = false;
-//            ThongBao(ThongBao, "Lỗi Nhập Liệu", 2);
-//        }
-//        return kiemtra;
-//    }
-//    public void ThongBao(String noiDungThongBao, String tieuDeThongBao, int icon) {
-//        JOptionPane.showMessageDialog(new JFrame(), noiDungThongBao,
-//                tieuDeThongBao, icon);
-//    }
-//    public void ResSanPham() {
-//        txtMaSanPham_SanPham.setText("");
-//        txtTenSanPham_SanPham.setText("");
-//        cbbMaLoaiSanPham_SanPham.setSelectedIndex(0);
-//        txtGiaNhap_SanPham.setText("");
-//        txtGiaBan_SanPham.setText("");
-//        cbbNhaSanXuat_SanPham.setSelectedIndex(0);
-//        txtSoLuong_SanPham.setText("");
-//        txtChuThich_SanPham.setText("");
-//        jDateChooserNgaySanXuat.setDate(date);
-//        jDateChooserNgayHetHan.setDate(date);
-//    }
-//    public boolean KiemTraNhapNhanVien(boolean them) {
-//        String MaNhanVien, TenNhanVien, DiaChi, SDT;
-//        boolean kiemtra = false;
-//        MaNhanVien = txtMaNhanVien_NhanVien.getText();
-//        TenNhanVien = txtTenNhanVien_NhanVien.getText();
-//        SDT = txtSoDT_NhanVien.getText();
-//        DiaChi = txtDiaChi_NhanVien.getText();
-//        String MaDangNhap = GetCbbSelected(cbbTaiKhoan_NhanVien);
-//        System.out.println(MaDangNhap);
-//        String  ThongBao = "";
-//        if(them == true){
-//            String ctv1 = "select MaNhanVien from NhanVien where MaNhanVien='" + MaNhanVien + "'";
-//            ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(ctv1);
-//            try {
-//                if(rs.next()){
-//                    lblMaNhanVien_NhanVien.setForeground(Color.red);
-//                    ThongBao += "Mã Nhân Viên Đã Tồn Tại! Bạn Hãy Reset Để Thêm Nhân Viên\n";
-//                    ThongBao(ThongBao, "Lỗi Nhập Liệu", 2);
-//                    return kiemtra;
-//                }
-//            } catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        
-//        if (TenNhanVien.equalsIgnoreCase("")) {
-//            ThongBao += "Bạn Chưa Nhập Tên Nhân Viên\n";
-//            lblTenNhanVien_NhanVien.setForeground(Color.red);
-//        }
-//        else if (SDT.equalsIgnoreCase("")) {
-//            lblSDT_NhanVien.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập SĐT \n";
-//        }
-//        else if (DiaChi.equalsIgnoreCase("")) {
-//            lblDiaChi_NhanVien.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập Địa Chỉ\n";
-//        }
-//        else if (MaDangNhap.equalsIgnoreCase("")) {
-//            lblTaiKhoan_NhanVien.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập Mã Đăng Nhập\n";
-//        }
-//        else{
-//            String TaiKhoan = "";
-//            String ctv1 = "select TaiKhoan from DangNhap where MaDangNhap=" + MaDangNhap;
-//            ResultSet rs1 = FormLogin.connection.ExcuteQueryGetTable(ctv1);
-//            try {
-//                if(rs1.next()){
-//                    TaiKhoan = rs1.getString("TaiKhoan");
-//                }
-//            } catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            if(them == true || (them == false && !TaiKhoan.equalsIgnoreCase( saveTenTaiKhoanDeSuaGhiChu)))
-//            {
-//                String ctv = "select MaNhanVien from NhanVien where MaDangNhap='"+ MaDangNhap + "'";
-//                ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(ctv);
-//
-//                try {
-//                    if(rs.next()){
-//                        lblTaiKhoan_NhanVien.setForeground(Color.red);
-//                        ThongBao += "Mã Đăng Nhập Đã Có Người Sử Dụng\n";
-//                    }
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//        }
-//        
-//            
-//        
-//        if (ThongBao.equalsIgnoreCase("")) {
-//            kiemtra = true;
-//            lblMaNhanVien_NhanVien.setForeground(Color.black);
-//            lblSDT_NhanVien.setForeground(Color.black);
-//            lblTenNhanVien_NhanVien.setForeground(Color.black);
-//            lblDiaChi_NhanVien.setForeground(Color.black);
-//            lblTaiKhoan_NhanVien.setForeground(Color.black);
-//        } else {
-//            kiemtra = false;
-//            ThongBao(ThongBao, "Lỗi Nhập Liệu", 2);
-//        }
-//        return kiemtra;
-//    }
-//    public boolean KiemTraTaiKhoan(boolean them){
-//        String ID, TenDangNhap, Password,ChuThich;
-//        ID = txtID_TaiKhoan.getText();
-//        TenDangNhap = txtUser_TaiKhoan.getText();
-//        Password = String.valueOf(txtPassword_TaiKhoan.getPassword()).trim();
-//        ChuThich = txtGhiChu_TaiKhoan.getText();
-//        
-//        String  ThongBao = "";
-//        if(them == true){  
-//            String ctv1 = "select MaDangNhap from DangNhap where TaiKhoan='" + TenDangNhap+"'";
-//            ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(ctv1);
-//            try {
-//                if(rs.next()){
-//                    lblTaiKhoan_TaiKhoan.setForeground(Color.red);
-//                    ThongBao += "Tài Khoản Này Đã Tồn Tại! Bạn Hãy Reset Để Thêm Tài Khoản\n";
-//                    ThongBao(ThongBao, "Lỗi Nhập Liệu", 2);
-//                    return false;
-//                }
-//            } catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }else{
-//            String ctv1 = "select TaiKhoan from DangNhap where MaDangNhap='" + ID +"'";
-//            ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(ctv1);
-//            try {
-//                if(rs.next()){
-//                    String tkcu = rs.getString("TaiKhoan");
-//                    String x = "select MaDangNhap from DangNhap where TaiKhoan='" + TenDangNhap + "' and TaiKhoan != '"+ tkcu + "'";
-//                    System.out.println(x);
-//                    ResultSet rsx = FormLogin.connection.ExcuteQueryGetTable(x);
-//                    if(rsx.next()){
-//                        lblTaiKhoan_TaiKhoan.setForeground(Color.red);
-//                        ThongBao += "Tài Khoản Này Đã Tồn Tại!\n";
-//                        ThongBao(ThongBao, "Lỗi Nhập Liệu", 2);
-//                        return false;
-//                    }
-//                }
-//            } catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        
-//        if (TenDangNhap.equalsIgnoreCase("")) {
-//            ThongBao += "Bạn Chưa Nhập Tên Tài Khoản\n";
-//            lblTaiKhoan_TaiKhoan.setForeground(Color.red);
-//        }
-//        else if (Password.equalsIgnoreCase("")) {
-//            lblMatKhau_TaiKhoan.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập Mật Khẩu\n";
-//        }
-//        
-//        boolean kiemtra=false;
-//        if (ThongBao.equalsIgnoreCase("")) {
-//            kiemtra = true;
-//            lblTaiKhoan_TaiKhoan.setForeground(Color.black);
-//            lblMatKhau_TaiKhoan.setForeground(Color.black);
-//            lblMaDangNhap_TaiKhoan.setForeground(Color.black);
-//        } else {
-//            kiemtra = false;
-//            ThongBao(ThongBao, "Lỗi Nhập Liệu", 2);
-//        }
-//        return kiemtra;
-//    }
-//    public void ResNhanVien() {
-//        txtMaNhanVien_NhanVien.setText("");
-//        txtTenNhanVien_NhanVien.setText("");
-//        rbtnNam_NhanVien.setSelected(true);
-//        rbtnNu_NhanVien.setSelected(false);
-//        txtSoDT_NhanVien.setText("");
-//        txtDiaChi_NhanVien.setText("");
-//        cbbNgaySinh_NhanVien.setSelectedItem("1");
-//        cbbThangSinh_NhanVien.setSelectedItem("1");
-//        cbbNamSinh_NhanVien.setSelectedItem("2005");
-//        cbQuyen_NhanVien.setSelectedIndex(0);
-//        cbbTaiKhoan_NhanVien.setSelectedItem("1");
-//        txtChuThich_NhanVien.setText("");
-//    }
-//    public boolean KiemTraNhapKhachHang(boolean them) {
-//        String MaKhachHang, TenKhachHang, Ngaysinh, DiaChi, SDT;
-//        boolean kiemtra = false;
-//        MaKhachHang = txtMaKhachHang_KhachHang.getText();
-//        TenKhachHang = txtTenKhachHang_KhachHang.getText();
-//        DiaChi = txtDiaChi_KhachHang.getText();
-//        SDT = txtSoDienThoai_KhachHang.getText();
-//        
-//        String  ThongBao = "";
-//        
-//        if(them == true){  
-//            String ctv1 = "select MaKhachHang from KhachHang where MaKhachHang='" + MaKhachHang +  "'";
-//            ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(ctv1);
-//            try {
-//                if(rs.next()){
-//                    lblMaKhachHang_KhachHang.setForeground(Color.red);
-//                    ThongBao += "Mã Khách Hàng Đã Tồn Tại! Bạn Hãy Reset Để Thêm Khách Hàng\n";
-//                    ThongBao(ThongBao, "Lỗi Nhập Liệu", 2);
-//                    return false;
-//                }
-//            } catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        
-//        if (TenKhachHang.equalsIgnoreCase("")) {
-//            ThongBao += "Bạn Chưa Nhập Tên Khách Hàng\n";
-//            lblTenKhachHang_KhachHang.setForeground(Color.red);
-//        }
-//        else if (SDT.equalsIgnoreCase("")) {
-//            lblSoDienThoai_KhachHang.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập Số Điện Thoại \n";
-//        }
-//        else if (DiaChi.equalsIgnoreCase("")) {
-//            lblDiaChi_KhachHang.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập Địa Chỉ\n";
-//        }
-//       
-//        if (ThongBao.equalsIgnoreCase("")) {
-//            kiemtra = true;
-//            lblDiaChi_KhachHang.setForeground(Color.black);
-//            lblSoDienThoai_KhachHang.setForeground(Color.black);
-//            lblMaKhachHang_KhachHang.setForeground(Color.black);
-//            lblTenKhachHang_KhachHang.setForeground(Color.black);
-//        } else {
-//            kiemtra = false;
-//            ThongBao(ThongBao, "lỗi nhập liệu", 2);
-//        }
-//        return kiemtra;
-//    }
-//    public void ResKhachHang() {
-//        String MaKhachHang, TenKhachHang, NgaySinh, GioiTinh, DiaChi, SDT, LoaiKhachHang, ChuThich;
-//        txtMaKhachHang_KhachHang.setText("");
-//        txtTenKhachHang_KhachHang.setText("");
-//        txtDiaChi_KhachHang.setText("");
-//        txtSoDienThoai_KhachHang.setText("");
-//        txtGhiChu_KhachHang.setText("");
-//        rbtnNam_KhachHang.setSelected(true);
-//        
-//    }
-//    public boolean KiemTraNhapNhaPhanPhoi(boolean them) {
-//        String MaDoiTac, TenDoiTac, DiaChi, SDT, Email, ThongBao="";
-//        MaDoiTac = txtMaNhaPhanPhoi_NhaPhanPhoi.getText();
-//        TenDoiTac = txtTenNhaPhanPhoi_NhaPhanPhoi.getText();
-//        SDT = txtSoDienThoai_NhaPhanPhoi.getText();
-//        Email = txtEmail_NhaPhanPhoi.getText();
-//        DiaChi = txtDiaChi_NhaPhanPhoi.getText();
-//        
-//        if(them == true){
-//            String ctv1 = "select MaNhaPhanPhoi from NhaPhanPhoi where MaNhaPhanPhoi='" + MaDoiTac +  "'";
-//            ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(ctv1);
-//            try {
-//                if(rs.next()){
-//                    lblMaNhaPhanPhoi_NhaPhanPhoi.setForeground(Color.red);
-//                    ThongBao += "Nhà Phân Phối Đã Tồn Tại! Bạn Hãy Reset Để Thêm Nhà Phân Phối\n";
-//                    ThongBao(ThongBao, "Lỗi Nhập Liệu", 2);
-//                    return false;
-//                }
-//            } catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        
-//        if (TenDoiTac.equalsIgnoreCase("")) {
-//            ThongBao += "Bạn Chưa Nhập Tên Nhà Phân Phối\n";
-//            lblTenNhaPhanPhoi_NhaPhanPhoi.setForeground(Color.red);
-//        }
-//        else if (SDT.equalsIgnoreCase("")) {
-//            lblSoDienThoai_NhaPhanPhoi.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập SDT\n";
-//        }
-//        else if (!KiemTraEmail(Email)) {
-//            lblEmail_NhaPhanPhoi.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập Đúng Email\n";
-//        }
-//        else if (DiaChi.equalsIgnoreCase("")) {
-//            lblDiaChi_NhaPhanPhoi.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập Địa Chỉ\n";
-//        }
-//         
-//        boolean kiemtra=false;
-//        if (ThongBao.equalsIgnoreCase("")) {
-//            kiemtra = true;
-//            lblMaNhaPhanPhoi_NhaPhanPhoi.setForeground(Color.black);
-//            lblTenNhaPhanPhoi_NhaPhanPhoi.setForeground(Color.black);
-//            lblSoDienThoai_NhaPhanPhoi.setForeground(Color.black);
-//            lblEmail_NhaPhanPhoi.setForeground(Color.black);
-//            lblDiaChi_NhaPhanPhoi.setForeground(Color.black);
-//        } else {
-//            ThongBao(ThongBao, "lỗi nhập liệu", 2);
-//        }
-//        return kiemtra;
-//    }
-//    public boolean KiemTraEmail(String email){
-//        boolean kq=false;
-//       String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-//        Pattern v = Pattern.compile(EMAIL_PATTERN);
-//        Matcher m= v.matcher(email);
-//        kq=m.matches();
-//        return kq;
-//   }
-//    public void ResNhaPhanPhoi() {
-//        txtMaNhaPhanPhoi_NhaPhanPhoi.setText("");
-//        txtTenNhaPhanPhoi_NhaPhanPhoi.setText("");
-//        txtSoDienThoai_NhaPhanPhoi.setText("");
-//        txtEmail_NhaPhanPhoi.setText("");
-//        txtDiaChi_NhaPhanPhoi.setText("");
-//    }
-//    public boolean KiemTraNhapLoaiSanPham(boolean them) {
-//        
-//        String ThongBao = "";
-//        
-//        if(them == true){  
-//            String ctv1 = "select MaLoaiSanPham from LoaiSanPham where MaLoaiSanPham='" + txtMaLoaiSanPham_LoaiSanPham.getText() +  "'";
-//            ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(ctv1);
-//            try {
-//                if(rs.next()){
-//                    lblMaKhachHang_KhachHang.setForeground(Color.red);
-//                    ThongBao += "Loại Sản Phẩm Đã Tồn Tại! Bạn Hãy Reset Để Thêm Loại Sản Phẩm\n";
-//                    ThongBao(ThongBao, "Lỗi Nhập Liệu", 2);
-//                    return false;
-//                }
-//            } catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            
-//        }
-//        
-//        String cautruyvan1 = "select TenLoaiSanPham from LoaiSanPham where TenLoaiSanPham = '" + txtTenLoaiSanPham_LoaiSanPham.getText() + "'";
-//        ResultSet rs1 = FormLogin.connection.ExcuteQueryGetTable(cautruyvan1);
-//        try {
-//                if(rs1.next()){
-//                    lblTenLoaiSanPham_LoaiSanPham.setForeground(Color.red);
-//                    ThongBao += "Tên Loại Sản Phẩm Đã Tồn Tại\n";
-//                    ThongBao(ThongBao, "Lỗi Nhập Liệu", 2);
-//                    return false; 
-//                }
-//        } catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        
-//        if(txtTenLoaiSanPham_LoaiSanPham.getText().equalsIgnoreCase("")){
-//            lblTenLoaiSanPham_LoaiSanPham.setForeground(Color.red);
-//            ThongBao += "Bạn Chưa Nhập Tên Loại Sản Phẩm\n";
-//        }
-//        
-//        boolean kiemtra = false;
-//        if (ThongBao.equalsIgnoreCase("")) {
-//            kiemtra = true;
-//            lblTenLoaiSanPham_LoaiSanPham.setForeground(Color.black);
-//            lblMaLoaiSanPham_LoaiSanPham.setForeground(Color.black);
-//        } else {
-//            kiemtra = false;
-//            ThongBao(ThongBao, "lỗi nhập liệu", 2);
-//        }
-//        return kiemtra;
-//    }
-//    public void TimKiemSanPham() {
-//        String wheretk = "";
-//        if (rbtnTimKiemMaSanPham_SanPham.isSelected()) {
-//            wheretk = "SanPham.MaSanPham= " + txtTimKiem_SanPham.getText();
-//        } else if (rbtnTimKiemTenSanPham_SanPham.isSelected()) {
-//            wheretk = "TenSanPham like N'%" + txtTimKiem_SanPham.getText() + "%'";
-//        }
-//        String cautruyvan = "";
-//        cautruyvan = "select * from SanPham,LoaiSanPham,NhaSanXuat, SoLuongSanPhamTrongKho where "
-//                + "SanPham.MaLoaiSanPham=LoaiSanPham.MaLoaiSanPham and SanPham.MaNhaSanXuat=NhaSanXuat.MaNhaSanXuat and SanPham.MaSanPham=SoLuongSanPhamTrongKho.MaSanPham and " + wheretk;
-//
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Sản Phẩm", "Tên sản phẩm", "Loại sản phẩm", "Giá nhập", "Giá Bán", "Nhà Sản Xuất", "Số Lượng", "Ngày Sản Xuất","Ngày Hết Hạn", "Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblSanPham.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                c++;
-//                Object[] item = new Object[11];
-//                item[0] = c;
-//                item[1] = rs.getInt("MaSanPham");
-//                item[2] = rs.getString("TenSanPham");
-//                item[3] = rs.getString("TenLoaiSanPham");
-//                item[4] = rs.getInt("GiaNhap");
-//                item[5] = rs.getInt("GiaBan");
-//                item[6] = rs.getString("TenNhaSanXuat");
-//                item[7] = rs.getInt("SoLuongTrongKho");
-//                item[8] = rs.getDate("NgaySanXuat");
-//                item[9] = rs.getDate("NgayHetHan");
-//                item[10] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public void TimKiemKhachHang() {
-//        String wheretk = "";
-//        if (rbtnTimKiemTheoMa_KhachHang.isSelected()) {
-//            wheretk = "MaKhachHang= " + txtTimKiem_KhachHang.getText();
-//        } else if (rbtnTimKiemTheoTen_KhachHang.isSelected()) {
-//            wheretk = "TenKhachHang like N'%" + txtTimKiem_KhachHang.getText() + "%'";
-//        }
-//        String cautruyvan  = "select * from KhachHang where " + wheretk;
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Khách Hàng", "Tên Khách Hàng", "Giới Tính", "Số Điện Thoại", "Địa Chỉ", "Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblKhachHang_KhachHang.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                c++;
-//                Object[] item = new Object[9];
-//                item[0] = c;
-//                item[1] = rs.getInt("MaKhachHang");
-//                item[2] = rs.getString("TenKhachHang");
-//                if (rs.getBoolean("GioiTinh") == true) {
-//                    item[3] = "Nam";
-//                } else {
-//                    item[3] = "Nữ";
-//                }
-//                item[4] = rs.getString("SoDienThoai");
-//                item[5] = rs.getString("DiaChi");
-//                item[6] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public void TimKiemNhanVien() {
-//        String wheretk = "";
-//        if (rbtnTimKiemTheoMa_NhanVien.isSelected()) {
-//            wheretk = "NhanVien.MaNhanVien= " + txtTimKiem_NhanVien.getText();
-//        } else if (rbtnTimKiemTheoTen_NhanVien.isSelected()) {
-//            wheretk = "TenNhanVien like N'%" + txtTimKiem_NhanVien.getText() + "%'";
-//        }
-//        String cautruyvan = "";
-//        cautruyvan = "select * from NhanVien,DangNhap,PhanQuyen where NhanVien.MaPhanQuyen=PhanQuyen.MaPhanQuyen and "
-//                + "NhanVien.MaDangNhap=DangNhap.MaDangNhap and " + wheretk;
-//
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        Object[] obj = new Object[]{"STT", "Mã Nhân Viên", "Tên Nhân Viên",  "Giới Tính","Số Điện Thoại","Địa Chỉ","Ngày Sinh", "Quyền","Tài Khoản","Ghi Chú"};
-//        DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//        tblNhanVien_NhanVien.setModel(tableModel);
-//        int c = 0;
-//        try {
-//            while (rs.next()) {
-//                c++;
-//                Object[] item = new Object[10];
-//                item[0] = c;
-//                item[1] = rs.getInt("MaNhanVien");
-//                item[2] = rs.getString("TenNhanVien");
-//                if (rs.getBoolean("GioiTinh") == true) {
-//                    item[3] = "Nam";
-//                } else {
-//                    item[3] = "Nữ";
-//                }
-//                item[4] = rs.getString("SoDienThoai");
-//                item[5] = rs.getString("DiaChi");
-//                item[6] = rs.getString("NgaySinh");
-//                item[7] = rs.getString("TenPhanQuyen");
-//                item[8] = rs.getString("TaiKhoan");
-//                item[9] = rs.getString("GhiChu");
-//                tableModel.addRow(item);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//    }
-//    public boolean KiemTraNhapCTPN(boolean them) {
-//        
-//        String MaPhieuNhap = txtMaPhieuNhap_PhieuNhap.getText();
-//        boolean kiemtra = false;
-//        String tb="";
-//        
-//        if(MaPhieuNhap.equalsIgnoreCase("")){
-//            tb +="Bạn Hãy Chọn Phiếu Nhập Mới Để Thao Tác Các Sản Phẩm\n";
-//            lblMaPhieuNhap_PhieuNhap.setForeground(Color.red);
-//            kiemtra = false;
-//            ThongBao(tb,"Lỗi",2);
-//        }
-//        else{
-//            String ctvKiemThu = "select count(ChiTietPhieuNhap.MaPhieuNhap) as SoChiTietPhieuMua"
-//                    + " from PhieuNhap,ChiTietPhieuNhap where PhieuNhap.MaPhieuNhap=ChiTietPhieuNhap.MaPhieuNhap and PhieuNhap.MaPhieuNhap=" + MaPhieuNhap;
-//            ResultSet rs1 = FormLogin.connection.ExcuteQueryGetTable(ctvKiemThu);
-//            System.out.println(ctvKiemThu);
-//            int so1 = 0;
-//            try {
-//                if (rs1.next()) {
-//                    so1 = rs1.getInt("SoChiTietPhieuMua");
-//                    if (so1 != 0) {
-//                        tb +="Không Thể Thao Tác Vì Phiếu Nhập Này Đã Được Lưu\n";
-//                        ThongBao(tb,"Lỗi",2);
-//                        return false;
-//                    }
-//                }
-//            }catch (SQLException ex) {
-//                Logger.getLogger(frmTrangChu.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            
-//            if(them == false && txtMaPhieuNhapCTPN_PhieuNhap.getText().equalsIgnoreCase("")){
-//                ThongBao("Bạn Chưa Chọn Sản Phẩm Để Thao Tác", "Lỗi", 2);
-//                return false;
-//            }
-//            
-//            if(txtSoLuongCTPN_PhieuNhap.getText().equalsIgnoreCase("")){
-//                tb+="Chưa Nhập Số Lượng\n";
-//                lblSoLuongCTPN_PhieuNhap.setForeground(Color.red);
-//            }
-//            else{
-//                    try {
-//                            int bien= Integer.valueOf(txtSoLuongCTPN_PhieuNhap.getText());
-//                        } catch (Exception e) {
-//                                tb+="Số Lượng Phải Nhập Bằng Số\n";
-//                                lblSoLuongCTPN_PhieuNhap.setForeground(Color.red);
-//                                ThongBao(tb,"Lỗi",2);
-//                                return false;
-//                        }
-//                        if(Integer.parseInt(txtSoLuongCTPN_PhieuNhap.getText())<=0){
-//                                tb+="Số Lượng Phải Là Số Dương\n";
-//                                lblSoLuongCTPN_PhieuNhap.setForeground(Color.red);
-//                        }
-//                }
-//                        
-//                        
-//                        
-//                if(tb.equalsIgnoreCase("")){
-//                            kiemtra = true;
-//                            lblMaPhieuNhap_PhieuNhap.setForeground(Color.black);
-//                            lblSoLuongCTPN_PhieuNhap.setForeground(Color.black);
-//                }
-//                else{
-//                            kiemtra = false;
-//                            ThongBao(tb,"Lỗi",2);
-//                }
-//        }
-//        return kiemtra;
-//    }
-//    public int GetGiaSanPham(String MaSP) {
-//        int Gia = 0;
-//        String cautruyvan = "select * from SanPham where MaSanPham=" + MaSP;
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        try {
-//            if (rs.next()) {
-//                Gia = rs.getInt("Giaban");
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//        return Gia;
-//    }
-
-//    public void SetTongTienPhieuNhap(String MaPhieuNhap) {
-//        String cautruyvan = "select sum(SaoLuuChiTietPhieuNhap.TongTienSanPham) as TongTienHienTai,PhieuNhap.MaPhieuNhap from PhieuNhap,SaoLuuChiTietPhieuNhap "
-//                + "where PhieuNhap.MaPhieuNhap=SaoLuuChiTietPhieuNhap.MaPhieuNhap"
-//                + " and PhieuNhap.MaPhieuNhap=" + MaPhieuNhap + "group by PhieuNhap.MaPhieuNhap";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        String ttht = "";
-//
-//        try {
-//            if (rs.next()) {
-//                ttht = rs.getString("TongTienHienTai");
-//                txtTongTien_PhieuNhap.setText(ttht);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//
-//    }
-
+    private void jPanel_TaiKhoanComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel_TaiKhoanComponentShown
+        AccountService.getTables(tblTaiKhoan, "");
+    }//GEN-LAST:event_jPanel_TaiKhoanComponentShown
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Luu_PhieuNhap;
@@ -5024,6 +4106,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
@@ -5036,6 +4119,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
@@ -5061,6 +4145,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelSanPham;
     private javax.swing.JPanel jPanelThuChi;
     private javax.swing.JPanel jPanel_KhachHang;
+    private javax.swing.JPanel jPanel_TaiKhoan;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -5070,6 +4155,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane9;
@@ -5131,6 +4217,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTable tblOrder;
     private javax.swing.JTable tblPhieuNhap_PhieuNhap;
     private javax.swing.JTable tblSanPham;
+    private javax.swing.JTable tblTaiKhoan;
     private javax.swing.JTextField txtDiaChi_KhachHang;
     private javax.swing.JTextField txtDiaChi_NhaPhanPhoi;
     private javax.swing.JTextField txtDiaChi_NhanVien;
@@ -5171,6 +4258,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTextField txtTimKiem_KhachHang;
     private javax.swing.JTextField txtTimKiem_NhanVien;
     private javax.swing.JTextField txtTimKiem_SanPham;
+    private javax.swing.JTextField txtTimKiem_TaiKhoan;
     private javax.swing.JTextField txtTongTienCTHD_HoaDon;
     private javax.swing.JTextField txtTongTienCTPN_PhieuNhap;
     private javax.swing.JTextField txtTongTien_HoaDon;
