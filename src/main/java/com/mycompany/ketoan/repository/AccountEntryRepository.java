@@ -1,18 +1,17 @@
 package com.mycompany.ketoan.repository;
 
 import com.mycompany.ketoan.dto.AccountEntryDTO;
-import com.mycompany.ketoan.dto.DocumentDTO;
 import com.mycompany.ketoan.mapper.ObjectMapper;
 
 import java.util.Map;
 
 public class AccountEntryRepository {
 	
-	private static final String INSERT_ACCOUNT_ENTRY_QUERY = "INSERT INTO qlbh_quanao.ButToan\n" +
+	private static final String INSERT_ACCOUNT_ENTRY_QUERY = "INSERT INTO ButToan\n" +
 			"(NgayCT, NgayHT, DienGiai, TKNo, TkCo, TienPhatSinh, MaCT)\n" +
 			"VALUES(:NgayCT, NOW(), :DienGiai, :TKNo, :TkCo, :TienPhatSinh, :MaCT)";
 	
-	private static final String DELETE_ACCOUNT_ENTRY_QUERY = "DELETE FROM qlbh_quanao.ButToan WHERE MaBT=:MaBT";
+	private static final String DELETE_ACCOUNT_ENTRY_QUERY = "DELETE FROM ButToan WHERE MaBT=:MaBT";
 	
 	
 	public static int insert(AccountEntryDTO accountEntyDTO) {

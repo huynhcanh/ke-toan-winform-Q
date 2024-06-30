@@ -15,7 +15,7 @@ public class DocumentDTO {
 	@JsonProperty("SoCT")
 	private String documentNumber;
 	
-	@JsonProperty("LoaiCT")
+	@JsonProperty("MaLoaiCT")
 	private String type;
 	
 	public Integer getId() {

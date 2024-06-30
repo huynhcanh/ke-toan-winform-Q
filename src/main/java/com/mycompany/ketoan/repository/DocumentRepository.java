@@ -7,11 +7,11 @@ import java.util.Map;
 
 public class DocumentRepository {
 	
-	private static final String INSERT_DOCUMENT_QUERY = "INSERT INTO qlbh_quanao.ChungTu\n" +
-			"(NgayCT, SoCT, LoaiCT)\n" +
-			"VALUES(NOW(), :SoCT, :LoaiCT)";
+	private static final String INSERT_DOCUMENT_QUERY = "INSERT INTO ChungTu\n" +
+			"(NgayCT, SoCT, MaLoaiCT)\n" +
+			"VALUES(NOW(), :SoCT, :MaLoaiCT)";
 	
-	private static final String DELETE_DOCUMENT_QUERY = "DELETE FROM qlbh_quanao.ChungTu WHERE MaCT=:MaCT";
+	private static final String DELETE_DOCUMENT_QUERY = "DELETE FROM ChungTu WHERE MaCT=:MaCT";
 	
 	public static int insert(DocumentDTO documentDTO) {
 		Map<String, Object> param = ObjectMapper.convertToMap(documentDTO);

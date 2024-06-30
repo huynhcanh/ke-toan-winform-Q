@@ -1,5 +1,6 @@
 package com.mycompany.ketoan.frm;
 
+import com.mycompany.ketoan.dto.AccountEntryDTO;
 import com.mycompany.ketoan.dto.CategoryDTO;
 import com.mycompany.ketoan.dto.CustomerDTO;
 import com.mycompany.ketoan.dto.DocumentDTO;
@@ -8,6 +9,7 @@ import com.mycompany.ketoan.dto.OrderDTO;
 import com.mycompany.ketoan.dto.OrderDetailDTO;
 import com.mycompany.ketoan.dto.ProductDTO;
 import com.mycompany.ketoan.dto.ReceiptDTO;
+import com.mycompany.ketoan.repository.AccountEntryRepository;
 import com.mycompany.ketoan.repository.CategoryRepository;
 import com.mycompany.ketoan.repository.CustomerRepository;
 import com.mycompany.ketoan.repository.DocumentRepository;
@@ -2962,9 +2964,14 @@ public class FormMain extends javax.swing.JFrame {
             receiptDTO.setPrice(PriceUtils.VNDconvertToPrice(this.txtTongTien_PhieuNhap.getText()));
             receiptDTO.setBookNumber(Integer.valueOf(this.txtQuyen_PhieuThu.getText()));
             receiptDTO.setReason(this.txtLyDo_PhieuThu.getText());
-            receiptDTO.setDocumentId(createDocument(receiptDTO, "PT"));
             
-            ReceiptRepository.insert(receiptDTO);
+            Integer documentId = createDocument(receiptDTO, "PT");
+            
+            receiptDTO.setDocumentId(documentId);
+            
+            //ReceiptRepository.insert(receiptDTO);
+            
+            //this.createAccountEntry(documentId, receiptDTO.getAccountNoId(), receiptDTO.getAccountCoId());
             
             ReceiptService.getTables(this.tblPhieuThu, "");
             this.resetFormReceipt();
@@ -2974,10 +2981,18 @@ public class FormMain extends javax.swing.JFrame {
     private Integer createDocument(ReceiptDTO receiptDTO, String type){
         
         DocumentDTO documentDTO = new DocumentDTO();
-        documentDTO.setType(type);
+        documentDTO.setType("1");
         documentDTO.setDocumentNumber(receiptDTO.getBookNumber() + (type.equals("PT")? "/PT": "/PC"));
         
         return DocumentRepository.insert(documentDTO);
+    }
+    
+    private void createAccountEntry(Integer documentId, Integer accountNoId, Integer accountCoId){
+        AccountEntryDTO ae = new AccountEntryDTO();
+        ae.setAccountCoId(accountCoId);
+        ae.setAccountNoId(accountNoId);
+        ae.setDocumentId(documentId);
+        AccountEntryRepository.insert(ae);
     }
     
     private void btnXoa_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_KhachHangActionPerformed
