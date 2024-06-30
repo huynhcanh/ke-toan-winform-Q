@@ -23,7 +23,7 @@ public class ReceiptService {
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-		List<ReceiptDTO> receipts = ReceiptRepository.findAll();
+		List<ReceiptDTO> receipts = ReceiptRepository.findAll("");
 		if (receipts != null) {
 			for (int i = 0; i < receipts.size(); i++) {
 				ReceiptDTO receiptDTO = receipts.get(i);
@@ -31,7 +31,7 @@ public class ReceiptService {
 						i + 1,
 						receiptDTO.getId(),
 						receiptDTO.getEmployeeName(),
-                                                null,
+                                                receiptDTO.getCustomerName(),
 						receiptDTO.getAccountNoId(),
 						receiptDTO.getAccountCoId(),
                                                 receiptDTO.getPrice(),
