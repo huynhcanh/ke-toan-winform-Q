@@ -4,39 +4,39 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AccountDTO {
 	
-	@JsonProperty("cap1")
-	private String level1;
+	@JsonProperty("Cap1")
+	private Integer level1;
 	
-	@JsonProperty("cap2")
-	private String level2;
+	@JsonProperty("Cap2")
+	private Integer level2;
 	
-	@JsonProperty("cap3")
-	private String level3;
+	@JsonProperty("Cap3")
+	private Integer level3;
 	
-	@JsonProperty("noiDung")
+	@JsonProperty("TenTK")
 	private String content;
 
-    public String getLevel1() {
+    public Integer getLevel1() {
         return level1;
     }
 
-    public void setLevel1(String level1) {
+    public void setLevel1(Integer level1) {
         this.level1 = level1;
     }
 
-    public String getLevel2() {
+    public Integer getLevel2() {
         return level2;
     }
 
-    public void setLevel2(String level2) {
+    public void setLevel2(Integer level2) {
         this.level2 = level2;
     }
 
-    public String getLevel3() {
+    public Integer getLevel3() {
         return level3;
     }
 
-    public void setLevel3(String level3) {
+    public void setLevel3(Integer level3) {
         this.level3 = level3;
     }
 
@@ -48,6 +48,5 @@ public class AccountDTO {
         this.content = content;
     }
 
-        
-        
+   
 }
