@@ -8,22 +8,16 @@ import lombok.Setter;
 @Setter
 public class AccountDTO {
 	
-	@JsonProperty("maTK1")
-	private Integer accountLevel1Id;
+	@JsonProperty("Cap1")
+	private Integer level1;
 	
-	@JsonProperty("soTaiKhoan")
-	private String accountNumber;
+	@JsonProperty("Cap2")
+	private Integer level2;
 	
-	@JsonProperty("noiDung")
+	@JsonProperty("Cap3")
+	private Integer level3;
+	
+	@JsonProperty("tenTK")
 	private String content;
-	
-	@JsonProperty("loai")
-	private String type;
-	
-	@JsonProperty("maTKCTGoc")
-	private Integer accountParentId;
-	
-	@JsonProperty("ten")
-	private String name;
 	
 }
