@@ -9,7 +9,7 @@ public class AccountEntryRepository {
 	
 	private static final String INSERT_ACCOUNT_ENTRY_QUERY = "INSERT INTO ButToan\n" +
 			"(NgayCT, NgayHT, DienGiai, TKNo, TkCo, TienPhatSinh, MaCT)\n" +
-			"VALUES(:NgayCT, NOW(), :DienGiai, :TKNo, :TkCo, :TienPhatSinh, :MaCT)";
+			"VALUES(NOW(), NOW(), '', :TKNo, :TkCo, :TienPhatSinh, :MaCT)";
 	
 	private static final String DELETE_ACCOUNT_ENTRY_QUERY = "DELETE FROM ButToan WHERE MaBT=:MaBT";
 	

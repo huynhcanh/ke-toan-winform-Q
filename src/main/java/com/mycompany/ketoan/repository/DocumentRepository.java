@@ -8,8 +8,8 @@ import java.util.Map;
 public class DocumentRepository {
 	
 	private static final String INSERT_DOCUMENT_QUERY = "INSERT INTO ChungTu\n" +
-			"(NgayCT, SoCT, MaLoaiCT)\n" +
-			"VALUES(NOW(), :SoCT, :MaLoaiCT)";
+			"(NgayCT, SoCT, LoaiCT)\n" +
+			"VALUES(NOW(), :SoCT, :LoaiCT)";
 	
 	private static final String DELETE_DOCUMENT_QUERY = "DELETE FROM ChungTu WHERE MaCT=:MaCT";
 	

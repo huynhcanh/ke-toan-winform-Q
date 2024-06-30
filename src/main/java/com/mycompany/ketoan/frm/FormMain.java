@@ -2969,9 +2969,9 @@ public class FormMain extends javax.swing.JFrame {
             
             receiptDTO.setDocumentId(documentId);
             
-            //ReceiptRepository.insert(receiptDTO);
+            ReceiptRepository.insert(receiptDTO);
             
-            //this.createAccountEntry(documentId, receiptDTO.getAccountNoId(), receiptDTO.getAccountCoId());
+            this.createAccountEntry(documentId, receiptDTO.getAccountNoId(), receiptDTO.getAccountCoId());
             
             ReceiptService.getTables(this.tblPhieuThu, "");
             this.resetFormReceipt();
@@ -2981,7 +2981,7 @@ public class FormMain extends javax.swing.JFrame {
     private Integer createDocument(ReceiptDTO receiptDTO, String type){
         
         DocumentDTO documentDTO = new DocumentDTO();
-        documentDTO.setType("1");
+        documentDTO.setType(type);
         documentDTO.setDocumentNumber(receiptDTO.getBookNumber() + (type.equals("PT")? "/PT": "/PC"));
         
         return DocumentRepository.insert(documentDTO);
