@@ -9,17 +9,24 @@ import java.util.Map;
 
 public class ReceiptRepository {
 	
-	private static final String LIST_RECEIPT_QUERY = "SELECT pt.MaPT, pt.LydoNop, pt.NgayTao, pt.GiaTien, pt.TaiLieuDinhKem, pt.MaTKCTNo, pt.MaTKCTCo, pt.QuyenSo, pt.MaNV, nv.Ten as TenNV, nv.DiaChi as DiaChiNV, pt.MaCT " +
-			" FROM PhieuThu pt left join NhanVien nv on nv.MaNV = pt.MaNV WHERE pt.MaPT like :keyword";
+	private static final String LIST_RECEIPT_QUERY = "SELECT pt.MaPT, pt.LydoNop, pt.NgayTao, pt.SoTien, pt.TaiLieuDinhKem, pt.MaTietKhoanNo, pt.MaTietKhoanCo, pt.QuyenSo, pt.MaNV, nv.Ten as TenNV, nv.DiaChi as DiaChiNV, pt.MaCT,\n" +
+			" pt.MaKH, kh.Ten as TenKH, kh.DiaChi as DiaChiKH\n" +
+			" FROM PhieuThu pt left join NhanVien nv on nv.MaNV = pt.MaNV\n" +
+			" LEFT JOIN KhachHang kh on kh.MaKH = pt.MaKH WHERE pt.MaPT like :keyword";
 	
-	private static final String DETAIL_RECEIPT_QUERY = "SELECT pt.MaPT, pt.LydoNop, pt.NgayTao, pt.GiaTien, pt.TaiLieuDinhKem, pt.MaTKCTNo, pt.MaTKCTCo, pt.QuyenSo, pt.MaNV, nv.Ten as TenNV, nv.DiaChi as DiaChiNV, pt.MaCT " +
-			" FROM PhieuThu pt left join NhanVien nv on nv.MaNV = pt.MaNV WHERE pt.MaPT =:MaPT";
+	private static final String DETAIL_RECEIPT_QUERY = "SELECT pt.MaPT, pt.LydoNop, pt.NgayTao, pt.SoTien, pt.TaiLieuDinhKem, pt.MaTietKhoanNo, pt.MaTietKhoanCo, pt.QuyenSo, pt.MaNV, nv.Ten as TenNV, nv.DiaChi as DiaChiNV, pt.MaCT,\n" +
+			" pt.MaKH, kh.Ten as TenKH, kh.DiaChi as DiaChiKH\n" +
+			" FROM PhieuThu pt left join NhanVien nv on nv.MaNV = pt.MaNV\n" +
+			" LEFT JOIN KhachHang kh on kh.MaKH = pt.MaKH WHERE pt.MaPT = :MaPT";
 	
-	private static final String INSERT_RECEIPT_QUERY = "INSERT INTO PhieuThu (LydoNop, NgayTao, GiaTien, TaiLieuDinhKem, MaTKCTNo, MaTKCTCo, QuyenSo, MaNV, MaCT)" +
-			" VALUES(:LydoNop, NOW(), :GiaTien, :TaiLieuDinhKem, :MaTKCTNo, :MaTKCTCo, :QuyenSo, :MaNV, :MaCT)";
+	private static final String INSERT_RECEIPT_QUERY = "INSERT INTO PhieuThu\n" +
+			" (LydoNop, NgayTao, SoTien, TaiLieuDinhKem, MaTietKhoanNo, MaTietKhoanCo, QuyenSo, MaNV, MaCT, MaKH)\n" +
+			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, :MaKH)";
 	
-	private static final String UPDATE_RECEIPT_QUERY = "UPDATE PhieuThu SET LydoNop=:LydoNop, NgayTao=:NgayTao, GiaTien=:GiaTien, TaiLieuDinhKem=:TaiLieuDinhKem," +
-			" MaTKCTNo=:MaTKCTNo, MaTKCTCo=:MaTKCTCo, QuyenSo=:QuyenSo, MaNV=:MaNV, MaCT=:MaCT WHERE MaPT=:MaPT";
+	private static final String UPDATE_RECEIPT_QUERY = "UPDATE PhieuThu\n" +
+			" SET LydoNop=:LydoNop, NgayTao=:NgayTao, SoTien=:SoTien, TaiLieuDinhKem=:TaiLieuDinhKem, MaTietKhoanNo=MaTietKhoanNo," +
+			" MaTietKhoanCo=:MaTietKhoanCo, QuyenSo=:QuyenSo\n" +
+			" WHERE MaPT=:MaPT";
 	
 	private static final String DELETE_RECEIPT_QUERY = "DELETE FROM PhieuThu WHERE MaPT=:MaPT";
 	
