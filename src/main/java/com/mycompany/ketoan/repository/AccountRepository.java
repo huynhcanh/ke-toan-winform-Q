@@ -17,11 +17,11 @@ public class AccountRepository {
 			"from (\n" +
 			"SELECT MaTaiKhoan as Cap1, null as Cap2, null as Cap3, TenTaiKhoan as TenTK, 'LEVEL1' as Cap FROM TaiKhoan\n" +
 			"union all\n" +
-			"SELECT tk1.MaTaiKhoan as Cap1, tk2.MaTaiKhoan as Cap2, null as Cap3, tk2.TenTaiKhoan as TenTK, 'LEVEL2' as Cap  FROM TieuKhoan tk2 join TaiKhoan tk1 on tk2.MaTaiKhoan = tk1.MaTaiKhoan \n" +
+			"SELECT tk1.MaTaiKhoan as Cap1, tk2.MaTaiKhoan as Cap2, null as Cap3, tk2.MaTieuKhoan as TenTK, 'LEVEL2' as Cap  FROM TieuKhoan tk2 join TaiKhoan tk1 on tk2.MaTaiKhoan = tk1.MaTaiKhoan \n" +
 			"union all\n" +
-			"SELECT tk2.MaTaiKhoan1 as Cap1, tk2.MaTaiKhoan2 as Cap2, tk3.MaTietKhoan as Cap3, tk3.TenTaiKhoan, 'LEVEL3' as Cap FROM TietKhoan tk3 join (SELECT tk1.MaTaiKhoan as MaTaiKhoan1 , tk2.MaTaiKhoan as MaTaiKhoan2\n" +
+			"SELECT tk2.MaTaiKhoan1 as Cap1, tk2.MaTaiKhoan2 as Cap2, tk3.MaTietKhoan as Cap3, tk3.TenTietKhoan as TenTK, 'LEVEL3' as Cap FROM TietKhoan tk3 join (SELECT tk1.MaTaiKhoan as MaTaiKhoan1 , tk2.MaTaiKhoan as MaTaiKhoan2\n" +
 			"FROM TieuKhoan tk2 join TaiKhoan tk1 on tk2.MaTaiKhoan = tk1.MaTaiKhoan) tk2\n" +
-			") ua where (:keyword is null or (ua.Cap1 like :keyword  or ua.Cap1 like :keyword  or  ua.Cap1 like :keyword )) \n" +
+			") ua where ('%%' is null or (ua.Cap1 like '%%'  or ua.Cap1 like '%%'  or  ua.Cap1 like '%%' )) \n" +
 			"ORDER BY ua.Cap1 asc, ua.Cap2 asc, ua.Cap3 asc";
 	
 	public static List<AccountDTO> findAll(String keyword) {
