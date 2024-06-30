@@ -59,11 +59,10 @@ public class CustomerService {
 									  JTextField nameE,
 									  JTextField phoneE,
 									  JTextField addressE,
-									  JTextField taxCodeE,
 									  boolean isAddAction) {
 		if ((!isAddAction && idE.getText().equals("")) || nameE.getText().equals("")
 				|| phoneE.getText().equals("") || addressE.getText().equals("")
-				|| taxCodeE.getText().equals("") || addressE.getText().equals("")) {
+				 || addressE.getText().equals("")) {
 			
 			AlertUtils.showAlertValidate();
 			return false;

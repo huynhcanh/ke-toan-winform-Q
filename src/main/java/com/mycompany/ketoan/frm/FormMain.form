@@ -2785,57 +2785,49 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane12" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane12" min="-2" pref="174" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel32" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblMaPhieuNhap_PhieuNhap" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel32" min="-2" pref="66" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtMaPhieuNhap_PhieuNhap" pref="174" max="32767" attributes="0"/>
+                                          <Component id="txtMaNhanVien_PhieuNhap" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMaPhieuNhap_PhieuNhap" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtMaPhieuNhap_PhieuNhap" pref="174" max="32767" attributes="0"/>
-                                              <Component id="txtMaNhanVien_PhieuNhap" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="btnThem_PhieuNhap" pref="83" max="32767" attributes="0"/>
-                                              <Component id="btnSua_PhieuNhap" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="btnXoa_PhieuNhap" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="Luu_PhieuNhap" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="btnReSet_PhieuNhap" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace pref="74" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnThem_PhieuNhap" pref="83" max="32767" attributes="0"/>
+                                          <Component id="btnSua_PhieuNhap" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnXoa_PhieuNhap" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Luu_PhieuNhap" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnReSet_PhieuNhap" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="txtTenNhanVien_PhieuNhap" alignment="1" min="-2" pref="174" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblTongTien_HoaDon1" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                                                  <Component id="jLabel37" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txtNgayNhap_PhieuNhap" max="32767" attributes="0"/>
-                                                  <Component id="cbbNhaPhanPhoi_PhieuNhap" pref="174" max="32767" attributes="0"/>
-                                                  <Component id="txtTongTien_PhieuNhap" max="32767" attributes="0"/>
-                                              </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="txtTenNhanVien_PhieuNhap" alignment="1" min="-2" pref="174" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblTongTien_HoaDon1" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                              <Component id="jLabel37" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtNgayNhap_PhieuNhap" max="32767" attributes="0"/>
+                                              <Component id="cbbNhaPhanPhoi_PhieuNhap" pref="174" max="32767" attributes="0"/>
+                                              <Component id="txtTongTien_PhieuNhap" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="198" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace pref="76" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

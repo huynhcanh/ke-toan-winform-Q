@@ -2900,7 +2900,7 @@ public class FormMain extends javax.swing.JFrame {
     private void btnThem_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_KhachHangActionPerformed
 
         if(CustomerService.isValidated(txtMaKhachHang_KhachHang, txtTenKhachHang_KhachHang, 
-                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang, txtMaSoThue_KhachHang, true)){
+                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang, true)){
             
             CustomerDTO customerDTO = new CustomerDTO();
             customerDTO.setName(txtTenKhachHang_KhachHang.getText());
@@ -2918,7 +2918,7 @@ public class FormMain extends javax.swing.JFrame {
     private void btnSua_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_KhachHangActionPerformed
         
         if(CustomerService.isValidated(txtMaKhachHang_KhachHang, txtTenKhachHang_KhachHang, 
-                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang, txtMaSoThue_KhachHang, false)){
+                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang, false)){
             
             Integer id = CustomerService.getId(tblKhachHang_KhachHang);
             CustomerDTO customerDTO = CustomerRepository.findById(id);
