@@ -31,8 +31,8 @@ public class ReceiptRepository {
 	private static final String DELETE_RECEIPT_QUERY = "DELETE FROM PhieuThu WHERE MaPT=:MaPT";
 	
 	
-	public static List<ReceiptDTO> findAll() {
-		ResultSet rs = QueryRepository.executeQuery(LIST_RECEIPT_QUERY);
+	public static List<ReceiptDTO> findAll(String keyword) {
+		ResultSet rs = QueryRepository.executeQuery(LIST_RECEIPT_QUERY, Map.of("keyword", "%" + keyword + "%"));
 		return ObjectMapper.toDTOs(rs, ReceiptDTO.class);
 	}
 	

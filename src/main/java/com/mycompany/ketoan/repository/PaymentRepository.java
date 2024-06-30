@@ -31,8 +31,8 @@ public class PaymentRepository {
 	private static final String DELETE_PAYMENT_QUERY = "DELETE FROM PhieuChi WHERE MaPC=:MaPC";
 	
 	
-	public static List<PaymentDTO> findAll() {
-		ResultSet rs = QueryRepository.executeQuery(LIST_PAYMENT_QUERY);
+	public static List<PaymentDTO> findAll(String keyword) {
+		ResultSet rs = QueryRepository.executeQuery(LIST_PAYMENT_QUERY, Map.of("keyword", "%" + keyword + "%"));
 		return ObjectMapper.toDTOs(rs, PaymentDTO.class);
 	}
 	
