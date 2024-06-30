@@ -2,6 +2,7 @@ package com.mycompany.ketoan.frm;
 
 import com.mycompany.ketoan.dto.CategoryDTO;
 import com.mycompany.ketoan.dto.CustomerDTO;
+import com.mycompany.ketoan.dto.DocumentDTO;
 import com.mycompany.ketoan.dto.EmployeeDTO;
 import com.mycompany.ketoan.dto.OrderDTO;
 import com.mycompany.ketoan.dto.OrderDetailDTO;
@@ -9,6 +10,7 @@ import com.mycompany.ketoan.dto.ProductDTO;
 import com.mycompany.ketoan.dto.ReceiptDTO;
 import com.mycompany.ketoan.repository.CategoryRepository;
 import com.mycompany.ketoan.repository.CustomerRepository;
+import com.mycompany.ketoan.repository.DocumentRepository;
 import com.mycompany.ketoan.repository.EmployeeRepository;
 import com.mycompany.ketoan.repository.OrderDetailRepository;
 import com.mycompany.ketoan.repository.OrderRepository;
@@ -2960,6 +2962,7 @@ public class FormMain extends javax.swing.JFrame {
             receiptDTO.setPrice(PriceUtils.VNDconvertToPrice(this.txtTongTien_PhieuNhap.getText()));
             receiptDTO.setBookNumber(Integer.valueOf(this.txtQuyen_PhieuThu.getText()));
             receiptDTO.setReason(this.txtLyDo_PhieuThu.getText());
+            receiptDTO.setDocumentId(createDocument(receiptDTO, "PT"));
             
             ReceiptRepository.insert(receiptDTO);
             
@@ -2967,6 +2970,15 @@ public class FormMain extends javax.swing.JFrame {
             this.resetFormReceipt();
         }
     }//GEN-LAST:event_btnThem_PhieuNhapActionPerformed
+    
+    private Integer createDocument(ReceiptDTO receiptDTO, String type){
+        
+        DocumentDTO documentDTO = new DocumentDTO();
+        documentDTO.setType(type);
+        documentDTO.setDocumentNumber(receiptDTO.getBookNumber() + (type.equals("PT")? "/PT": "/PC"));
+        
+        return DocumentRepository.insert(documentDTO);
+    }
     
     private void btnXoa_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_KhachHangActionPerformed
 
