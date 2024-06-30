@@ -372,14 +372,7 @@ public class FormMain extends javax.swing.JFrame {
         tblCTHoaDon_ChiTietHoaDon.setBackground(new java.awt.Color(217, 217, 217));
         tblCTHoaDon_ChiTietHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "STT", "Mã Đơn Hàng", "Mã Sản Phẩm", "Tên Sản Phẩm", "Số Lượng", "Tổng Tiền", "Ghi Chú"
