@@ -16,18 +16,18 @@ import javax.swing.table.DefaultTableModel;
 public class EmployeeService {
 	
 	public static void setComboBoxList(JComboBox comboBox) {
-		List<EmployeeDTO> customers = EmployeeRepository.findAll();
+		List<EmployeeDTO> customers = EmployeeRepository.findAll("");
                 if(customers == null || customers.isEmpty()) return;
 		List<ComboxModel> dataComboBox = customers.stream().map(c -> new ComboxModel(c.getId(), c.getUsername())).toList();
 		comboBox.setModel(ElementUtils.getDataCbb(dataComboBox));
 	}
 	
-	public static void getTables(JTable tblOrder) {
+	public static void getTables(JTable tblOrder, String keyword) {
 		Object[] obj = new Object[]{"STT", "Mã ND", "Tên DN", "Mật Khẩu", "Vai Trò", "Tên", "SDT", "Địa Chỉ"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-		List<EmployeeDTO> employees = EmployeeRepository.findAll();
+		List<EmployeeDTO> employees = EmployeeRepository.findAll(keyword);
 		if (employees != null) {
 			for (int i = 0; i < employees.size(); i++) {
 				EmployeeDTO employeeDTO = employees.get(i);

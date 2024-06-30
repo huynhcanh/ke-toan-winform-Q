@@ -56,7 +56,7 @@ public class OrderService {
 	
 	public static void updateFieldTotalMoneyOfOrderItemOnTable(JTable tblOrder, BigDecimal totalMoney) {
 		int indexRowSelected = tblOrder.getSelectedRow();
-		tblOrder.setValueAt(totalMoney, indexRowSelected, 6);
+		tblOrder.setValueAt(totalMoney, indexRowSelected, 5);
 	}
 	
 	public static Integer getId(JTable table) {
