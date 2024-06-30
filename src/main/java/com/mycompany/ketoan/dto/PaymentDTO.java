@@ -16,16 +16,16 @@ public class PaymentDTO {
 	@JsonProperty("NgayTao")
 	private Date createdDate;
 	
-	@JsonProperty("GiaTien")
+	@JsonProperty("SoTien")
 	private BigDecimal price;
 	
 	@JsonProperty("TaiLieuDinhKem")
 	private String document;
 	
-	@JsonProperty("MaTKCTNo")
+	@JsonProperty("MaTietKhoanNo")
 	private Integer accountNoId;
 	
-	@JsonProperty("MaTKCTCo")
+	@JsonProperty("MaTietKhoanCo")
 	private Integer accountCoId;
 	
 	@JsonProperty("QuyenSo")
@@ -42,6 +42,15 @@ public class PaymentDTO {
 	
 	@JsonProperty("MaCT")
 	private Integer documentId;
+	
+	@JsonProperty("MaKH")
+	private Integer customerId;
+	
+	@JsonProperty("TenKH")
+	private String customerName;
+	
+	@JsonProperty("DiaChiKH")
+	private String customerAddress;
 	
 	public Integer getId() {
 		return id;
@@ -137,5 +146,29 @@ public class PaymentDTO {
 	
 	public void setDocumentId(Integer documentId) {
 		this.documentId = documentId;
+	}
+	
+	public Integer getCustomerId() {
+		return customerId;
+	}
+	
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+	
+	public String getCustomerName() {
+		return customerName;
+	}
+	
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	
+	public String getCustomerAddress() {
+		return customerAddress;
+	}
+	
+	public void setCustomerAddress(String customerAddress) {
+		this.customerAddress = customerAddress;
 	}
 }
