@@ -36,6 +36,9 @@ public class OrderDTO {
 	@JsonProperty("GhiChu")
 	private String note;
 	
+	@JsonProperty("DaXuat")
+	private Boolean isExported;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -100,5 +103,11 @@ public class OrderDTO {
 		this.note = note;
 	}
 	
+	public Boolean getExported() {
+		return isExported;
+	}
 	
+	public void setExported(Boolean exported) {
+		isExported = exported;
+	}
 }

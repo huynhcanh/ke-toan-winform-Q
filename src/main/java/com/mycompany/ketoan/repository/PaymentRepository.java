@@ -20,12 +20,12 @@ public class PaymentRepository {
 			" LEFT JOIN KhachHang kh on kh.MaKH = pc.MaKH WHERE pc.MaPC = :MaPC";
 	
 	private static final String INSERT_PAYMENT_QUERY = "INSERT INTO PhieuChi\n" +
-			" (LydoNop, NgayTao, SoTien, TaiLieuDinhKem, MaTietKhoanNo, MaTietKhoanCo, QuyenSo, MaNV, MaCT, MaKH)\n" +
-			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, :MaKH)";
+			" (LydoNop, NgayTao, SoTien, TaiLieuDinhKem, MaTietKhoanNo, MaTietKhoanCo, QuyenSo, MaNV, MaCT, MaKH, DaXuat)\n" +
+			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, :MaKH, :DaXuat)";
 	
 	private static final String UPDATE_PAYMENT_QUERY = "UPDATE PhieuChi\n" +
 			" SET LydoNop=:LydoNop, NgayTao=:NgayTao, SoTien=:SoTien, TaiLieuDinhKem=:TaiLieuDinhKem, MaTietKhoanNo=MaTietKhoanNo," +
-			" MaTietKhoanCo=:MaTietKhoanCo, QuyenSo=:QuyenSo, MaNV=:MaNV, MaKH=:MaKH\n" +
+			" MaTietKhoanCo=:MaTietKhoanCo, QuyenSo=:QuyenSo, MaNV=:MaNV, MaKH=:MaKH, DaXuat=:DaXuat\n" +
 			" WHERE MaPC=:MaPC";
 	
 	private static final String DELETE_PAYMENT_QUERY = "DELETE FROM PhieuChi WHERE MaPC=:MaPC";

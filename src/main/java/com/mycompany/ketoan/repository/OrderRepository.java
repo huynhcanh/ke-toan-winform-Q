@@ -28,12 +28,12 @@ public class OrderRepository {
 			"GROUP BY ctpbh.MaPBH ) ctpbhg on ctpbhg.MaPBH = pbh.MaPBH WHERE pbh.MaPBH = :MaPBH";
 	
 	private static final String INSERT_ORDER_QUERY = "INSERT INTO PhieuBanHang " +
-			"(MaKH, MaNV, NgayTao, GhiChu)" +
-			"VALUES(:MaKH, :MaNV, NOW(), :GhiChu)";
+			"(MaKH, MaNV, NgayTao, GhiChu, DaXuat)" +
+			"VALUES(:MaKH, :MaNV, NOW(), :GhiChu, :DaXuat)";
 	
 	private static final String DELETE_ORDER_QUERY = "DELETE FROM PhieuBanHang WHERE MaPBH=:MaPBH";
 	
-	private static final String UPDATE_ORDER_QUERY = "UPDATE PhieuBanHang SET MaKH=:MaKH, GhiChu=:GhiChu WHERE MaPBH=:MaPBH";
+	private static final String UPDATE_ORDER_QUERY = "UPDATE PhieuBanHang SET MaKH=:MaKH, GhiChu=:GhiChu, DaXuat=:DaXuat WHERE MaPBH=:MaPBH";
 	
 	public static List<OrderDTO> findAll(String keyword) {
 		ResultSet rs = QueryRepository.executeQuery(LIST_ORDER_QUERY, Map.of("keyword", "%" + keyword + "%"));

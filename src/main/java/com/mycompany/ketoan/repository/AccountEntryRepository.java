@@ -10,7 +10,7 @@ import java.util.Map;
 public class AccountEntryRepository {
 	
 	private static final String LIST_ACCOUNT_ENTRY_QUERY = "SELECT bt.MaBT, bt.NgayCT, bt.NgayHT, bt.DienGiai, bt.TKNo, bt.TkCo, bt.TienPhatSinh, bt.MaCT, ct.SoCT \n" +
-			"FROM ButToan bt join ChungTu ct on ct.MaCT = bt.MaCT WHERE (:type is null or :type like ct.LoaiCT) AND (:keyword is null or bt.MaBT like :keyword)";
+			"FROM ButToan bt join ChungTu ct on ct.MaCT = bt.MaCT WHERE (:type is null or :type like ct.LoaiCT or :type = 'ALL') AND (:keyword is null or bt.MaBT like :keyword)";
 	
 	private static final String INSERT_ACCOUNT_ENTRY_QUERY = "INSERT INTO ButToan\n" +
 			"(NgayCT, NgayHT, DienGiai, TKNo, TkCo, TienPhatSinh, MaCT)\n" +
