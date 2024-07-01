@@ -88,7 +88,7 @@ public class FormMain extends javax.swing.JFrame {
         cbbKhachHang_HoaDon = new javax.swing.JComboBox<>();
         txtGhiChu_HoaDon = new javax.swing.JTextField();
         lblTongTien_HoaDon3 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        btnXuatHoaDon_PhieuBanHang = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txtSoLuongCTHD_HoaDon = new javax.swing.JTextField();
         lblMaHoaDon_HoaDon3 = new javax.swing.JLabel();
@@ -504,11 +504,16 @@ public class FormMain extends javax.swing.JFrame {
         lblTongTien_HoaDon3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTongTien_HoaDon3.setText("Ghi chú");
 
-        jButton6.setBackground(new java.awt.Color(112, 173, 71));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("XUẤT HOÁ ĐƠN");
-        jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuatHoaDon_PhieuBanHang.setBackground(new java.awt.Color(112, 173, 71));
+        btnXuatHoaDon_PhieuBanHang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXuatHoaDon_PhieuBanHang.setForeground(new java.awt.Color(255, 255, 255));
+        btnXuatHoaDon_PhieuBanHang.setText("XUẤT HOÁ ĐƠN");
+        btnXuatHoaDon_PhieuBanHang.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuatHoaDon_PhieuBanHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatHoaDon_PhieuBanHangActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -542,7 +547,7 @@ public class FormMain extends javax.swing.JFrame {
                     .addComponent(btnReSet_HoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnXoa_HoaDon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnXuatHoaDon_PhieuBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(22, 22, 22))
         );
@@ -572,7 +577,7 @@ public class FormMain extends javax.swing.JFrame {
                             .addComponent(btnReSet_HoaDon)))
                     .addComponent(btnSua_HoaDon))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(btnXuatHoaDon_PhieuBanHang)
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -2838,7 +2843,7 @@ public class FormMain extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Ngày", "Số CT", "Diễn Giải", "TK Nợ", "TK Có", "Số Lượng", "Đơn Giá", "Số Tiền"
+                "STT", "Mã BT", "Ngày", "Số CT", "Diễn Giải", "TK Nợ", "TK Có", "Số Tiền"
             }
         ));
         tbButToan.getTableHeader().setReorderingAllowed(false);
@@ -4123,6 +4128,21 @@ public class FormMain extends javax.swing.JFrame {
         PaymentService.getTables(tblPhieuChi, txtTimKiem_PhieuChi.getText());
     }//GEN-LAST:event_txtTimKiem_PhieuChiKeyReleased
 
+    private void btnXuatHoaDon_PhieuBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatHoaDon_PhieuBanHangActionPerformed
+        Integer id = OrderService.getId(tblOrder);
+
+        confirmAndExecute(() -> {
+
+            OrderDetailRepository.delete(id);
+
+            OrderRepository.delete(id);
+
+            this.reloadByActionOrder();
+
+            this.clearTable(tblCTHoaDon_ChiTietHoaDon);
+        });
+    }//GEN-LAST:event_btnXuatHoaDon_PhieuBanHangActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Reset_LoaiSanPham;
     private javax.swing.JButton bntSua_SanPham;
@@ -4156,6 +4176,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton btnXoa_PhieuChi;
     private javax.swing.JButton btnXoa_PhieuNhap;
     private javax.swing.JButton btnXoa_SanPham;
+    private javax.swing.JButton btnXuatHoaDon_PhieuBanHang;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cbQuyen_NhanVien;
@@ -4170,7 +4191,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;

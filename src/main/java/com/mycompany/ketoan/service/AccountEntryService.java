@@ -18,10 +18,10 @@ import javax.swing.table.DefaultTableModel;
 public class AccountEntryService {
 	
 	public static void getTables(JTable tblOrder, String keyword) {
-//		Object[] obj = new Object[]{"Ngày", "Số CT", "Diễn Giải", "TK Nợ", "TK Có", "Số Lượng", "Đơn Giá", "Số Tiền"};
-//		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
-//		tblOrder.setModel(tableModel);
-//		
+		Object[] obj = new Object[]{"STT", "Mã BT", "Ngày", "Số CT", "Diễn Giải", "TK Nợ", "TK Có", "Số Tiền"};
+		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
+		tblOrder.setModel(tableModel);
+		
 //		List<AccountEntryDTO> accoutnEntries = AccountEntryRepository.findAll(keyword);
 //		if (accoutnEntries != null) {
 //			for (int i = 0; i < accoutnEntries.size(); i++) {
