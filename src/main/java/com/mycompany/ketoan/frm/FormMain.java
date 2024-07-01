@@ -4210,7 +4210,7 @@ public class FormMain extends javax.swing.JFrame {
         headerRow.createCell(5).setCellValue("Tổng Tiền");
         headerRow.createCell(6).setCellValue("Ghi Chú");
 
-        List<OrderDTO> orders = OrderRepository.findAll("");
+        List<OrderDTO> orders = OrderRepository.findAll("", true);
         int rowNum = 1;
         for (OrderDTO data : orders) {
             Row row = sheet.createRow(rowNum);

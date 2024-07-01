@@ -24,7 +24,7 @@ public class OrderService {
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-		List<OrderDTO> orders = OrderRepository.findAll(keyword);
+		List<OrderDTO> orders = OrderRepository.findAll(keyword, false);
 		if (orders != null) {
 			for (int i = 0; i < orders.size(); i++) {
 				OrderDTO orderDTO = orders.get(i);
