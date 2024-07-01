@@ -20,12 +20,12 @@ public class ReceiptRepository {
 			" LEFT JOIN KhachHang kh on kh.MaKH = pt.MaKH WHERE pt.MaPT = :MaPT";
 	
 	private static final String INSERT_RECEIPT_QUERY = "INSERT INTO PhieuThu\n" +
-			" (LydoNop, NgayTao, SoTien, TaiLieuDinhKem, MaTietKhoanNo, MaTietKhoanCo, QuyenSo, MaNV, MaCT, MaKH)\n" +
-			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, :MaKH)";
+			" (LydoNop, NgayTao, SoTien, TaiLieuDinhKem, MaTietKhoanNo, MaTietKhoanCo, QuyenSo, MaNV, MaCT, MaKH, DaXuat)\n" +
+			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, :MaKH, 0)";
 	
 	private static final String UPDATE_RECEIPT_QUERY = "UPDATE PhieuThu\n" +
 			" SET LydoNop=:LydoNop, SoTien=:SoTien, TaiLieuDinhKem=:TaiLieuDinhKem, MaTietKhoanNo=MaTietKhoanNo," +
-			" MaTietKhoanCo=:MaTietKhoanCo, QuyenSo=:QuyenSo, MaNV=:MaNV, MaKH=:MaKH\n" +
+			" MaTietKhoanCo=:MaTietKhoanCo, QuyenSo=:QuyenSo, MaNV=:MaNV, MaKH=:MaKH, DaXuat=:DaXuat\n" +
 			" WHERE MaPT=:MaPT";
 	
 	private static final String DELETE_RECEIPT_QUERY = "DELETE FROM PhieuThu WHERE MaPT=:MaPT";
