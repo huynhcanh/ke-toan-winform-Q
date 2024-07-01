@@ -36,7 +36,10 @@ public class OrderRepository {
 	private static final String UPDATE_ORDER_QUERY = "UPDATE PhieuBanHang SET MaKH=:MaKH, GhiChu=:GhiChu, DaXuat=:DaXuat WHERE MaPBH=:MaPBH";
 	
 	public static List<OrderDTO> findAll(String keyword, Boolean isExported) {
-		ResultSet rs = QueryRepository.executeQuery(LIST_ORDER_QUERY, Map.of("keyword", "%" + keyword + "%", "isExported", isExported));
+		Map<String, Object> map = new HashMap<>();
+		map.put("keyword", "%" + keyword + "%");
+		map.put("isExported", isExported);
+		ResultSet rs = QueryRepository.executeQuery(LIST_ORDER_QUERY, map);
 		return ObjectMapper.toDTOs(rs, OrderDTO.class);
 	}
 	
