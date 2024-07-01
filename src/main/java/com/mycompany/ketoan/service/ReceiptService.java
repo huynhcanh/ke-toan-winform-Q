@@ -54,16 +54,16 @@ public class ReceiptService {
 			JTextField idE,
 			JComboBox employeeE,
 			JComboBox customerE,
-                        JTextField noAccountE,
-                        JTextField coAccountE,
+                        JComboBox noAccountE,
+                        JComboBox coAccountE,
 			JTextField priceE,
                         JTextField bookNumberE,
                         JTextArea ressonE) {
 		idE.setText("");
 		ElementUtils.setSelectedCombobox(null, employeeE);
                 ElementUtils.setSelectedCombobox(null, customerE);
-		noAccountE.setText("");
-                coAccountE.setText("");
+		ElementUtils.setSelectedCombobox(null, noAccountE);
+                ElementUtils.setSelectedCombobox(null, coAccountE);
 		priceE.setText("");
                 bookNumberE.setText("");
 		ressonE.setText("");
@@ -72,13 +72,13 @@ public class ReceiptService {
 	public static boolean isValidated(JTextField idE,
 			JComboBox employeeE,
 			JComboBox customerE,
-                        JTextField noAccountE,
-                        JTextField coAccountE,
+                        JComboBox noAccountE,
+                        JComboBox coAccountE,
 			JTextField priceE,
                         JTextField bookNumberE,
 			boolean isAddAction) {
-		if ((!isAddAction && idE.getText().equals("")) || noAccountE.getText().equals("")
-				|| coAccountE.getText().equals("")
+		if ((!isAddAction && idE.getText().equals("")) || ElementUtils.getCbbSelected(noAccountE) == null
+				|| ElementUtils.getCbbSelected(coAccountE) == null
                                 || ElementUtils.getCbbSelected(employeeE) == null || ElementUtils.getCbbSelected(customerE) == null
                                 || priceE.getText().equals("") || bookNumberE.getText().equals("")) {
 			
@@ -93,8 +93,8 @@ public class ReceiptService {
                         JTextField idE,
 			JComboBox employeeE,
 			JComboBox customerE,
-                        JTextField noAccountE,
-                        JTextField coAccountE,
+                        JComboBox noAccountE,
+                        JComboBox coAccountE,
 			JTextField priceE,
                         JTextField bookNumberE,
                         JTextArea reasonE) {
@@ -102,8 +102,8 @@ public class ReceiptService {
 		idE.setText(receiptDTO.getId().toString());
                 ElementUtils.setSelectedCombobox(receiptDTO.getEmployeeId(), employeeE);
                 ElementUtils.setSelectedCombobox(receiptDTO.getCustomerId(), customerE);
-		noAccountE.setText(receiptDTO.getAccountNoId() != null? receiptDTO.getAccountNoId().toString(): "");
-		coAccountE.setText(receiptDTO.getAccountCoId() != null? receiptDTO.getAccountCoId().toString() : "");
+		ElementUtils.setSelectedCombobox(receiptDTO.getAccountNoId(), noAccountE);
+		ElementUtils.setSelectedCombobox(receiptDTO.getAccountCoId(), coAccountE);
                 priceE.setText(PriceUtils.convertToVND(receiptDTO.getPrice()));
 		bookNumberE.setText(receiptDTO.getBookNumber() != null ? receiptDTO.getBookNumber().toString(): "");
                 reasonE.setText(receiptDTO.getReason());

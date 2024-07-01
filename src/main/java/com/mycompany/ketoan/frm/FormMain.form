@@ -2713,7 +2713,7 @@
                               <Component id="jLabel23" pref="1304" max="32767" attributes="0"/>
                               <Component id="txtTimKiem_PhieuThu" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="59" max="32767" attributes="0"/>
+                          <EmptySpace pref="56" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2901,9 +2901,9 @@
                               </Group>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="txtQuyen_PhieuThu" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtMaTKC_PhieuThu" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtMaTKN_PhieuThu" pref="185" max="32767" attributes="0"/>
                                   <Component id="jScrollPane12" pref="0" max="32767" attributes="0"/>
+                                  <Component id="cbbMaTKN_PhieuThu" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbbMaTKC_PhieuThu" alignment="0" pref="185" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -2936,11 +2936,11 @@
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtMaTKC_PhieuThu" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="cbbNhanVien_PhieuThu" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel32" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                                           <Component id="btnSua_PhieuThu" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbbMaTKC_PhieuThu" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="btnThem_PhieuNhap" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -2949,10 +2949,10 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtMaTKN_PhieuThu" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel33" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                                           <Component id="cbbKhachHang_PhieuThu" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbbMaTKN_PhieuThu" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -3081,26 +3081,6 @@
                         <Property name="text" type="java.lang.String" value="M&#xe3; TKN"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtMaTKC_PhieuThu">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMaTKC_PhieuThuActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtMaTKN_PhieuThu">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMaTKN_PhieuThuActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="lblTongTien_HoaDon1">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -3223,6 +3203,36 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSua_PhieuThuActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="cbbMaTKN_PhieuThu">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="cbbMaTKC_PhieuThu">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
