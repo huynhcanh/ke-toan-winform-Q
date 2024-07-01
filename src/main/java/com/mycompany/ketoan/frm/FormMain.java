@@ -229,6 +229,7 @@ public class FormMain extends javax.swing.JFrame {
         btnSua_PhieuThu = new javax.swing.JButton();
         txtTimKiem_PhieuThu = new javax.swing.JTextField();
         jLabel67 = new javax.swing.JLabel();
+        btnXuatHoaDon_PhieuBanHang1 = new javax.swing.JButton();
         jPanelPhieuChi = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -257,6 +258,7 @@ public class FormMain extends javax.swing.JFrame {
         btnSua_PhieuChi = new javax.swing.JButton();
         jLabel68 = new javax.swing.JLabel();
         txtTimKiem_PhieuChi = new javax.swing.JTextField();
+        btnXuatHoaDon_PhieuBanHang2 = new javax.swing.JButton();
         jPanelSDDK = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -2141,6 +2143,17 @@ public class FormMain extends javax.swing.JFrame {
         jLabel67.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel67.setText("Tìm Kiếm Theo Mã");
 
+        btnXuatHoaDon_PhieuBanHang1.setBackground(new java.awt.Color(112, 173, 71));
+        btnXuatHoaDon_PhieuBanHang1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXuatHoaDon_PhieuBanHang1.setForeground(new java.awt.Color(255, 255, 255));
+        btnXuatHoaDon_PhieuBanHang1.setText("XUẤT PHIẾU");
+        btnXuatHoaDon_PhieuBanHang1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuatHoaDon_PhieuBanHang1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatHoaDon_PhieuBanHang1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelPhieuNhapLayout = new javax.swing.GroupLayout(jPanelPhieuNhap);
         jPanelPhieuNhap.setLayout(jPanelPhieuNhapLayout);
         jPanelPhieuNhapLayout.setHorizontalGroup(
@@ -2149,7 +2162,10 @@ public class FormMain extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanelPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelPhieuNhapLayout.createSequentialGroup()
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnXuatHoaDon_PhieuBanHang1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 1304, Short.MAX_VALUE)
                     .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 1304, Short.MAX_VALUE)
                     .addComponent(txtTimKiem_PhieuThu))
@@ -2166,8 +2182,13 @@ public class FormMain extends javax.swing.JFrame {
                 .addComponent(txtTimKiem_PhieuThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPhieuNhapLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelPhieuNhapLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnXuatHoaDon_PhieuBanHang1)))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
 
@@ -2447,6 +2468,12 @@ public class FormMain extends javax.swing.JFrame {
             }
         });
 
+        btnXuatHoaDon_PhieuBanHang2.setBackground(new java.awt.Color(112, 173, 71));
+        btnXuatHoaDon_PhieuBanHang2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnXuatHoaDon_PhieuBanHang2.setForeground(new java.awt.Color(255, 255, 255));
+        btnXuatHoaDon_PhieuBanHang2.setText("XUẤT PHIẾU");
+        btnXuatHoaDon_PhieuBanHang2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         javax.swing.GroupLayout jPanelPhieuChiLayout = new javax.swing.GroupLayout(jPanelPhieuChi);
         jPanelPhieuChi.setLayout(jPanelPhieuChiLayout);
         jPanelPhieuChiLayout.setHorizontalGroup(
@@ -2455,7 +2482,10 @@ public class FormMain extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanelPhieuChiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelPhieuChiLayout.createSequentialGroup()
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnXuatHoaDon_PhieuBanHang2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 1304, Short.MAX_VALUE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 1304, Short.MAX_VALUE)
                     .addComponent(txtTimKiem_PhieuChi))
@@ -2472,8 +2502,13 @@ public class FormMain extends javax.swing.JFrame {
                 .addComponent(txtTimKiem_PhieuChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelPhieuChiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPhieuChiLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelPhieuChiLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(btnXuatHoaDon_PhieuBanHang2)))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
 
@@ -4199,6 +4234,10 @@ public class FormMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void btnXuatHoaDon_PhieuBanHang1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatHoaDon_PhieuBanHang1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnXuatHoaDon_PhieuBanHang1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Reset_LoaiSanPham;
     private javax.swing.JButton bntSua_SanPham;
@@ -4233,6 +4272,8 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton btnXoa_PhieuNhap;
     private javax.swing.JButton btnXoa_SanPham;
     private javax.swing.JButton btnXuatHoaDon_PhieuBanHang;
+    private javax.swing.JButton btnXuatHoaDon_PhieuBanHang1;
+    private javax.swing.JButton btnXuatHoaDon_PhieuBanHang2;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cbQuyen_NhanVien;

@@ -21,7 +21,7 @@ public class PaymentRepository {
 	
 	private static final String INSERT_PAYMENT_QUERY = "INSERT INTO PhieuChi\n" +
 			" (LydoNop, NgayTao, SoTien, TaiLieuDinhKem, MaTietKhoanNo, MaTietKhoanCo, QuyenSo, MaNV, MaCT, MaKH, DaXuat)\n" +
-			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, :MaKH, :DaXuat)";
+			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, :MaKH, 0)";
 	
 	private static final String UPDATE_PAYMENT_QUERY = "UPDATE PhieuChi\n" +
 			" SET LydoNop=:LydoNop, NgayTao=:NgayTao, SoTien=:SoTien, TaiLieuDinhKem=:TaiLieuDinhKem, MaTietKhoanNo=MaTietKhoanNo," +

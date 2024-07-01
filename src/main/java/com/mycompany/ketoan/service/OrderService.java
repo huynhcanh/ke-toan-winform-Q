@@ -35,7 +35,7 @@ public class OrderService {
 						orderDTO.getCustomerName(),
 						DateTimeUtils.toString(orderDTO.getCreatedDate()),
 						PriceUtils.convertToVND(orderDTO.getTotalMoney()),
-                                                orderDTO.getExported().equals(true)? "Đã Xuất CT": "Chưa Xuất",
+						orderDTO.getExported() ? "Đã xuất" : "Chưa xuất",
 						orderDTO.getNote()
 				};
 				tableModel.addRow(item);
