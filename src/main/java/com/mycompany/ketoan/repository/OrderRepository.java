@@ -28,8 +28,8 @@ public class OrderRepository {
 			"GROUP BY ctpbh.MaPBH ) ctpbhg on ctpbhg.MaPBH = pbh.MaPBH WHERE pbh.MaPBH = :MaPBH";
 	
 	private static final String INSERT_ORDER_QUERY = "INSERT INTO PhieuBanHang " +
-			"(MaKH, MaNV, NgayTao, GhiChu, DaXuat)" +
-			"VALUES(:MaKH, :MaNV, NOW(), :GhiChu, :DaXuat)";
+			" (MaKH, MaNV, NgayTao, GhiChu, DaXuat) " +
+			" VALUES(:MaKH, :MaNV, NOW(), :GhiChu, 0)";
 	
 	private static final String DELETE_ORDER_QUERY = "DELETE FROM PhieuBanHang WHERE MaPBH=:MaPBH";
 	

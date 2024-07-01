@@ -21,7 +21,7 @@ public class ReceiptRepository {
 	
 	private static final String INSERT_RECEIPT_QUERY = "INSERT INTO PhieuThu\n" +
 			" (LydoNop, NgayTao, SoTien, TaiLieuDinhKem, MaTietKhoanNo, MaTietKhoanCo, QuyenSo, MaNV, MaCT, MaKH, DaXuat)\n" +
-			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, :MaKH, :DaXuat)";
+			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, :MaKH, 0)";
 	
 	private static final String UPDATE_RECEIPT_QUERY = "UPDATE PhieuThu\n" +
 			" SET LydoNop=:LydoNop, SoTien=:SoTien, TaiLieuDinhKem=:TaiLieuDinhKem, MaTietKhoanNo=MaTietKhoanNo," +
