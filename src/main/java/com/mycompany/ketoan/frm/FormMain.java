@@ -11,6 +11,7 @@ import com.mycompany.ketoan.dto.PaymentDTO;
 import com.mycompany.ketoan.dto.ProductDTO;
 import com.mycompany.ketoan.dto.ReceiptDTO;
 import com.mycompany.ketoan.repository.AccountEntryRepository;
+import com.mycompany.ketoan.repository.AccountRepository;
 import com.mycompany.ketoan.repository.CategoryRepository;
 import com.mycompany.ketoan.repository.CustomerRepository;
 import com.mycompany.ketoan.repository.DocumentRepository;
@@ -3307,27 +3308,18 @@ public class FormMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThem_LoaiSanPhamActionPerformed
 
     private void jPanelPhieuNhapComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelPhieuNhapComponentShown
-//        LayDuLieuPhieuNhap();
-//        cbbNhaPhanPhoi_PhieuNhap.setModel(LayDuLieucbb("NhaPhanPhoi", "TenNhaPhanPhoi", "MaNhaPhanPhoi"));
-//        cbbTenSanPhamCTPN_PhieuNhap.setModel(LayDuLieucbb("SanPham","TenSanPham","MaSanPham"));
-//        
-//        String maNhanVien = getMaNhanVienHienTai();
-//        String cautruyvan = "";
-//        cautruyvan = "select MaNhanVien,TenNhanVien from NhanVien where NhanVien.MaNhanVien = '" + maNhanVien + "'";
-//        ResultSet rs = FormLogin.connection.ExcuteQueryGetTable(cautruyvan);
-//        try {
-//            if (rs.next()) {
-//                txtMaNhanVien_PhieuNhap.setText(rs.getString("MaNhanVien"));
-//                txtTenNhanVien_PhieuNhap.setText(rs.getString("TenNhanVien"));
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex.toString());
-//        }
-//        txtNgayNhap_PhieuNhap.setText(chuyenDateVeString(date));
-//        txtTongTien_PhieuNhap.setText("0");
-//        
-//        String cautruyvan1 = "delete SaoLuuChiTietPhieuNhap";
-//        FormLogin.connection.ExcuteQueryUpdateDB(cautruyvan1);
+        
+        List<Integer> noIds = AccountRepository.findAllIdAccountLevel3();
+        if(!(noIds == null || noIds.isEmpty())) {
+            List<ComboxModel> noDataComboBox = noIds.stream().map(id -> new ComboxModel(id, id.toString())).toList();
+            cbbMaTKN_PhieuThu.setModel(ElementUtils.getDataCbb(noDataComboBox));
+        }
+                
+        List<Integer> coIds = AccountRepository.findAllIdAccountLevel3();
+        if(!(coIds == null || coIds.isEmpty())) {
+            List<ComboxModel> coDataComboBox = coIds.stream().map(id -> new ComboxModel(id, id.toString())).toList();
+            cbbMaTKC_PhieuThu.setModel(ElementUtils.getDataCbb(coDataComboBox));
+        }
     }//GEN-LAST:event_jPanelPhieuNhapComponentShown
 
     private void jPanelSDDKComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelSDDKComponentShown
@@ -3509,7 +3501,7 @@ public class FormMain extends javax.swing.JFrame {
         btnThem_HoaDon.setEnabled(false);
         btnXuatHoaDon_PhieuBanHang.setEnabled(true);
         
-        if(OrderService.getStatus(jTable1).equals("Đã Xuất")){
+        if(OrderService.getStatus(tblOrder).equals("Đã Xuất")){
              btnSua_HoaDon.setEnabled(false);
         }
         
@@ -3542,6 +3534,18 @@ public class FormMain extends javax.swing.JFrame {
         
         CustomerService.setComboBoxList(cbbKhachHang_PhieuThu);
         EmployeeService.setComboBoxList(cbbNhanVien_PhieuThu);
+        
+        List<Integer> noIds = AccountRepository.findAllIdAccountLevel3();
+        if(!(noIds == null || noIds.isEmpty())) {
+            List<ComboxModel> noDataComboBox = noIds.stream().map(id -> new ComboxModel(id, id)).toList();
+            cbbMaTKN_PhieuThu.setModel(ElementUtils.getDataCbb(noDataComboBox));
+        }
+                
+        List<Integer> coIds = AccountRepository.findAllIdAccountLevel3();
+        if(!(coIds == null || coIds.isEmpty())) {
+            List<ComboxModel> coDataComboBox = coIds.stream().map(id -> new ComboxModel(id, id)).toList();
+            cbbMaTKC_PhieuThu.setModel(ElementUtils.getDataCbb(coDataComboBox));
+        }
 
         this.resetFormReceipt();
 

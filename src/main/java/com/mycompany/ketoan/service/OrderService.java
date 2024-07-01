@@ -24,7 +24,7 @@ public class OrderService {
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-		List<OrderDTO> orders = OrderRepository.findAll(keyword, false);
+		List<OrderDTO> orders = OrderRepository.findAll(keyword, null);
 		if (orders != null) {
 			for (int i = 0; i < orders.size(); i++) {
 				OrderDTO orderDTO = orders.get(i);
@@ -35,7 +35,7 @@ public class OrderService {
 						orderDTO.getCustomerName(),
 						DateTimeUtils.toString(orderDTO.getCreatedDate()),
 						PriceUtils.convertToVND(orderDTO.getTotalMoney()),
-						orderDTO.getExported() != null && orderDTO.getExported() ? "Đã xuất" : "Chưa xuất",
+						orderDTO.getExported() != null && orderDTO.getExported() ? "Đã Xuất" : "Chưa Xuất",
 						orderDTO.getNote()
 				};
 				tableModel.addRow(item);
