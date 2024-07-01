@@ -3515,7 +3515,7 @@ public class FormMain extends javax.swing.JFrame {
     }
     
     private void jPanelButToanComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelButToanComponentShown
-        AccountEntryService.getTables(this.tbButToan, "");
+        AccountEntryService.getTables(this.tbButToan, "", null);
     }//GEN-LAST:event_jPanelButToanComponentShown
 
     private void jDateChooserTuNgay_ThongKePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooserTuNgay_ThongKePropertyChange
@@ -4129,17 +4129,18 @@ public class FormMain extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTimKiem_PhieuChiKeyReleased
 
     private void btnXuatHoaDon_PhieuBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatHoaDon_PhieuBanHangActionPerformed
+        
         Integer id = OrderService.getId(tblOrder);
 
         confirmAndExecute(() -> {
 
-            OrderDetailRepository.delete(id);
-
-            OrderRepository.delete(id);
-
-            this.reloadByActionOrder();
-
-            this.clearTable(tblCTHoaDon_ChiTietHoaDon);
+//            OrderDetailRepository.delete(id);
+//
+//            OrderRepository.delete(id);
+//
+//            this.reloadByActionOrder();
+//
+//            this.clearTable(tblCTHoaDon_ChiTietHoaDon);
         });
     }//GEN-LAST:event_btnXuatHoaDon_PhieuBanHangActionPerformed
 

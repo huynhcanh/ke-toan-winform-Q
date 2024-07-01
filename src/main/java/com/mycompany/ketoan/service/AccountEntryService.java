@@ -7,7 +7,6 @@ import com.mycompany.ketoan.repository.AccountEntryRepository;
 import com.mycompany.ketoan.repository.EmployeeRepository;
 import com.mycompany.ketoan.utils.AlertUtils;
 import com.mycompany.ketoan.utils.ElementUtils;
-import com.mycompany.ketoan.utils.ElementUtils.ComboxModel;
 
 import java.util.List;
 import javax.swing.JComboBox;
@@ -17,28 +16,28 @@ import javax.swing.table.DefaultTableModel;
 
 public class AccountEntryService {
 	
-	public static void getTables(JTable tblOrder, String keyword) {
+	public static void getTables(JTable tblOrder, String keyword, String type) {
 		Object[] obj = new Object[]{"STT", "Mã BT", "Ngày", "Số CT", "Diễn Giải", "TK Nợ", "TK Có", "Số Tiền"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-//		List<AccountEntryDTO> accoutnEntries = AccountEntryRepository.findAll(keyword);
-//		if (accoutnEntries != null) {
-//			for (int i = 0; i < accoutnEntries.size(); i++) {
-//				AccountEntryDTO accountEntryDTO = accoutnEntries.get(i);
-//				Object[] item = new Object[]{
-//						i + 1,
-//						accountEntryDTO.getId(),
-//						employeeDTO.getUsername(),
-//						employeeDTO.getPassword(),
-//						employeeDTO.getRole(),
-//                                                employeeDTO.getName(),
-//						employeeDTO.getPhone(),
-//						employeeDTO.getAddress(),
-//				};
-//				tableModel.addRow(item);
-//			}
-//		}
+		List<AccountEntryDTO> accoutnEntries = AccountEntryRepository.findAll(keyword, type);
+		if (accoutnEntries != null) {
+			for (int i = 0; i < accoutnEntries.size(); i++) {
+				AccountEntryDTO accountEntryDTO = accoutnEntries.get(i);
+				Object[] item = new Object[]{
+						i + 1,
+						accountEntryDTO.getId(),
+						accountEntryDTO.getCreatedDate(),
+						accountEntryDTO.getDocumentId(),
+						accountEntryDTO.getDescription(),
+                                                accountEntryDTO.getAccountNoId(),
+						accountEntryDTO.getAccountCoId(),
+						accountEntryDTO.getAdditionalPrice(),
+				};
+				tableModel.addRow(item);
+			}
+		}
 	}
 	
 	public static Integer getId(JTable table) {
