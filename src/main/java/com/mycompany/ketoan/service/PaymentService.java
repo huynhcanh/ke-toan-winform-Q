@@ -23,7 +23,7 @@ public class PaymentService {
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-		List<PaymentDTO> payments = PaymentRepository.findAll("");
+		List<PaymentDTO> payments = PaymentRepository.findAll(keyword);
 		if (payments != null) {
 			for (int i = 0; i < payments.size(); i++) {
 				PaymentDTO paymentDTO = payments.get(i);

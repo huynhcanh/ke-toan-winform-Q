@@ -24,7 +24,7 @@ public class ReceiptService {
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-		List<ReceiptDTO> receipts = ReceiptRepository.findAll("");
+		List<ReceiptDTO> receipts = ReceiptRepository.findAll(keyword);
 		if (receipts != null) {
 			for (int i = 0; i < receipts.size(); i++) {
 				ReceiptDTO receiptDTO = receipts.get(i);

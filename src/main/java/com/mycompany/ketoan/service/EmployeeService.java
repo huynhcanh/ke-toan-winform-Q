@@ -18,7 +18,7 @@ public class EmployeeService {
 	public static void setComboBoxList(JComboBox comboBox) {
 		List<EmployeeDTO> customers = EmployeeRepository.findAll("");
                 if(customers == null || customers.isEmpty()) return;
-		List<ComboxModel> dataComboBox = customers.stream().map(c -> new ComboxModel(c.getId(), c.getUsername())).toList();
+		List<ComboxModel> dataComboBox = customers.stream().map(c -> new ComboxModel(c.getId(), c.getName())).toList();
 		comboBox.setModel(ElementUtils.getDataCbb(dataComboBox));
 	}
 	

@@ -25,7 +25,7 @@ public class PaymentRepository {
 	
 	private static final String UPDATE_PAYMENT_QUERY = "UPDATE PhieuChi\n" +
 			" SET LydoNop=:LydoNop, NgayTao=:NgayTao, SoTien=:SoTien, TaiLieuDinhKem=:TaiLieuDinhKem, MaTietKhoanNo=MaTietKhoanNo," +
-			" MaTietKhoanCo=:MaTietKhoanCo, QuyenSo=:QuyenSo\n" +
+			" MaTietKhoanCo=:MaTietKhoanCo, QuyenSo=:QuyenSo, MaNV=:MaNV, MaKH=:MaKH\n" +
 			" WHERE MaPC=:MaPC";
 	
 	private static final String DELETE_PAYMENT_QUERY = "DELETE FROM PhieuChi WHERE MaPC=:MaPC";
