@@ -9,6 +9,8 @@ import java.util.Map;
 
 public class AccountRepository {
 	
+	private static final String LIST_ID_ACCOUNT_LV3 = "SELECT MaTietKhoan FROM TietKhoan";
+	
 	private static final String LIST_ACCOUNT_QUERY = "SELECT case when ua.Cap = 'LEVEL1' then ua.Cap1 end as Cap1, case when ua.Cap = 'LEVEL2' then ua.Cap2 end as Cap2, case when ua.Cap = 'LEVEL3' then ua.Cap3 end as Cap3, ua.TenTK \n" +
 			"from (SELECT MaTaiKhoan as Cap1, null as Cap2, null as Cap3, TenTaiKhoan as TenTK, 'LEVEL1' as Cap\n" +
 			" FROM TaiKhoan union all SELECT tk1.MaTaiKhoan as Cap1, tk2.MaTieuKhoan as Cap2, null as Cap3, tk2.TenTieuKhoan as TenTK, 'LEVEL2' as Cap \n" +
@@ -21,4 +23,10 @@ public class AccountRepository {
 		ResultSet rs = QueryRepository.executeQuery(LIST_ACCOUNT_QUERY, Map.of("keyword", "%" + keyword + "%"));
 		return ObjectMapper.toDTOs(rs, AccountDTO.class);
 	}
+	
+	public static List<Integer> findAllIdAccountLevel3() {
+		ResultSet rs = QueryRepository.executeQuery(LIST_ACCOUNT_QUERY);
+		return ObjectMapper.toDTOs(rs, Integer.class);
+	}
+	
 }
