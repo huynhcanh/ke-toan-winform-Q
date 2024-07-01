@@ -44,7 +44,7 @@ public class FormLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Mật khẩu");
 
-        btnDangNhap.setBackground(new java.awt.Color(241, 241, 241));
+        btnDangNhap.setBackground(new java.awt.Color(217, 217, 217));
         btnDangNhap.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDangNhap.setText("Đăng nhập");
         btnDangNhap.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
