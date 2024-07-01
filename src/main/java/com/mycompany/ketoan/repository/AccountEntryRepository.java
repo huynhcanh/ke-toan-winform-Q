@@ -11,8 +11,7 @@ public class AccountEntryRepository {
 			"(NgayCT, NgayHT, DienGiai, TKNo, TkCo, TienPhatSinh, MaCT)\n" +
 			"VALUES(NOW(), NOW(), '', :TKNo, :TkCo, :TienPhatSinh, :MaCT)";
 	
-	private static final String DELETE_ACCOUNT_ENTRY_QUERY = "DELETE FROM ButToan WHERE MaBT=:MaBT";
-	
+	private static final String DELETE_ACCOUNT_ENTRY_QUERY = "DELETE FROM ButToan WHERE MaCT=:MaCT";
 	
 	public static int insert(AccountEntryDTO accountEntyDTO) {
 		Map<String, Object> param = ObjectMapper.convertToMap(accountEntyDTO);

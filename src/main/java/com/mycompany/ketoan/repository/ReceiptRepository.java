@@ -9,13 +9,13 @@ import java.util.Map;
 
 public class ReceiptRepository {
 	
-	private static final String LIST_RECEIPT_QUERY = "SELECT pt.MaPT, pt.LydoNop, pt.NgayTao, pt.SoTien, pt.TaiLieuDinhKem, pt.MaTietKhoanNo, pt.MaTietKhoanCo, pt.QuyenSo, pt.MaNV, nv.Ten as TenNV, nv.DiaChi as DiaChiNV, pt.MaCT,\n" +
-			" pt.MaKH, kh.Ten as TenKH, kh.DiaChi as DiaChiKH\n" +
+	private static final String LIST_RECEIPT_QUERY = "SELECT pt.MaPT, pt.LydoNop, pt.NgayTao, pt.SoTien, pt.TaiLieuDinhKem, pt.MaTietKhoanNo, pt.MaTietKhoanCo, pt.QuyenSo, pt.MaNV, nv.Ten as TenNV, pt.MaCT,\n" +
+			" pt.MaKH, kh.Ten as TenKH\n" +
 			" FROM PhieuThu pt left join NhanVien nv on nv.MaNV = pt.MaNV\n" +
 			" LEFT JOIN KhachHang kh on kh.MaKH = pt.MaKH WHERE pt.MaPT like :keyword";
 	
-	private static final String DETAIL_RECEIPT_QUERY = "SELECT pt.MaPT, pt.LydoNop, pt.NgayTao, pt.SoTien, pt.TaiLieuDinhKem, pt.MaTietKhoanNo, pt.MaTietKhoanCo, pt.QuyenSo, pt.MaNV, nv.Ten as TenNV, nv.DiaChi as DiaChiNV, pt.MaCT,\n" +
-			" pt.MaKH, kh.Ten as TenKH, kh.DiaChi as DiaChiKH\n" +
+	private static final String DETAIL_RECEIPT_QUERY = "SELECT pt.MaPT, pt.LydoNop, pt.NgayTao, pt.SoTien, pt.TaiLieuDinhKem, pt.MaTietKhoanNo, pt.MaTietKhoanCo, pt.QuyenSo, pt.MaNV, nv.Ten as TenNV, pt.MaCT,\n" +
+			" pt.MaKH, kh.Ten as TenKH\n" +
 			" FROM PhieuThu pt left join NhanVien nv on nv.MaNV = pt.MaNV\n" +
 			" LEFT JOIN KhachHang kh on kh.MaKH = pt.MaKH WHERE pt.MaPT = :MaPT";
 	

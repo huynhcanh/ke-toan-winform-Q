@@ -29,7 +29,7 @@ public class PaymentDTO {
 	private Integer accountCoId;
 	
 	@JsonProperty("QuyenSo")
-	private String bookNumber;
+	private Integer bookNumber;
 	
 	@JsonProperty("MaNV")
 	private Integer employeeId;
@@ -108,11 +108,11 @@ public class PaymentDTO {
 		this.accountCoId = accountCoId;
 	}
 	
-	public String getBookNumber() {
+	public Integer getBookNumber() {
 		return bookNumber;
 	}
 	
-	public void setBookNumber(String bookNumber) {
+	public void setBookNumber(Integer bookNumber) {
 		this.bookNumber = bookNumber;
 	}
 	
