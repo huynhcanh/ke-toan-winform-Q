@@ -350,23 +350,23 @@ public class FormMain extends javax.swing.JFrame {
         tblOrder.setBackground(new java.awt.Color(217, 217, 217));
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "STT", "Mã Đơn Hàng", "Khách Hàng", "Nhân Viên Lập", "Ngày Lập", "Tổng Tiền", "Ghi Chú"
+                "STT", "Mã Đơn Hàng", "Khách Hàng", "Nhân Viên Lập", "Ngày Lập", "Tổng Tiền", "Trạng Thái", "Ghi Chú"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -387,7 +387,7 @@ public class FormMain extends javax.swing.JFrame {
             tblOrder.getColumnModel().getColumn(3).setResizable(false);
             tblOrder.getColumnModel().getColumn(4).setResizable(false);
             tblOrder.getColumnModel().getColumn(5).setResizable(false);
-            tblOrder.getColumnModel().getColumn(6).setResizable(false);
+            tblOrder.getColumnModel().getColumn(7).setResizable(false);
         }
 
         tblCTHoaDon_ChiTietHoaDon.setBackground(new java.awt.Color(217, 217, 217));

@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class OrderService {
 	
 	public static void getTable(JTable tblOrder, String keyword) {
-		Object[] obj = new Object[]{"STT", "Mã Đơn Hàng", "Nhân Viên ", "Khách Hàng", "Ngày Tạo", "Tổng Tiền", "Ghi Chú"};
+		Object[] obj = new Object[]{"STT", "Mã Đơn Hàng", "Nhân Viên ", "Khách Hàng", "Ngày Tạo", "Tổng Tiền", "Trạng Thái", "Ghi Chú"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
