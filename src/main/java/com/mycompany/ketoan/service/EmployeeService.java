@@ -21,6 +21,12 @@ public class EmployeeService {
 		List<ComboxModel> dataComboBox = customers.stream().map(c -> new ComboxModel(c.getId(), c.getName())).toList();
 		comboBox.setModel(ElementUtils.getDataCbb(dataComboBox));
 	}
+        
+        private static String getRole(String code){
+            if(code.equals("ADMIN")) return "Admin";
+            if(code.equals("ACCOUNTANT")) return "Kế Toán";
+            return "Nhân Viên Bán Hàng";
+        }
 	
 	public static void getTables(JTable tblOrder, String keyword) {
 		Object[] obj = new Object[]{"STT", "Mã ND", "Tên DN", "Mật Khẩu", "Vai Trò", "Tên", "SDT", "Địa Chỉ"};
@@ -36,7 +42,7 @@ public class EmployeeService {
 						employeeDTO.getId(),
 						employeeDTO.getUsername(),
 						employeeDTO.getPassword(),
-						employeeDTO.getRole(),
+						EmployeeService.getRole(employeeDTO.getRole()),
                                                 employeeDTO.getName(),
 						employeeDTO.getPhone(),
 						employeeDTO.getAddress(),

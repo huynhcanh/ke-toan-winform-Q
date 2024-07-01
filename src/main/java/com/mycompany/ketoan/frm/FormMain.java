@@ -37,8 +37,11 @@ import com.mycompany.ketoan.utils.ElementUtils;
 import com.mycompany.ketoan.utils.ElementUtils.ComboxModel;
 import com.mycompany.ketoan.utils.PriceUtils;
 import com.mycompany.ketoan.utils.SecurityUtils;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -46,6 +49,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.ss.usermodel.RichTextString;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class FormMain extends javax.swing.JFrame {
 
@@ -269,9 +277,9 @@ public class FormMain extends javax.swing.JFrame {
         jPanelChungTu = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        tblOrder1 = new javax.swing.JTable();
+        tblChungTu = new javax.swing.JTable();
         lblTongTien_HoaDon7 = new javax.swing.JLabel();
-        txtTimKiem_HoaDon1 = new javax.swing.JTextField();
+        txtTimKiem_ChungTu = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         lblTSHDBR5 = new javax.swing.JLabel();
         lblTSHDBR6 = new javax.swing.JLabel();
@@ -2421,13 +2429,12 @@ public class FormMain extends javax.swing.JFrame {
                                 .addComponent(lblTongTien_HoaDon4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel27)
                                 .addComponent(txtTongTien_PhieuChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(12, Short.MAX_VALUE))
+                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(btnXoa_PhieuChi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnReSet_PhieuChi)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnReSet_PhieuChi)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jLabel68.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -2674,8 +2681,8 @@ public class FormMain extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("CHỨNG TỪ");
 
-        tblOrder1.setBackground(new java.awt.Color(217, 217, 217));
-        tblOrder1.setModel(new javax.swing.table.DefaultTableModel(
+        tblChungTu.setBackground(new java.awt.Color(217, 217, 217));
+        tblChungTu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -2700,35 +2707,35 @@ public class FormMain extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblOrder1.getTableHeader().setReorderingAllowed(false);
-        tblOrder1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblChungTu.getTableHeader().setReorderingAllowed(false);
+        tblChungTu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblOrder1MouseClicked(evt);
+                tblChungTuMouseClicked(evt);
             }
         });
-        jScrollPane6.setViewportView(tblOrder1);
-        if (tblOrder1.getColumnModel().getColumnCount() > 0) {
-            tblOrder1.getColumnModel().getColumn(0).setResizable(false);
-            tblOrder1.getColumnModel().getColumn(1).setResizable(false);
-            tblOrder1.getColumnModel().getColumn(2).setResizable(false);
-            tblOrder1.getColumnModel().getColumn(3).setResizable(false);
-            tblOrder1.getColumnModel().getColumn(4).setResizable(false);
-            tblOrder1.getColumnModel().getColumn(5).setResizable(false);
-            tblOrder1.getColumnModel().getColumn(6).setResizable(false);
+        jScrollPane6.setViewportView(tblChungTu);
+        if (tblChungTu.getColumnModel().getColumnCount() > 0) {
+            tblChungTu.getColumnModel().getColumn(0).setResizable(false);
+            tblChungTu.getColumnModel().getColumn(1).setResizable(false);
+            tblChungTu.getColumnModel().getColumn(2).setResizable(false);
+            tblChungTu.getColumnModel().getColumn(3).setResizable(false);
+            tblChungTu.getColumnModel().getColumn(4).setResizable(false);
+            tblChungTu.getColumnModel().getColumn(5).setResizable(false);
+            tblChungTu.getColumnModel().getColumn(6).setResizable(false);
         }
 
         lblTongTien_HoaDon7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblTongTien_HoaDon7.setText("Tìm Kiếm Theo Mã");
 
-        txtTimKiem_HoaDon1.setBackground(new java.awt.Color(241, 241, 241));
-        txtTimKiem_HoaDon1.addActionListener(new java.awt.event.ActionListener() {
+        txtTimKiem_ChungTu.setBackground(new java.awt.Color(241, 241, 241));
+        txtTimKiem_ChungTu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTimKiem_HoaDon1ActionPerformed(evt);
+                txtTimKiem_ChungTuActionPerformed(evt);
             }
         });
-        txtTimKiem_HoaDon1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtTimKiem_ChungTu.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtTimKiem_HoaDon1KeyReleased(evt);
+                txtTimKiem_ChungTuKeyReleased(evt);
             }
         });
 
@@ -2737,6 +2744,11 @@ public class FormMain extends javax.swing.JFrame {
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("XUẤT BÁO CÁO");
         jButton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         lblTSHDBR5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblTSHDBR5.setText("THỐNG KÊ");
@@ -2775,7 +2787,7 @@ public class FormMain extends javax.swing.JFrame {
                             .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(lblTongTien_HoaDon7, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1302, Short.MAX_VALUE)
-                        .addComponent(txtTimKiem_HoaDon1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtTimKiem_ChungTu, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(46, 46, 46))
         );
@@ -2796,7 +2808,7 @@ public class FormMain extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(lblTongTien_HoaDon7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTimKiem_HoaDon1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTimKiem_ChungTu, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(93, Short.MAX_VALUE))
@@ -3437,6 +3449,8 @@ public class FormMain extends javax.swing.JFrame {
     
     private void resetFormOrder(){
         OrderService.resetForm(txtMaHoaDon_HoaDon, cbbKhachHang_HoaDon, txtTongTien_HoaDon, txtGhiChu_HoaDon, btnThem_HoaDon);
+        
+        btnXuatHoaDon_PhieuBanHang.setEnabled(false);
     }
     
     private boolean isValidatedFormOrder(){
@@ -3468,6 +3482,11 @@ public class FormMain extends javax.swing.JFrame {
                                         txtGhiChu_HoaDon);
         
         btnThem_HoaDon.setEnabled(false);
+        btnXuatHoaDon_PhieuBanHang.setEnabled(true);
+        
+        if(OrderService.getStatus(jTable1).equals("Đã Xuất CT")){
+             btnSua_HoaDon.setEnabled(false);
+        }
         
         this.handleListOrderDetailOfOrderItem(orderId);
         
@@ -4054,20 +4073,20 @@ public class FormMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void tblOrder1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrder1MouseClicked
+    private void tblChungTuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChungTuMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tblOrder1MouseClicked
+    }//GEN-LAST:event_tblChungTuMouseClicked
 
-    private void txtTimKiem_HoaDon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiem_HoaDon1ActionPerformed
+    private void txtTimKiem_ChungTuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiem_ChungTuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTimKiem_HoaDon1ActionPerformed
+    }//GEN-LAST:event_txtTimKiem_ChungTuActionPerformed
 
-    private void txtTimKiem_HoaDon1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiem_HoaDon1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTimKiem_HoaDon1KeyReleased
+    private void txtTimKiem_ChungTuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiem_ChungTuKeyReleased
+         OrderService.getTable(tblChungTu, txtTimKiem_ChungTu.getText());
+    }//GEN-LAST:event_txtTimKiem_ChungTuKeyReleased
 
     private void jPanelChungTuComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelChungTuComponentShown
-        // TODO add your handling code here:
+        OrderService.getTable(tblChungTu, "");
     }//GEN-LAST:event_jPanelChungTuComponentShown
 
     private void btnSua_PhieuThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_PhieuThuActionPerformed
@@ -4143,6 +4162,42 @@ public class FormMain extends javax.swing.JFrame {
 //            this.clearTable(tblCTHoaDon_ChiTietHoaDon);
         });
     }//GEN-LAST:event_btnXuatHoaDon_PhieuBanHangActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet("Report");
+
+        // Tạo header row
+        Row headerRow = sheet.createRow(0);
+        headerRow.createCell(0).setCellValue("STT");
+        headerRow.createCell(1).setCellValue("Số CT");
+        headerRow.createCell(2).setCellValue("Khách Hàng");
+        headerRow.createCell(3).setCellValue("Nhân Viên Lập");
+        headerRow.createCell(4).setCellValue("Ngày Lập");
+        headerRow.createCell(5).setCellValue("Tổng Tiền");
+        headerRow.createCell(6).setCellValue("Ghi Chú");
+
+        List<OrderDTO> orders = OrderRepository.findAll("");
+        int rowNum = 1;
+        for (OrderDTO data : orders) {
+            Row row = sheet.createRow(rowNum);
+            row.createCell(0).setCellValue(rowNum++);
+            row.createCell(1).setCellValue(data.getId());
+            row.createCell(2).setCellValue(data.getEmployeeName());
+            row.createCell(3).setCellValue(data.getEmployeeName());
+            row.createCell(4).setCellValue(data.getCreatedDate());
+            row.createCell(5).setCellValue(data.getTotalMoney().doubleValue());
+            row.createCell(6).setCellValue(data.getNote());
+        }
+
+        try (FileOutputStream fileOut = new FileOutputStream("report.xlsx")) {
+            workbook.write(fileOut);
+            JOptionPane.showMessageDialog(null, "Xuất thành công!");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Xuất thất bại");
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Reset_LoaiSanPham;
@@ -4322,10 +4377,10 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTable tbButToan;
     private javax.swing.JTable tbLoaiSanPham_LoaiSanPham;
     private javax.swing.JTable tblCTHoaDon_ChiTietHoaDon;
+    private javax.swing.JTable tblChungTu;
     private javax.swing.JTable tblKhachHang_KhachHang;
     private javax.swing.JTable tblNhanVien_NhanVien;
     private javax.swing.JTable tblOrder;
-    private javax.swing.JTable tblOrder1;
     private javax.swing.JTable tblPhieuChi;
     private javax.swing.JTable tblPhieuThu;
     private javax.swing.JTable tblSanPham;
@@ -4361,8 +4416,8 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTextField txtTenLoaiSanPham_LoaiSanPham;
     private javax.swing.JTextField txtTenSanPham_SanPham;
     private javax.swing.JTextField txtTen_NhanVien;
+    private javax.swing.JTextField txtTimKiem_ChungTu;
     private javax.swing.JTextField txtTimKiem_HoaDon;
-    private javax.swing.JTextField txtTimKiem_HoaDon1;
     private javax.swing.JTextField txtTimKiem_KhachHang;
     private javax.swing.JTextField txtTimKiem_NhanVien;
     private javax.swing.JTextField txtTimKiem_PhieuChi;

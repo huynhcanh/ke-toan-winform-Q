@@ -63,6 +63,11 @@ public class OrderService {
 		int indexRowSelected = table.getSelectedRow();
 		return (Integer) table.getValueAt(indexRowSelected, 1);
 	}
+        
+        public static String getStatus(JTable table) {
+		int indexRowSelected = table.getSelectedRow();
+		return (String) table.getValueAt(indexRowSelected, 6);
+	}
 	
 	public static void resetForm(JTextField idE,
 								 JComboBox customerE,

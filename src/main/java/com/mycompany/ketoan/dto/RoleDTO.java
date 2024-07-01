@@ -9,7 +9,10 @@ public class RoleDTO {
 	private String code;
 	private String name;
 	
-	public static List<RoleDTO> roles = List.of(new RoleDTO("Admin", "Quản Trị Viên"), new RoleDTO("User", "Người dùng"));
+	public static List<RoleDTO> roles = List.of(
+                new RoleDTO("ADMIN", "Admin"),
+                new RoleDTO("ACCOUNTANT", "Kế Toán"),
+                new RoleDTO("SALER", "Nhân Viên Bán Hàng"));
 	
 	public String getCode() {
 		return code;
