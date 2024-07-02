@@ -216,13 +216,10 @@ CREATE TABLE `PhieuChi`
     `QuyenSo`        int            DEFAULT NULL,
     `MaNV`           int            DEFAULT NULL,
     `MaCT`           int            DEFAULT NULL,
-    `MaKH`           int            DEFAULT NULL,
     `DaXuat`         bool           DEFAULT NULL,
     PRIMARY KEY (`MaPC`),
     KEY              `fk_MaNV_PhieuChi_NhanVien` (`MaNV`),
     KEY              `fk_MaCT_PhieuChi_chungtu` (`MaCT`),
-    KEY              `fk_MaKH_PhieuChi_KhachHang` (`MaKH`),
     CONSTRAINT `fk_MaNV_PhieuChi_NhanVien` FOREIGN KEY (`MaNV`) REFERENCES `NhanVien` (`MaNV`),
-    CONSTRAINT `fk_MaCT_PhieuChi_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`maCT`),
-    CONSTRAINT `fk_MaKH_PhieuChi_KhachHang` FOREIGN KEY (`MaKH`) REFERENCES `KhachHang` (`MaKH`)
+    CONSTRAINT `fk_MaCT_PhieuChi_ChungTu` FOREIGN KEY (`MaCT`) REFERENCES `ChungTu` (`maCT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
