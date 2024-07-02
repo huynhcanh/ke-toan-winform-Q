@@ -3477,16 +3477,11 @@ public class FormMain extends javax.swing.JFrame {
                                         txtTongTien_HoaDon,
                                         txtGhiChu_HoaDon);
         
-        btnThem_HoaDon.setEnabled(false);
-        btnXuatHoaDon_PhieuBanHang.setEnabled(true);
-        
-        if(OrderService.getStatus(tblOrder).equals("Đã Xuất")){
-             btnSua_HoaDon.setEnabled(false);
-        }
-        
         this.handleListOrderDetailOfOrderItem(orderId);
         
         this.resetFormCTDH();
+        
+        this.handleDisableAllBtnIfExportedOfOrder();
     }
     
     private void handleListOrderDetailOfOrderItem(Integer orderId){
@@ -3915,16 +3910,25 @@ public class FormMain extends javax.swing.JFrame {
     private void tblOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderMouseClicked
 
         this.handleOrderItemCurrent();
-        
-        this.handleDisableAllBtnIfExported();
     }//GEN-LAST:event_tblOrderMouseClicked
 
-    private void handleDisableAllBtnIfExported(){
+    private void handleDisableAllBtnIfExportedOfOrder(){
         if(OrderService.getStatus(this.tblOrder).equals("Đã Xuất")){
-            btnThem_HoaDon.setEnabled(true);
+            btnThem_HoaDon.setEnabled(false);
+            btnSua_HoaDon.setEnabled(false);
+            btnXoa_HoaDon.setEnabled(false);
+            btnReSet_HoaDon.setEnabled(false);
+            btnXuatHoaDon_PhieuBanHang.setEnabled(false);
+            btnThem_CTHD.setEnabled(false);
+            btnSua_CTHD.setEnabled(false);
+            btnXoa_CTHD.setEnabled(false);
+            btnResetCTHD_HoaDon.setEnabled(false);
+        } else {
+            btnThem_HoaDon.setEnabled(false);
             btnSua_HoaDon.setEnabled(true);
             btnXoa_HoaDon.setEnabled(true);
             btnReSet_HoaDon.setEnabled(true);
+            btnXuatHoaDon_PhieuBanHang.setEnabled(true);
             btnThem_CTHD.setEnabled(true);
             btnSua_CTHD.setEnabled(true);
             btnXoa_CTHD.setEnabled(true);
@@ -4091,7 +4095,7 @@ public class FormMain extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTimKiem_ChungTuActionPerformed
 
     private void txtTimKiem_ChungTuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiem_ChungTuKeyReleased
-         OrderService.getTable(tblChungTu, txtTimKiem_ChungTu.getText());
+         OrderService.getTableCT(tblChungTu, txtTimKiem_ChungTu.getText());
     }//GEN-LAST:event_txtTimKiem_ChungTuKeyReleased
 
     private void jPanelChungTuComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelChungTuComponentShown
@@ -4160,14 +4164,14 @@ public class FormMain extends javax.swing.JFrame {
         Integer id = OrderService.getId(tblOrder);
 
         confirmAndExecute(() -> {
-
-//            OrderDetailRepository.delete(id);
-//
-//            OrderRepository.delete(id);
-//
-//            this.reloadByActionOrder();
-//
-//            this.clearTable(tblCTHoaDon_ChiTietHoaDon);
+            
+            OrderDTO order = OrderRepository.findById(id);
+            order.setExported(true);
+            
+            OrderRepository.update(order);
+            
+            OrderService.updateFieldExportedOfOrderItemOnTable(tblOrder);
+            handleOrderItemCurrent();
         });
     }//GEN-LAST:event_btnXuatHoaDon_PhieuBanHangActionPerformed
 

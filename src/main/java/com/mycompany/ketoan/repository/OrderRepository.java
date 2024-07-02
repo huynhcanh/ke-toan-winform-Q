@@ -6,7 +6,6 @@ package com.mycompany.ketoan.repository;
 
 import com.mycompany.ketoan.dto.OrderDTO;
 import com.mycompany.ketoan.mapper.ObjectMapper;
-import com.mycompany.ketoan.utils.DateTimeUtils;
 
 import java.sql.ResultSet;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ import java.util.Map;
 
 public class OrderRepository {
 	
-	private static final String LIST_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu " +
+	private static final String LIST_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu, pbh.DaXuat " +
 			"FROM PhieuBanHang pbh left join KhachHang kh on kh.MaKH = pbh.MaKH left join NhanVien nv on nv.MaNV = pbh.MaNV " +
 			"LEFT JOIN (SELECT ctpbh.MaPBH, sum(ctpbh.SoLuong * hh.GiaBan) as TongTien " +
 			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH " +
@@ -59,7 +58,8 @@ public class OrderRepository {
 	public static int update(OrderDTO orderDTO) {
 		return QueryRepository.executeQueryUpdateDB(UPDATE_ORDER_QUERY, Map.of("MaPBH", orderDTO.getId(),
 				"MaKH", orderDTO.getCustomerId(),
-				"GhiChu", orderDTO.getNote()));
+				"GhiChu", orderDTO.getNote(),
+                                "DaXuat", orderDTO.getExported()));
 	}
 	
 	public static int delete(Integer id) {

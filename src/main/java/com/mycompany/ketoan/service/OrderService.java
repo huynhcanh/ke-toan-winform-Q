@@ -59,6 +59,11 @@ public class OrderService {
 		int indexRowSelected = tblOrder.getSelectedRow();
 		tblOrder.setValueAt(totalMoney, indexRowSelected, 5);
 	}
+        
+        public static void updateFieldExportedOfOrderItemOnTable(JTable tblOrder) {
+		int indexRowSelected = tblOrder.getSelectedRow();
+		tblOrder.setValueAt("Đã Xuất", indexRowSelected, 6);
+	}
 	
 	public static Integer getId(JTable table) {
 		int indexRowSelected = table.getSelectedRow();
