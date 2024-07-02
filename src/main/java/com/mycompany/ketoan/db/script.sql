@@ -169,12 +169,10 @@ CREATE TABLE `SDDK`
     `NgayDauKy`   date NOT NULL,
     `DuNo`        decimal(10, 2) DEFAULT NULL,
     `DuCo`        decimal(10, 2) DEFAULT NULL,
-    `MaBT`        int            DEFAULT NULL,
     PRIMARY KEY (`MaTietKhoan`, `NgayDauKy`),
     KEY           `fk_MaTietKhoan_SDDK_TietKhoan` (`MaTietKhoan`),
     KEY           `fk_MaBT_SDDK_ButToan` (`MaBT`),
-    CONSTRAINT `fk_MaTietKhoan_SDDK_TietKhoan` FOREIGN KEY (`MaTietKhoan`) REFERENCES `TietKhoan` (`MaTietKhoan`),
-    CONSTRAINT `fk_MaBT_SDDK_ButToan` FOREIGN KEY (`MaBT`) REFERENCES `ButToan` (`MaBT`)
+    CONSTRAINT `fk_MaTietKhoan_SDDK_TietKhoan` FOREIGN KEY (`MaTietKhoan`) REFERENCES `TietKhoan` (`MaTietKhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
