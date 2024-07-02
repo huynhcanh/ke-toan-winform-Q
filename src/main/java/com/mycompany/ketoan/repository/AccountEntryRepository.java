@@ -19,7 +19,7 @@ public class AccountEntryRepository {
 	private static final String DELETE_ACCOUNT_ENTRY_QUERY = "DELETE FROM ButToan WHERE MaCT=:MaCT";
 	
 	public static List<AccountEntryDTO> findAll(String keyword, String type) {
-		ResultSet rs = QueryRepository.executeQuery(LIST_ACCOUNT_ENTRY_QUERY, Map.of("keyword", "%" + keyword + "%", "type", "%" + type + "%"));
+		ResultSet rs = QueryRepository.executeQuery(LIST_ACCOUNT_ENTRY_QUERY, Map.of("keyword", "%" + keyword + "%", "type", type));
 		return ObjectMapper.toDTOs(rs, AccountEntryDTO.class);
 	}
 	
