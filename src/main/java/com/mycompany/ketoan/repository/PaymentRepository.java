@@ -26,6 +26,8 @@ public class PaymentRepository {
 	
 	private static final String DELETE_PAYMENT_QUERY = "DELETE FROM PhieuChi WHERE MaPC=:MaPC";
 	
+	private static final String DELETE_PAYMENT_WITH_DOCUMENT_QUERY = "DELETE FROM PhieuChi WHERE MaCT = :MaCT";
+	
 	
 	public static List<PaymentDTO> findAll(String keyword) {
 		ResultSet rs = QueryRepository.executeQuery(LIST_PAYMENT_QUERY, Map.of("keyword", "%" + keyword + "%"));
@@ -49,5 +51,9 @@ public class PaymentRepository {
 	
 	public static int delete(Integer id) {
 		return QueryRepository.executeQueryUpdateDB(DELETE_PAYMENT_QUERY, Map.of("MaPC", id));
+	}
+	
+	public static int deleteByDocumentId(Integer documentId) {
+		return QueryRepository.executeQueryUpdateDB(DELETE_PAYMENT_WITH_DOCUMENT_QUERY, Map.of("MaCT", documentId));
 	}
 }

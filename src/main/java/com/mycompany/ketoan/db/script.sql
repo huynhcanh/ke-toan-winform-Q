@@ -171,7 +171,6 @@ CREATE TABLE `SDDK`
     `DuCo`        decimal(10, 2) DEFAULT NULL,
     PRIMARY KEY (`MaTietKhoan`, `NgayDauKy`),
     KEY           `fk_MaTietKhoan_SDDK_TietKhoan` (`MaTietKhoan`),
-    KEY           `fk_MaBT_SDDK_ButToan` (`MaBT`),
     CONSTRAINT `fk_MaTietKhoan_SDDK_TietKhoan` FOREIGN KEY (`MaTietKhoan`) REFERENCES `TietKhoan` (`MaTietKhoan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
