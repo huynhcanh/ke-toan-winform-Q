@@ -106,7 +106,14 @@ public class QueryRepository {
 	private static String replaceNamedParameters(String query, Map<String, Object> namedParameters) {
 		for (Map.Entry<String, Object> entry : namedParameters.entrySet()) {
 			String paramPlaceholder = ":" + entry.getKey();
-			String value = entry.getValue() == null ? "NULL" : "'" + entry.getValue() + "'";
+			String value;
+			if (entry.getValue() == null) {
+				value = "NULL";
+			} else if (entry.getValue() instanceof Boolean boolCheck) {
+				value = boolCheck ? "true" : "false";
+			} else {
+				value = "'" + entry.getValue() + "'";
+			}
 			query = query.replace(paramPlaceholder, value);
 		}
 		return query;
