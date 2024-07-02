@@ -28,9 +28,4 @@ public class AccountRepository {
 		ResultSet rs = QueryRepository.executeQuery(LIST_ID_ACCOUNT_LV3);
 		return ObjectMapper.toDTOs(rs, Integer.class);
 	}
-	
-//	public static void main(String[] args) {
-//		List<Integer> ids = findAllIdAccountLevel3();
-//		List<AccountDTO> accountDTOS = findAll("");
-//	}
 }

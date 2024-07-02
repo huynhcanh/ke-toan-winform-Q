@@ -4122,7 +4122,7 @@ public class FormMain extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTimKiem_ChungTuKeyReleased
 
     private void jPanelChungTuComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelChungTuComponentShown
-        OrderService.getTable(tblChungTu, "");
+        OrderService.getTableCT(tblChungTu, "");
     }//GEN-LAST:event_jPanelChungTuComponentShown
 
     private void btnSua_PhieuThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_PhieuThuActionPerformed

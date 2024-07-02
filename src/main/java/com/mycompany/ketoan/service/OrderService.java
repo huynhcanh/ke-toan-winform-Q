@@ -90,4 +90,28 @@ public class OrderService {
 		}
 		return true;
 	}
+        
+        
+        public static void getTableCT(JTable tblOrder, String keyword) {
+		Object[] obj = new Object[]{"STT", "Mã CT", "Nhân Viên ", "Khách Hàng", "Ngày Tạo", "Tổng Tiền", "Ghi Chú"};
+		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
+		tblOrder.setModel(tableModel);
+		
+		List<OrderDTO> orders = OrderRepository.findAll(keyword, true);
+		if (orders != null) {
+			for (int i = 0; i < orders.size(); i++) {
+				OrderDTO orderDTO = orders.get(i);
+				Object[] item = new Object[]{
+						i + 1,
+						orderDTO.getId(),
+						orderDTO.getEmployeeName(),
+						orderDTO.getCustomerName(),
+						DateTimeUtils.toString(orderDTO.getCreatedDate()),
+						PriceUtils.convertToVND(orderDTO.getTotalMoney()),
+						orderDTO.getNote()
+				};
+				tableModel.addRow(item);
+			}
+		}
+	}
 }
