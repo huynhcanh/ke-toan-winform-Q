@@ -241,8 +241,6 @@ public class FormMain extends javax.swing.JFrame {
         txtMaPhieuChi_PhieuChi = new javax.swing.JTextField();
         txtQuyen_PhieuChi = new javax.swing.JTextField();
         lblMaPhieuNhap_PhieuNhap1 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        cbbKhachHang_PhieuChi = new javax.swing.JComboBox<>();
         cbbNhanVien_PhieuChi = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -2200,21 +2198,21 @@ public class FormMain extends javax.swing.JFrame {
         tblPhieuChi.setBackground(new java.awt.Color(217, 217, 217));
         tblPhieuChi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "STT", "Mã PC", "Nhân Viên", "Khách Hàng", "Mã TKN", "Mã TKC", "Tổng Tiền", "Ngày Tạo", "Quyển", "Lý Do"
+                "STT", "Mã PC", "Nhân Viên", "Mã TKN", "Mã TKC", "Tổng Tiền", "Ngày Tạo", "Quyển", "Lý Do"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, true, true
+                false, false, false, false, false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2239,7 +2237,6 @@ public class FormMain extends javax.swing.JFrame {
             tblPhieuChi.getColumnModel().getColumn(4).setResizable(false);
             tblPhieuChi.getColumnModel().getColumn(5).setResizable(false);
             tblPhieuChi.getColumnModel().getColumn(6).setResizable(false);
-            tblPhieuChi.getColumnModel().getColumn(7).setResizable(false);
         }
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -2268,17 +2265,6 @@ public class FormMain extends javax.swing.JFrame {
 
         lblMaPhieuNhap_PhieuNhap1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblMaPhieuNhap_PhieuNhap1.setText("Mã Phiếu Chi");
-
-        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel36.setText("Khách Hàng");
-
-        cbbKhachHang_PhieuChi.setBackground(new java.awt.Color(241, 241, 241));
-        cbbKhachHang_PhieuChi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbbKhachHang_PhieuChi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbKhachHang_PhieuChiActionPerformed(evt);
-            }
-        });
 
         cbbNhanVien_PhieuChi.setBackground(new java.awt.Color(241, 241, 241));
         cbbNhanVien_PhieuChi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -2370,15 +2356,12 @@ public class FormMain extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTongTien_HoaDon4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMaPhieuNhap_PhieuNhap1))
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(cbbKhachHang_PhieuChi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtTongTien_PhieuChi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTongTien_PhieuChi, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMaPhieuChi_PhieuChi, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbbNhanVien_PhieuChi, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
@@ -2433,14 +2416,12 @@ public class FormMain extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtMaTKN_PhieuChi, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15)
-                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbbKhachHang_PhieuChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblTongTien_HoaDon4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel27)
-                                .addComponent(txtTongTien_PhieuChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtTongTien_PhieuChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27)
                             .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(btnXoa_PhieuChi)
@@ -2500,7 +2481,7 @@ public class FormMain extends javax.swing.JFrame {
                     .addGroup(jPanelPhieuChiLayout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(btnXuatHoaDon_PhieuBanHang2)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         jTabbedPanelThuChi.addTab("PHIẾU CHI", jPanelPhieuChi);
@@ -3099,7 +3080,6 @@ public class FormMain extends javax.swing.JFrame {
     private void jPanelPhieuChiComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelPhieuChiComponentShown
         PaymentService.getTables(this.tblPhieuChi, "");
         
-        CustomerService.setComboBoxList(cbbKhachHang_PhieuChi);
         EmployeeService.setComboBoxList(cbbNhanVien_PhieuChi);
 
         this.resetFormPayment();
@@ -3109,7 +3089,6 @@ public class FormMain extends javax.swing.JFrame {
     private void resetFormPayment(){
         PaymentService.resetForm(txtMaPhieuChi_PhieuChi,
                 cbbNhanVien_PhieuChi,
-                cbbKhachHang_PhieuChi,
                 txtMaTKN_PhieuChi,
                 txtMaTKC_PhieuChi,
                 txtTongTien_PhieuChi, 
@@ -4003,7 +3982,6 @@ public class FormMain extends javax.swing.JFrame {
        PaymentService.fillDetailToForm(id,
                                         txtMaPhieuChi_PhieuChi,
                 cbbNhanVien_PhieuChi,
-                cbbKhachHang_PhieuChi,
                 txtMaTKN_PhieuChi,
                 txtMaTKC_PhieuChi,
                 txtTongTien_PhieuChi, 
@@ -4023,10 +4001,6 @@ public class FormMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaPhieuChi_PhieuChiActionPerformed
 
-    private void cbbKhachHang_PhieuChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbKhachHang_PhieuChiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbKhachHang_PhieuChiActionPerformed
-
     private void txtMaTKC_PhieuChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaTKC_PhieuChiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaTKC_PhieuChiActionPerformed
@@ -4041,7 +4015,7 @@ public class FormMain extends javax.swing.JFrame {
 
     private void btnThem_PhieuChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_PhieuChiActionPerformed
         if(PaymentService.isValidated(this.txtMaPhieuChi_PhieuChi, 
-                this.cbbNhanVien_PhieuChi, cbbKhachHang_PhieuChi,
+                this.cbbNhanVien_PhieuChi,
                 txtMaTKN_PhieuChi,
                 txtMaTKC_PhieuChi,
                 txtTongTien_PhieuChi, 
@@ -4049,7 +4023,6 @@ public class FormMain extends javax.swing.JFrame {
             
             PaymentDTO paymentDTO = new PaymentDTO();
             paymentDTO.setEmployeeId(Integer.valueOf(ElementUtils.getCbbSelected(cbbNhanVien_PhieuChi).toString()));
-            paymentDTO.setCustomerId(Integer.valueOf(ElementUtils.getCbbSelected(cbbKhachHang_PhieuChi).toString()));
             paymentDTO.setAccountNoId(Integer.valueOf(txtMaTKN_PhieuChi.getText()));
             paymentDTO.setAccountCoId(Integer.valueOf(txtMaTKC_PhieuChi.getText()));
             paymentDTO.setPrice(PriceUtils.VNDconvertToPrice(this.txtTongTien_PhieuChi.getText()));
@@ -4153,7 +4126,7 @@ public class FormMain extends javax.swing.JFrame {
     private void btnSua_PhieuChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_PhieuChiActionPerformed
         
         if(PaymentService.isValidated(this.txtMaPhieuChi_PhieuChi, 
-                this.cbbNhanVien_PhieuChi, cbbKhachHang_PhieuChi,
+                this.cbbNhanVien_PhieuChi,
                 txtMaTKN_PhieuChi,
                 txtMaTKC_PhieuChi,
                 txtTongTien_PhieuChi, 
@@ -4161,7 +4134,6 @@ public class FormMain extends javax.swing.JFrame {
             
             PaymentDTO paymentDTO = PaymentRepository.findById(PaymentService.getId(this.tblPhieuChi));
             paymentDTO.setEmployeeId(Integer.valueOf(ElementUtils.getCbbSelected(cbbNhanVien_PhieuChi).toString()));
-            paymentDTO.setCustomerId(Integer.valueOf(ElementUtils.getCbbSelected(cbbKhachHang_PhieuChi).toString()));
             paymentDTO.setAccountNoId(Integer.valueOf(txtMaTKN_PhieuChi.getText()));
             paymentDTO.setAccountCoId(Integer.valueOf(txtMaTKC_PhieuChi.getText()));
             paymentDTO.setPrice(PriceUtils.VNDconvertToPrice(this.txtTongTien_PhieuChi.getText()));
@@ -4279,7 +4251,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cbQuyen_NhanVien;
     private javax.swing.JComboBox<String> cbbKhachHang_HoaDon;
-    private javax.swing.JComboBox<String> cbbKhachHang_PhieuChi;
     private javax.swing.JComboBox<String> cbbKhachHang_PhieuThu;
     private javax.swing.JComboBox<String> cbbMaLoaiSanPham_SanPham;
     private javax.swing.JComboBox<String> cbbMaTKC_PhieuThu;
@@ -4312,7 +4283,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;

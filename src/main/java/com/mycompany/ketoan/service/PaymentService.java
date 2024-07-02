@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class PaymentService {
 	
 	public static void getTables(JTable tblOrder, String keyword) {
-		Object[] obj = new Object[]{"STT", "Mã PC", "Nhân Viên", "Khách Hàng", "Mã TKN", "Mã TKC", "Tổng Tiền", "Ngày Tạo", "Quyển", "Lý Do"};
+		Object[] obj = new Object[]{"STT", "Mã PC", "Nhân Viên", "Mã TKN", "Mã TKC", "Tổng Tiền", "Ngày Tạo", "Quyển", "Lý Do"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
@@ -31,7 +31,6 @@ public class PaymentService {
 						i + 1,
 						paymentDTO.getId(),
 						paymentDTO.getEmployeeName(),
-                                                paymentDTO.getCustomerName(),
 						paymentDTO.getAccountNoId(),
 						paymentDTO.getAccountCoId(),
                                                 PriceUtils.convertToVND(paymentDTO.getPrice()),
@@ -52,7 +51,6 @@ public class PaymentService {
 	public static void resetForm(
 			JTextField idE,
 			JComboBox employeeE,
-			JComboBox customerE,
                         JTextField noAccountE,
                         JTextField coAccountE,
 			JTextField priceE,
@@ -60,7 +58,6 @@ public class PaymentService {
                         JTextArea ressonE) {
 		idE.setText("");
 		ElementUtils.setSelectedCombobox(null, employeeE);
-                ElementUtils.setSelectedCombobox(null, customerE);
 		noAccountE.setText("");
                 coAccountE.setText("");
 		priceE.setText("");
@@ -70,7 +67,6 @@ public class PaymentService {
 	
 	public static boolean isValidated(JTextField idE,
 			JComboBox employeeE,
-			JComboBox customerE,
                         JTextField noAccountE,
                         JTextField coAccountE,
 			JTextField priceE,
@@ -78,7 +74,7 @@ public class PaymentService {
 			boolean isAddAction) {
 		if ((!isAddAction && idE.getText().equals("")) || noAccountE.getText().equals("")
 				|| coAccountE.getText().equals("")
-                                || ElementUtils.getCbbSelected(employeeE) == null || ElementUtils.getCbbSelected(customerE) == null
+                                || ElementUtils.getCbbSelected(employeeE) == null
                                 || priceE.getText().equals("") || bookNumberE.getText().equals("")) {
 			
 			AlertUtils.showAlertValidate();
@@ -91,7 +87,6 @@ public class PaymentService {
 	public static void fillDetailToForm(Integer id,
                         JTextField idE,
 			JComboBox employeeE,
-			JComboBox customerE,
                         JTextField noAccountE,
                         JTextField coAccountE,
 			JTextField priceE,
@@ -100,7 +95,6 @@ public class PaymentService {
 		PaymentDTO paymentDTO = PaymentRepository.findById(id);
 		idE.setText(paymentDTO.getId().toString());
                 ElementUtils.setSelectedCombobox(paymentDTO.getEmployeeId(), employeeE);
-                ElementUtils.setSelectedCombobox(paymentDTO.getCustomerId(), customerE);
 		noAccountE.setText(paymentDTO.getAccountNoId() != null? paymentDTO.getAccountNoId().toString(): "");
 		coAccountE.setText(paymentDTO.getAccountCoId() != null? paymentDTO.getAccountCoId().toString() : "");
                 priceE.setText(PriceUtils.convertToVND(paymentDTO.getPrice()));

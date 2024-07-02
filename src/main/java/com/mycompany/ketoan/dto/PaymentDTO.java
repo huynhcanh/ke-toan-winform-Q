@@ -43,15 +43,6 @@ public class PaymentDTO {
 	@JsonProperty("MaCT")
 	private Integer documentId;
 	
-	@JsonProperty("MaKH")
-	private Integer customerId;
-	
-	@JsonProperty("TenKH")
-	private String customerName;
-	
-	@JsonProperty("DiaChiKH")
-	private String customerAddress;
-	
 	public Integer getId() {
 		return id;
 	}
@@ -148,27 +139,4 @@ public class PaymentDTO {
 		this.documentId = documentId;
 	}
 	
-	public Integer getCustomerId() {
-		return customerId;
-	}
-	
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
-	}
-	
-	public String getCustomerName() {
-		return customerName;
-	}
-	
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-	
-	public String getCustomerAddress() {
-		return customerAddress;
-	}
-	
-	public void setCustomerAddress(String customerAddress) {
-		this.customerAddress = customerAddress;
-	}
 }
