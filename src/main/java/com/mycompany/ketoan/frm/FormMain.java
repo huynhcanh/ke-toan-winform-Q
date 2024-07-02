@@ -4306,7 +4306,17 @@ public class FormMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXuatPhieuChi_PhieuChiActionPerformed
 
     private void btnXoa_ButToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_ButToanActionPerformed
-        // TODO add your handling code here:
+        Integer id = AccountEntryService.getId(this.tbButToan);
+        
+        this.confirmAndExecute(() -> {
+
+                ReceiptRepository.delete(id);
+                
+                DocumentRepository.delete(id);
+
+                ReceiptService.getTables(tbButToan, "");
+                //this.resetFormReceipt();
+            });
     }//GEN-LAST:event_btnXoa_ButToanActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
