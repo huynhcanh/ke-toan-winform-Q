@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class AccountEntryService {
 	
 	public static void getTables(JTable tblOrder, String keyword, String type) {
-		Object[] obj = new Object[]{"STT", "Mã BT", "Ngày", "Số CT", "Diễn Giải", "TK Nợ", "TK Có", "Số Tiền"};
+		Object[] obj = new Object[]{"STT", "Mã BT", "Ngày Tạo", "Số CT", "Diễn Giải", "TK Nợ", "TK Có", "Số Tiền"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
@@ -29,7 +29,7 @@ public class AccountEntryService {
 						i + 1,
 						accountEntryDTO.getId(),
 						accountEntryDTO.getCreatedDate(),
-						accountEntryDTO.getDocumentId(),
+						accountEntryDTO.getDocumentNumber(),
 						accountEntryDTO.getDescription(),
                                                 accountEntryDTO.getAccountNoId(),
 						accountEntryDTO.getAccountCoId(),
@@ -45,57 +45,57 @@ public class AccountEntryService {
 		return (Integer) table.getValueAt(indexRowSelected, 1);
 	}
 	
-	public static void resetForm(
-			JTextField idE,
-			JTextField usernameE,
-			JTextField passwordE,
-			JComboBox roleE,
-                        JTextField nameE,
-                        JTextField phoneE,
-			JTextField addressE) {
-		idE.setText("");
-		usernameE.setText("");
-		passwordE.setText("");
-                nameE.setText("");
-		phoneE.setText("");
-                addressE.setText("");
-		ElementUtils.setSelectedCombobox(null, roleE);
-	}
-	
-	public static boolean isValidated(JTextField idE,
-									  JTextField usernameE,
-									  JTextField passwordE,
-									  JComboBox roleE,
-                                                                          JTextField nameE,
-                                                                            JTextField phoneE,
-                                                                            JTextField addressE,
-									  boolean isAddAction) {
-		if ((!isAddAction && idE.getText().equals("")) || usernameE.getText().equals("")
-				|| passwordE.getText().equals("") || ElementUtils.getCbbSelected(roleE) == null
-                                || nameE.getText().equals("") || phoneE.getText().equals("") || addressE.getText().equals("")) {
-			
-			AlertUtils.showAlertValidate();
-			return false;
-		}
-		return true;
-	}
-	
-	
-	public static void fillDetailToForm(Integer id,
-										JTextField idE,
-										JTextField usernameE,
-										JTextField passwordE,
-										JComboBox roleE,
-                                                                                JTextField nameE,
-                                                                            JTextField phoneE,
-                                                                            JTextField addressE) {
-		EmployeeDTO employeeDTO = EmployeeRepository.findById(id);
-		idE.setText(employeeDTO.getId().toString());
-		usernameE.setText(employeeDTO.getUsername());
-		passwordE.setText(employeeDTO.getPassword());
-		ElementUtils.setSelectedCombobox(employeeDTO.getRole(), roleE);
-               nameE.setText(employeeDTO.getName());
-		phoneE.setText(employeeDTO.getPhone());
-                addressE.setText(employeeDTO.getAddress());
-	}
+//	public static void resetForm(
+//			JTextField idE,
+//			JTextField usernameE,
+//			JTextField passwordE,
+//			JComboBox roleE,
+//                        JTextField nameE,
+//                        JTextField phoneE,
+//			JTextField addressE) {
+//		idE.setText("");
+//		usernameE.setText("");
+//		passwordE.setText("");
+//                nameE.setText("");
+//		phoneE.setText("");
+//                addressE.setText("");
+//		ElementUtils.setSelectedCombobox(null, roleE);
+//	}
+//	
+//	public static boolean isValidated(JTextField idE,
+//									  JTextField usernameE,
+//									  JTextField passwordE,
+//									  JComboBox roleE,
+//                                                                          JTextField nameE,
+//                                                                            JTextField phoneE,
+//                                                                            JTextField addressE,
+//									  boolean isAddAction) {
+//		if ((!isAddAction && idE.getText().equals("")) || usernameE.getText().equals("")
+//				|| passwordE.getText().equals("") || ElementUtils.getCbbSelected(roleE) == null
+//                                || nameE.getText().equals("") || phoneE.getText().equals("") || addressE.getText().equals("")) {
+//			
+//			AlertUtils.showAlertValidate();
+//			return false;
+//		}
+//		return true;
+//	}
+//	
+//	
+//	public static void fillDetailToForm(Integer id,
+//										JTextField idE,
+//										JTextField usernameE,
+//										JTextField passwordE,
+//										JComboBox roleE,
+//                                                                                JTextField nameE,
+//                                                                            JTextField phoneE,
+//                                                                            JTextField addressE) {
+//		EmployeeDTO employeeDTO = EmployeeRepository.findById(id);
+//		idE.setText(employeeDTO.getId().toString());
+//		usernameE.setText(employeeDTO.getUsername());
+//		passwordE.setText(employeeDTO.getPassword());
+//		ElementUtils.setSelectedCombobox(employeeDTO.getRole(), roleE);
+//               nameE.setText(employeeDTO.getName());
+//		phoneE.setText(employeeDTO.getPhone());
+//                addressE.setText(employeeDTO.getAddress());
+//	}
 }
