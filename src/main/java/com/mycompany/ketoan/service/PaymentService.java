@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class PaymentService {
 	
 	public static void getTables(JTable tblOrder, String keyword) {
-		Object[] obj = new Object[]{"STT", "Mã PC", "Nhân Viên", "Mã TKN", "Mã TKC", "Tổng Tiền", "Ngày Tạo", "Quyển", "Lý Do"};
+		Object[] obj = new Object[]{"STT", "Mã PC", "Nhân Viên", "Mã TKN", "Mã TKC", "Tổng Tiền", "Ngày Tạo", "Quyển", "Trạng Thái", "Lý Do"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
@@ -36,6 +36,7 @@ public class PaymentService {
                                                 PriceUtils.convertToVND(paymentDTO.getPrice()),
 						paymentDTO.getCreatedDate(),
 						paymentDTO.getBookNumber(),
+                                                paymentDTO.getIsExported() != null && paymentDTO.getIsExported() ? "Đã Xuất" : "Chưa Xuất",
                                                 paymentDTO.getReason()
 				};
 				tableModel.addRow(item);
@@ -51,15 +52,15 @@ public class PaymentService {
 	public static void resetForm(
 			JTextField idE,
 			JComboBox employeeE,
-                        JTextField noAccountE,
-                        JTextField coAccountE,
+                        JComboBox noAccountE,
+                        JComboBox coAccountE,
 			JTextField priceE,
                         JTextField bookNumberE,
                         JTextArea ressonE) {
 		idE.setText("");
 		ElementUtils.setSelectedCombobox(null, employeeE);
-		noAccountE.setText("");
-                coAccountE.setText("");
+		ElementUtils.setSelectedCombobox(null, noAccountE);
+                ElementUtils.setSelectedCombobox(null, coAccountE);
 		priceE.setText("");
                 bookNumberE.setText("");
 		ressonE.setText("");
@@ -67,13 +68,13 @@ public class PaymentService {
 	
 	public static boolean isValidated(JTextField idE,
 			JComboBox employeeE,
-                        JTextField noAccountE,
-                        JTextField coAccountE,
+                         JComboBox noAccountE,
+                        JComboBox coAccountE,
 			JTextField priceE,
                         JTextField bookNumberE,
 			boolean isAddAction) {
-		if ((!isAddAction && idE.getText().equals("")) || noAccountE.getText().equals("")
-				|| coAccountE.getText().equals("")
+		if ((!isAddAction && idE.getText().equals("")) || ElementUtils.getCbbSelected(noAccountE) == null
+				|| ElementUtils.getCbbSelected(coAccountE) == null
                                 || ElementUtils.getCbbSelected(employeeE) == null
                                 || priceE.getText().equals("") || bookNumberE.getText().equals("")) {
 			
@@ -87,18 +88,29 @@ public class PaymentService {
 	public static void fillDetailToForm(Integer id,
                         JTextField idE,
 			JComboBox employeeE,
-                        JTextField noAccountE,
-                        JTextField coAccountE,
+                        JComboBox noAccountE,
+                        JComboBox coAccountE,
 			JTextField priceE,
                         JTextField bookNumberE,
                         JTextArea reasonE) {
 		PaymentDTO paymentDTO = PaymentRepository.findById(id);
 		idE.setText(paymentDTO.getId().toString());
                 ElementUtils.setSelectedCombobox(paymentDTO.getEmployeeId(), employeeE);
-		noAccountE.setText(paymentDTO.getAccountNoId() != null? paymentDTO.getAccountNoId().toString(): "");
-		coAccountE.setText(paymentDTO.getAccountCoId() != null? paymentDTO.getAccountCoId().toString() : "");
+		ElementUtils.setSelectedCombobox(paymentDTO.getAccountNoId(), noAccountE);
+		ElementUtils.setSelectedCombobox(paymentDTO.getAccountCoId(), coAccountE);
                 priceE.setText(PriceUtils.convertToVND(paymentDTO.getPrice()));
 		bookNumberE.setText(paymentDTO.getBookNumber() != null ? paymentDTO.getBookNumber().toString(): "");
                 reasonE.setText(paymentDTO.getReason());
+	}
+        
+        
+         public static String getStatus(JTable table) {
+		int indexRowSelected = table.getSelectedRow();
+		return (String) table.getValueAt(indexRowSelected, 8);
+	}
+         
+         public static void updateFieldExportedOfPaymentItemOnTable(JTable tblOrder) {
+		int indexRowSelected = tblOrder.getSelectedRow();
+		tblOrder.setValueAt("Đã Xuất", indexRowSelected, 8);
 	}
 }

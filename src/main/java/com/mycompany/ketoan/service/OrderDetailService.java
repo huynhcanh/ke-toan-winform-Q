@@ -43,23 +43,18 @@ public class OrderDetailService {
 	
 	public static void fillDetailToForm(Integer orderId, Integer productId,
 										JComboBox productE,
-										JTextField quantityE,
-										JTextField totalMoneyE) {
+										JTextField quantityE) {
 		OrderDetailDTO orderDetailDTO = OrderDetailRepository.findByOrderIdAndProductId(orderId, productId);
 		ElementUtils.setSelectedCombobox(orderDetailDTO.getProductId(), productE);
 		
 		Integer quantity = orderDetailDTO.getQuantity();
 		quantityE.setText(quantity.toString());
-		totalMoneyE.setText(PriceUtils.convertToVND(orderDetailDTO.getTotalMoney()));
 	}
 	
-	public static void resetForm(JComboBox productE,
-								 JTextField quantityE,
-								 JTextField totalMoneyE) {
+	public static void resetForm(JComboBox productE, JTextField quantityE) {
 		
 		ElementUtils.setSelectedCombobox(null, productE);
 		quantityE.setText("");
-		totalMoneyE.setText("");
 	}
 	
 	public static boolean isValidated(JComboBox productE,

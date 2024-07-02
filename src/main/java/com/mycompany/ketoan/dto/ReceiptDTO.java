@@ -48,6 +48,17 @@ public class ReceiptDTO {
 	
 	@JsonProperty("TenKH")
 	private String customerName;
+        
+        @JsonProperty("DaXuat")
+	private Boolean isExported;
+
+    public Boolean getIsExported() {
+        return isExported;
+    }
+
+    public void setIsExported(Boolean isExported) {
+        this.isExported = isExported;
+    }
 	
 	public Integer getId() {
 		return id;

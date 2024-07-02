@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class PaymentRepository {
 	
-	private static final String LIST_PAYMENT_QUERY = "SELECT pc.MaPC, pc.LydoNop, pc.NgayTao, pc.SoTien, pc.TaiLieuDinhKem, pc.MaTietKhoanNo, pc.MaTietKhoanCo, pc.QuyenSo, pc.MaNV, nv.Ten as TenNV, nv.DiaChi as DiaChiNV, pc.MaCT " +
+	private static final String LIST_PAYMENT_QUERY = "SELECT pc.MaPC, pc.LydoNop, pc.NgayTao, pc.SoTien, pc.TaiLieuDinhKem, pc.MaTietKhoanNo, pc.MaTietKhoanCo, pc.QuyenSo, pc.MaNV, nv.Ten as TenNV, pc.MaCT, pc.DaXuat " +
 			" FROM PhieuChi pc left join NhanVien nv on nv.MaNV = pc.MaNV WHERE pc.MaPC like :keyword";
 	
 	private static final String DETAIL_PAYMENT_QUERY = "SELECT pc.MaPC, pc.LydoNop, pc.NgayTao, pc.SoTien, pc.TaiLieuDinhKem, pc.MaTietKhoanNo, pc.MaTietKhoanCo, pc.QuyenSo, pc.MaNV, nv.Ten as TenNV, nv.DiaChi as DiaChiNV, pc.MaCT " +
@@ -17,7 +17,7 @@ public class PaymentRepository {
 	
 	private static final String INSERT_PAYMENT_QUERY = "INSERT INTO PhieuChi " +
 			" (LydoNop, NgayTao, SoTien, TaiLieuDinhKem, MaTietKhoanNo, MaTietKhoanCo, QuyenSo, MaNV, MaCT, DaXuat) " +
-			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaCT, 0)";
+			" VALUES(:LydoNop, NOW(), :SoTien, :TaiLieuDinhKem, :MaTietKhoanNo, :MaTietKhoanCo, :QuyenSo, :MaNV, :MaCT, 0)";
 	
 	private static final String UPDATE_PAYMENT_QUERY = "UPDATE PhieuChi " +
 			" SET LydoNop=:LydoNop, NgayTao=:NgayTao, SoTien=:SoTien, TaiLieuDinhKem=:TaiLieuDinhKem, MaTietKhoanNo=MaTietKhoanNo," +

@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class ReceiptService {
 	
 	public static void getTables(JTable tblOrder, String keyword) {
-		Object[] obj = new Object[]{"STT", "Mã PT", "Nhân Viên", "Khách Hàng", "Mã TKN", "Mã TKC", "Tổng Tiền", "Ngày Tạo", "Quyển", "Lý Do"};
+		Object[] obj = new Object[]{"STT", "Mã PT", "Nhân Viên", "Khách Hàng", "Mã TKN", "Mã TKC", "Tổng Tiền", "Ngày Tạo", "Quyển", "Trạng Thái", "Lý Do"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
@@ -38,6 +38,7 @@ public class ReceiptService {
                                                 PriceUtils.convertToVND(receiptDTO.getPrice()),
 						receiptDTO.getCreatedDate(),
 						receiptDTO.getBookNumber(),
+                                                receiptDTO.getIsExported() != null && receiptDTO.getIsExported() ? "Đã Xuất" : "Chưa Xuất",
                                                 receiptDTO.getReason()
 				};
 				tableModel.addRow(item);
@@ -107,5 +108,15 @@ public class ReceiptService {
                 priceE.setText(PriceUtils.convertToVND(receiptDTO.getPrice()));
 		bookNumberE.setText(receiptDTO.getBookNumber() != null ? receiptDTO.getBookNumber().toString(): "");
                 reasonE.setText(receiptDTO.getReason());
+	}
+        
+         public static String getStatus(JTable table) {
+		int indexRowSelected = table.getSelectedRow();
+		return (String) table.getValueAt(indexRowSelected, 9);
+	}
+         
+         public static void updateFieldExportedOfReceiptItemOnTable(JTable tblOrder) {
+		int indexRowSelected = tblOrder.getSelectedRow();
+		tblOrder.setValueAt("Đã Xuất", indexRowSelected, 9);
 	}
 }

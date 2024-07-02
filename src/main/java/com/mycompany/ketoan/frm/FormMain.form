@@ -648,15 +648,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblMaHoaDon_HoaDon1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblMaHoaDon_HoaDon2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblMaHoaDon_HoaDon3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblSoLuongCTHD_HoaDon" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtMaHoaDonCTHD_HoaDon" max="32767" attributes="0"/>
-                              <Component id="cbbSanPhamCTHD_HoaDon" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbbSanPhamCTHD_HoaDon" alignment="0" pref="149" max="32767" attributes="0"/>
                               <Component id="txtSoLuongCTHD_HoaDon" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtTongTienCTHD_HoaDon" min="-2" pref="149" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="22" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -691,15 +689,11 @@
                                       <Component id="btnXoa_CTHD" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblMaHoaDon_HoaDon3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="txtTongTienCTHD_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnResetCTHD_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="btnResetCTHD_HoaDon" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="btnThem_CTHD" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="67" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -715,14 +709,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSoLuongCTHD_HoaDonActionPerformed"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSoLuongCTHD_HoaDonKeyReleased"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblMaHoaDon_HoaDon3">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Th&#xe0;nh Ti&#x1ec1;n*"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblSoLuongCTHD_HoaDon">
                   <Properties>
@@ -774,17 +760,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="S&#x1ea3;n Ph&#x1ea9;m*"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtTongTienCTHD_HoaDon">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTongTienCTHD_HoaDonActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnXoa_CTHD">
                   <Properties>
@@ -2707,7 +2682,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btnXuatHoaDon_PhieuBanHang1" min="-2" pref="105" max="-2" attributes="0"/>
+                                  <Component id="btnXuatPhieuThu_PhieuThu" min="-2" pref="105" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane10" alignment="0" pref="1304" max="32767" attributes="0"/>
                               <Component id="jLabel23" pref="1304" max="32767" attributes="0"/>
@@ -2735,7 +2710,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Component id="btnXuatHoaDon_PhieuBanHang1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnXuatPhieuThu_PhieuThu" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="156" max="32767" attributes="0"/>
@@ -2757,7 +2732,7 @@
                           <Color blue="d9" green="d9" red="d9" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="10" rowCount="8">
+                          <Table columnCount="11" rowCount="8">
                             <Column editable="false" title="STT" type="java.lang.Object"/>
                             <Column editable="false" title="M&#xe3; PT" type="java.lang.Object"/>
                             <Column editable="false" title="Nh&#xe2;n Vi&#xea;n" type="java.lang.Object"/>
@@ -2767,6 +2742,7 @@
                             <Column editable="false" title="T&#x1ed5;ng Ti&#x1ec1;n" type="java.lang.Object"/>
                             <Column editable="false" title="Ng&#xe0;y T&#x1ea1;o" type="java.lang.Object"/>
                             <Column editable="true" title="Quy&#x1ec3;n" type="java.lang.Object"/>
+                            <Column editable="true" title="Tr&#x1ea1;ng Th&#xe1;i" type="java.lang.Object"/>
                             <Column editable="true" title="L&#xfd; Do" type="java.lang.Object"/>
                           </Table>
                         </Property>
@@ -2808,6 +2784,11 @@
                               <Renderer/>
                             </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -2909,9 +2890,9 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="btnXoa_PhieuNhap" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="btnThem_PhieuNhap" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="btnReSet_PhieuNhap" alignment="0" pref="73" max="32767" attributes="0"/>
+                                          <Component id="btnXoa_PhieuThu" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="btnThem_PhieuThu" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnReset_PhieuThu" alignment="0" pref="73" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -2943,7 +2924,7 @@
                                           <Component id="cbbMaTKC_PhieuThu" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="btnThem_PhieuNhap" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnThem_PhieuThu" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -2965,9 +2946,9 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="btnXoa_PhieuNhap" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnXoa_PhieuThu" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnReSet_PhieuNhap" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnReset_PhieuThu" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -3125,7 +3106,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JButton" name="btnThem_PhieuNhap">
+                    <Component class="javax.swing.JButton" name="btnThem_PhieuThu">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="47" green="ad" red="70" type="rgb"/>
@@ -3141,10 +3122,10 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThem_PhieuNhapActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThem_PhieuThuActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnXoa_PhieuNhap">
+                    <Component class="javax.swing.JButton" name="btnXoa_PhieuThu">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -3163,10 +3144,10 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoa_PhieuNhapActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoa_PhieuThuActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnReSet_PhieuNhap">
+                    <Component class="javax.swing.JButton" name="btnReset_PhieuThu">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -3182,7 +3163,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReSet_PhieuNhapActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReset_PhieuThuActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSua_PhieuThu">
@@ -3254,7 +3235,7 @@
                     <Property name="text" type="java.lang.String" value="T&#xec;m Ki&#x1ebf;m Theo M&#xe3;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnXuatHoaDon_PhieuBanHang1">
+                <Component class="javax.swing.JButton" name="btnXuatPhieuThu_PhieuThu">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="47" green="ad" red="70" type="rgb"/>
@@ -3273,7 +3254,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXuatHoaDon_PhieuBanHang1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXuatPhieuThu_PhieuThuActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -3302,11 +3283,7 @@
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel68" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btnXuatHoaDon_PhieuBanHang2" min="-2" pref="102" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jPanel8" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane11" alignment="0" pref="1304" max="32767" attributes="0"/>
                               <Component id="jLabel25" alignment="0" pref="1304" max="32767" attributes="0"/>
                               <Component id="txtTimKiem_PhieuChi" alignment="0" max="32767" attributes="0"/>
@@ -3326,17 +3303,9 @@
                           <Component id="txtTimKiem_PhieuChi" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane11" min="-2" pref="320" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                  <Component id="btnXuatHoaDon_PhieuBanHang2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="109" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="113" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3367,7 +3336,7 @@
                           <Color blue="d9" green="d9" red="d9" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="9" rowCount="8">
+                          <Table columnCount="10" rowCount="8">
                             <Column editable="false" title="STT" type="java.lang.Object"/>
                             <Column editable="false" title="M&#xe3; PC" type="java.lang.Object"/>
                             <Column editable="false" title="Nh&#xe2;n Vi&#xea;n" type="java.lang.Object"/>
@@ -3376,6 +3345,7 @@
                             <Column editable="false" title="T&#x1ed5;ng Ti&#x1ec1;n" type="java.lang.Object"/>
                             <Column editable="false" title="Ng&#xe0;y T&#x1ea1;o" type="java.lang.Object"/>
                             <Column editable="true" title="Quy&#x1ec3;n" type="java.lang.Object"/>
+                            <Column editable="true" title="Tr&#x1ea1;ng Th&#xe1;i" type="java.lang.Object"/>
                             <Column editable="true" title="L&#xfd; Do" type="java.lang.Object"/>
                           </Table>
                         </Property>
@@ -3426,6 +3396,11 @@
                               <Editor/>
                               <Renderer/>
                             </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
                           </TableColumnModel>
                         </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
@@ -3462,49 +3437,54 @@
                                   <Component id="txtMaPhieuChi_PhieuChi" min="-2" pref="174" max="-2" attributes="0"/>
                                   <Component id="cbbNhanVien_PhieuChi" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="65" max="32767" attributes="0"/>
+                              <EmptySpace pref="74" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="cbbMaTKC_PhieuChi" min="-2" pref="185" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel38" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="txtQuyen_PhieuChi" min="-2" pref="185" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                                      <Component id="jLabel38" min="-2" pref="44" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jScrollPane13" alignment="1" pref="0" max="32767" attributes="0"/>
+                                          <Component id="cbbMaTKN_PhieuChi" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="txtQuyen_PhieuChi" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtMaTKC_PhieuChi" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtMaTKN_PhieuChi" alignment="1" pref="185" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane13" alignment="1" pref="0" max="32767" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                      <Component id="btnThem_PhieuChi" min="-2" pref="82" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="btnThem_PhieuChi" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="btnSua_PhieuChi" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
                                           <Component id="btnXoa_PhieuChi" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
-                                          <Component id="btnReSet_PhieuChi" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="btnReset_PhieuChi" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnXuatPhieuChi_PhieuChi" min="-2" pref="102" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
+                              <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="txtQuyen_PhieuChi" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -3512,26 +3492,34 @@
                                       <Component id="lblMaPhieuNhap_PhieuNhap1" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                                       <Component id="txtMaPhieuChi_PhieuChi" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="btnThem_PhieuChi" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="btnThem_PhieuChi" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnXuatPhieuChi_PhieuChi" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtMaTKC_PhieuChi" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                   <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel34" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                                   <Component id="cbbNhanVien_PhieuChi" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnSua_PhieuChi" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbbMaTKC_PhieuChi" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblTongTien_HoaDon4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="txtTongTien_PhieuChi" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="btnXoa_PhieuChi" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btnReset_PhieuChi" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtMaTKN_PhieuChi" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                                              <Component id="lblTongTien_HoaDon4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                              <Component id="txtTongTien_PhieuChi" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="cbbMaTKN_PhieuChi" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -3539,13 +3527,8 @@
                                           <Component id="jScrollPane13" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="btnXoa_PhieuChi" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnReSet_PhieuChi" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
-                              <EmptySpace pref="12" max="32767" attributes="0"/>
+                              <EmptySpace pref="13" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3632,26 +3615,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="M&#xe3; TKN"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtMaTKC_PhieuChi">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMaTKC_PhieuChiActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtMaTKN_PhieuChi">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMaTKN_PhieuChiActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTongTien_HoaDon4">
                       <Properties>
@@ -3741,7 +3704,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoa_PhieuChiActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnReSet_PhieuChi">
+                    <Component class="javax.swing.JButton" name="btnReset_PhieuChi">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -3757,7 +3720,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReSet_PhieuChiActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReset_PhieuChiActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSua_PhieuChi">
@@ -3779,6 +3742,58 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSua_PhieuChiActionPerformed"/>
                       </Events>
                     </Component>
+                    <Component class="javax.swing.JComboBox" name="cbbMaTKC_PhieuChi">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="cbbMaTKN_PhieuChi">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnXuatPhieuChi_PhieuChi">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="47" green="ad" red="70" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="XU&#x1ea4;T PHI&#x1ebe;U"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                            <BevelBorder/>
+                          </Border>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXuatPhieuChi_PhieuChiActionPerformed"/>
+                      </Events>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Component class="javax.swing.JLabel" name="jLabel68">
@@ -3798,25 +3813,6 @@
                   <Events>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTimKiem_PhieuChiKeyReleased"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnXuatHoaDon_PhieuBanHang2">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="47" green="ad" red="70" type="rgb"/>
-                    </Property>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="XU&#x1ea4;T PHI&#x1ebe;U"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                        <BevelBorder/>
-                      </Border>
-                    </Property>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

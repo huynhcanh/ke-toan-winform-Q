@@ -42,6 +42,9 @@ public class PaymentDTO {
 	
 	@JsonProperty("MaCT")
 	private Integer documentId;
+        
+        @JsonProperty("DaXuat")
+	private Boolean isExported;
 	
 	public Integer getId() {
 		return id;
@@ -138,5 +141,13 @@ public class PaymentDTO {
 	public void setDocumentId(Integer documentId) {
 		this.documentId = documentId;
 	}
+
+    public Boolean getIsExported() {
+        return isExported;
+    }
+
+    public void setIsExported(Boolean isExported) {
+        this.isExported = isExported;
+    }
 	
 }

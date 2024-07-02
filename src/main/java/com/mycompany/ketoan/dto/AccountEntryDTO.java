@@ -11,10 +11,10 @@ public class AccountEntryDTO {
 	private Integer Id;
 	
 	@JsonProperty("NgayCT")
-	private Date createdDate;
+	private Date documentDate;
 	
 	@JsonProperty("NgayHT")
-	private Date ngayHT;
+	private Date createdDate;
 	
 	@JsonProperty("DienGiai")
 	private String description;
@@ -49,14 +49,14 @@ public class AccountEntryDTO {
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
-	
-	public Date getNgayHT() {
-		return ngayHT;
-	}
-	
-	public void setNgayHT(Date ngayHT) {
-		this.ngayHT = ngayHT;
-	}
+
+    public Date getDocumentDate() {
+        return documentDate;
+    }
+
+    public void setDocumentDate(Date documentDate) {
+        this.documentDate = documentDate;
+    }
 	
 	public String getDescription() {
 		return description;
