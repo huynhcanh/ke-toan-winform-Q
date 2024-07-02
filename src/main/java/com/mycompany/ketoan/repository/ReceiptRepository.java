@@ -30,6 +30,8 @@ public class ReceiptRepository {
 	
 	private static final String DELETE_RECEIPT_QUERY = "DELETE FROM PhieuThu WHERE MaPT=:MaPT";
 	
+	private static final String DELETE_PAYMENT_WITH_DOCUMENT_QUERY = "DELETE FROM PhieuThu WHERE MaCT = :MaCT";
+	
 	
 	public static List<ReceiptDTO> findAll(String keyword) {
 		ResultSet rs = QueryRepository.executeQuery(LIST_RECEIPT_QUERY, Map.of("keyword", "%" + keyword + "%"));
@@ -53,5 +55,9 @@ public class ReceiptRepository {
 	
 	public static int delete(Integer id) {
 		return QueryRepository.executeQueryUpdateDB(DELETE_RECEIPT_QUERY, Map.of("MaPT", id));
+	}
+	
+	public static int deleteByDocumentId(Integer documentId) {
+		return QueryRepository.executeQueryUpdateDB(DELETE_PAYMENT_WITH_DOCUMENT_QUERY, Map.of("MaCT", documentId));
 	}
 }
