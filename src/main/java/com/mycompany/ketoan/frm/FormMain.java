@@ -4323,15 +4323,14 @@ public class FormMain extends javax.swing.JFrame {
             
             switch(type){
                 case "PT": {
-                    
+                    ReceiptRepository.delete(id);
+                    break;
                 }
                 case "PC": {
-                    
+                    break;
                 }
                 default: throw new RuntimeException("Lỗi");
             }
-
-            ReceiptRepository.delete(id);
 
             DocumentRepository.delete(documentId);
 
