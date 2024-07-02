@@ -4315,27 +4315,28 @@ public class FormMain extends javax.swing.JFrame {
         
         this.confirmAndExecute(() -> {
             
-            AccountEntryDTO accountEntryDTO = AccountEntryRepository.findById(id);
-            
-            Integer documentId = accountEntryDTO.getDocumentId();
-            DocumentDTO documentDTO = DocumentRepository.findById(documentId);
-            String type = documentDTO.getType();
-            
-            switch(type){
-                case "PT": {
-                    ReceiptRepository.delete(id);
-                    break;
-                }
-                case "PC": {
-                    break;
-                }
-                default: throw new RuntimeException("Lỗi");
-            }
-
-            DocumentRepository.delete(documentId);
-
-            ReceiptService.getTables(tbButToan, "");
-            //this.resetFormReceipt();
+//            AccountEntryDTO accountEntryDTO = AccountEntryRepository.findById(id);
+//            
+//            Integer documentId = accountEntryDTO.getDocumentId();
+//            DocumentDTO documentDTO = DocumentRepository.findById(documentId);
+//            String type = documentDTO.getType();
+//            
+//            switch(type){
+//                case "PT": {
+//                    ReceiptRepository.delete(documentId);
+//                    break;
+//                }
+//                case "PC": {
+//                    PaymentRepository.delete(documentId);
+//                    break;
+//                }
+//                default: throw new RuntimeException("Lỗi");
+//            }
+//
+//            DocumentRepository.delete(documentId);
+//
+//            ReceiptService.getTables(tbButToan, "");
+//            this.resetFormReceipt();
         });
     }//GEN-LAST:event_btnXoa_ButToanActionPerformed
 

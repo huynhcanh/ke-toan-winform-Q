@@ -7,6 +7,7 @@ import com.mycompany.ketoan.repository.AccountEntryRepository;
 import com.mycompany.ketoan.repository.EmployeeRepository;
 import com.mycompany.ketoan.utils.AlertUtils;
 import com.mycompany.ketoan.utils.ElementUtils;
+import com.mycompany.ketoan.utils.PriceUtils;
 
 import java.util.List;
 import javax.swing.JComboBox;
@@ -17,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class AccountEntryService {
 	
 	public static void getTables(JTable tblOrder, String keyword, String type) {
-		Object[] obj = new Object[]{"STT", "Mã BT", "Ngày Tạo", "Số CT", "Diễn Giải", "TK Nợ", "TK Có", "Số Tiền"};
+		Object[] obj = new Object[]{"STT", "Mã BT", "Ngày CT", "Số CT", "Diễn Giải", "TK Nợ", "TK Có", "Số Tiền"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
@@ -28,12 +29,12 @@ public class AccountEntryService {
 				Object[] item = new Object[]{
 						i + 1,
 						accountEntryDTO.getId(),
-						accountEntryDTO.getCreatedDate(),
+						accountEntryDTO.getDocumentDate(),
 						accountEntryDTO.getDocumentNumber(),
 						accountEntryDTO.getDescription(),
                                                 accountEntryDTO.getAccountNoId(),
 						accountEntryDTO.getAccountCoId(),
-						accountEntryDTO.getAdditionalPrice(),
+						PriceUtils.convertToVND(accountEntryDTO.getAdditionalPrice()),
 				};
 				tableModel.addRow(item);
 			}
