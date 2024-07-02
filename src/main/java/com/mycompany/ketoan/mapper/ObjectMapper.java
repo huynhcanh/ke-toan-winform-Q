@@ -99,13 +99,47 @@ public class ObjectMapper {
         List<T> list = new ArrayList<>();
         try {
             while (rs.next()) {
-                T obj = convertToObject(rs, clazz);
-                list.add(obj);
+				T obj;
+				if (clazz.isPrimitive() || isWrapperType(clazz)) {
+					obj = getPrimitiveOrWrapperValue(rs, clazz);
+				} else {
+					obj = convertToObject(rs, clazz);
+				}
+				list.add(obj);
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error mapping ResultSet to DTO List", e);
         }
         return list;
     }
-
+	
+	private static boolean isWrapperType(Class<?> clazz) {
+		return clazz == Integer.class || clazz == String.class || clazz == Double.class ||
+				clazz == Long.class || clazz == Float.class || clazz == Boolean.class ||
+				clazz == Short.class || clazz == Byte.class || clazz == Character.class;
+	}
+	
+	private static <T> T getPrimitiveOrWrapperValue(ResultSet rs, Class<T> clazz) throws SQLException {
+		Object value = null;
+		if (clazz == Integer.class || clazz == int.class) {
+			value = rs.getInt(1);
+		} else if (clazz == String.class) {
+			value = rs.getString(1);
+		} else if (clazz == Double.class || clazz == double.class) {
+			value = rs.getDouble(1);
+		} else if (clazz == Long.class || clazz == long.class) {
+			value = rs.getLong(1);
+		} else if (clazz == Float.class || clazz == float.class) {
+			value = rs.getFloat(1);
+		} else if (clazz == Boolean.class || clazz == boolean.class) {
+			value = rs.getBoolean(1);
+		} else if (clazz == Short.class || clazz == short.class) {
+			value = rs.getShort(1);
+		} else if (clazz == Byte.class || clazz == byte.class) {
+			value = rs.getByte(1);
+		} else if (clazz == Character.class || clazz == char.class) {
+			value = rs.getString(1).charAt(0);
+		}
+		return clazz.cast(value);
+	}
 }
