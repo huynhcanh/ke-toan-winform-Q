@@ -7,8 +7,9 @@ public class ApplicationConstants {
 		
 		public static class ShowRole {
 			public static final String TITLE = "Thông báo phân quyền";
-			public static final String LOGIN_WITH_ADMIN_CONTENT = "Bạn đang truy cập với quyền ADMIN";
-			public static final String LOGIN_WITH_EMPLOYEE_CONTENT = "Bạn đang truy cập với quyền nhân viên";
+			public static final String LOGIN_WITH_ADMIN_CONTENT = "Bạn đang truy cập với quyền Admin";
+			public static final String LOGIN_WITH_ACCOUNTANT_CONTENT = "Bạn đang truy cập với quyền Kế Toán";
+                        public static final String LOGIN_WITH_SALER_CONTENT = "Bạn đang truy cập với quyền Nhân Viên Bán Hàng";
 		}
 		
 		public static class LoginFail {
@@ -37,7 +38,9 @@ public class ApplicationConstants {
 	public static class Application {
 		
 		public static class Role {
-			public static final String ADMIN = "Admin";
+			public static final String ADMIN = "ADMIN";
+                        public static final String ACCOUNTANT = "ACCOUNTANT";
+                        
 		}
 	}
 	

@@ -407,7 +407,7 @@ public class FormMain extends javax.swing.JFrame {
 
             },
             new String [] {
-                "STT", "Mã Đơn Hàng", "Mã Sản Phẩm", "Tên Sản Phẩm", "Số Lượng", "Tổng Tiền", "Ghi Chú"
+                "STT", "Mã Đơn Hàng", "Mã Hàng Hóa", "Tên Hàng Hóa", "Số Lượng", "Tổng Tiền", "Ghi Chú"
             }
         ) {
             boolean[] canEdit = new boolean [] {

@@ -136,8 +136,12 @@ public class FormLogin extends javax.swing.JFrame {
 
             if (userDTO.getRole().equals(Application.Role.ADMIN)) {
                 AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_ADMIN_CONTENT);
-            } else {
-                AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_EMPLOYEE_CONTENT);
+            } else if (userDTO.getRole().equals(Application.Role.ACCOUNTANT)){
+                AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_ACCOUNTANT_CONTENT);
+                frmMain.disableTabs();
+            }
+            else {
+                AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_SALER_CONTENT);
                 frmMain.disableTabs();
             }
             this.dispose();

@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class OrderDetailService {
 	
 	public static void getTable(Integer orderId, JTable table) {
-		Object[] obj = new Object[]{"STT", "Mã HĐ", "Mã SP", "Tên SP", "Số Lượng", "Đơn giá", "Tổng Tiền"};
+		Object[] obj = new Object[]{"STT", "Mã HĐ", "Mã HH", "Tên HH", "Số Lượng", "Đơn giá", "Tổng Tiền"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		table.setModel(tableModel);
 		

@@ -25,7 +25,7 @@ public class AccountRepository {
 	}
 	
 	public static List<Integer> findAllIdAccountLevel3() {
-		ResultSet rs = QueryRepository.executeQuery(LIST_ACCOUNT_QUERY);
+		ResultSet rs = QueryRepository.executeQuery(LIST_ID_ACCOUNT_LV3);
 		return ObjectMapper.toDTOs(rs, Integer.class);
 	}
 	

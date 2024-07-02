@@ -15,7 +15,7 @@ import java.util.List;
 public class ProductService {
 	
 	public static void getTables(JTable tblOrder, String keyword) {
-		Object[] obj = new Object[]{"STT", "Mã SP", "Tên SP", "Loại SP", "Giá Bán", "Kích Thước", "Đơn Vị"};
+		Object[] obj = new Object[]{"STT", "Mã HH", "Tên HH", "Loại HH", "Giá Bán", "Kích Thước", "Đơn Vị"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
