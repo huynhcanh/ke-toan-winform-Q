@@ -29,4 +29,8 @@ public class AccountRepository {
 		return ObjectMapper.toDTOs(rs, Integer.class);
 	}
 	
+//	public static void main(String[] args) {
+//		List<Integer> ids = findAllIdAccountLevel3();
+//		List<AccountDTO> accountDTOS = findAll("");
+//	}
 }
