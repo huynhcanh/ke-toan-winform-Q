@@ -2845,6 +2845,11 @@ public class FormMain extends javax.swing.JFrame {
             }
         ));
         tbButToan.getTableHeader().setReorderingAllowed(false);
+        tbButToan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbButToanMouseClicked(evt);
+            }
+        });
         jScrollPane18.setViewportView(tbButToan);
 
         lblTSHDBR4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -4309,15 +4314,38 @@ public class FormMain extends javax.swing.JFrame {
         Integer id = AccountEntryService.getId(this.tbButToan);
         
         this.confirmAndExecute(() -> {
+            
+            AccountEntryDTO accountEntryDTO = AccountEntryRepository.findById(id);
+            
+            Integer documentId = accountEntryDTO.getDocumentId();
+            DocumentDTO documentDTO = DocumentRepository.findById(documentId);
+            String type = documentDTO.getType();
+            
+            switch(type){
+                case "PT": {
+                    
+                }
+                case "PC": {
+                    
+                }
+                default: throw new RuntimeException("Lỗi");
+            }
 
-                ReceiptRepository.delete(id);
-                
-                DocumentRepository.delete(id);
+            ReceiptRepository.delete(id);
 
-                ReceiptService.getTables(tbButToan, "");
-                //this.resetFormReceipt();
-            });
+            DocumentRepository.delete(documentId);
+
+            ReceiptService.getTables(tbButToan, "");
+            //this.resetFormReceipt();
+        });
     }//GEN-LAST:event_btnXoa_ButToanActionPerformed
+
+    private void tbButToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbButToanMouseClicked
+        Integer id = AccountEntryService.getId(this.tbButToan);
+        
+        txtMaButToan_ButToan.setText(id.toString());
+        
+    }//GEN-LAST:event_tbButToanMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Reset_LoaiSanPham;
