@@ -2,8 +2,10 @@
 package com.mycompany.ketoan.repository;
 
 import com.mycompany.ketoan.constants.ApplicationProperties;
+import com.mycompany.ketoan.utils.DateTimeUtils;
 
 import java.sql.*;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -111,6 +113,8 @@ public class QueryRepository {
 				value = "NULL";
 			} else if (entry.getValue() instanceof Boolean boolCheck) {
 				value = boolCheck ? "true" : "false";
+			} else if (entry.getValue() instanceof Date date) {
+				value = "'" + DateTimeUtils.toString(date) + "'";
 			} else {
 				value = "'" + entry.getValue() + "'";
 			}
