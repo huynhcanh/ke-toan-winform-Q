@@ -27,6 +27,9 @@ public class BalanceRepository {
 			" SET SoTien=:SoTien, TrangThai=:TrangThai\n" +
 			" WHERE MaTietKhoan=:MaTietKhoan AND NgayDauKy=:NgayDauKy";
 	
+	private static final String EXISTED_BALANCE_QUERY = "SELECT 1 FROM SDDK WHERE MaTietKhoan=:MaTietKhoan AND NgayDauKy=:NgayDauKy";
+	
+	
 	public static List<BalanceDTO> findAll() {
 		ResultSet rs = QueryRepository.executeQuery(LIST_BALANCE_QUERY);
 		return ObjectMapper.toDTOs(rs, BalanceDTO.class);
@@ -49,5 +52,9 @@ public class BalanceRepository {
 	
 	public static int delete(Integer accountIdLv3, Date firstDateOfPeriod) {
 		return QueryRepository.executeQueryUpdateDB(DELETE_BALANCE_QUERY, Map.of("MaTietKhoan", accountIdLv3, "NgayDauKy", firstDateOfPeriod));
+	}
+	
+	public static boolean existBalance(Integer accountIdLv3, Date firstDateOfPeriod) {
+		return QueryRepository.checkExistQuery(EXISTED_BALANCE_QUERY, Map.of("MaTietKhoan", accountIdLv3, "NgayDauKy", firstDateOfPeriod));
 	}
 }
