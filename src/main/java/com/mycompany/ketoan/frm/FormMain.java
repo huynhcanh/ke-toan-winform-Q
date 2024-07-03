@@ -1,6 +1,7 @@
 package com.mycompany.ketoan.frm;
 
 import com.mycompany.ketoan.dto.AccountEntryDTO;
+import com.mycompany.ketoan.dto.BalanceDTO;
 import com.mycompany.ketoan.dto.CategoryDTO;
 import com.mycompany.ketoan.dto.CustomerDTO;
 import com.mycompany.ketoan.dto.DocumentDTO;
@@ -12,6 +13,7 @@ import com.mycompany.ketoan.dto.ProductDTO;
 import com.mycompany.ketoan.dto.ReceiptDTO;
 import com.mycompany.ketoan.repository.AccountEntryRepository;
 import com.mycompany.ketoan.repository.AccountRepository;
+import com.mycompany.ketoan.repository.BalanceRepository;
 import com.mycompany.ketoan.repository.CategoryRepository;
 import com.mycompany.ketoan.repository.CustomerRepository;
 import com.mycompany.ketoan.repository.DocumentRepository;
@@ -23,6 +25,7 @@ import com.mycompany.ketoan.repository.ProductRepository;
 import com.mycompany.ketoan.repository.ReceiptRepository;
 import com.mycompany.ketoan.service.AccountEntryService;
 import com.mycompany.ketoan.service.AccountService;
+import com.mycompany.ketoan.service.BalanceService;
 import com.mycompany.ketoan.service.CategoryService;
 import com.mycompany.ketoan.service.CustomerService;
 import com.mycompany.ketoan.service.EmployeeService;
@@ -33,6 +36,7 @@ import com.mycompany.ketoan.service.ProductService;
 import com.mycompany.ketoan.service.ReceiptService;
 import com.mycompany.ketoan.service.RoleService;
 import com.mycompany.ketoan.utils.AlertUtils;
+import com.mycompany.ketoan.utils.DateTimeUtils;
 import com.mycompany.ketoan.utils.ElementUtils;
 import com.mycompany.ketoan.utils.ElementUtils.ComboxModel;
 import com.mycompany.ketoan.utils.PriceUtils;
@@ -48,9 +52,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class FormMain extends javax.swing.JFrame {
@@ -287,19 +299,19 @@ public class FormMain extends javax.swing.JFrame {
         jPanelSDDK = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblSDDK = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnThem_SDDK = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        cbbNoCo_SDDK = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        cbbStatus_SDDK = new javax.swing.JComboBox<>();
+        txtPrice_SDDK = new javax.swing.JTextField();
+        txtfirstDateOfPeriod_SDDK = new javax.swing.JTextField();
         cbbMaTietKhoan_SDDK = new javax.swing.JComboBox<>();
         jPanelChungTu = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -310,23 +322,18 @@ public class FormMain extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         lblTSHDBR5 = new javax.swing.JLabel();
         lblTSHDBR6 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
         lblTSHDBR7 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        txtMaButToan_ButToan1 = new javax.swing.JTextField();
+        txtMaCT_CT = new javax.swing.JTextField();
         btnXoa_ButToan1 = new javax.swing.JButton();
+        fromDateFilter_Document = new com.toedter.calendar.JDateChooser();
+        toDateFilter_Document = new com.toedter.calendar.JDateChooser();
         jPanelButToan = new javax.swing.JPanel();
         jLabel75 = new javax.swing.JLabel();
-        lblTSHDBR1 = new javax.swing.JLabel();
-        lblTSHDBR2 = new javax.swing.JLabel();
-        lblTSHDBR3 = new javax.swing.JLabel();
         jScrollPane18 = new javax.swing.JScrollPane();
         tbButToan = new javax.swing.JTable();
         lblTSHDBR4 = new javax.swing.JLabel();
         txtTimKiem_ButToan = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
         cbbTypeFilter_ButToan = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -2849,16 +2856,21 @@ public class FormMain extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("SỐ DƯ ĐẦU KỲ");
 
-        jTable1.setBackground(new java.awt.Color(217, 217, 217));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblSDDK.setBackground(new java.awt.Color(217, 217, 217));
+        tblSDDK.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "STT", "Mã", "Ngày Đầu Kỳ", "Mã Tiết Khoản", "Số Tiền", "Trạng Thái"
+                "STT", "Ngày Đầu Kỳ", "Mã Tiết Khoản", "Số Tiền", "Trạng Thái"
             }
         ));
-        jScrollPane4.setViewportView(jTable1);
+        tblSDDK.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSDDKMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tblSDDK);
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2871,13 +2883,13 @@ public class FormMain extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel13.setText("Số Tiền");
 
-        jButton1.setBackground(new java.awt.Color(112, 173, 71));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jButton1.setText("Thêm");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnThem_SDDK.setBackground(new java.awt.Color(112, 173, 71));
+        btnThem_SDDK.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnThem_SDDK.setText("Thêm");
+        btnThem_SDDK.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnThem_SDDK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnThem_SDDKActionPerformed(evt);
             }
         });
 
@@ -2915,11 +2927,11 @@ public class FormMain extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel14.setText("Trạng Thái");
 
-        cbbNoCo_SDDK.setBackground(new java.awt.Color(241, 241, 241));
+        cbbStatus_SDDK.setBackground(new java.awt.Color(241, 241, 241));
 
-        jTextField1.setBackground(new java.awt.Color(241, 241, 241));
+        txtPrice_SDDK.setBackground(new java.awt.Color(241, 241, 241));
 
-        jTextField3.setBackground(new java.awt.Color(241, 241, 241));
+        txtfirstDateOfPeriod_SDDK.setBackground(new java.awt.Color(241, 241, 241));
 
         cbbMaTietKhoan_SDDK.setBackground(new java.awt.Color(241, 241, 241));
 
@@ -2939,7 +2951,7 @@ public class FormMain extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(32, 32, 32)))
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3)
+                            .addComponent(txtfirstDateOfPeriod_SDDK)
                             .addComponent(cbbMaTietKhoan_SDDK, javax.swing.GroupLayout.Alignment.TRAILING, 0, 171, Short.MAX_VALUE)))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2947,11 +2959,11 @@ public class FormMain extends javax.swing.JFrame {
                             .addComponent(jLabel13))
                         .addGap(45, 45, 45)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(cbbNoCo_SDDK, 0, 171, Short.MAX_VALUE))))
+                            .addComponent(txtPrice_SDDK)
+                            .addComponent(cbbStatus_SDDK, 0, 171, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnThem_SDDK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
@@ -2963,8 +2975,8 @@ public class FormMain extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(txtfirstDateOfPeriod_SDDK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnThem_SDDK))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -2973,12 +2985,12 @@ public class FormMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrice_SDDK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(cbbNoCo_SDDK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbbStatus_SDDK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
@@ -3106,27 +3118,47 @@ public class FormMain extends javax.swing.JFrame {
         lblTSHDBR6.setText("Từ");
         lblTSHDBR6.setName(""); // NOI18N
 
-        jTextField7.setBackground(new java.awt.Color(241, 241, 241));
-
         lblTSHDBR7.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         lblTSHDBR7.setText("Đến");
         lblTSHDBR7.setName(""); // NOI18N
 
-        jTextField8.setBackground(new java.awt.Color(241, 241, 241));
-
         jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel31.setText("Số CT");
 
-        txtMaButToan_ButToan1.setBackground(new java.awt.Color(241, 241, 241));
+        txtMaCT_CT.setBackground(new java.awt.Color(241, 241, 241));
 
         btnXoa_ButToan1.setBackground(new java.awt.Color(255, 0, 0));
         btnXoa_ButToan1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btnXoa_ButToan1.setForeground(new java.awt.Color(255, 255, 255));
         btnXoa_ButToan1.setText("Xoá");
         btnXoa_ButToan1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXoa_ButToan1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnXoa_ButToan1MouseClicked(evt);
+            }
+        });
         btnXoa_ButToan1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXoa_ButToan1ActionPerformed(evt);
+            }
+        });
+
+        fromDateFilter_Document.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                fromDateFilter_DocumentInputMethodTextChanged(evt);
+            }
+        });
+        fromDateFilter_Document.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                fromDateFilter_DocumentPropertyChange(evt);
+            }
+        });
+
+        toDateFilter_Document.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                toDateFilter_DocumentPropertyChange(evt);
             }
         });
 
@@ -3140,19 +3172,19 @@ public class FormMain extends javax.swing.JFrame {
                     .addGroup(jPanelChungTuLayout.createSequentialGroup()
                         .addComponent(jLabel31)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtMaButToan_ButToan1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMaCT_CT, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnXoa_ButToan1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblTSHDBR5)
                     .addGroup(jPanelChungTuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanelChungTuLayout.createSequentialGroup()
                             .addComponent(lblTSHDBR6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
+                            .addGap(2, 2, 2)
+                            .addComponent(fromDateFilter_Document, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(32, 32, 32)
                             .addComponent(lblTSHDBR7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(toDateFilter_Document, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(lblTongTien_HoaDon7, javax.swing.GroupLayout.Alignment.LEADING)
@@ -3169,12 +3201,13 @@ public class FormMain extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(lblTSHDBR5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelChungTuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTSHDBR6)
-                    .addComponent(lblTSHDBR7)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7))
+                .addGroup(jPanelChungTuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelChungTuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTSHDBR6)
+                        .addComponent(lblTSHDBR7)
+                        .addComponent(jButton7))
+                    .addComponent(fromDateFilter_Document, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toDateFilter_Document, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(lblTongTien_HoaDon7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3184,7 +3217,7 @@ public class FormMain extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanelChungTuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
-                    .addComponent(txtMaButToan_ButToan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMaCT_CT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXoa_ButToan1))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
@@ -3202,18 +3235,6 @@ public class FormMain extends javax.swing.JFrame {
         jLabel75.setForeground(new java.awt.Color(51, 51, 51));
         jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel75.setText("BÚT TOÁN");
-
-        lblTSHDBR1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        lblTSHDBR1.setText("THỐNG KÊ");
-        lblTSHDBR1.setName(""); // NOI18N
-
-        lblTSHDBR2.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        lblTSHDBR2.setText("Từ");
-        lblTSHDBR2.setName(""); // NOI18N
-
-        lblTSHDBR3.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        lblTSHDBR3.setText("Đến");
-        lblTSHDBR3.setName(""); // NOI18N
 
         tbButToan.setBackground(new java.awt.Color(217, 217, 217));
         tbButToan.setModel(new javax.swing.table.DefaultTableModel(
@@ -3251,10 +3272,6 @@ public class FormMain extends javax.swing.JFrame {
                 txtTimKiem_ButToanKeyReleased(evt);
             }
         });
-
-        jTextField5.setBackground(new java.awt.Color(241, 241, 241));
-
-        jTextField6.setBackground(new java.awt.Color(241, 241, 241));
 
         cbbTypeFilter_ButToan.setBackground(new java.awt.Color(241, 241, 241));
         cbbTypeFilter_ButToan.addItemListener(new java.awt.event.ItemListener() {
@@ -3307,22 +3324,11 @@ public class FormMain extends javax.swing.JFrame {
                             .addComponent(cbbTypeFilter_ButToan, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)))
                     .addGroup(jPanelButToanLayout.createSequentialGroup()
-                        .addGroup(jPanelButToanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelButToanLayout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtMaButToan_ButToan, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnXoa_ButToan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblTSHDBR1)
-                            .addGroup(jPanelButToanLayout.createSequentialGroup()
-                                .addComponent(lblTSHDBR2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblTSHDBR3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtMaButToan_ButToan, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnXoa_ButToan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(83, 83, 83))
         );
@@ -3331,15 +3337,7 @@ public class FormMain extends javax.swing.JFrame {
             .addGroup(jPanelButToanLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jLabel75)
-                .addGap(30, 30, 30)
-                .addComponent(lblTSHDBR1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelButToanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTSHDBR2)
-                    .addComponent(lblTSHDBR3)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(86, 86, 86)
                 .addGroup(jPanelButToanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTSHDBR4)
                     .addComponent(jLabel8))
@@ -3736,6 +3734,11 @@ public class FormMain extends javax.swing.JFrame {
 
     private void jPanelSDDKComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelSDDKComponentShown
 
+        
+        BalanceService.getTables(this.tblSDDK);
+
+        this.resetFormBalance();
+        
         List<Integer> noIds = AccountRepository.findAllIdAccountLevel3();
         if(!(noIds == null || noIds.isEmpty())) {
             List<ComboxModel> noDataComboBox = noIds.stream().map(id -> new ComboxModel(id, id)).toList();
@@ -3744,9 +3747,18 @@ public class FormMain extends javax.swing.JFrame {
        
         List<ComboxModel> noDataComboBox = List.of(new ComboxModel("DU_NO", "Dư Nợ"),
                                                    new ComboxModel("DU_CO", "Dư Có"));
-        cbbNoCo_SDDK.setModel(ElementUtils.getDataCbb(noDataComboBox));
+        
+        cbbStatus_SDDK.setModel(ElementUtils.getDataCbb(noDataComboBox));
     }//GEN-LAST:event_jPanelSDDKComponentShown
 
+    private void resetFormBalance(){
+        BalanceService.resetForm(txtfirstDateOfPeriod_SDDK, cbbMaTietKhoan_SDDK, txtPrice_SDDK, cbbStatus_SDDK);
+        
+        btnThem_SDDK.setEnabled(true);
+        cbbMaTietKhoan_SDDK.setEnabled(true);
+        txtfirstDateOfPeriod_SDDK.setEnabled(true);
+    }
+    
     private void tblPhieuThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhieuThuMouseClicked
 
         this.handleReceiptItemCurrent();
@@ -4414,7 +4426,7 @@ public class FormMain extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTimKiem_NhanVienKeyReleased
 
     private void jTabbedPane3ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPane3ComponentShown
-        
+              
     }//GEN-LAST:event_jTabbedPane3ComponentShown
 
     private void jPanelLogoutComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelLogoutComponentShown
@@ -4537,24 +4549,68 @@ public class FormMain extends javax.swing.JFrame {
         this.resetFormPayment();
     }//GEN-LAST:event_btnReset_PhieuChiActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnThem_SDDKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_SDDKActionPerformed
+         
+        if(BalanceService.isValidated(txtfirstDateOfPeriod_SDDK, cbbMaTietKhoan_SDDK, txtPrice_SDDK, cbbStatus_SDDK)){
+            
+//            if(EmployeeRepository.existUsername(txtTenDN_NhanVien.getText())){
+//                AlertUtils.showAlertEmployeeUsernameExsit();
+//                return;
+//            }
+            
+            BalanceDTO balanceDTO = new BalanceDTO();
+            balanceDTO.setAccountIdLv3(Integer.valueOf(ElementUtils.getCbbSelected(cbbMaTietKhoan_SDDK).toString()));
+            balanceDTO.setFirstDateOfPeriod(DateTimeUtils.toDate(txtfirstDateOfPeriod_SDDK.getText()));
+            balanceDTO.setPrice(PriceUtils.VNDconvertToPrice(txtPrice_SDDK.getText()));
+            balanceDTO.setStatus(ElementUtils.getCbbSelected(cbbStatus_SDDK).toString());
+           
+            BalanceRepository.insert(balanceDTO);
+            
+            BalanceService.getTables(tblSDDK);
+            this.resetFormBalance();
+        }  
+    }//GEN-LAST:event_btnThem_SDDKActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       
+        if(BalanceService.isValidated(txtfirstDateOfPeriod_SDDK, cbbMaTietKhoan_SDDK, txtPrice_SDDK, cbbStatus_SDDK)){
+            
+            Date date = BalanceService.getDate(tblSDDK);
+            Integer maTK = BalanceService.getMTK(tblSDDK);
+            
+            BalanceDTO balanceDTO = BalanceRepository.findById(maTK, date);
+
+            balanceDTO.setPrice(PriceUtils.VNDconvertToPrice(txtPrice_SDDK.getText()));
+            balanceDTO.setStatus(ElementUtils.getCbbSelected(cbbStatus_SDDK).toString());
+           
+            BalanceRepository.update(balanceDTO);
+            
+            BalanceService.getTables(tblSDDK);
+            this.resetFormBalance();
+        }  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        Date date = BalanceService.getDate(tblSDDK);
+        Integer maTK = BalanceService.getMTK(tblSDDK);
+        
+        this.confirmAndExecute(() -> {
+            
+            BalanceRepository.delete(maTK, date);
+                
+            BalanceService.getTables(tblSDDK);
+            this.resetFormBalance();
+        });
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        this.resetFormBalance();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void tblChungTuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChungTuMouseClicked
-        // TODO add your handling code here:
+        Integer id = OrderService.getIdCT(tblChungTu);
+        
+        txtMaCT_CT.setText(id.toString());
     }//GEN-LAST:event_tblChungTuMouseClicked
 
     private void txtTimKiem_ChungTuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiem_ChungTuActionPerformed
@@ -4562,11 +4618,11 @@ public class FormMain extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTimKiem_ChungTuActionPerformed
 
     private void txtTimKiem_ChungTuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiem_ChungTuKeyReleased
-         OrderService.getTableCT(tblChungTu, txtTimKiem_ChungTu.getText());
+         OrderService.getTableCT(tblChungTu, txtTimKiem_ChungTu.getText(), fromDateFilter_Document.getDate(), toDateFilter_Document.getDate());
     }//GEN-LAST:event_txtTimKiem_ChungTuKeyReleased
 
     private void jPanelChungTuComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelChungTuComponentShown
-        OrderService.getTableCT(tblChungTu, "");
+        OrderService.getTableCT(tblChungTu, "", null, null);
     }//GEN-LAST:event_jPanelChungTuComponentShown
 
     private void btnSua_PhieuThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_PhieuThuActionPerformed
@@ -4659,29 +4715,112 @@ public class FormMain extends javax.swing.JFrame {
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Report");
 
-        // Tạo header row
-        Row headerRow = sheet.createRow(0);
-        headerRow.createCell(0).setCellValue("STT");
-        headerRow.createCell(1).setCellValue("Số CT");
-        headerRow.createCell(2).setCellValue("Khách Hàng");
-        headerRow.createCell(3).setCellValue("Nhân Viên Lập");
-        headerRow.createCell(4).setCellValue("Ngày Lập");
-        headerRow.createCell(5).setCellValue("Tổng Tiền");
-        headerRow.createCell(6).setCellValue("Ghi Chú");
+        // Thêm 2 hàng trống phía trên tiêu đề
+        sheet.createRow(0);
+        sheet.createRow(1);
 
-        List<OrderDTO> orders = OrderRepository.findAll("", true);
-        int rowNum = 1;
-        for (OrderDTO data : orders) {
-            Row row = sheet.createRow(rowNum);
-            row.createCell(0).setCellValue(rowNum++);
-            row.createCell(1).setCellValue(data.getId());
-            row.createCell(2).setCellValue(data.getEmployeeName());
-            row.createCell(3).setCellValue(data.getEmployeeName());
-            row.createCell(4).setCellValue(data.getCreatedDate());
-            row.createCell(5).setCellValue(data.getTotalMoney().doubleValue());
-            row.createCell(6).setCellValue(data.getNote());
+        // Thêm tiêu đề cho file export
+        Row titleRow = sheet.createRow(2);
+        Cell titleCell = titleRow.createCell(0);
+        titleCell.setCellValue("BÁO CÁO DOANH THU");
+        CellStyle titleStyle = workbook.createCellStyle();
+        Font titleFont = workbook.createFont();
+        titleFont.setBold(true);
+        titleFont.setFontHeightInPoints((short) 16);
+        titleStyle.setFont(titleFont);
+        titleStyle.setAlignment(HorizontalAlignment.CENTER);
+        titleCell.setCellStyle(titleStyle);
+
+        // Merge các ô để tiêu đề nằm giữa
+        sheet.addMergedRegion(new CellRangeAddress(2, 2, 0, 6));
+
+        // Tạo kiểu cho header
+        CellStyle headerStyle = workbook.createCellStyle();
+        Font headerFont = workbook.createFont();
+        headerFont.setBold(true);
+        headerFont.setColor(IndexedColors.WHITE.getIndex());
+        headerStyle.setFont(headerFont);
+        headerStyle.setAlignment(HorizontalAlignment.CENTER);
+        headerStyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
+        headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        headerStyle.setBorderBottom(BorderStyle.THIN);
+        headerStyle.setBorderTop(BorderStyle.THIN);
+        headerStyle.setBorderRight(BorderStyle.THIN);
+        headerStyle.setBorderLeft(BorderStyle.THIN);
+
+        // Tạo header row
+        Row headerRow = sheet.createRow(3);
+        String[] headers = {"STT", "Số CT", "Khách Hàng", "Nhân Viên Lập", "Ngày Lập", "Tổng Tiền", "Ghi Chú"};
+        for (int i = 0; i < headers.length; i++) {
+            Cell cell = headerRow.createCell(i);
+            cell.setCellValue(headers[i]);
+            cell.setCellStyle(headerStyle);
         }
 
+        // Giả định OrderRepository là lớp bạn đã định nghĩa và có phương thức findAll
+        List<OrderDTO> orders = OrderRepository.findAll("", true, fromDateFilter_Document.getDate(), toDateFilter_Document.getDate());
+
+        // Tạo kiểu cho dữ liệu
+        CellStyle dataStyle = workbook.createCellStyle();
+        dataStyle.setBorderBottom(BorderStyle.THIN);
+        dataStyle.setBorderTop(BorderStyle.THIN);
+        dataStyle.setBorderRight(BorderStyle.THIN);
+        dataStyle.setBorderLeft(BorderStyle.THIN);
+
+        int rowNum = 4; // Bắt đầu từ hàng thứ 4
+        double totalAmount = 0;
+        for (OrderDTO data : orders) {
+            Row row = sheet.createRow(rowNum);
+            Cell cell0 = row.createCell(0);
+            cell0.setCellValue(rowNum - 3);
+            cell0.setCellStyle(dataStyle);
+
+            Cell cell1 = row.createCell(1);
+            cell1.setCellValue(data.getId());
+            cell1.setCellStyle(dataStyle);
+
+            Cell cell2 = row.createCell(2);
+            cell2.setCellValue(data.getCustomerName());
+            cell2.setCellStyle(dataStyle);
+
+            Cell cell3 = row.createCell(3);
+            cell3.setCellValue(data.getEmployeeName());
+            cell3.setCellStyle(dataStyle);
+
+            Cell cell4 = row.createCell(4);
+            cell4.setCellValue(data.getCreatedDate().toString());
+            cell4.setCellStyle(dataStyle);
+
+            Cell cell5 = row.createCell(5);
+            cell5.setCellValue(data.getTotalMoney().doubleValue());
+            cell5.setCellStyle(dataStyle);
+
+            Cell cell6 = row.createCell(6);
+            cell6.setCellValue(data.getNote());
+            cell6.setCellStyle(dataStyle);
+
+            totalAmount += data.getTotalMoney().doubleValue();
+            rowNum++;
+        }
+
+        // Thêm hàng tổng tiền ở cuối
+        Row totalRow = sheet.createRow(rowNum);
+        Cell totalLabelCell = totalRow.createCell(5);
+        totalLabelCell.setCellValue("Tổng Tiền:");
+        totalLabelCell.setCellStyle(headerStyle); // Sử dụng style của header để in đậm và căn giữa
+
+        Cell totalAmountCell = totalRow.createCell(6);
+        totalAmountCell.setCellValue(totalAmount);
+        totalAmountCell.setCellStyle(headerStyle); // Sử dụng style của header để in đậm và căn giữa
+
+        // Tự động điều chỉnh chiều rộng các cột và thêm chiều rộng bổ sung
+        for (int i = 0; i <= 6; i++) {
+            sheet.autoSizeColumn(i);
+            int currentWidth = sheet.getColumnWidth(i);
+            sheet.setColumnWidth(i, currentWidth + 1000); // Thêm chiều rộng bổ sung (đơn vị là 1/256 của ký tự)
+        }
+
+        // Ghi workbook vào file
         try (FileOutputStream fileOut = new FileOutputStream("report.xlsx")) {
             workbook.write(fileOut);
             JOptionPane.showMessageDialog(null, "Xuất thành công!");
@@ -4843,6 +4982,45 @@ public class FormMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGhiChu_HoaDonActionPerformed
 
+    private void tblSDDKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSDDKMouseClicked
+        Date date = BalanceService.getDate(tblSDDK);
+        Integer maTK = BalanceService.getMTK(tblSDDK);
+        
+        BalanceService.fillDetailToForm(maTK, date,
+                                        txtfirstDateOfPeriod_SDDK, cbbMaTietKhoan_SDDK, txtPrice_SDDK, cbbStatus_SDDK);
+        
+        btnThem_SDDK.setEnabled(false);
+        
+        cbbMaTietKhoan_SDDK.setEnabled(false);
+        txtfirstDateOfPeriod_SDDK.setEnabled(false);
+    }//GEN-LAST:event_tblSDDKMouseClicked
+
+    private void fromDateFilter_DocumentInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_fromDateFilter_DocumentInputMethodTextChanged
+        
+    }//GEN-LAST:event_fromDateFilter_DocumentInputMethodTextChanged
+
+    private void fromDateFilter_DocumentPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fromDateFilter_DocumentPropertyChange
+
+       OrderService.getTableCT(tblChungTu, txtTimKiem_ChungTu.getText(), fromDateFilter_Document.getDate(), toDateFilter_Document.getDate());
+    }//GEN-LAST:event_fromDateFilter_DocumentPropertyChange
+
+    private void toDateFilter_DocumentPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_toDateFilter_DocumentPropertyChange
+        OrderService.getTableCT(tblChungTu, txtTimKiem_ChungTu.getText(), fromDateFilter_Document.getDate(), toDateFilter_Document.getDate());
+    }//GEN-LAST:event_toDateFilter_DocumentPropertyChange
+
+    private void btnXoa_ButToan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoa_ButToan1MouseClicked
+        
+        Integer id = OrderService.getIdCT(tblChungTu);
+        
+        this.confirmAndExecute(() -> {
+            
+            OrderDTO orderDTO = OrderRepository.findById(id);
+            orderDTO.setIsDeleted(true);
+
+            OrderRepository.update(orderDTO);
+        });
+    }//GEN-LAST:event_btnXoa_ButToan1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Reset_LoaiSanPham;
     private javax.swing.JButton bntSua_SanPham;
@@ -4876,6 +5054,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton btnThem_NhanVien3;
     private javax.swing.JButton btnThem_PhieuChi;
     private javax.swing.JButton btnThem_PhieuThu;
+    private javax.swing.JButton btnThem_SDDK;
     private javax.swing.JButton btnThem_SanPham;
     private javax.swing.JButton btnXoa_ButToan;
     private javax.swing.JButton btnXoa_ButToan1;
@@ -4906,10 +5085,10 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbbMaTietKhoan_SDDK;
     private javax.swing.JComboBox<String> cbbNhanVien_PhieuChi;
     private javax.swing.JComboBox<String> cbbNhanVien_PhieuThu;
-    private javax.swing.JComboBox<String> cbbNoCo_SDDK;
     private javax.swing.JComboBox<String> cbbSanPhamCTHD_HoaDon;
+    private javax.swing.JComboBox<String> cbbStatus_SDDK;
     private javax.swing.JComboBox<String> cbbTypeFilter_ButToan;
-    private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JDateChooser fromDateFilter_Document;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -5008,18 +5187,11 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPaneNhanVien;
     private javax.swing.JTabbedPane jTabbedPaneSanPham;
     private javax.swing.JTabbedPane jTabbedPanelThuChi;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblDiaChi_KhachHang;
     private javax.swing.JLabel lblGiaBan;
@@ -5037,9 +5209,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JLabel lblSDT_NhanVien1;
     private javax.swing.JLabel lblSoDienThoai_KhachHang;
     private javax.swing.JLabel lblSoLuongCTHD_HoaDon;
-    private javax.swing.JLabel lblTSHDBR1;
-    private javax.swing.JLabel lblTSHDBR2;
-    private javax.swing.JLabel lblTSHDBR3;
     private javax.swing.JLabel lblTSHDBR4;
     private javax.swing.JLabel lblTSHDBR5;
     private javax.swing.JLabel lblTSHDBR6;
@@ -5065,8 +5234,10 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTable tblOrder;
     private javax.swing.JTable tblPhieuChi;
     private javax.swing.JTable tblPhieuThu;
+    private javax.swing.JTable tblSDDK;
     private javax.swing.JTable tblSanPham;
     private javax.swing.JTable tblTaiKhoan;
+    private com.toedter.calendar.JDateChooser toDateFilter_Document;
     private javax.swing.JTextField txtDiaChi_KhachHang;
     private javax.swing.JTextField txtDiaChi_NhanVien;
     private javax.swing.JTextField txtDonVi_SanPham;
@@ -5077,7 +5248,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTextArea txtLyDo_PhieuThu;
     private javax.swing.JTextField txtMK_NhanVien;
     private javax.swing.JTextField txtMaButToan_ButToan;
-    private javax.swing.JTextField txtMaButToan_ButToan1;
+    private javax.swing.JTextField txtMaCT_CT;
     private javax.swing.JTextField txtMaHoaDonCTHD_HoaDon;
     private javax.swing.JTextField txtMaHoaDon_HoaDon;
     private javax.swing.JTextField txtMaKhachHang_KhachHang;
@@ -5086,6 +5257,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTextField txtMaPhieuChi_PhieuChi;
     private javax.swing.JTextField txtMaPhieuThu_PhieuThu;
     private javax.swing.JTextField txtMaSoThue_KhachHang;
+    private javax.swing.JTextField txtPrice_SDDK;
     private javax.swing.JTextField txtQuyen_PhieuChi;
     private javax.swing.JTextField txtQuyen_PhieuThu;
     private javax.swing.JTextField txtSDT_NhanVien;
@@ -5107,5 +5279,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTextField txtTimKiem_TaiKhoan;
     private javax.swing.JTextField txtTongTien_PhieuChi;
     private javax.swing.JTextField txtTongTien_PhieuNhap;
+    private javax.swing.JTextField txtfirstDateOfPeriod_SDDK;
     // End of variables declaration//GEN-END:variables
 }

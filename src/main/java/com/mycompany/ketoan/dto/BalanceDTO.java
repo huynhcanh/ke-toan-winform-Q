@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class BalanceDTO {
+    
+        @JsonProperty("MaSDDDK")
+	private Integer id;
 	
 	@JsonProperty("MaTietKhoan")
 	private Integer accountIdLv3;
@@ -18,6 +21,9 @@ public class BalanceDTO {
 	
 	@JsonProperty("SoTien")
 	private BigDecimal price;
+        
+        @JsonProperty("TrangThai")
+        private String status;
 	
 	public Integer getAccountIdLv3() {
 		return accountIdLv3;
@@ -50,4 +56,22 @@ public class BalanceDTO {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+        
+        
 }

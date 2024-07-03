@@ -13,6 +13,7 @@ import com.mycompany.ketoan.utils.ElementUtils;
 import com.mycompany.ketoan.utils.PriceUtils;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -24,7 +25,7 @@ public class OrderService {
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-		List<OrderDTO> orders = OrderRepository.findAll(keyword, null);
+		List<OrderDTO> orders = OrderRepository.findAll(keyword, null, null, null);
 		if (orders != null) {
 			for (int i = 0; i < orders.size(); i++) {
 				OrderDTO orderDTO = orders.get(i);
@@ -93,12 +94,12 @@ public class OrderService {
 	}
         
         
-        public static void getTableCT(JTable tblOrder, String keyword) {
+        public static void getTableCT(JTable tblOrder, String keyword, Date fromDate, Date toDate) {
 		Object[] obj = new Object[]{"STT", "Mã CT", "Nhân Viên ", "Khách Hàng", "Ngày Tạo", "Tổng Tiền", "Ghi Chú"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-		List<OrderDTO> orders = OrderRepository.findAll(keyword, true);
+		List<OrderDTO> orders = OrderRepository.findAll(keyword, true, fromDate, toDate);
 		if (orders != null) {
 			for (int i = 0; i < orders.size(); i++) {
 				OrderDTO orderDTO = orders.get(i);
@@ -114,5 +115,10 @@ public class OrderService {
 				tableModel.addRow(item);
 			}
 		}
+	}
+        
+        public static Integer getIdCT(JTable table) {
+		int indexRowSelected = table.getSelectedRow();
+		return (Integer) table.getValueAt(indexRowSelected, 1);
 	}
 }

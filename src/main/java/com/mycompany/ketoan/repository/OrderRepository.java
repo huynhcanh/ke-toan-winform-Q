@@ -8,6 +8,7 @@ import com.mycompany.ketoan.dto.OrderDTO;
 import com.mycompany.ketoan.mapper.ObjectMapper;
 
 import java.sql.ResultSet;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class OrderRepository {
 			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH " +
 			"GROUP BY ctpbh.MaPBH ) ctpbhg on ctpbhg.MaPBH = pbh.MaPBH WHERE pbh.MaPBH like :keyword AND (:isExported is null or pbh.DaXuat =:isExported)";
 	
-	private static final String DETAIL_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu " +
+	private static final String DETAIL_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu, pbh.DaXuat, pbh.DaXoa " +
 			"FROM PhieuBanHang pbh left join KhachHang kh on kh.MaKH = pbh.MaKH left join NhanVien nv on nv.MaNV = pbh.MaNV " +
 			"LEFT JOIN (SELECT ctpbh.MaPBH, sum(ctpbh.SoLuong * hh.GiaBan) as TongTien " +
 			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH " +
@@ -32,9 +33,9 @@ public class OrderRepository {
 	
 	private static final String DELETE_ORDER_QUERY = "DELETE FROM PhieuBanHang WHERE MaPBH=:MaPBH";
 	
-	private static final String UPDATE_ORDER_QUERY = "UPDATE PhieuBanHang SET MaKH=:MaKH, GhiChu=:GhiChu, DaXuat=:DaXuat WHERE MaPBH=:MaPBH";
+	private static final String UPDATE_ORDER_QUERY = "UPDATE PhieuBanHang SET MaKH=:MaKH, GhiChu=:GhiChu, DaXuat=:DaXuat, DaXoa=:DaXoa WHERE MaPBH=:MaPBH";
 	
-	public static List<OrderDTO> findAll(String keyword, Boolean isExported) {
+	public static List<OrderDTO> findAll(String keyword, Boolean isExported, Date fromDate, Date toDate) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("keyword", "%" + keyword + "%");
 		map.put("isExported", isExported);
@@ -61,6 +62,7 @@ public class OrderRepository {
             map.put("MaKH", orderDTO.getCustomerId());
             map.put("GhiChu", orderDTO.getNote());
             map.put("DaXuat", orderDTO.getExported());
+            map.put("DaXoa", orderDTO.getIsDeleted());
 		return QueryRepository.executeQueryUpdateDB(UPDATE_ORDER_QUERY, map);
 	}
 	

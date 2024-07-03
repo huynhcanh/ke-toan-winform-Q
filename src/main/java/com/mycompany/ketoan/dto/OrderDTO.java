@@ -39,6 +39,27 @@ public class OrderDTO {
 	@JsonProperty("DaXuat")
 	private Boolean isExported;
 	
+        @JsonProperty("DaXoa")
+	private Boolean isDeleted;
+
+    public Boolean getIsExported() {
+        return isExported;
+    }
+
+    public void setIsExported(Boolean isExported) {
+        this.isExported = isExported;
+    }
+
+    public Boolean getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+        
+        
+        
 	public Integer getId() {
 		return id;
 	}

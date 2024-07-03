@@ -7,6 +7,9 @@ import java.util.Date;
 public class DateTimeUtils {
 	
 	public static String toString(Date date) {
+                
+                if(date == null) return null;
+            
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		return formatter.format(date);
 	}

@@ -137,6 +137,7 @@ CREATE TABLE `PhieuBanHang`
     `NgayTao` date DEFAULT NULL,
     `GhiChu`  text DEFAULT NULL,
     `DaXuat`  bool DEFAULT NULL,
+    `DaXoa`  bool DEFAULT NULL,
     PRIMARY KEY (`MaPBH`),
     KEY       `fk_MaKH_PhieuBanHang_KhachHang` (`MaKH`),
     KEY       `fk_MaNV_PhieuBanHang_NhanVien` (`MaNV`),
@@ -168,6 +169,7 @@ CREATE TABLE `SDDK`
     `MaTietKhoan` int  NOT NULL,
     `NgayDauKy`   date NOT NULL,
     `SoTien`      decimal(10, 2) DEFAULT NULL,
+    `TrangThai`   varchar(255) DEFAULT NULL,
     PRIMARY KEY (`MaTietKhoan`, `NgayDauKy`),
     KEY           `fk_MaTietKhoan_SDDK_TietKhoan` (`MaTietKhoan`),
     CONSTRAINT `fk_MaTietKhoan_SDDK_TietKhoan` FOREIGN KEY (`MaTietKhoan`) REFERENCES `TietKhoan` (`MaTietKhoan`)

@@ -4524,15 +4524,14 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="tblSDDK">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="d9" green="d9" red="d9" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="6" rowCount="0">
+                      <Table columnCount="5" rowCount="0">
                         <Column editable="true" title="STT" type="java.lang.Object"/>
-                        <Column editable="true" title="M&#xe3;" type="java.lang.Object"/>
                         <Column editable="true" title="Ng&#xe0;y &#x110;&#x1ea7;u K&#x1ef3;" type="java.lang.Object"/>
                         <Column editable="true" title="M&#xe3; Ti&#x1ebf;t Kho&#x1ea3;n" type="java.lang.Object"/>
                         <Column editable="true" title="S&#x1ed1; Ti&#x1ec1;n" type="java.lang.Object"/>
@@ -4566,17 +4565,15 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                       </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblSDDKMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -4605,7 +4602,7 @@
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField3" max="32767" attributes="0"/>
+                                      <Component id="txtfirstDateOfPeriod_SDDK" max="32767" attributes="0"/>
                                       <Component id="cbbMaTietKhoan_SDDK" alignment="1" pref="171" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -4616,14 +4613,14 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextField1" max="32767" attributes="0"/>
-                                      <Component id="cbbNoCo_SDDK" pref="171" max="32767" attributes="0"/>
+                                      <Component id="txtPrice_SDDK" max="32767" attributes="0"/>
+                                      <Component id="cbbStatus_SDDK" pref="171" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton1" max="32767" attributes="0"/>
+                              <Component id="btnThem_SDDK" max="32767" attributes="0"/>
                               <Component id="jButton2" max="32767" attributes="0"/>
                               <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
                               <Component id="jButton4" alignment="0" pref="81" max="32767" attributes="0"/>
@@ -4638,8 +4635,8 @@
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtfirstDateOfPeriod_SDDK" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnThem_SDDK" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -4650,13 +4647,13 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPrice_SDDK" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbbNoCo_SDDK" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbbStatus_SDDK" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="112" max="32767" attributes="0"/>
@@ -4689,7 +4686,7 @@
                     <Property name="text" type="java.lang.String" value="S&#x1ed1; Ti&#x1ec1;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="btnThem_SDDK">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="47" green="ad" red="70" type="rgb"/>
@@ -4705,7 +4702,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThem_SDDKActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton2">
@@ -4776,7 +4773,7 @@
                     <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng Th&#xe1;i"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cbbNoCo_SDDK">
+                <Component class="javax.swing.JComboBox" name="cbbStatus_SDDK">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
@@ -4789,14 +4786,14 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="txtPrice_SDDK">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField3">
+                <Component class="javax.swing.JTextField" name="txtfirstDateOfPeriod_SDDK">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
@@ -4856,7 +4853,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtMaButToan_ButToan1" min="-2" pref="137" max="-2" attributes="0"/>
+                              <Component id="txtMaCT_CT" min="-2" pref="137" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btnXoa_ButToan1" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
@@ -4864,12 +4861,12 @@
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="lblTSHDBR6" min="-2" pref="29" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField7" min="-2" pref="72" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                  <Component id="fromDateFilter_Document" min="-2" pref="149" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="lblTSHDBR7" min="-2" pref="29" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextField8" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="toDateFilter_Document" min="-2" pref="149" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jButton7" min="-2" pref="119" max="-2" attributes="0"/>
                               </Group>
@@ -4891,12 +4888,14 @@
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="lblTSHDBR5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblTSHDBR6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTSHDBR7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblTSHDBR6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTSHDBR7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="fromDateFilter_Document" min="-2" max="-2" attributes="0"/>
+                          <Component id="toDateFilter_Document" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="lblTongTien_HoaDon7" min="-2" max="-2" attributes="0"/>
@@ -4907,7 +4906,7 @@
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtMaButToan_ButToan1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMaCT_CT" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnXoa_ButToan1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="45" max="32767" attributes="0"/>
@@ -5059,13 +5058,6 @@
                 <Property name="name" type="java.lang.String" value="" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="lblTSHDBR7">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -5073,13 +5065,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x1ebf;n"/>
                 <Property name="name" type="java.lang.String" value="" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel31">
@@ -5090,7 +5075,7 @@
                 <Property name="text" type="java.lang.String" value="S&#x1ed1; CT"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtMaButToan_ButToan1">
+            <Component class="javax.swing.JTextField" name="txtMaCT_CT">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f1" green="f1" red="f1" type="rgb"/>
@@ -5116,7 +5101,19 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoa_ButToan1MouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoa_ButToan1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="fromDateFilter_Document">
+              <Events>
+                <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="fromDateFilter_DocumentInputMethodTextChanged"/>
+                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="fromDateFilter_DocumentPropertyChange"/>
+              </Events>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="toDateFilter_Document">
+              <Events>
+                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="toDateFilter_DocumentPropertyChange"/>
               </Events>
             </Component>
           </SubComponents>
@@ -5164,25 +5161,11 @@
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtMaButToan_ButToan" min="-2" pref="137" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnXoa_ButToan" min="-2" pref="71" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblTSHDBR1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblTSHDBR2" min="-2" pref="29" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField5" min="-2" pref="72" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblTSHDBR3" min="-2" pref="29" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextField6" min="-2" pref="80" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtMaButToan_ButToan" min="-2" pref="137" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnXoa_ButToan" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -5195,16 +5178,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Component id="jLabel75" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="lblTSHDBR1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblTSHDBR2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTSHDBR3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblTSHDBR4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -5238,33 +5212,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="B&#xda;T TO&#xc1;N"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblTSHDBR1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="16" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="TH&#x1ed0;NG K&#xca;"/>
-                <Property name="name" type="java.lang.String" value="" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblTSHDBR2">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="2"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="T&#x1eeb;"/>
-                <Property name="name" type="java.lang.String" value="" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblTSHDBR3">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="2"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="&#x110;&#x1ebf;n"/>
-                <Property name="name" type="java.lang.String" value="" noResource="true"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane18">
@@ -5363,20 +5310,6 @@
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTimKiem_ButToanKeyReleased"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="cbbTypeFilter_ButToan">
               <Properties>
