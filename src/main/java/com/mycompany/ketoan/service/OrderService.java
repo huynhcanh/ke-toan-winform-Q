@@ -46,12 +46,10 @@ public class OrderService {
 	public static void fillDetailToForm(Integer orderId,
 										JTextField idE,
 										JComboBox customerE,
-										JTextField totalMoneyE,
 										JTextField noteE) {
 		OrderDTO orderDTO = OrderRepository.findById(orderId);
 		idE.setText(orderDTO.getId().toString());
 		ElementUtils.setSelectedCombobox(orderDTO.getCustomerId(), customerE);
-		totalMoneyE.setText(PriceUtils.convertToVND(orderDTO.getTotalMoney()));
 		noteE.setText(orderDTO.getNote());
 	}
 	
@@ -77,12 +75,10 @@ public class OrderService {
 	
 	public static void resetForm(JTextField idE,
 								 JComboBox customerE,
-								 JTextField totalMoneyE,
 								 JTextField noteE,
 								 JButton btnThem_HoaDon) {
 		idE.setText("");
 		ElementUtils.setSelectedCombobox(null, customerE);
-		totalMoneyE.setText("0");
 		noteE.setText("");
 		
 		btnThem_HoaDon.setEnabled(true);

@@ -23,10 +23,7 @@ public class ProductRepository {
 	private static final String UPDATE_PRODUCT_QUERY = "UPDATE HangHoa SET Ten=:Ten, GiaBan=:GiaBan, Dvt=:Dvt, KichThuoc=:KichThuoc, MaLoaiHH=:MaLoaiHH, HinhAnh=HinhAnh WHERE MaHH=:MaHH";
 	
 	private static final String DELETE_PRODUCT_QUERY = "DELETE FROM HangHoa WHERE MaHH=:MaHH";
-	
-	private static final String EXIST_PRODUCT_WAREHOUSE_QUERY = "SELECT 1 FROM HangHoa hh WHERE hh.MaHH = :MaHH AND EXISTS(SELECT 1 FROM Kho k WHERE k.MaHH = :MaHH)";
-	
-	
+        
 	public static List<ProductDTO> findAll(String keyword) {
 		ResultSet rs = QueryRepository.executeQuery(LIST_PRODUCT_QUERY, Map.of("keyword", "%" + keyword + "%"));
 		return ObjectMapper.toDTOs(rs, ProductDTO.class);
@@ -49,9 +46,5 @@ public class ProductRepository {
 	
 	public static int delete(Integer id) {
 		return QueryRepository.executeQueryUpdateDB(DELETE_PRODUCT_QUERY, Map.of("MaHH", id));
-	}
-	
-	public static boolean existWarehouseProduct(Integer productId) {
-		return QueryRepository.checkExistQuery(EXIST_PRODUCT_WAREHOUSE_QUERY, Map.of("MaHH", productId));
 	}
 }

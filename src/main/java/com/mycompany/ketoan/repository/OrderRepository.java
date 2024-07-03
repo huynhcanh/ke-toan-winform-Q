@@ -56,10 +56,12 @@ public class OrderRepository {
 	}
 	
 	public static int update(OrderDTO orderDTO) {
-		return QueryRepository.executeQueryUpdateDB(UPDATE_ORDER_QUERY, Map.of("MaPBH", orderDTO.getId(),
-				"MaKH", orderDTO.getCustomerId(),
-				"GhiChu", orderDTO.getNote(),
-                                "DaXuat", orderDTO.getExported()));
+            Map<String, Object> map = new HashMap<>();
+            map.put("MaPBH", orderDTO.getId());
+            map.put("MaKH", orderDTO.getCustomerId());
+            map.put("GhiChu", orderDTO.getNote());
+            map.put("DaXuat", orderDTO.getExported());
+		return QueryRepository.executeQueryUpdateDB(UPDATE_ORDER_QUERY, map);
 	}
 	
 	public static int delete(Integer id) {

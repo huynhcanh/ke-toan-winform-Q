@@ -20,7 +20,7 @@ public class CustomerRepository {
 	
 	private static final String DELETE_CUSTOMER_QUERY = "DELETE FROM KhachHang WHERE MaKH=:MaKH";
 	
-	private static final String EXIST_ORDER_QUERY = "SELECT 1 FROM KhachHang kh WHERE kh.MaKH = :MaKH AND EXISTS(SELECT 1 FROM DonHang WHERE MaKH =:MaKH)";
+	private static final String EXIST_ORDER_QUERY = "SELECT 1 FROM KhachHang kh WHERE kh.MaKH = :MaKH AND EXISTS(SELECT 1 FROM PhieuBanHang WHERE MaKH =:MaKH)";
 	
 	public static List<CustomerDTO> findAll(String keyword) {
 		ResultSet rs = QueryRepository.executeQuery(LIST_CUSTOMER_QUERY, Map.of("keyword", "%" + keyword + "%"));
