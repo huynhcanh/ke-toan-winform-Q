@@ -427,12 +427,12 @@
                                       <Component id="cbbKhachHang_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnXoa_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="txtGhiChu_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblTongTien_HoaDon3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="btnXoa_HoaDon" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnReSet_HoaDon" min="-2" max="-2" attributes="0"/>
@@ -2165,16 +2165,16 @@
                           </Group>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField11" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField12" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jComboBox3" pref="136" max="32767" attributes="0"/>
+                              <Component id="txtNumberAccountLv2_Lv2_Account" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtNameAccountLv2_Lv2_Account" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbbNumberAccountLv1_Lv2_Account" pref="136" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnSua_NhanVien2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnXoa_NhanVien2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnReset_NhanVien2" alignment="0" pref="93" max="32767" attributes="0"/>
-                              <Component id="btnThem_NhanVien2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnEdit_Lv2_Account" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnDelete_Lv2_Account" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnReset_Lv2_Account" alignment="0" pref="93" max="32767" attributes="0"/>
+                              <Component id="btnAdd_Lv2_Account" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
@@ -2187,36 +2187,36 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                                  <Component id="btnSua_NhanVien2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEdit_Lv2_Account" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="btnThem_NhanVien2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAdd_Lv2_Account" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cbbNumberAccountLv1_Lv2_Account" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNumberAccountLv2_Lv2_Account" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnXoa_NhanVien2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNameAccountLv2_Lv2_Account" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnDelete_Lv2_Account" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnReset_NhanVien2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnReset_Lv2_Account" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="58" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextField11">
+                <Component class="javax.swing.JTextField" name="txtNumberAccountLv2_Lv2_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
@@ -2231,7 +2231,7 @@
                     <Property name="text" type="java.lang.String" value="T&#xea;n TK C&#x1ea5;p 2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField12">
+                <Component class="javax.swing.JTextField" name="txtNameAccountLv2_Lv2_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
@@ -2254,7 +2254,7 @@
                     <Property name="text" type="java.lang.String" value="S&#x1ed1; TK C&#x1ea5;p 1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox3">
+                <Component class="javax.swing.JComboBox" name="cbbNumberAccountLv1_Lv2_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
@@ -2267,7 +2267,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnThem_NhanVien2">
+                <Component class="javax.swing.JButton" name="btnAdd_Lv2_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="47" green="ad" red="70" type="rgb"/>
@@ -2283,10 +2283,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThem_NhanVien2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd_Lv2_AccountActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSua_NhanVien2">
+                <Component class="javax.swing.JButton" name="btnEdit_Lv2_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="d9" red="ff" type="rgb"/>
@@ -2302,10 +2302,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSua_NhanVien2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEdit_Lv2_AccountActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnXoa_NhanVien2">
+                <Component class="javax.swing.JButton" name="btnDelete_Lv2_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -2324,10 +2324,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoa_NhanVien2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelete_Lv2_AccountActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnReset_NhanVien2">
+                <Component class="javax.swing.JButton" name="btnReset_Lv2_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2343,7 +2343,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReset_NhanVien2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReset_Lv2_AccountActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -2366,15 +2366,15 @@
                           </Group>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField9" max="32767" attributes="0"/>
-                              <Component id="jTextField10" pref="136" max="32767" attributes="0"/>
+                              <Component id="txtNumberAccountLv1_Lv1_Account" max="32767" attributes="0"/>
+                              <Component id="txtNameAccountLv1_Lv1_Account" pref="136" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnSua_NhanVien1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnXoa_NhanVien1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnReset_NhanVien1" alignment="0" pref="93" max="32767" attributes="0"/>
-                              <Component id="btnThem_NhanVien1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnEdit_Lv1_Account" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnDelete_Lv1_Account" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnReset_Lv1_Account" alignment="0" pref="93" max="32767" attributes="0"/>
+                              <Component id="btnAdd_Lv1_Account" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
@@ -2387,25 +2387,25 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                                  <Component id="btnSua_NhanVien1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEdit_Lv1_Account" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="btnThem_NhanVien1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAdd_Lv1_Account" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNumberAccountLv1_Lv1_Account" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNameAccountLv1_Lv1_Account" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnXoa_NhanVien1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDelete_Lv1_Account" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnReset_NhanVien1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnReset_Lv1_Account" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="56" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -2428,21 +2428,24 @@
                     <Property name="text" type="java.lang.String" value="T&#xea;n TK C&#x1ea5;p 1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField9">
+                <Component class="javax.swing.JTextField" name="txtNumberAccountLv1_Lv1_Account">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f1" green="f1" red="f1" type="rgb"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumberAccountLv1_Lv1_AccountActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtNameAccountLv1_Lv1_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField10">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnThem_NhanVien1">
+                <Component class="javax.swing.JButton" name="btnAdd_Lv1_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="47" green="ad" red="70" type="rgb"/>
@@ -2458,10 +2461,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThem_NhanVien1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd_Lv1_AccountActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSua_NhanVien1">
+                <Component class="javax.swing.JButton" name="btnEdit_Lv1_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="d9" red="ff" type="rgb"/>
@@ -2477,10 +2480,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSua_NhanVien1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEdit_Lv1_AccountActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnXoa_NhanVien1">
+                <Component class="javax.swing.JButton" name="btnDelete_Lv1_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -2499,10 +2502,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoa_NhanVien1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelete_Lv1_AccountActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnReset_NhanVien1">
+                <Component class="javax.swing.JButton" name="btnReset_Lv1_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2518,7 +2521,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReset_NhanVien1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReset_Lv1_AccountActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -2543,17 +2546,17 @@
                           </Group>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField14" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField13" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jComboBox4" alignment="0" pref="136" max="32767" attributes="0"/>
-                              <Component id="jComboBox5" max="32767" attributes="0"/>
+                              <Component id="txtNumberAccountLv3_Lv3_Account" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtNameAccountLv3_Lv3_Account" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbbNumberAccountLv2_Lv3_Account" alignment="0" pref="136" max="32767" attributes="0"/>
+                              <Component id="cbbNumberAccountLv1_Lv3_Account" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnSua_NhanVien3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnXoa_NhanVien3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnReset_NhanVien3" alignment="0" pref="93" max="32767" attributes="0"/>
-                              <Component id="btnThem_NhanVien3" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnEdit_Lv3_Account" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnDelete_Lv3_Account" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnReset_Lv3_Account" alignment="0" pref="93" max="32767" attributes="0"/>
+                              <Component id="btnAdd_Lv3_Account" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
@@ -2568,36 +2571,36 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                                          <Component id="btnSua_NhanVien3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnEdit_Lv3_Account" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="btnThem_NhanVien3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnAdd_Lv3_Account" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                                          <Component id="btnXoa_NhanVien3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnDelete_Lv3_Account" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btnReset_NhanVien3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnReset_Lv3_Account" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jComboBox5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cbbNumberAccountLv1_Lv3_Account" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cbbNumberAccountLv2_Lv3_Account" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNumberAccountLv3_Lv3_Account" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNameAccountLv3_Lv3_Account" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -2615,7 +2618,7 @@
                     <Property name="text" type="java.lang.String" value="S&#x1ed1; TK C&#x1ea5;p 2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField13">
+                <Component class="javax.swing.JTextField" name="txtNameAccountLv3_Lv3_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
@@ -2630,7 +2633,7 @@
                     <Property name="text" type="java.lang.String" value="S&#x1ed1; TK C&#x1ea5;p 3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox4">
+                <Component class="javax.swing.JComboBox" name="cbbNumberAccountLv2_Lv3_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
@@ -2651,7 +2654,7 @@
                     <Property name="text" type="java.lang.String" value="T&#xea;n TK C&#x1ea5;p 3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField14">
+                <Component class="javax.swing.JTextField" name="txtNumberAccountLv3_Lv3_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
@@ -2666,7 +2669,7 @@
                     <Property name="text" type="java.lang.String" value="S&#x1ed1; TK C&#x1ea5;p 1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox5">
+                <Component class="javax.swing.JComboBox" name="cbbNumberAccountLv1_Lv3_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f1" green="f1" red="f1" type="rgb"/>
@@ -2679,7 +2682,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnThem_NhanVien3">
+                <Component class="javax.swing.JButton" name="btnAdd_Lv3_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="47" green="ad" red="70" type="rgb"/>
@@ -2695,10 +2698,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThem_NhanVien3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd_Lv3_AccountActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSua_NhanVien3">
+                <Component class="javax.swing.JButton" name="btnEdit_Lv3_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="d9" red="ff" type="rgb"/>
@@ -2714,10 +2717,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSua_NhanVien3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEdit_Lv3_AccountActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnXoa_NhanVien3">
+                <Component class="javax.swing.JButton" name="btnDelete_Lv3_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -2736,10 +2739,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoa_NhanVien3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelete_Lv3_AccountActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnReset_NhanVien3">
+                <Component class="javax.swing.JButton" name="btnReset_Lv3_Account">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2755,7 +2758,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReset_NhanVien3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReset_Lv3_AccountActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

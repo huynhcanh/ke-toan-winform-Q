@@ -181,38 +181,38 @@ public class FormMain extends javax.swing.JFrame {
         jLabel66 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField11 = new javax.swing.JTextField();
+        txtNumberAccountLv2_Lv2_Account = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        txtNameAccountLv2_Lv2_Account = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        btnThem_NhanVien2 = new javax.swing.JButton();
-        btnSua_NhanVien2 = new javax.swing.JButton();
-        btnXoa_NhanVien2 = new javax.swing.JButton();
-        btnReset_NhanVien2 = new javax.swing.JButton();
+        cbbNumberAccountLv1_Lv2_Account = new javax.swing.JComboBox<>();
+        btnAdd_Lv2_Account = new javax.swing.JButton();
+        btnEdit_Lv2_Account = new javax.swing.JButton();
+        btnDelete_Lv2_Account = new javax.swing.JButton();
+        btnReset_Lv2_Account = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        btnThem_NhanVien1 = new javax.swing.JButton();
-        btnSua_NhanVien1 = new javax.swing.JButton();
-        btnXoa_NhanVien1 = new javax.swing.JButton();
-        btnReset_NhanVien1 = new javax.swing.JButton();
+        txtNumberAccountLv1_Lv1_Account = new javax.swing.JTextField();
+        txtNameAccountLv1_Lv1_Account = new javax.swing.JTextField();
+        btnAdd_Lv1_Account = new javax.swing.JButton();
+        btnEdit_Lv1_Account = new javax.swing.JButton();
+        btnDelete_Lv1_Account = new javax.swing.JButton();
+        btnReset_Lv1_Account = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        txtNameAccountLv3_Lv3_Account = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        cbbNumberAccountLv2_Lv3_Account = new javax.swing.JComboBox<>();
         jLabel28 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        txtNumberAccountLv3_Lv3_Account = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        btnThem_NhanVien3 = new javax.swing.JButton();
-        btnSua_NhanVien3 = new javax.swing.JButton();
-        btnXoa_NhanVien3 = new javax.swing.JButton();
-        btnReset_NhanVien3 = new javax.swing.JButton();
+        cbbNumberAccountLv1_Lv3_Account = new javax.swing.JComboBox<>();
+        btnAdd_Lv3_Account = new javax.swing.JButton();
+        btnEdit_Lv3_Account = new javax.swing.JButton();
+        btnDelete_Lv3_Account = new javax.swing.JButton();
+        btnReset_Lv3_Account = new javax.swing.JButton();
         jTabbedPaneNhanVien = new javax.swing.JTabbedPane();
         jPanelNhanVien = new javax.swing.JPanel();
         jLabel40 = new javax.swing.JLabel();
@@ -610,11 +610,11 @@ public class FormMain extends javax.swing.JFrame {
                             .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbbKhachHang_HoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnXoa_HoaDon)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtGhiChu_HoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblTongTien_HoaDon3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblTongTien_HoaDon3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnXoa_HoaDon))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnReSet_HoaDon))
                     .addComponent(btnSua_HoaDon))
@@ -1553,12 +1553,12 @@ public class FormMain extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField11.setBackground(new java.awt.Color(241, 241, 241));
+        txtNumberAccountLv2_Lv2_Account.setBackground(new java.awt.Color(241, 241, 241));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel20.setText("Tên TK Cấp 2");
 
-        jTextField12.setBackground(new java.awt.Color(241, 241, 241));
+        txtNameAccountLv2_Lv2_Account.setBackground(new java.awt.Color(241, 241, 241));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel19.setText("Số TK Cấp 2");
@@ -1566,46 +1566,46 @@ public class FormMain extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel21.setText("Số TK Cấp 1");
 
-        jComboBox3.setBackground(new java.awt.Color(241, 241, 241));
+        cbbNumberAccountLv1_Lv2_Account.setBackground(new java.awt.Color(241, 241, 241));
 
-        btnThem_NhanVien2.setBackground(new java.awt.Color(112, 173, 71));
-        btnThem_NhanVien2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnThem_NhanVien2.setText("Thêm");
-        btnThem_NhanVien2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnThem_NhanVien2.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd_Lv2_Account.setBackground(new java.awt.Color(112, 173, 71));
+        btnAdd_Lv2_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnAdd_Lv2_Account.setText("Thêm");
+        btnAdd_Lv2_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAdd_Lv2_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThem_NhanVien2ActionPerformed(evt);
+                btnAdd_Lv2_AccountActionPerformed(evt);
             }
         });
 
-        btnSua_NhanVien2.setBackground(new java.awt.Color(255, 217, 102));
-        btnSua_NhanVien2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnSua_NhanVien2.setText("Sửa");
-        btnSua_NhanVien2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSua_NhanVien2.addActionListener(new java.awt.event.ActionListener() {
+        btnEdit_Lv2_Account.setBackground(new java.awt.Color(255, 217, 102));
+        btnEdit_Lv2_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnEdit_Lv2_Account.setText("Sửa");
+        btnEdit_Lv2_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEdit_Lv2_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSua_NhanVien2ActionPerformed(evt);
+                btnEdit_Lv2_AccountActionPerformed(evt);
             }
         });
 
-        btnXoa_NhanVien2.setBackground(new java.awt.Color(255, 0, 0));
-        btnXoa_NhanVien2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnXoa_NhanVien2.setForeground(new java.awt.Color(255, 255, 255));
-        btnXoa_NhanVien2.setText("Xóa");
-        btnXoa_NhanVien2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnXoa_NhanVien2.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete_Lv2_Account.setBackground(new java.awt.Color(255, 0, 0));
+        btnDelete_Lv2_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnDelete_Lv2_Account.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete_Lv2_Account.setText("Xóa");
+        btnDelete_Lv2_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete_Lv2_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoa_NhanVien2ActionPerformed(evt);
+                btnDelete_Lv2_AccountActionPerformed(evt);
             }
         });
 
-        btnReset_NhanVien2.setBackground(new java.awt.Color(204, 204, 204));
-        btnReset_NhanVien2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnReset_NhanVien2.setText("Làm mới");
-        btnReset_NhanVien2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnReset_NhanVien2.addActionListener(new java.awt.event.ActionListener() {
+        btnReset_Lv2_Account.setBackground(new java.awt.Color(204, 204, 204));
+        btnReset_Lv2_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnReset_Lv2_Account.setText("Làm mới");
+        btnReset_Lv2_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnReset_Lv2_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReset_NhanVien2ActionPerformed(evt);
+                btnReset_Lv2_AccountActionPerformed(evt);
             }
         });
 
@@ -1621,15 +1621,15 @@ public class FormMain extends javax.swing.JFrame {
                     .addComponent(jLabel21))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField11)
-                    .addComponent(jTextField12)
-                    .addComponent(jComboBox3, 0, 136, Short.MAX_VALUE))
+                    .addComponent(txtNumberAccountLv2_Lv2_Account)
+                    .addComponent(txtNameAccountLv2_Lv2_Account)
+                    .addComponent(cbbNumberAccountLv1_Lv2_Account, 0, 136, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSua_NhanVien2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnXoa_NhanVien2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnReset_NhanVien2, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                    .addComponent(btnThem_NhanVien2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnEdit_Lv2_Account, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDelete_Lv2_Account, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReset_Lv2_Account, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(btnAdd_Lv2_Account, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1639,23 +1639,23 @@ public class FormMain extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(btnSua_NhanVien2))
-                    .addComponent(btnThem_NhanVien2)
+                        .addComponent(btnEdit_Lv2_Account))
+                    .addComponent(btnAdd_Lv2_Account)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbbNumberAccountLv1_Lv2_Account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNumberAccountLv2_Lv2_Account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnXoa_NhanVien2))))
+                            .addComponent(txtNameAccountLv2_Lv2_Account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDelete_Lv2_Account))))
                 .addGap(18, 18, 18)
-                .addComponent(btnReset_NhanVien2)
+                .addComponent(btnReset_Lv2_Account)
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
@@ -1667,48 +1667,53 @@ public class FormMain extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel18.setText("Tên TK Cấp 1");
 
-        jTextField9.setBackground(new java.awt.Color(241, 241, 241));
-
-        jTextField10.setBackground(new java.awt.Color(241, 241, 241));
-
-        btnThem_NhanVien1.setBackground(new java.awt.Color(112, 173, 71));
-        btnThem_NhanVien1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnThem_NhanVien1.setText("Thêm");
-        btnThem_NhanVien1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnThem_NhanVien1.addActionListener(new java.awt.event.ActionListener() {
+        txtNumberAccountLv1_Lv1_Account.setBackground(new java.awt.Color(241, 241, 241));
+        txtNumberAccountLv1_Lv1_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThem_NhanVien1ActionPerformed(evt);
+                txtNumberAccountLv1_Lv1_AccountActionPerformed(evt);
             }
         });
 
-        btnSua_NhanVien1.setBackground(new java.awt.Color(255, 217, 102));
-        btnSua_NhanVien1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnSua_NhanVien1.setText("Sửa");
-        btnSua_NhanVien1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSua_NhanVien1.addActionListener(new java.awt.event.ActionListener() {
+        txtNameAccountLv1_Lv1_Account.setBackground(new java.awt.Color(241, 241, 241));
+
+        btnAdd_Lv1_Account.setBackground(new java.awt.Color(112, 173, 71));
+        btnAdd_Lv1_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnAdd_Lv1_Account.setText("Thêm");
+        btnAdd_Lv1_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAdd_Lv1_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSua_NhanVien1ActionPerformed(evt);
+                btnAdd_Lv1_AccountActionPerformed(evt);
             }
         });
 
-        btnXoa_NhanVien1.setBackground(new java.awt.Color(255, 0, 0));
-        btnXoa_NhanVien1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnXoa_NhanVien1.setForeground(new java.awt.Color(255, 255, 255));
-        btnXoa_NhanVien1.setText("Xóa");
-        btnXoa_NhanVien1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnXoa_NhanVien1.addActionListener(new java.awt.event.ActionListener() {
+        btnEdit_Lv1_Account.setBackground(new java.awt.Color(255, 217, 102));
+        btnEdit_Lv1_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnEdit_Lv1_Account.setText("Sửa");
+        btnEdit_Lv1_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEdit_Lv1_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoa_NhanVien1ActionPerformed(evt);
+                btnEdit_Lv1_AccountActionPerformed(evt);
             }
         });
 
-        btnReset_NhanVien1.setBackground(new java.awt.Color(204, 204, 204));
-        btnReset_NhanVien1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnReset_NhanVien1.setText("Làm mới");
-        btnReset_NhanVien1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnReset_NhanVien1.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete_Lv1_Account.setBackground(new java.awt.Color(255, 0, 0));
+        btnDelete_Lv1_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnDelete_Lv1_Account.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete_Lv1_Account.setText("Xóa");
+        btnDelete_Lv1_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete_Lv1_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReset_NhanVien1ActionPerformed(evt);
+                btnDelete_Lv1_AccountActionPerformed(evt);
+            }
+        });
+
+        btnReset_Lv1_Account.setBackground(new java.awt.Color(204, 204, 204));
+        btnReset_Lv1_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnReset_Lv1_Account.setText("Làm mới");
+        btnReset_Lv1_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnReset_Lv1_Account.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReset_Lv1_AccountActionPerformed(evt);
             }
         });
 
@@ -1723,14 +1728,14 @@ public class FormMain extends javax.swing.JFrame {
                     .addComponent(jLabel18))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField9)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                    .addComponent(txtNumberAccountLv1_Lv1_Account)
+                    .addComponent(txtNameAccountLv1_Lv1_Account, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSua_NhanVien1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnXoa_NhanVien1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnReset_NhanVien1, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                    .addComponent(btnThem_NhanVien1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnEdit_Lv1_Account, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDelete_Lv1_Account, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReset_Lv1_Account, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(btnAdd_Lv1_Account, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(16, 16, 16))
         );
         jPanel9Layout.setVerticalGroup(
@@ -1740,20 +1745,20 @@ public class FormMain extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(btnSua_NhanVien1))
-                    .addComponent(btnThem_NhanVien1)
+                        .addComponent(btnEdit_Lv1_Account))
+                    .addComponent(btnAdd_Lv1_Account)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNumberAccountLv1_Lv1_Account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtNameAccountLv1_Lv1_Account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(btnXoa_NhanVien1)
+                .addComponent(btnDelete_Lv1_Account)
                 .addGap(18, 18, 18)
-                .addComponent(btnReset_NhanVien1)
+                .addComponent(btnReset_Lv1_Account)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -1762,61 +1767,61 @@ public class FormMain extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel22.setText("Số TK Cấp 2");
 
-        jTextField13.setBackground(new java.awt.Color(241, 241, 241));
+        txtNameAccountLv3_Lv3_Account.setBackground(new java.awt.Color(241, 241, 241));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel26.setText("Số TK Cấp 3");
 
-        jComboBox4.setBackground(new java.awt.Color(241, 241, 241));
+        cbbNumberAccountLv2_Lv3_Account.setBackground(new java.awt.Color(241, 241, 241));
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel28.setText("Tên TK Cấp 3");
 
-        jTextField14.setBackground(new java.awt.Color(241, 241, 241));
+        txtNumberAccountLv3_Lv3_Account.setBackground(new java.awt.Color(241, 241, 241));
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel29.setText("Số TK Cấp 1");
 
-        jComboBox5.setBackground(new java.awt.Color(241, 241, 241));
+        cbbNumberAccountLv1_Lv3_Account.setBackground(new java.awt.Color(241, 241, 241));
 
-        btnThem_NhanVien3.setBackground(new java.awt.Color(112, 173, 71));
-        btnThem_NhanVien3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnThem_NhanVien3.setText("Thêm");
-        btnThem_NhanVien3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnThem_NhanVien3.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd_Lv3_Account.setBackground(new java.awt.Color(112, 173, 71));
+        btnAdd_Lv3_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnAdd_Lv3_Account.setText("Thêm");
+        btnAdd_Lv3_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAdd_Lv3_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThem_NhanVien3ActionPerformed(evt);
+                btnAdd_Lv3_AccountActionPerformed(evt);
             }
         });
 
-        btnSua_NhanVien3.setBackground(new java.awt.Color(255, 217, 102));
-        btnSua_NhanVien3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnSua_NhanVien3.setText("Sửa");
-        btnSua_NhanVien3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSua_NhanVien3.addActionListener(new java.awt.event.ActionListener() {
+        btnEdit_Lv3_Account.setBackground(new java.awt.Color(255, 217, 102));
+        btnEdit_Lv3_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnEdit_Lv3_Account.setText("Sửa");
+        btnEdit_Lv3_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEdit_Lv3_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSua_NhanVien3ActionPerformed(evt);
+                btnEdit_Lv3_AccountActionPerformed(evt);
             }
         });
 
-        btnXoa_NhanVien3.setBackground(new java.awt.Color(255, 0, 0));
-        btnXoa_NhanVien3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnXoa_NhanVien3.setForeground(new java.awt.Color(255, 255, 255));
-        btnXoa_NhanVien3.setText("Xóa");
-        btnXoa_NhanVien3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnXoa_NhanVien3.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete_Lv3_Account.setBackground(new java.awt.Color(255, 0, 0));
+        btnDelete_Lv3_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnDelete_Lv3_Account.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete_Lv3_Account.setText("Xóa");
+        btnDelete_Lv3_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete_Lv3_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoa_NhanVien3ActionPerformed(evt);
+                btnDelete_Lv3_AccountActionPerformed(evt);
             }
         });
 
-        btnReset_NhanVien3.setBackground(new java.awt.Color(204, 204, 204));
-        btnReset_NhanVien3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnReset_NhanVien3.setText("Làm mới");
-        btnReset_NhanVien3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnReset_NhanVien3.addActionListener(new java.awt.event.ActionListener() {
+        btnReset_Lv3_Account.setBackground(new java.awt.Color(204, 204, 204));
+        btnReset_Lv3_Account.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnReset_Lv3_Account.setText("Làm mới");
+        btnReset_Lv3_Account.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnReset_Lv3_Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReset_NhanVien3ActionPerformed(evt);
+                btnReset_Lv3_AccountActionPerformed(evt);
             }
         });
 
@@ -1833,16 +1838,16 @@ public class FormMain extends javax.swing.JFrame {
                     .addComponent(jLabel29))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField14)
-                    .addComponent(jTextField13)
-                    .addComponent(jComboBox4, 0, 136, Short.MAX_VALUE)
-                    .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtNumberAccountLv3_Lv3_Account)
+                    .addComponent(txtNameAccountLv3_Lv3_Account)
+                    .addComponent(cbbNumberAccountLv2_Lv3_Account, 0, 136, Short.MAX_VALUE)
+                    .addComponent(cbbNumberAccountLv1_Lv3_Account, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSua_NhanVien3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnXoa_NhanVien3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnReset_NhanVien3, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                    .addComponent(btnThem_NhanVien3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnEdit_Lv3_Account, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDelete_Lv3_Account, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReset_Lv3_Account, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(btnAdd_Lv3_Account, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34))
         );
         jPanel11Layout.setVerticalGroup(
@@ -1854,29 +1859,29 @@ public class FormMain extends javax.swing.JFrame {
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
-                                .addComponent(btnSua_NhanVien3))
-                            .addComponent(btnThem_NhanVien3)
+                                .addComponent(btnEdit_Lv3_Account))
+                            .addComponent(btnAdd_Lv3_Account)
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addGap(80, 80, 80)
-                                .addComponent(btnXoa_NhanVien3)))
+                                .addComponent(btnDelete_Lv3_Account)))
                         .addGap(18, 18, 18)
-                        .addComponent(btnReset_NhanVien3))
+                        .addComponent(btnReset_Lv3_Account))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbbNumberAccountLv1_Lv3_Account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel29))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbbNumberAccountLv2_Lv3_Account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNumberAccountLv3_Lv3_Account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel28)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtNameAccountLv3_Lv3_Account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
@@ -4912,53 +4917,53 @@ public class FormMain extends javax.swing.JFrame {
         
     }//GEN-LAST:event_tbButToanMouseClicked
 
-    private void btnThem_NhanVien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_NhanVien1ActionPerformed
+    private void btnAdd_Lv1_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd_Lv1_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnThem_NhanVien1ActionPerformed
+    }//GEN-LAST:event_btnAdd_Lv1_AccountActionPerformed
 
-    private void btnSua_NhanVien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_NhanVien1ActionPerformed
+    private void btnEdit_Lv1_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit_Lv1_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSua_NhanVien1ActionPerformed
+    }//GEN-LAST:event_btnEdit_Lv1_AccountActionPerformed
 
-    private void btnXoa_NhanVien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_NhanVien1ActionPerformed
+    private void btnDelete_Lv1_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete_Lv1_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoa_NhanVien1ActionPerformed
+    }//GEN-LAST:event_btnDelete_Lv1_AccountActionPerformed
 
-    private void btnReset_NhanVien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReset_NhanVien1ActionPerformed
+    private void btnReset_Lv1_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReset_Lv1_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReset_NhanVien1ActionPerformed
+    }//GEN-LAST:event_btnReset_Lv1_AccountActionPerformed
 
-    private void btnThem_NhanVien2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_NhanVien2ActionPerformed
+    private void btnAdd_Lv2_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd_Lv2_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnThem_NhanVien2ActionPerformed
+    }//GEN-LAST:event_btnAdd_Lv2_AccountActionPerformed
 
-    private void btnSua_NhanVien2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_NhanVien2ActionPerformed
+    private void btnEdit_Lv2_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit_Lv2_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSua_NhanVien2ActionPerformed
+    }//GEN-LAST:event_btnEdit_Lv2_AccountActionPerformed
 
-    private void btnXoa_NhanVien2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_NhanVien2ActionPerformed
+    private void btnDelete_Lv2_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete_Lv2_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoa_NhanVien2ActionPerformed
+    }//GEN-LAST:event_btnDelete_Lv2_AccountActionPerformed
 
-    private void btnReset_NhanVien2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReset_NhanVien2ActionPerformed
+    private void btnReset_Lv2_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReset_Lv2_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReset_NhanVien2ActionPerformed
+    }//GEN-LAST:event_btnReset_Lv2_AccountActionPerformed
 
-    private void btnThem_NhanVien3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_NhanVien3ActionPerformed
+    private void btnAdd_Lv3_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd_Lv3_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnThem_NhanVien3ActionPerformed
+    }//GEN-LAST:event_btnAdd_Lv3_AccountActionPerformed
 
-    private void btnSua_NhanVien3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_NhanVien3ActionPerformed
+    private void btnEdit_Lv3_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit_Lv3_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSua_NhanVien3ActionPerformed
+    }//GEN-LAST:event_btnEdit_Lv3_AccountActionPerformed
 
-    private void btnXoa_NhanVien3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_NhanVien3ActionPerformed
+    private void btnDelete_Lv3_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete_Lv3_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoa_NhanVien3ActionPerformed
+    }//GEN-LAST:event_btnDelete_Lv3_AccountActionPerformed
 
-    private void btnReset_NhanVien3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReset_NhanVien3ActionPerformed
+    private void btnReset_Lv3_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReset_Lv3_AccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReset_NhanVien3ActionPerformed
+    }//GEN-LAST:event_btnReset_Lv3_AccountActionPerformed
 
     private void btnXoa_ButToan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_ButToan1ActionPerformed
         // TODO add your handling code here:
@@ -5021,16 +5026,29 @@ public class FormMain extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_btnXoa_ButToan1MouseClicked
 
+    private void txtNumberAccountLv1_Lv1_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumberAccountLv1_Lv1_AccountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumberAccountLv1_Lv1_AccountActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Reset_LoaiSanPham;
     private javax.swing.JButton bntSua_SanPham;
+    private javax.swing.JButton btnAdd_Lv1_Account;
+    private javax.swing.JButton btnAdd_Lv2_Account;
+    private javax.swing.JButton btnAdd_Lv3_Account;
+    private javax.swing.JButton btnDelete_Lv1_Account;
+    private javax.swing.JButton btnDelete_Lv2_Account;
+    private javax.swing.JButton btnDelete_Lv3_Account;
+    private javax.swing.JButton btnEdit_Lv1_Account;
+    private javax.swing.JButton btnEdit_Lv2_Account;
+    private javax.swing.JButton btnEdit_Lv3_Account;
     private javax.swing.JButton btnReSet_HoaDon;
     private javax.swing.JButton btnResetCTHD_HoaDon;
     private javax.swing.JButton btnReset_KhachHang;
+    private javax.swing.JButton btnReset_Lv1_Account;
+    private javax.swing.JButton btnReset_Lv2_Account;
+    private javax.swing.JButton btnReset_Lv3_Account;
     private javax.swing.JButton btnReset_NhanVien;
-    private javax.swing.JButton btnReset_NhanVien1;
-    private javax.swing.JButton btnReset_NhanVien2;
-    private javax.swing.JButton btnReset_NhanVien3;
     private javax.swing.JButton btnReset_PhieuChi;
     private javax.swing.JButton btnReset_PhieuThu;
     private javax.swing.JButton btnReset_SanPham;
@@ -5039,9 +5057,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton btnSua_KhachHang;
     private javax.swing.JButton btnSua_LoaiSanPham;
     private javax.swing.JButton btnSua_NhanVien;
-    private javax.swing.JButton btnSua_NhanVien1;
-    private javax.swing.JButton btnSua_NhanVien2;
-    private javax.swing.JButton btnSua_NhanVien3;
     private javax.swing.JButton btnSua_PhieuChi;
     private javax.swing.JButton btnSua_PhieuThu;
     private javax.swing.JButton btnThem_CTHD;
@@ -5049,9 +5064,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton btnThem_KhachHang;
     private javax.swing.JButton btnThem_LoaiSanPham;
     private javax.swing.JButton btnThem_NhanVien;
-    private javax.swing.JButton btnThem_NhanVien1;
-    private javax.swing.JButton btnThem_NhanVien2;
-    private javax.swing.JButton btnThem_NhanVien3;
     private javax.swing.JButton btnThem_PhieuChi;
     private javax.swing.JButton btnThem_PhieuThu;
     private javax.swing.JButton btnThem_SDDK;
@@ -5063,9 +5075,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton btnXoa_KhachHang;
     private javax.swing.JButton btnXoa_LoaiSanPham;
     private javax.swing.JButton btnXoa_NhanVien;
-    private javax.swing.JButton btnXoa_NhanVien1;
-    private javax.swing.JButton btnXoa_NhanVien2;
-    private javax.swing.JButton btnXoa_NhanVien3;
     private javax.swing.JButton btnXoa_PhieuChi;
     private javax.swing.JButton btnXoa_PhieuThu;
     private javax.swing.JButton btnXoa_SanPham;
@@ -5085,6 +5094,9 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbbMaTietKhoan_SDDK;
     private javax.swing.JComboBox<String> cbbNhanVien_PhieuChi;
     private javax.swing.JComboBox<String> cbbNhanVien_PhieuThu;
+    private javax.swing.JComboBox<String> cbbNumberAccountLv1_Lv2_Account;
+    private javax.swing.JComboBox<String> cbbNumberAccountLv1_Lv3_Account;
+    private javax.swing.JComboBox<String> cbbNumberAccountLv2_Lv3_Account;
     private javax.swing.JComboBox<String> cbbSanPhamCTHD_HoaDon;
     private javax.swing.JComboBox<String> cbbStatus_SDDK;
     private javax.swing.JComboBox<String> cbbTypeFilter_ButToan;
@@ -5093,9 +5105,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -5187,12 +5196,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPaneNhanVien;
     private javax.swing.JTabbedPane jTabbedPaneSanPham;
     private javax.swing.JTabbedPane jTabbedPanelThuChi;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblDiaChi_KhachHang;
     private javax.swing.JLabel lblGiaBan;
     private javax.swing.JLabel lblGiaNhap_SanPham;
@@ -5257,6 +5260,12 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTextField txtMaPhieuChi_PhieuChi;
     private javax.swing.JTextField txtMaPhieuThu_PhieuThu;
     private javax.swing.JTextField txtMaSoThue_KhachHang;
+    private javax.swing.JTextField txtNameAccountLv1_Lv1_Account;
+    private javax.swing.JTextField txtNameAccountLv2_Lv2_Account;
+    private javax.swing.JTextField txtNameAccountLv3_Lv3_Account;
+    private javax.swing.JTextField txtNumberAccountLv1_Lv1_Account;
+    private javax.swing.JTextField txtNumberAccountLv2_Lv2_Account;
+    private javax.swing.JTextField txtNumberAccountLv3_Lv3_Account;
     private javax.swing.JTextField txtPrice_SDDK;
     private javax.swing.JTextField txtQuyen_PhieuChi;
     private javax.swing.JTextField txtQuyen_PhieuThu;
