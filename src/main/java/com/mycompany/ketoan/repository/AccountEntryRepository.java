@@ -25,7 +25,7 @@ public class AccountEntryRepository {
 	public static List<AccountEntryDTO> findAll(String keyword, String type) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("keyword", "%" + keyword + "%");
-		map.put("type", "%" + type + "%");
+		map.put("type", type);
 		ResultSet rs = QueryRepository.executeQuery(LIST_ACCOUNT_ENTRY_QUERY, map);
 		return ObjectMapper.toDTOs(rs, AccountEntryDTO.class);
 	}
