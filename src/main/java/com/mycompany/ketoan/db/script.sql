@@ -167,8 +167,7 @@ CREATE TABLE `SDDK`
 (
     `MaTietKhoan` int  NOT NULL,
     `NgayDauKy`   date NOT NULL,
-    `DuNo`        decimal(10, 2) DEFAULT NULL,
-    `DuCo`        decimal(10, 2) DEFAULT NULL,
+    `SoTien`      decimal(10, 2) DEFAULT NULL,
     PRIMARY KEY (`MaTietKhoan`, `NgayDauKy`),
     KEY           `fk_MaTietKhoan_SDDK_TietKhoan` (`MaTietKhoan`),
     CONSTRAINT `fk_MaTietKhoan_SDDK_TietKhoan` FOREIGN KEY (`MaTietKhoan`) REFERENCES `TietKhoan` (`MaTietKhoan`)
