@@ -47,22 +47,4 @@ public class CategoryService {
 		List<ElementUtils.ComboxModel> dataComboBox = categories.stream().map(c -> new ElementUtils.ComboxModel(c.getId(), c.getName())).toList();
 		comboBox.setModel(ElementUtils.getDataCbb(dataComboBox));
 	}
-	
-	public static Integer getId(JTable table) {
-		int indexRowSelected = table.getSelectedRow();
-		return (Integer) table.getValueAt(indexRowSelected, 1);
-	}
-	
-	public static void resetForm(JTextField codeE, JTextField nameE) {
-		codeE.setText("");
-		nameE.setText("");
-	}
-	
-	public static boolean isValidated(JTextField nameE) {
-		if (nameE.getText().equals("")) {
-			AlertUtils.showAlertValidate();
-			return false;
-		}
-		return true;
-	}
 }

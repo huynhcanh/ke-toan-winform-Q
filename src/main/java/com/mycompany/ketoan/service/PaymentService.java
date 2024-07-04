@@ -43,48 +43,7 @@ public class PaymentService {
 			}
 		}
 	}
-	
-	public static Integer getId(JTable table) {
-		int indexRowSelected = table.getSelectedRow();
-		return (Integer) table.getValueAt(indexRowSelected, 1);
-	}
-	
-	public static void resetForm(
-			JTextField idE,
-			JComboBox employeeE,
-                        JComboBox noAccountE,
-                        JComboBox coAccountE,
-			JTextField priceE,
-                        JTextField bookNumberE,
-                        JTextArea ressonE) {
-		idE.setText("");
-		ElementUtils.setSelectedCombobox(null, employeeE);
-		ElementUtils.setSelectedCombobox(null, noAccountE);
-                ElementUtils.setSelectedCombobox(null, coAccountE);
-		priceE.setText("");
-                bookNumberE.setText("");
-		ressonE.setText("");
-	}
-	
-	public static boolean isValidated(JTextField idE,
-			JComboBox employeeE,
-                         JComboBox noAccountE,
-                        JComboBox coAccountE,
-			JTextField priceE,
-                        JTextField bookNumberE,
-			boolean isAddAction) {
-		if ((!isAddAction && idE.getText().equals("")) || ElementUtils.getCbbSelected(noAccountE) == null
-				|| ElementUtils.getCbbSelected(coAccountE) == null
-                                || ElementUtils.getCbbSelected(employeeE) == null
-                                || priceE.getText().equals("") || bookNumberE.getText().equals("")) {
-			
-			AlertUtils.showAlertValidate();
-			return false;
-		}
-		return true;
-	}
-	
-	
+
 	public static void fillDetailToForm(Integer id,
                         JTextField idE,
 			JComboBox employeeE,

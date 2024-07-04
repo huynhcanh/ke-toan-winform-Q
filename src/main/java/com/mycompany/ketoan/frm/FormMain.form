@@ -376,17 +376,10 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="cbbKhachHang_HoaDon" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblMaHoaDon_HoaDon" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="txtMaHoaDon_HoaDon" min="-2" pref="140" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                          <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
@@ -413,31 +406,32 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnThem_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtMaHoaDon_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblMaHoaDon_HoaDon" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="btnThem_HoaDon" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                          <Component id="btnXoa_HoaDon" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                          <Component id="btnReSet_HoaDon" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="btnSua_HoaDon" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel30" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                       <Component id="cbbKhachHang_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="txtGhiChu_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblTongTien_HoaDon3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="btnXoa_HoaDon" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtGhiChu_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTongTien_HoaDon3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnReSet_HoaDon" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="btnSua_HoaDon" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnXuatHoaDon_PhieuBanHang" min="-2" max="-2" attributes="0"/>
@@ -447,14 +441,6 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="lblMaHoaDon_HoaDon">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="M&#xe3; &#x110;&#x1a1;n H&#xe0;ng*"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel30">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -464,17 +450,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel30MouseClicked"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtMaHoaDon_HoaDon">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMaHoaDon_HoaDonActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnThem_HoaDon">
@@ -625,19 +600,17 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace pref="10" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblMaHoaDon_HoaDon1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblMaHoaDon_HoaDon2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblSoLuongCTHD_HoaDon" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtMaHoaDonCTHD_HoaDon" max="32767" attributes="0"/>
-                              <Component id="cbbSanPhamCTHD_HoaDon" alignment="0" pref="149" max="32767" attributes="0"/>
-                              <Component id="txtSoLuongCTHD_HoaDon" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbbSanPhamCTHD_HoaDon" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtSoLuongCTHD_HoaDon" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="22" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnThem_CTHD" alignment="1" max="32767" attributes="0"/>
                               <Component id="btnSua_CTHD" alignment="1" max="32767" attributes="0"/>
@@ -653,28 +626,31 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtMaHoaDonCTHD_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblMaHoaDon_HoaDon1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="btnSua_CTHD" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="lblMaHoaDon_HoaDon2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                              <Component id="cbbSanPhamCTHD_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="lblSoLuongCTHD_HoaDon" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                              <Component id="txtSoLuongCTHD_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblMaHoaDon_HoaDon2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="cbbSanPhamCTHD_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnSua_CTHD" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblSoLuongCTHD_HoaDon" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="txtSoLuongCTHD_HoaDon" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnXoa_CTHD" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="btnXoa_CTHD" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnResetCTHD_HoaDon" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="btnThem_CTHD" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="75" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -714,25 +690,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblMaHoaDon_HoaDon1">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="12" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="M&#xe3; &#x110;&#x1a1;n H&#xe0;ng*"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtMaHoaDonCTHD_HoaDon">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f1" green="f1" red="f1" type="rgb"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMaHoaDonCTHD_HoaDonActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblMaHoaDon_HoaDon2">
                   <Properties>
@@ -1184,8 +1141,16 @@
                               <Component id="jLabel60" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
                               <Component id="jLabel35" min="-2" pref="770" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                                  <Component id="lab_HinhAnh_HangHoa" min="-2" pref="171" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace pref="154" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -1207,6 +1172,8 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lab_HinhAnh_HangHoa" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="234" max="32767" attributes="0"/>
@@ -1330,34 +1297,43 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblNgayHetHan_SanPham1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="jButton1" min="-2" pref="170" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblGiaBan" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblNgayHetHan_SanPham" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblGiaBan" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblNgayHetHan_SanPham" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="lblTenSanPham_SanPham" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblGiaNhap_SanPham" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtTenSanPham_SanPham" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                              <Component id="txtGiaban_SanPham" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                              <Component id="cbbMaLoaiSanPham_SanPham" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtKichThuoc_SanPham" min="-2" pref="170" max="-2" attributes="0"/>
+                                              <Component id="txtDonVi_SanPham" min="-2" pref="170" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnXoa_SanPham" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnReset_SanPham" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="bntSua_SanPham" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnThem_SanPham" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="lblTenSanPham_SanPham" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblGiaNhap_SanPham" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtTenSanPham_SanPham" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <Component id="txtGiaban_SanPham" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <Component id="cbbMaLoaiSanPham_SanPham" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtKichThuoc_SanPham" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <Component id="txtDonVi_SanPham" min="-2" pref="170" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnXoa_SanPham" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnReset_SanPham" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="bntSua_SanPham" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnThem_SanPham" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="58" max="32767" attributes="0"/>
                           </Group>
@@ -1401,7 +1377,12 @@
                                   </Group>
                                   <Component id="lblTenSanPham_SanPham" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="42" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblNgayHetHan_SanPham1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="7" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1567,8 +1548,26 @@
                         </Property>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JLabel" name="lblNgayHetHan_SanPham1">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="12" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="&#x1ea2;nh*"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jButton1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="T&#x1ea3;i l&#xea;n"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                      </Events>
+                    </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JLabel" name="lab_HinhAnh_HangHoa">
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>

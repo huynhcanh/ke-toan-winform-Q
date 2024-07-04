@@ -51,21 +51,6 @@ public class OrderDetailService {
 		quantityE.setText(quantity.toString());
 	}
 	
-	public static void resetForm(JComboBox productE, JTextField quantityE) {
-		
-		ElementUtils.setSelectedCombobox(null, productE);
-		quantityE.setText("");
-	}
-	
-	public static boolean isValidated(JComboBox productE,
-									  JTextField quantityE) {
-		if (ElementUtils.getCbbSelected(productE) == null || quantityE.getText().equals("")) {
-			AlertUtils.showAlertValidate();
-			return false;
-		}
-		return true;
-	}
-	
 	public static Integer getOrderId(JTable table) {
 		int indexRowSelected = table.getSelectedRow();
 		return (Integer) table.getValueAt(indexRowSelected, 1);

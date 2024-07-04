@@ -45,11 +45,9 @@ public class OrderService {
 	}
 	
 	public static void fillDetailToForm(Integer orderId,
-										JTextField idE,
 										JComboBox customerE,
 										JTextField noteE) {
 		OrderDTO orderDTO = OrderRepository.findById(orderId);
-		idE.setText(orderDTO.getId().toString());
 		ElementUtils.setSelectedCombobox(orderDTO.getCustomerId(), customerE);
 		noteE.setText(orderDTO.getNote());
 	}
@@ -64,35 +62,10 @@ public class OrderService {
 		tblOrder.setValueAt("Đã Xuất", indexRowSelected, 6);
 	}
 	
-	public static Integer getId(JTable table) {
-		int indexRowSelected = table.getSelectedRow();
-		return (Integer) table.getValueAt(indexRowSelected, 1);
-	}
-        
         public static String getStatus(JTable table) {
 		int indexRowSelected = table.getSelectedRow();
 		return (String) table.getValueAt(indexRowSelected, 6);
 	}
-	
-	public static void resetForm(JTextField idE,
-								 JComboBox customerE,
-								 JTextField noteE,
-								 JButton btnThem_HoaDon) {
-		idE.setText("");
-		ElementUtils.setSelectedCombobox(null, customerE);
-		noteE.setText("");
-		
-		btnThem_HoaDon.setEnabled(true);
-	}
-	
-	public static boolean isValidated(JComboBox customerE) {
-		if (ElementUtils.getCbbSelected(customerE) == null) {
-			AlertUtils.showAlertValidate();
-			return false;
-		}
-		return true;
-	}
-        
         
         public static void getTableCT(JTable tblOrder, String keyword, Date fromDate, Date toDate) {
 		Object[] obj = new Object[]{"STT", "Mã CT", "Nhân Viên ", "Khách Hàng", "Ngày Tạo", "Tổng Tiền", "Ghi Chú"};
@@ -115,10 +88,5 @@ public class OrderService {
 				tableModel.addRow(item);
 			}
 		}
-	}
-        
-        public static Integer getIdCT(JTable table) {
-		int indexRowSelected = table.getSelectedRow();
-		return (Integer) table.getValueAt(indexRowSelected, 1);
 	}
 }

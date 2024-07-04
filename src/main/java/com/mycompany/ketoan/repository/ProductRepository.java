@@ -20,7 +20,7 @@ public class ProductRepository {
 	private static final String INSERT_PRODUCT_QUERY = "INSERT INTO HangHoa (Ten, GiaBan, Dvt, KichThuoc, MaLoaiHH, HinhAnh)" +
 			" VALUES(:Ten, :GiaBan, :Dvt, :KichThuoc , :MaLoaiHH, :HinhAnh)";
 	
-	private static final String UPDATE_PRODUCT_QUERY = "UPDATE HangHoa SET Ten=:Ten, GiaBan=:GiaBan, Dvt=:Dvt, KichThuoc=:KichThuoc, MaLoaiHH=:MaLoaiHH, HinhAnh=HinhAnh WHERE MaHH=:MaHH";
+	private static final String UPDATE_PRODUCT_QUERY = "UPDATE HangHoa SET Ten=:Ten, GiaBan=:GiaBan, Dvt=:Dvt, KichThuoc=:KichThuoc, MaLoaiHH=:MaLoaiHH, HinhAnh=:HinhAnh WHERE MaHH=:MaHH";
 	
 	private static final String DELETE_PRODUCT_QUERY = "DELETE FROM HangHoa WHERE MaHH=:MaHH";
         
