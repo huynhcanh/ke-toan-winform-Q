@@ -19,6 +19,8 @@ public class AccountRepository {
 			"LEFT JOIN (SELECT tk2.MaTieuKhoan, tk1.MaTaiKhoan FROM TieuKhoan tk2 join TaiKhoan tk1 ON tk2.MaTaiKhoan = tk1.MaTaiKhoan) tk12 ON tk12.MaTieuKhoan = tk3.MaTieuKhoan) ua\n" +
 			" where (:keyword is null or (ua.Cap1 like :keyword or ua.Cap1 like :keyword or ua.Cap1 like :keyword)) ORDER BY ua.Cap1 asc, ua.Cap2 asc, ua.Cap3 asc";
 	
+	private static final String DETAIL_ACCOUNTLV1_QUERY = "SELECT MaTaiKhoan, TenTaiKhoan FROM TaiKhoan WHERE MaTaiKhoan=:MaTaiKhoan";
+	
 	private static final String INSERT_ACCOUNTLV1_QUERY = "INSERT INTO TaiKhoan\n" +
 			"(MaTaiKhoan, TenTaiKhoan)\n" +
 			"VALUES(:MaTaiKhoan, :TenTaiKhoan)";
@@ -29,6 +31,8 @@ public class AccountRepository {
 	
 	private static final String DELETE_ACCOUNTLV1_QUERY = "DELETE FROM TaiKhoan\n" +
 			"WHERE MaTaiKhoan=:MaTaiKhoan";
+	
+	private static final String DETAIL_ACCOUNTLV2_QUERY = "SELECT MaTieuKhoan, TenTieuKhoan, MaTaiKhoan FROM TieuKhoan WHERE MaTieuKhoan =:MaTieuKhoan";
 	
 	private static final String INSERT_ACCOUNTLV2_QUERY = "INSERT INTO TieuKhoan\n" +
 			"(MaTieuKhoan, TenTieuKhoan, MaTaiKhoan)\n" +
@@ -41,6 +45,7 @@ public class AccountRepository {
 	private static final String DELETE_ACCOUNTLV2_QUERY = "DELETE FROM TieuKhoan\n" +
 			"WHERE MaTieuKhoan=:MaTieuKhoan";
 	
+	private static final String DETAIL_ACCOUNTLV3_QUERY = "SELECT MaTietKhoan, TenTietKhoan, MaTieuKhoan FROM TietKhoan WHERE MaTietKhoan =:MaTietKhoan";
 	
 	private static final String INSERT_ACCOUNTLV3_QUERY = "INSERT INTO TietKhoan\n" +
 			"(MaTietKhoan, TenTietKhoan, MaTieuKhoan)\n" +
@@ -63,6 +68,11 @@ public class AccountRepository {
 		return ObjectMapper.toDTOs(rs, Integer.class);
 	}
 	
+	public static AccountLv1DTO findByAccountLv1Id(Integer id) {
+		ResultSet rs = QueryRepository.executeQuery(DETAIL_ACCOUNTLV1_QUERY, Map.of("MaTaiKhoan", id));
+		return ObjectMapper.toDTO(rs, AccountLv1DTO.class);
+	}
+	
 	public static int insertAccountLv1(AccountLv1DTO accountLv1DTO) {
 		Map<String, Object> param = ObjectMapper.convertToMap(accountLv1DTO);
 		return QueryRepository.executeQueryUpdateDB(INSERT_ACCOUNTLV1_QUERY, param);
@@ -77,6 +87,11 @@ public class AccountRepository {
 		return QueryRepository.executeQueryUpdateDB(DELETE_ACCOUNTLV1_QUERY, Map.of("MaTaiKhoan", accountLv1Id));
 	}
 	
+	public static AccountLv2DTO findByAccountLv2Id(Integer id) {
+		ResultSet rs = QueryRepository.executeQuery(DETAIL_ACCOUNTLV2_QUERY, Map.of("MaTieuKhoan", id));
+		return ObjectMapper.toDTO(rs, AccountLv2DTO.class);
+	}
+	
 	public static int insertAccountLv2(AccountLv2DTO accountLv2DTO) {
 		Map<String, Object> param = ObjectMapper.convertToMap(accountLv2DTO);
 		return QueryRepository.executeQueryUpdateDB(INSERT_ACCOUNTLV2_QUERY, param);
@@ -89,6 +104,11 @@ public class AccountRepository {
 	
 	public static int deleteAccountLv2(Integer accountLv2Id) {
 		return QueryRepository.executeQueryUpdateDB(DELETE_ACCOUNTLV2_QUERY, Map.of("MaTieuKhoan", accountLv2Id));
+	}
+	
+	public static AccountLv3DTO findByAccountLv3Id(Integer id) {
+		ResultSet rs = QueryRepository.executeQuery(DETAIL_ACCOUNTLV3_QUERY, Map.of("MaTietKhoan", id));
+		return ObjectMapper.toDTO(rs, AccountLv3DTO.class);
 	}
 	
 	public static int insertAccountLv3(AccountLv3DTO accountLv3DTO) {
