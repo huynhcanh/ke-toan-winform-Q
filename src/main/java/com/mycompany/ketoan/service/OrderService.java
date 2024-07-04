@@ -7,14 +7,12 @@ import javax.swing.table.DefaultTableModel;
 
 import com.mycompany.ketoan.dto.OrderDTO;
 import com.mycompany.ketoan.repository.OrderRepository;
-import com.mycompany.ketoan.utils.AlertUtils;
 import com.mycompany.ketoan.utils.DateTimeUtils;
 import com.mycompany.ketoan.utils.ElementUtils;
 import com.mycompany.ketoan.utils.PriceUtils;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -25,7 +23,7 @@ public class OrderService {
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-		List<OrderDTO> orders = OrderRepository.findAll(keyword, null, null, null);
+		List<OrderDTO> orders = OrderRepository.findAll(keyword, null, null, null, null);
 		if (orders != null) {
 			for (int i = 0; i < orders.size(); i++) {
 				OrderDTO orderDTO = orders.get(i);
@@ -72,7 +70,7 @@ public class OrderService {
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
-		List<OrderDTO> orders = OrderRepository.findAll(keyword, true, fromDate, toDate);
+		List<OrderDTO> orders = OrderRepository.findAll(keyword, true, null, fromDate, toDate);
 		if (orders != null) {
 			for (int i = 0; i < orders.size(); i++) {
 				OrderDTO orderDTO = orders.get(i);

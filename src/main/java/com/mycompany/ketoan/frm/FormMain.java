@@ -14,7 +14,6 @@ import com.mycompany.ketoan.dto.ReceiptDTO;
 import com.mycompany.ketoan.helper.HelperObject;
 import com.mycompany.ketoan.helper.ImageUploader;
 import com.mycompany.ketoan.repository.AccountEntryRepository;
-import com.mycompany.ketoan.repository.AccountRepository;
 import com.mycompany.ketoan.repository.BalanceRepository;
 import com.mycompany.ketoan.repository.CategoryRepository;
 import com.mycompany.ketoan.repository.CustomerRepository;
@@ -43,17 +42,13 @@ import com.mycompany.ketoan.utils.ElementUtils;
 import com.mycompany.ketoan.utils.ElementUtils.ComboxModel;
 import com.mycompany.ketoan.utils.PriceUtils;
 import com.mycompany.ketoan.utils.SecurityUtils;
-import java.awt.image.BufferedImage;
-import java.io.File;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -4768,7 +4763,7 @@ public class FormMain extends javax.swing.JFrame {
         }
 
         // Giả định OrderRepository là lớp bạn đã định nghĩa và có phương thức findAll
-        List<OrderDTO> orders = OrderRepository.findAll("", true, fromDateFilter_Document.getDate(), toDateFilter_Document.getDate());
+        List<OrderDTO> orders = OrderRepository.findAll("", true, false, fromDateFilter_Document.getDate(), toDateFilter_Document.getDate());
 
         // Tạo kiểu cho dữ liệu
         CellStyle dataStyle = workbook.createCellStyle();
