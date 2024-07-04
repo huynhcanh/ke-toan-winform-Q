@@ -15,11 +15,13 @@ import java.util.Map;
 
 public class OrderRepository {
 	
-	private static final String LIST_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu, pbh.DaXuat " +
-			"FROM PhieuBanHang pbh left join KhachHang kh on kh.MaKH = pbh.MaKH left join NhanVien nv on nv.MaNV = pbh.MaNV " +
-			"LEFT JOIN (SELECT ctpbh.MaPBH, sum(ctpbh.SoLuong * hh.GiaBan) as TongTien " +
-			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH " +
-			"GROUP BY ctpbh.MaPBH ) ctpbhg on ctpbhg.MaPBH = pbh.MaPBH WHERE pbh.MaPBH like :keyword AND (:isExported is null or pbh.DaXuat =:isExported)";
+	private static final String LIST_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu, pbh.DaXuat, pbh.DaXoa \n" +
+			"FROM PhieuBanHang pbh left join KhachHang kh on kh.MaKH = pbh.MaKH left join NhanVien nv on nv.MaNV = pbh.MaNV \n" +
+			"LEFT JOIN (SELECT ctpbh.MaPBH, sum(ctpbh.SoLuong * hh.GiaBan) as TongTien \n" +
+			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH \n" +
+			"GROUP BY ctpbh.MaPBH ) ctpbhg on ctpbhg.MaPBH = pbh.MaPBH WHERE pbh.MaPBH like :keyword AND (:isExported is null or pbh.DaXuat =:isExported)\n" +
+			"AND (:fromDate is null or pbh.NgayTao >= cast(:fromDate as date))\n" +
+			"AND (:toDate is null or pbh.NgayTao <= cast(:toDate as date))";
 	
 	private static final String DETAIL_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu, pbh.DaXuat, pbh.DaXoa " +
 			"FROM PhieuBanHang pbh left join KhachHang kh on kh.MaKH = pbh.MaKH left join NhanVien nv on nv.MaNV = pbh.MaNV " +
@@ -39,6 +41,8 @@ public class OrderRepository {
 		Map<String, Object> map = new HashMap<>();
 		map.put("keyword", "%" + keyword + "%");
 		map.put("isExported", isExported);
+		map.put("fromDate", fromDate);
+		map.put("toDate", toDate);
 		ResultSet rs = QueryRepository.executeQuery(LIST_ORDER_QUERY, map);
 		return ObjectMapper.toDTOs(rs, OrderDTO.class);
 	}
