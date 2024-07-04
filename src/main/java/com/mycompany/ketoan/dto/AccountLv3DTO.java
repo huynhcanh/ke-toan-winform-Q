@@ -13,6 +13,9 @@ public class AccountLv3DTO {
 	@JsonProperty("MaTieuKhoan")
 	private Integer accountLv2Id;
 	
+	@JsonProperty("MaTaiKhoan")
+	private Integer accountLv3Id;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -35,5 +38,13 @@ public class AccountLv3DTO {
 	
 	public void setAccountLv2Id(Integer accountLv2Id) {
 		this.accountLv2Id = accountLv2Id;
+	}
+	
+	public Integer getAccountLv3Id() {
+		return accountLv3Id;
+	}
+	
+	public void setAccountLv3Id(Integer accountLv3Id) {
+		this.accountLv3Id = accountLv3Id;
 	}
 }

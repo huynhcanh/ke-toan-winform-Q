@@ -49,7 +49,9 @@ public class AccountRepository {
 	private static final String DELETE_ACCOUNTLV2_QUERY = "DELETE FROM TieuKhoan\n" +
 			"WHERE MaTieuKhoan=:MaTieuKhoan";
 	
-	private static final String DETAIL_ACCOUNTLV3_QUERY = "SELECT MaTietKhoan, TenTietKhoan, MaTieuKhoan FROM TietKhoan WHERE MaTietKhoan =:MaTietKhoan";
+	private static final String DETAIL_ACCOUNTLV3_QUERY = "SELECT tk3.MaTietKhoan, tk3.TenTietKhoan, tk3.MaTieuKhoan, tk12.MaTaiKhoan\n" +
+			"FROM TietKhoan tk3 JOIN (SELECT tk2.MaTaiKhoan, tk2.MaTieuKhoan  FROM TieuKhoan tk2 ) tk12 on tk12.MaTieuKhoan = tk3.MaTieuKhoan \n" +
+			"WHERE MaTietKhoan =:MaTietKhoan";
 	
 	private static final String INSERT_ACCOUNTLV3_QUERY = "INSERT INTO TietKhoan\n" +
 			"(MaTietKhoan, TenTietKhoan, MaTieuKhoan)\n" +
