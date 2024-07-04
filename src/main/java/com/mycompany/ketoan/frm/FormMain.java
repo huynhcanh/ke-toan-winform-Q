@@ -3504,9 +3504,9 @@ public class FormMain extends javax.swing.JFrame {
     
     private void jPanelPhieuChiComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelPhieuChiComponentShown
 
-        AccountService.setComboBoxList(cbbMaTKN_PhieuChi);
+        AccountService.setComboBoxListLevel3(cbbMaTKN_PhieuChi);
                 
-        AccountService.setComboBoxList(cbbMaTKC_PhieuChi);
+        AccountService.setComboBoxListLevel3(cbbMaTKC_PhieuChi);
         
         PaymentService.getTables(this.tblPhieuChi, "");
         
@@ -3727,8 +3727,8 @@ public class FormMain extends javax.swing.JFrame {
         CustomerService.setComboBoxList(cbbKhachHang_PhieuThu);
         EmployeeService.setComboBoxList(cbbNhanVien_PhieuThu);
         
-        AccountService.setComboBoxList(cbbMaTKN_PhieuThu);
-        AccountService.setComboBoxList(cbbMaTKC_PhieuThu);
+        AccountService.setComboBoxListLevel3(cbbMaTKN_PhieuThu);
+        AccountService.setComboBoxListLevel3(cbbMaTKC_PhieuThu);
 
         this.resetFormReceipt();
     }//GEN-LAST:event_jPanelPhieuNhapComponentShown
@@ -3740,7 +3740,7 @@ public class FormMain extends javax.swing.JFrame {
 
         this.resetFormBalance();
         
-        AccountService.setComboBoxList(cbbMaTietKhoan_SDDK);
+        AccountService.setComboBoxListLevel3(cbbMaTietKhoan_SDDK);
        
         List<ComboxModel> noDataComboBox = List.of(new ComboxModel("DU_NO", "Dư Nợ"),
                                                    new ComboxModel("DU_CO", "Dư Có"));
@@ -3987,9 +3987,9 @@ public class FormMain extends javax.swing.JFrame {
         EmployeeService.setComboBoxList(cbbNhanVien_PhieuThu);
         
 
-        AccountService.setComboBoxList(cbbMaTKN_PhieuThu);
+        AccountService.setComboBoxListLevel3(cbbMaTKN_PhieuThu);
       
-        AccountService.setComboBoxList(cbbMaTKC_PhieuThu);
+        AccountService.setComboBoxListLevel3(cbbMaTKC_PhieuThu);
 
         this.resetFormReceipt();
 
@@ -4450,9 +4450,9 @@ public class FormMain extends javax.swing.JFrame {
         
         AccountService.getTables(tblTaiKhoan, "");
         
-        AccountService.setComboBoxList(cbbNumberAccountLv1_Lv2_Account);
-        AccountService.setComboBoxList(cbbNumberAccountLv1_Lv3_Account);
-        AccountService.setComboBoxList(cbbNumberAccountLv2_Lv3_Account);
+        AccountService.setComboBoxListLevel1(cbbNumberAccountLv1_Lv2_Account);
+        AccountService.setComboBoxListLevel1(cbbNumberAccountLv1_Lv3_Account);
+        AccountService.setComboBoxListLevel1(cbbNumberAccountLv2_Lv3_Account);
         
         this.resetFormLv1Account();
         this.resetFormLv2Account();

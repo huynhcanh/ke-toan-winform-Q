@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 public class AccountRepository {
+    
+        private static final String LIST_ID_ACCOUNT_LV2 = "SELECT MaTieuKhoan FROM TieuKhoan";
+    
+        private static final String LIST_ID_ACCOUNT_LV1 = "SELECT MaTaiKhoan FROM TaiKhoan";
 	
 	private static final String LIST_ID_ACCOUNT_LV3 = "SELECT MaTietKhoan FROM TietKhoan";
 	
@@ -61,6 +65,16 @@ public class AccountRepository {
 	public static List<AccountDTO> findAll(String keyword) {
 		ResultSet rs = QueryRepository.executeQuery(LIST_ACCOUNT_QUERY, Map.of("keyword", "%" + keyword + "%"));
 		return ObjectMapper.toDTOs(rs, AccountDTO.class);
+	}
+        
+        public static List<Integer> findAllIdAccountLevel1() {
+		ResultSet rs = QueryRepository.executeQuery(LIST_ID_ACCOUNT_LV1);
+		return ObjectMapper.toDTOs(rs, Integer.class);
+	}
+        
+        public static List<Integer> findAllIdAccountLevel2() {
+		ResultSet rs = QueryRepository.executeQuery(LIST_ID_ACCOUNT_LV2);
+		return ObjectMapper.toDTOs(rs, Integer.class);
 	}
 	
 	public static List<Integer> findAllIdAccountLevel3() {
