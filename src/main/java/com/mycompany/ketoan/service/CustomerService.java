@@ -37,39 +37,6 @@ public class CustomerService {
 		}
 	}
 	
-	public static Integer getId(JTable table) {
-		int indexRowSelected = table.getSelectedRow();
-		return (Integer) table.getValueAt(indexRowSelected, 1);
-	}
-	
-	public static void resetForm(
-			JTextField idE,
-			JTextField nameE,
-			JTextField phoneE,
-			JTextField addressE,
-			JTextField taxCodeE) {
-		idE.setText("");
-		nameE.setText("");
-		phoneE.setText("");
-		addressE.setText("");
-		taxCodeE.setText("");
-	}
-	
-	public static boolean isValidated(JTextField idE,
-									  JTextField nameE,
-									  JTextField phoneE,
-									  JTextField addressE,
-									  boolean isAddAction) {
-		if ((!isAddAction && idE.getText().equals("")) || nameE.getText().equals("")
-				|| phoneE.getText().equals("") || addressE.getText().equals("")
-				 || addressE.getText().equals("")) {
-			
-			AlertUtils.showAlertValidate();
-			return false;
-		}
-		return true;
-	}
-	
 	public static void setComboBoxList(JComboBox comboBox) {
 		List<CustomerDTO> customers = CustomerRepository.findAll("");
                 if(customers == null || customers.isEmpty()) return;

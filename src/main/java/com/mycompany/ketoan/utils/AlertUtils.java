@@ -37,10 +37,6 @@ public class AlertUtils {
 		showAlert("Không thể xoá vì loại sản phẩm này đang chứa các sản phẩm", "Lỗi xoá loại sản phẩm", 2);
 	}
 	
-	public static void showAlertWarehouseExsitProduct() {
-		showAlert("Không thể xoá vì sản phẩm này đang tồn tại trong kho", "Lỗi xoá sản phẩm", 2);
-	}
-	
 	public static void showAlertOrderExsitCustomer() {
 		showAlert("Không thể xoá vì khách hàng đã tồn tại trong đơn hàng", "Lỗi xoá khách hàng", 2);
 	}
@@ -51,6 +47,10 @@ public class AlertUtils {
 	
 	public static void showAlertEmployeeUsernameExsit() {
 		showAlert("Tên đăng nhập của người dùng đã tồn tại", "Lỗi cập nhật người dùng", 2);
+	}
+        
+        public static void showAlertBalanceKeyExsit() {
+		showAlert("Mã tiết khoản và ngày đã tồn tại", "Lỗi thêm số dư đầu kì", 2);
 	}
 	
 	public static void showAlertConstraint() {

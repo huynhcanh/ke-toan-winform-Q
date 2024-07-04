@@ -11,7 +11,7 @@ import com.mycompany.ketoan.utils.SecurityUtils;
 public class FormLogin extends javax.swing.JFrame {
 
     public FormLogin() {
-
+		this.setLocationRelativeTo(null);
         this.setTitle(Form.Login.TITLE);
         initComponents();
     }
@@ -133,6 +133,7 @@ public class FormLogin extends javax.swing.JFrame {
 
             FormMain frmMain = new FormMain();
             frmMain.setVisible(true);
+			frmMain.setLocationRelativeTo(null);
 
             if (userDTO.getRole().equals(Application.Role.ADMIN)) {
                 AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_ADMIN_CONTENT);

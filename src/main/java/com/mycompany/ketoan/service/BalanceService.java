@@ -48,32 +48,6 @@ public class BalanceService {
 		return (Integer) table.getValueAt(indexRowSelected, 2);
 	}
 	
-	public static void resetForm(
-			JTextField firstDateOfPeriodE,
-			JComboBox accountIdLv3E,
-                        JTextField priceE,
-                        JComboBox statusE) {
-		firstDateOfPeriodE.setText("");
-                ElementUtils.setSelectedCombobox(null, accountIdLv3E);
-		ElementUtils.setSelectedCombobox(null, statusE);
-                priceE.setText("");
-	}
-	
-	public static boolean isValidated(JTextField firstDateOfPeriodE,
-			JComboBox accountIdLv3E,
-                        JTextField priceE,
-                        JComboBox statusE) {
-		if ((firstDateOfPeriodE.getText().equals("")
-				|| priceE.getText().equals("") || ElementUtils.getCbbSelected(accountIdLv3E) == null
-                               || ElementUtils.getCbbSelected(statusE) == null)) {
-			
-			AlertUtils.showAlertValidate();
-			return false;
-		}
-		return true;
-	}
-	
-	
 	public static void fillDetailToForm(
                 Integer accountIdLv3,  Date firstDateOfPeriod,
                 JTextField firstDateOfPeriodE,

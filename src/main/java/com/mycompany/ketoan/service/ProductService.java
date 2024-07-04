@@ -2,6 +2,7 @@
 package com.mycompany.ketoan.service;
 
 import com.mycompany.ketoan.dto.ProductDTO;
+import com.mycompany.ketoan.helper.HelperObject;
 import com.mycompany.ketoan.repository.ProductRepository;
 import com.mycompany.ketoan.utils.AlertUtils;
 import com.mycompany.ketoan.utils.ElementUtils;
@@ -37,23 +38,6 @@ public class ProductService {
 		}
 	}
 	
-	public static Integer getId(JTable table) {
-		int indexRowSelected = table.getSelectedRow();
-		return (Integer) table.getValueAt(indexRowSelected, 1);
-	}
-	
-	public static void resetForm(JTextField nameE,
-								 JComboBox categoryE,
-								 JTextField priceE,
-								 JTextField sizeE,
-								 JTextField unitE) {
-		nameE.setText("");
-		ElementUtils.setSelectedCombobox(null, categoryE);
-		priceE.setText("");
-		sizeE.setText("");
-		unitE.setText("");
-	}
-	
 	public static void setComboBoxList(JComboBox comboBox) {
 		List<ProductDTO> products = ProductRepository.findAll("");
                 if(products == null || products.isEmpty()) return;
@@ -66,28 +50,14 @@ public class ProductService {
 										JComboBox categoryE,
 										JTextField priceE,
 										JTextField sizeE,
-										JTextField unitE) {
+										JTextField unitE,
+                                                                                JLabel lab_HinhAnh_HangHoa) {
 		ProductDTO productDTO = ProductRepository.findById(id);
 		nameE.setText(productDTO.getName().toString());
 		ElementUtils.setSelectedCombobox(productDTO.getCategoryId(), categoryE);
 		priceE.setText(PriceUtils.convertToVND(productDTO.getPrice()));
 		sizeE.setText(productDTO.getSize());
 		unitE.setText(productDTO.getUnit());
-	}
-	
-	public static boolean isValidated(JTextField nameE,
-									  JComboBox categoryE,
-									  JTextField priceE,
-									  JTextField sizeE,
-									  JTextField unitE) {
-		if (nameE.getText().equals("")
-				|| ElementUtils.getCbbSelected(categoryE) == null
-				|| priceE.getText().equals("")
-				|| sizeE.getText().equals("")
-				|| unitE.getText().equals("")) {
-			AlertUtils.showAlertValidate();
-			return false;
-		}
-		return true;
+                ElementUtils.showImage(lab_HinhAnh_HangHoa, productDTO.getImage());
 	}
 }
