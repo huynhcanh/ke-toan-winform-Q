@@ -47,7 +47,6 @@ public class ReceiptService {
 	}
 
 	public static void fillDetailToForm(Integer id,
-                        JTextField idE,
 			JComboBox employeeE,
 			JComboBox customerE,
                         JComboBox noAccountE,
@@ -56,7 +55,6 @@ public class ReceiptService {
                         JTextField bookNumberE,
                         JTextArea reasonE) {
 		ReceiptDTO receiptDTO = ReceiptRepository.findById(id);
-		idE.setText(receiptDTO.getId().toString());
                 ElementUtils.setSelectedCombobox(receiptDTO.getEmployeeId(), employeeE);
                 ElementUtils.setSelectedCombobox(receiptDTO.getCustomerId(), customerE);
 		ElementUtils.setSelectedCombobox(receiptDTO.getAccountNoId(), noAccountE);

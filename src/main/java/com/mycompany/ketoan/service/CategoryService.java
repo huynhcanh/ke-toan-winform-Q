@@ -34,10 +34,8 @@ public class CategoryService {
 	}
 	
 	public static void fillDetailToForm(Integer id,
-										JTextField idE,
 										JTextField nameE) {
 		CategoryDTO categoryDTO = CategoryRepository.findById(id);
-		idE.setText(categoryDTO.getId().toString());
 		nameE.setText(categoryDTO.getName());
 	}
 	

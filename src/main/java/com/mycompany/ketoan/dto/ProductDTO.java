@@ -37,6 +37,19 @@ public class ProductDTO {
 	
 	@JsonProperty("HinhAnh")
 	private String image;
+        
+        @JsonProperty("SLTonKho")
+	private int inventoryNumber;
+
+    public int getInventoryNumber() {
+        return inventoryNumber;
+    }
+
+    public void setInventoryNumber(int inventoryNumber) {
+        this.inventoryNumber = inventoryNumber;
+    }
+        
+        
 	
 	public Integer getId() {
 		return id;

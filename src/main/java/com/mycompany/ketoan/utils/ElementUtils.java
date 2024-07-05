@@ -107,7 +107,11 @@ public class ElementUtils {
                     AlertUtils.showAlertValidate();
                     return false;
                 }
-            }
+            } else if (component instanceof JLabel) {
+                if(((JLabel)component).getIcon() == null)
+                   AlertUtils.showAlertValidate();
+                    return false;
+                }
         }
         return true;
     }

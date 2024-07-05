@@ -52,7 +52,6 @@ public class EmployeeService {
 	}
 
 	public static void fillDetailToForm(Integer id,
-										JTextField idE,
 										JTextField usernameE,
 										JTextField passwordE,
 										JComboBox roleE,
@@ -60,7 +59,6 @@ public class EmployeeService {
                                                                             JTextField phoneE,
                                                                             JTextField addressE) {
 		EmployeeDTO employeeDTO = EmployeeRepository.findById(id);
-		idE.setText(employeeDTO.getId().toString());
 		usernameE.setText(employeeDTO.getUsername());
 		passwordE.setText(employeeDTO.getPassword());
 		ElementUtils.setSelectedCombobox(employeeDTO.getRole(), roleE);

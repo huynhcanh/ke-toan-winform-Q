@@ -45,13 +45,11 @@ public class CustomerService {
 	}
 	
 	public static void fillDetailToForm(Integer id,
-										JTextField idE,
 										JTextField nameE,
 										JTextField phoneE,
 										JTextField addressE,
 										JTextField taxCodeE) {
 		CustomerDTO customerDTO = CustomerRepository.findById(id);
-		idE.setText(customerDTO.getId().toString());
 		nameE.setText(customerDTO.getName());
 		phoneE.setText(customerDTO.getPhone());
 		addressE.setText(customerDTO.getAddress());

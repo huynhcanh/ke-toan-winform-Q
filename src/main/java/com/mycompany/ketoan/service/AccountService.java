@@ -89,7 +89,6 @@ public class AccountService {
                                             JComboBox cbbNumberAccountLv1_Lv2_Account,
                                             JTextField txtNumberAccountLv2_Lv2_Account,
                                             JTextField txtNameAccountLv2_Lv2_Account,
-                                            JComboBox cbbNumberAccountLv1_Lv3_Account,
                                             JComboBox cbbNumberAccountLv2_Lv3_Account,
                                             JTextField txtNumberAccountLv3_Lv3_Account,
                                             JTextField txtNameAccountLv3_Lv3_Account,
@@ -116,11 +115,10 @@ public class AccountService {
                 case "LEVEL3":
                     
                     AccountLv3DTO data3 = AccountRepository.findByAccountLv3Id(id);
-                    //ElementUtils.setSelectedCombobox(data3.getAccountLv1Id(), cbbNumberAccountLv1_Lv3_Account);
-//                    ElementUtils.setSelectedCombobox(accountDTO.getLevel2(), cbbNumberAccountLv2_Lv3_Account);
-//                    txtNumberAccountLv1_Lv1_Account.setText(accountDTO.getLevel3());
-//                    txtNameAccountLv1_Lv1_Account.setText(accountDTO.getContent());
-//                    btnAdd_Lv3_Account.setEnabled(false);
+                    ElementUtils.setSelectedCombobox(data3.getAccountLv2Id(), cbbNumberAccountLv2_Lv3_Account);
+                    txtNumberAccountLv3_Lv3_Account.setText(data3.getId().toString());
+                    txtNameAccountLv3_Lv3_Account.setText(data3.getName());
+                    btnAdd_Lv3_Account.setEnabled(false);
                     break;
                 default:
                     break;

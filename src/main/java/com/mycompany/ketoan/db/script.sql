@@ -121,6 +121,7 @@ CREATE TABLE `HangHoa`
     `KichThuoc` varchar(10)  NOT NULL,
     `MaLoaiHH`  int          NOT NULL,
     `HinhAnh`   varchar(255)   DEFAULT NULL,
+    `SLTonKho`  int          NOT NULL,
     PRIMARY KEY (`MaHH`),
     KEY         `fk_MaLoaiHH_HangHoa_LoaiHangHoa` (`MaLoaiHH`),
     CONSTRAINT `fk_MaLoaiHH_HangHoa_LoaiHangHoa` FOREIGN KEY (`MaLoaiHH`) REFERENCES `LoaiHangHoa` (`MaLoaiHH`)

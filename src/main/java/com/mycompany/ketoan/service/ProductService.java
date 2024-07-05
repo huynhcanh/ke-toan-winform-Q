@@ -16,7 +16,7 @@ import java.util.List;
 public class ProductService {
 	
 	public static void getTables(JTable tblOrder, String keyword) {
-		Object[] obj = new Object[]{"STT", "Mã HH", "Tên HH", "Loại HH", "Giá Bán", "Kích Thước", "Đơn Vị"};
+		Object[] obj = new Object[]{"STT", "Mã HH", "Tên HH", "Loại HH", "Giá Bán", "Kích Thước", "Đơn Vị", "SL Tồn Kho"};
 		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
 		tblOrder.setModel(tableModel);
 		
@@ -31,7 +31,8 @@ public class ProductService {
 						productDTO.getCategoryName(),
 						PriceUtils.convertToVND(productDTO.getPrice()),
 						productDTO.getSize(),
-						productDTO.getUnit()
+						productDTO.getUnit(),
+                                                productDTO.getInventoryNumber()
 				};
 				tableModel.addRow(item);
 			}

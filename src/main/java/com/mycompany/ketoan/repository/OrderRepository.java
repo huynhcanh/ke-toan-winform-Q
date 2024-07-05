@@ -20,7 +20,7 @@ public class OrderRepository {
 			"LEFT JOIN (SELECT ctpbh.MaPBH, sum(ctpbh.SoLuong * hh.GiaBan) as TongTien \n" +
 			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH \n" +
 			"GROUP BY ctpbh.MaPBH ) ctpbhg on ctpbhg.MaPBH = pbh.MaPBH WHERE pbh.MaPBH like :keyword AND (:isExported is null or pbh.DaXuat =:isExported)\n" +
-			"AND (:isDeleted is null or pbh.DaXoa =:isDeleted)\n" +
+			"AND (:isDeleted is null or (:isDeleted = false and (pbh.DaXoa = false or pbh.DaXoa is null)))\n" +
 			"AND (:fromDate is null or pbh.NgayTao >= cast(:fromDate as date))\n" +
 			"AND (:toDate is null or pbh.NgayTao <= cast(:toDate as date))\n";
 	

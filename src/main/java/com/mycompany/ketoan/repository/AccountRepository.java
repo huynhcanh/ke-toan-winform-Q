@@ -4,6 +4,7 @@ import com.mycompany.ketoan.dto.*;
 import com.mycompany.ketoan.mapper.ObjectMapper;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -89,9 +90,9 @@ public class AccountRepository {
 		return ObjectMapper.toDTO(rs, AccountLv1DTO.class);
 	}
 	
-	public static int insertAccountLv1(AccountLv1DTO accountLv1DTO) {
+	public static int insertAccountLv1(AccountLv1DTO accountLv1DTO) throws SQLException {
 		Map<String, Object> param = ObjectMapper.convertToMap(accountLv1DTO);
-		return QueryRepository.executeQueryUpdateDB(INSERT_ACCOUNTLV1_QUERY, param);
+		return QueryRepository.executeQueryUpdateDBThrowExceptionIf(INSERT_ACCOUNTLV1_QUERY, param);
 	}
 	
 	public static int updateAccountLv1(AccountLv1DTO accountLv1DTO) {
@@ -99,8 +100,8 @@ public class AccountRepository {
 		return QueryRepository.executeQueryUpdateDB(UPDATE_ACCOUNTLV1_QUERY, param);
 	}
 	
-	public static int deleteAccountLv1(Integer accountLv1Id) {
-		return QueryRepository.executeQueryUpdateDB(DELETE_ACCOUNTLV1_QUERY, Map.of("MaTaiKhoan", accountLv1Id));
+	public static int deleteAccountLv1(Integer accountLv1Id) throws SQLException {
+		return QueryRepository.executeQueryUpdateDBThrowExceptionIf(DELETE_ACCOUNTLV1_QUERY, Map.of("MaTaiKhoan", accountLv1Id));
 	}
 	
 	public static AccountLv2DTO findByAccountLv2Id(Integer id) {
@@ -108,9 +109,9 @@ public class AccountRepository {
 		return ObjectMapper.toDTO(rs, AccountLv2DTO.class);
 	}
 	
-	public static int insertAccountLv2(AccountLv2DTO accountLv2DTO) {
+	public static int insertAccountLv2(AccountLv2DTO accountLv2DTO) throws SQLException {
 		Map<String, Object> param = ObjectMapper.convertToMap(accountLv2DTO);
-		return QueryRepository.executeQueryUpdateDB(INSERT_ACCOUNTLV2_QUERY, param);
+		return QueryRepository.executeQueryUpdateDBThrowExceptionIf(INSERT_ACCOUNTLV2_QUERY, param);
 	}
 	
 	public static int updateAccountLv2(AccountLv2DTO accountLv2DTO) {
@@ -118,8 +119,8 @@ public class AccountRepository {
 		return QueryRepository.executeQueryUpdateDB(UPDATE_ACCOUNTLV2_QUERY, param);
 	}
 	
-	public static int deleteAccountLv2(Integer accountLv2Id) {
-		return QueryRepository.executeQueryUpdateDB(DELETE_ACCOUNTLV2_QUERY, Map.of("MaTieuKhoan", accountLv2Id));
+	public static int deleteAccountLv2(Integer accountLv2Id) throws SQLException {
+		return QueryRepository.executeQueryUpdateDBThrowExceptionIf(DELETE_ACCOUNTLV2_QUERY, Map.of("MaTieuKhoan", accountLv2Id));
 	}
 	
 	public static AccountLv3DTO findByAccountLv3Id(Integer id) {
@@ -127,9 +128,9 @@ public class AccountRepository {
 		return ObjectMapper.toDTO(rs, AccountLv3DTO.class);
 	}
 	
-	public static int insertAccountLv3(AccountLv3DTO accountLv3DTO) {
+	public static int insertAccountLv3(AccountLv3DTO accountLv3DTO) throws SQLException {
 		Map<String, Object> param = ObjectMapper.convertToMap(accountLv3DTO);
-		return QueryRepository.executeQueryUpdateDB(INSERT_ACCOUNTLV3_QUERY, param);
+		return QueryRepository.executeQueryUpdateDBThrowExceptionIf(INSERT_ACCOUNTLV3_QUERY, param);
 	}
 	
 	public static int updateAccountLv3(AccountLv3DTO accountLv3DTO) {
@@ -137,7 +138,7 @@ public class AccountRepository {
 		return QueryRepository.executeQueryUpdateDB(UPDATE_ACCOUNTLV3_QUERY, param);
 	}
 	
-	public static int deleteAccountLv3(Integer accountLv3Id) {
-		return QueryRepository.executeQueryUpdateDB(DELETE_ACCOUNTLV3_QUERY, Map.of("MaTietKhoan", accountLv3Id));
+	public static int deleteAccountLv3(Integer accountLv3Id) throws SQLException {
+		return QueryRepository.executeQueryUpdateDBThrowExceptionIf(DELETE_ACCOUNTLV3_QUERY, Map.of("MaTietKhoan", accountLv3Id));
 	}
 }

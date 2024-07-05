@@ -45,7 +45,6 @@ public class PaymentService {
 	}
 
 	public static void fillDetailToForm(Integer id,
-                        JTextField idE,
 			JComboBox employeeE,
                         JComboBox noAccountE,
                         JComboBox coAccountE,
@@ -53,7 +52,6 @@ public class PaymentService {
                         JTextField bookNumberE,
                         JTextArea reasonE) {
 		PaymentDTO paymentDTO = PaymentRepository.findById(id);
-		idE.setText(paymentDTO.getId().toString());
                 ElementUtils.setSelectedCombobox(paymentDTO.getEmployeeId(), employeeE);
 		ElementUtils.setSelectedCombobox(paymentDTO.getAccountNoId(), noAccountE);
 		ElementUtils.setSelectedCombobox(paymentDTO.getAccountCoId(), coAccountE);

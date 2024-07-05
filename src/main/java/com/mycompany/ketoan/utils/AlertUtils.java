@@ -52,7 +52,16 @@ public class AlertUtils {
         public static void showAlertBalanceKeyExsit() {
 		showAlert("Mã tiết khoản và ngày đã tồn tại", "Lỗi thêm số dư đầu kì", 2);
 	}
-	
+        
+        public static void showAlertSomeTableExsitAccount() {
+		showAlert("Không thể xoá vì tài khoản đang được sử dụng", "Lỗi xoá tài khoản", 2);
+	}
+        
+        public static void showAlertAccountExist() {
+		showAlert("Không thể thêm vì tài khoản đã tồn tại", "Lỗi thêm tài khoản", 2);
+	}
+        
+
 	public static void showAlertConstraint() {
 		showAlert(Alert.Constraint.FAIL_MESSAGE, Alert.Constraint.TITLE, 2);
 	}
