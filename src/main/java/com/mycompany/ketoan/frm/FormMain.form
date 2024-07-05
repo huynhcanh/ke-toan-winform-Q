@@ -4682,7 +4682,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txtMaCT_CT" min="-2" pref="137" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnXoa_ButToan1" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="btnXoa_DoanhThu" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lblTSHDBR5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -4734,7 +4734,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtMaCT_CT" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnXoa_ButToan1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnXoa_DoanhThu" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
@@ -4910,7 +4910,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnXoa_ButToan1">
+            <Component class="javax.swing.JButton" name="btnXoa_DoanhThu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -4929,8 +4929,8 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoa_ButToan1MouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoa_ButToan1ActionPerformed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoa_DoanhThuMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoa_DoanhThuActionPerformed"/>
               </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="fromDateFilter_Document">

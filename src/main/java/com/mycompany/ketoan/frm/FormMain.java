@@ -323,7 +323,7 @@ public class FormMain extends javax.swing.JFrame {
         lblTSHDBR7 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         txtMaCT_CT = new javax.swing.JTextField();
-        btnXoa_ButToan1 = new javax.swing.JButton();
+        btnXoa_DoanhThu = new javax.swing.JButton();
         fromDateFilter_Document = new com.toedter.calendar.JDateChooser();
         toDateFilter_Document = new com.toedter.calendar.JDateChooser();
         jPanelButToan = new javax.swing.JPanel();
@@ -3031,19 +3031,19 @@ public class FormMain extends javax.swing.JFrame {
         txtMaCT_CT.setEditable(false);
         txtMaCT_CT.setBackground(new java.awt.Color(241, 241, 241));
 
-        btnXoa_ButToan1.setBackground(new java.awt.Color(255, 0, 0));
-        btnXoa_ButToan1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnXoa_ButToan1.setForeground(new java.awt.Color(255, 255, 255));
-        btnXoa_ButToan1.setText("Xoá");
-        btnXoa_ButToan1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnXoa_ButToan1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnXoa_DoanhThu.setBackground(new java.awt.Color(255, 0, 0));
+        btnXoa_DoanhThu.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnXoa_DoanhThu.setForeground(new java.awt.Color(255, 255, 255));
+        btnXoa_DoanhThu.setText("Xoá");
+        btnXoa_DoanhThu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXoa_DoanhThu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnXoa_ButToan1MouseClicked(evt);
+                btnXoa_DoanhThuMouseClicked(evt);
             }
         });
-        btnXoa_ButToan1.addActionListener(new java.awt.event.ActionListener() {
+        btnXoa_DoanhThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoa_ButToan1ActionPerformed(evt);
+                btnXoa_DoanhThuActionPerformed(evt);
             }
         });
 
@@ -3078,7 +3078,7 @@ public class FormMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtMaCT_CT, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnXoa_ButToan1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnXoa_DoanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblTSHDBR5)
                     .addGroup(jPanelChungTuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanelChungTuLayout.createSequentialGroup()
@@ -3122,7 +3122,7 @@ public class FormMain extends javax.swing.JFrame {
                 .addGroup(jPanelChungTuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(txtMaCT_CT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoa_ButToan1))
+                    .addComponent(btnXoa_DoanhThu))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -4734,7 +4734,7 @@ public class FormMain extends javax.swing.JFrame {
             cell3.setCellStyle(dataStyle);
 
             Cell cell4 = row.createCell(4);
-            cell4.setCellValue(data.getCreatedDate().toString());
+            cell4.setCellValue(data.getExportedDate().toString());
             cell4.setCellStyle(dataStyle);
 
             Cell cell5 = row.createCell(5);
@@ -5063,9 +5063,19 @@ public class FormMain extends javax.swing.JFrame {
         this.resetFormLv3Account();
     }//GEN-LAST:event_btnReset_Lv3_AccountActionPerformed
 
-    private void btnXoa_ButToan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_ButToan1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoa_ButToan1ActionPerformed
+    private void btnXoa_DoanhThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_DoanhThuActionPerformed
+         Integer id = ElementUtils.getId(tblChungTu);
+        
+        this.confirmAndExecute(() -> {
+            
+            OrderDTO orderDTO = OrderRepository.findById(id);
+            orderDTO.setIsDeleted(true);
+
+            OrderRepository.update(orderDTO);
+            
+            OrderService.getTableCT(tblChungTu, "", null, null);
+        });
+    }//GEN-LAST:event_btnXoa_DoanhThuActionPerformed
 
     private void txtTimKiem_ButToanKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiem_ButToanKeyReleased
         AccountEntryService.getTables(tbButToan, txtTimKiem_ButToan.getText(), ElementUtils.getCbbSelected(cbbTypeFilter_ButToan) != null ?
@@ -5111,18 +5121,9 @@ public class FormMain extends javax.swing.JFrame {
         OrderService.getTableCT(tblChungTu, txtTimKiem_ChungTu.getText(), fromDateFilter_Document.getDate(), toDateFilter_Document.getDate());
     }//GEN-LAST:event_toDateFilter_DocumentPropertyChange
 
-    private void btnXoa_ButToan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoa_ButToan1MouseClicked
-        
-        Integer id = ElementUtils.getId(tblChungTu);
-        
-        this.confirmAndExecute(() -> {
-            
-            OrderDTO orderDTO = OrderRepository.findById(id);
-            orderDTO.setIsDeleted(true);
+    private void btnXoa_DoanhThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoa_DoanhThuMouseClicked
 
-            OrderRepository.update(orderDTO);
-        });
-    }//GEN-LAST:event_btnXoa_ButToan1MouseClicked
+    }//GEN-LAST:event_btnXoa_DoanhThuMouseClicked
 
     private void txtNumberAccountLv1_Lv1_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumberAccountLv1_Lv1_AccountActionPerformed
         // TODO add your handling code here:
@@ -5173,8 +5174,8 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton btnThem_SDDK;
     private javax.swing.JButton btnThem_SanPham;
     private javax.swing.JButton btnXoa_ButToan;
-    private javax.swing.JButton btnXoa_ButToan1;
     private javax.swing.JButton btnXoa_CTHD;
+    private javax.swing.JButton btnXoa_DoanhThu;
     private javax.swing.JButton btnXoa_HoaDon;
     private javax.swing.JButton btnXoa_KhachHang;
     private javax.swing.JButton btnXoa_LoaiSanPham;
