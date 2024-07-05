@@ -3526,7 +3526,7 @@ public class FormMain extends javax.swing.JFrame {
     private void btnThem_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_KhachHangActionPerformed
 
         if(ElementUtils.isValidated(txtTenKhachHang_KhachHang, 
-                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang, true)){
+                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang)){
             
             CustomerDTO customerDTO = new CustomerDTO();
             customerDTO.setName(txtTenKhachHang_KhachHang.getText());
@@ -3544,7 +3544,7 @@ public class FormMain extends javax.swing.JFrame {
     private void btnSua_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_KhachHangActionPerformed
         
         if(ElementUtils.isValidated(txtTenKhachHang_KhachHang, 
-                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang, false)){
+                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang)){
             
             Integer id = ElementUtils.getId(tblKhachHang_KhachHang);
             CustomerDTO customerDTO = CustomerRepository.findById(id);
@@ -3925,9 +3925,9 @@ public class FormMain extends javax.swing.JFrame {
     private void jTabbedPaneNhanVienComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPaneNhanVienComponentShown
         EmployeeService.getTables(this.tblNhanVien_NhanVien, "");
 
-        this.resetFormEmployee();
-
         RoleService.setComboBoxList(cbQuyen_NhanVien);
+        
+        this.resetFormEmployee();
     }//GEN-LAST:event_jTabbedPaneNhanVienComponentShown
 
     private void resetFormEmployee(){
