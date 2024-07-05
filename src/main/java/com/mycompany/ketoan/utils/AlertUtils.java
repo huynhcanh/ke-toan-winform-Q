@@ -61,6 +61,14 @@ public class AlertUtils {
 		showAlert("Không thể thêm vì tài khoản đã tồn tại", "Lỗi thêm tài khoản", 2);
 	}
         
+        public static void showAlertAddCTPHD() {
+		showAlert("Không thể thêm vì số lượng không đủ", "Lỗi thêm chi tiết phiếu bán hàng", 2);
+	}
+        
+        public static void showAlertEditCTPHD() {
+		showAlert("Không thể sửa vì số lượng không đủ", "Lỗi sửa chi tiết phiếu bán hàng", 2);
+	}
+        
 
 	public static void showAlertConstraint() {
 		showAlert(Alert.Constraint.FAIL_MESSAGE, Alert.Constraint.TITLE, 2);

@@ -40,6 +40,32 @@ public class OrderDetailService {
 			}
 		}
 	}
+        
+//        public static void clearTable(JTable table) {
+//            
+//                ((DefaultTableModel)table.getModel()).setRowCount(1);
+//            
+//		Object[] obj = new Object[]{"STT", "Mã HĐ", "Mã HH", "Tên HH", "Số Lượng", "Đơn giá", "Tổng Tiền"};
+//		DefaultTableModel tableModel = new DefaultTableModel(obj, 0);
+//		table.setModel(tableModel);
+//		
+//		List<OrderDetailDTO> orderDetails = OrderDetailRepository.findAllByOrderId(orderId);
+//		if (orderDetails != null) {
+//			for (int i = 0; i < orderDetails.size(); i++) {
+//				OrderDetailDTO orderDetailDTO = orderDetails.get(i);
+//				Object[] item = new Object[]{
+//						i + 1,
+//						orderDetailDTO.getOrderId(),
+//						orderDetailDTO.getProductId(),
+//						orderDetailDTO.getProductName(),
+//						orderDetailDTO.getQuantity(),
+//						PriceUtils.convertToVND(orderDetailDTO.getUnitPrice()),
+//						PriceUtils.convertToVND(orderDetailDTO.getTotalMoney())
+//				};
+//				tableModel.addRow(item);
+//			}
+//		}
+//	}
 	
 	public static void fillDetailToForm(Integer orderId, Integer productId,
 										JComboBox productE,

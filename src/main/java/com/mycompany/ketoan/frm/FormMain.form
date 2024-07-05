@@ -1128,7 +1128,7 @@
                                   <Component id="lab_HinhAnh_HangHoa" min="-2" pref="290" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="234" max="32767" attributes="0"/>
+                          <EmptySpace pref="226" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

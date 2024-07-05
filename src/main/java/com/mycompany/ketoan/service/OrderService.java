@@ -50,7 +50,7 @@ public class OrderService {
 		noteE.setText(orderDTO.getNote());
 	}
 	
-	public static void updateFieldTotalMoneyOfOrderItemOnTable(JTable tblOrder, BigDecimal totalMoney) {
+	public static void updateFieldTotalMoneyOfOrderItemOnTable(JTable tblOrder, String totalMoney) {
 		int indexRowSelected = tblOrder.getSelectedRow();
 		tblOrder.setValueAt(totalMoney, indexRowSelected, 5);
 	}

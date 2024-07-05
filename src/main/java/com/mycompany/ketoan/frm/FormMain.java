@@ -1207,7 +1207,7 @@ public class FormMain extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lab_HinhAnh_HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
 
         jTabbedPaneSanPham.addTab("HÀNG HOÁ", jPanelSanPham);
@@ -3399,7 +3399,7 @@ public class FormMain extends javax.swing.JFrame {
             
             this.handleOrderItemCurrent();
             
-            OrderService.updateFieldTotalMoneyOfOrderItemOnTable(tblOrder , OrderRepository.findById(orderId).getTotalMoney());
+            OrderService.updateFieldTotalMoneyOfOrderItemOnTable(tblOrder , PriceUtils.convertToVND(OrderRepository.findById(orderId).getTotalMoney()));
     }
     
     private void jPanelPhieuChiComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelPhieuChiComponentShown
@@ -4063,6 +4063,8 @@ public class FormMain extends javax.swing.JFrame {
         
         this.resetFormOrder();
         
+        ((DefaultTableModel)tblCTHoaDon_ChiTietHoaDon.getModel()).setRowCount(0);
+        
         this.resetFormCTDH();
     }//GEN-LAST:event_jPanelHoaDonComponentShown
 
@@ -4093,7 +4095,15 @@ public class FormMain extends javax.swing.JFrame {
                 OrderDetailDTO orderDetailDTO = OrderDetailRepository.findByOrderIdAndProductId(orderId, productId);
                 
                 ProductDTO productDTO = ProductRepository.findById(productId);
-                productDTO.setInventoryNumber(productDTO.getInventoryNumber() + orderDetailDTO.getQuantity() - quantity);
+                
+                Integer inventoryNumber = productDTO.getInventoryNumber() + orderDetailDTO.getQuantity() - quantity;
+                
+                if(inventoryNumber < 0){
+                    AlertUtils.showAlertEditCTPHD();
+                    return;
+                }
+                
+                productDTO.setInventoryNumber(inventoryNumber);
                 ProductRepository.update(productDTO);
                 
                 orderDetailDTO.setQuantity(quantity);
@@ -4101,7 +4111,7 @@ public class FormMain extends javax.swing.JFrame {
 
                 this.handleOrderItemCurrent();
 
-                OrderService.updateFieldTotalMoneyOfOrderItemOnTable(tblOrder , OrderRepository.findById(orderId).getTotalMoney());
+                OrderService.updateFieldTotalMoneyOfOrderItemOnTable(tblOrder , PriceUtils.convertToVND(OrderRepository.findById(orderId).getTotalMoney()));
             } else {
 
                 OrderDetailRepository.delete(orderId, productId);
@@ -4131,7 +4141,7 @@ public class FormMain extends javax.swing.JFrame {
 
             this.handleOrderItemCurrent();
 
-            OrderService.updateFieldTotalMoneyOfOrderItemOnTable(tblOrder , orderDTO.getTotalMoney());
+            OrderService.updateFieldTotalMoneyOfOrderItemOnTable(tblOrder , PriceUtils.convertToVND(orderDTO.getTotalMoney()));
         });
     }//GEN-LAST:event_btnXoa_CTHDActionPerformed
 
@@ -4142,10 +4152,16 @@ public class FormMain extends javax.swing.JFrame {
             Integer orderId = ElementUtils.getId(tblOrder);
             Integer productId = Integer.valueOf(ElementUtils.getCbbSelected(cbbSanPhamCTHD_HoaDon).toString());
             Integer quantity = Integer.valueOf(txtSoLuongCTHD_HoaDon.getText());
+            
+            ProductDTO productDTO = ProductRepository.findById(productId);
+            
+            if(productDTO.getInventoryNumber() < quantity){
+                AlertUtils.showAlertAddCTPHD();
+                return;
+            }
 
             this.handleAddOrderDetail(orderId, productId, quantity);
             
-            ProductDTO productDTO = ProductRepository.findById(productId);
             productDTO.setInventoryNumber(productDTO.getInventoryNumber() - quantity);
             ProductRepository.update(productDTO);
         }
@@ -4300,10 +4316,12 @@ public class FormMain extends javax.swing.JFrame {
 
     private void jPanelLogoutComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelLogoutComponentShown
 
-        FormLogin frmLogin = new FormLogin();
-        frmLogin.show();
-        frmLogin.setVisible(true);
-        this.dispose();
+        this.confirmAndExecute(() -> {
+            FormLogin frmLogin = new FormLogin();
+            frmLogin.show();
+            frmLogin.setVisible(true);
+            this.dispose();
+        });
     }//GEN-LAST:event_jPanelLogoutComponentShown
 
     private void jPanelLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelLogoutMouseClicked
