@@ -132,16 +132,17 @@ CREATE TABLE `HangHoa`
 --
 CREATE TABLE `PhieuBanHang`
 (
-    `MaPBH`   int NOT NULL AUTO_INCREMENT,
-    `MaKH`    int  DEFAULT NULL,
-    `MaNV`    int  DEFAULT NULL,
-    `NgayTao` date DEFAULT NULL,
-    `GhiChu`  text DEFAULT NULL,
-    `DaXuat`  bool DEFAULT NULL,
-    `DaXoa`   bool DEFAULT NULL,
+    `MaPBH`    int NOT NULL AUTO_INCREMENT,
+    `MaKH`     int  DEFAULT NULL,
+    `MaNV`     int  DEFAULT NULL,
+    `NgayTao`  date DEFAULT NULL,
+    `GhiChu`   text DEFAULT NULL,
+    `DaXuat`   bool DEFAULT NULL,
+    `DaXoa`    bool DEFAULT NULL,
+    `NgayXuat` date DEFAULT NULL,
     PRIMARY KEY (`MaPBH`),
-    KEY       `fk_MaKH_PhieuBanHang_KhachHang` (`MaKH`),
-    KEY       `fk_MaNV_PhieuBanHang_NhanVien` (`MaNV`),
+    KEY        `fk_MaKH_PhieuBanHang_KhachHang` (`MaKH`),
+    KEY        `fk_MaNV_PhieuBanHang_NhanVien` (`MaNV`),
     CONSTRAINT `fk_MaKH_PhieuBanHang_KhachHang` FOREIGN KEY (`MaKH`) REFERENCES `KhachHang` (`MaKH`),
     CONSTRAINT `fk_MaNV_PhieuBanHang_NhanVien` FOREIGN KEY (`MaNV`) REFERENCES `NhanVien` (`MaNV`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

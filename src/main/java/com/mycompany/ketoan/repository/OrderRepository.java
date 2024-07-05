@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class OrderRepository {
 	
-	private static final String LIST_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu, pbh.DaXuat, pbh.DaXoa \n" +
+	private static final String LIST_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu, pbh.DaXuat, pbh.DaXoa, pbh.NgayXuat \n" +
 			"FROM PhieuBanHang pbh left join KhachHang kh on kh.MaKH = pbh.MaKH left join NhanVien nv on nv.MaNV = pbh.MaNV \n" +
 			"LEFT JOIN (SELECT ctpbh.MaPBH, sum(ctpbh.SoLuong * hh.GiaBan) as TongTien \n" +
 			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH \n" +
@@ -24,19 +24,19 @@ public class OrderRepository {
 			"AND (:fromDate is null or pbh.NgayTao >= cast(:fromDate as date))\n" +
 			"AND (:toDate is null or pbh.NgayTao <= cast(:toDate as date))\n";
 	
-	private static final String DETAIL_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu, pbh.DaXuat, pbh.DaXoa " +
+	private static final String DETAIL_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu, pbh.DaXuat, pbh.DaXoa, pbh.NgayXuat " +
 			"FROM PhieuBanHang pbh left join KhachHang kh on kh.MaKH = pbh.MaKH left join NhanVien nv on nv.MaNV = pbh.MaNV " +
 			"LEFT JOIN (SELECT ctpbh.MaPBH, sum(ctpbh.SoLuong * hh.GiaBan) as TongTien " +
 			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH " +
 			"GROUP BY ctpbh.MaPBH ) ctpbhg on ctpbhg.MaPBH = pbh.MaPBH WHERE pbh.MaPBH = :MaPBH";
 	
 	private static final String INSERT_ORDER_QUERY = "INSERT INTO PhieuBanHang " +
-			" (MaKH, MaNV, NgayTao, GhiChu, DaXuat) " +
-			" VALUES(:MaKH, :MaNV, NOW(), :GhiChu, 0)";
+			" (MaKH, MaNV, NgayTao, GhiChu, DaXuat, NgayXuat) " +
+			" VALUES(:MaKH, :MaNV, NOW(), :GhiChu, 0, :NgayXuat)";
 	
 	private static final String DELETE_ORDER_QUERY = "DELETE FROM PhieuBanHang WHERE MaPBH=:MaPBH";
 	
-	private static final String UPDATE_ORDER_QUERY = "UPDATE PhieuBanHang SET MaKH=:MaKH, GhiChu=:GhiChu, DaXuat=:DaXuat, DaXoa=:DaXoa WHERE MaPBH=:MaPBH";
+	private static final String UPDATE_ORDER_QUERY = "UPDATE PhieuBanHang SET MaKH=:MaKH, GhiChu=:GhiChu, DaXuat=:DaXuat, DaXoa=:DaXoa, NgayXuat=:NgayXuat WHERE MaPBH=:MaPBH";
 	
 	public static List<OrderDTO> findAll(String keyword, Boolean isExported, Boolean isDeleted, Date fromDate, Date toDate) {
 		Map<String, Object> map = new HashMap<>();
@@ -69,6 +69,7 @@ public class OrderRepository {
 		map.put("GhiChu", orderDTO.getNote());
 		map.put("DaXuat", orderDTO.getExported());
 		map.put("DaXoa", orderDTO.getIsDeleted());
+		map.put("NgayXuat", orderDTO.getExportedDate());
 		return QueryRepository.executeQueryUpdateDB(UPDATE_ORDER_QUERY, map);
 	}
 	
