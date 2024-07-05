@@ -1169,6 +1169,9 @@ public class FormMain extends javax.swing.JFrame {
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
+        lab_HinhAnh_HangHoa.setMaximumSize(new java.awt.Dimension(300, 300));
+        lab_HinhAnh_HangHoa.setPreferredSize(new java.awt.Dimension(300, 300));
+
         javax.swing.GroupLayout jPanelSanPhamLayout = new javax.swing.GroupLayout(jPanelSanPham);
         jPanelSanPham.setLayout(jPanelSanPhamLayout);
         jPanelSanPhamLayout.setHorizontalGroup(
@@ -1180,13 +1183,10 @@ public class FormMain extends javax.swing.JFrame {
                     .addComponent(jScrollPane3)
                     .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanelSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSanPhamLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelSanPhamLayout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(lab_HinhAnh_HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lab_HinhAnh_HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(154, Short.MAX_VALUE))
         );
         jPanelSanPhamLayout.setVerticalGroup(
@@ -1194,7 +1194,7 @@ public class FormMain extends javax.swing.JFrame {
             .addGroup(jPanelSanPhamLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel35)
-                .addGroup(jPanelSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelSanPhamLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel60)
@@ -1206,7 +1206,7 @@ public class FormMain extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lab_HinhAnh_HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lab_HinhAnh_HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(234, Short.MAX_VALUE))
         );
 
