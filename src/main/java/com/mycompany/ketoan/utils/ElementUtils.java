@@ -1,6 +1,10 @@
 
 package com.mycompany.ketoan.utils;
 
+import com.toedter.calendar.JDateChooser;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -8,6 +12,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -86,6 +91,8 @@ public class ElementUtils {
                     comboBox.setSelectedIndex(0);
                 } else if (component instanceof JLabel) {
                    ((JLabel)component).setIcon(null);
+                } else if (component instanceof JDateChooser) {
+                   ((JDateChooser)component).setDate(null);
                 }
             }
         }
@@ -115,8 +122,8 @@ public class ElementUtils {
         }
         return true;
     }
-        
-    public static void showImage(JLabel label, String path) {
+    
+  public static void showImage(JLabel label, String path) {
     try {
         if (path == null || path.isEmpty()) {
             // Reset label to default state
@@ -130,5 +137,19 @@ public class ElementUtils {
         e.printStackTrace();
         JOptionPane.showMessageDialog(null, "Error: Unable to open image file", "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
+  }
+    
+    public static void disableAllButtons(Container container) {
+        // Duyệt qua tất cả các component trong container
+        for (Component component : container.getComponents()) {
+            if (component instanceof JButton) {
+                // Disable button nếu component là JButton
+                component.setEnabled(false);
+            }
+            else if (component instanceof Container) {
+                // Gọi đệ quy để disable button trong các container con
+                disableAllButtons((Container) component);
+            }
+        }
+    }
 }

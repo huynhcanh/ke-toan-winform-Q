@@ -7,6 +7,7 @@ import com.mycompany.ketoan.utils.AlertUtils;
 import com.mycompany.ketoan.utils.DateTimeUtils;
 import com.mycompany.ketoan.utils.ElementUtils;
 import com.mycompany.ketoan.utils.PriceUtils;
+import com.toedter.calendar.JDateChooser;
 import java.util.Date;
 
 import java.util.List;
@@ -50,13 +51,13 @@ public class BalanceService {
 	
 	public static void fillDetailToForm(
                 Integer accountIdLv3,  Date firstDateOfPeriod,
-                JTextField firstDateOfPeriodE,
+                JDateChooser firstDateOfPeriodE,
 			JComboBox accountIdLv3E,
                         JTextField priceE,
                         JComboBox statusE) {
 		BalanceDTO balanceDTO = BalanceRepository.findById(accountIdLv3, firstDateOfPeriod);
 		
-		firstDateOfPeriodE.setText(DateTimeUtils.toString(balanceDTO.getFirstDateOfPeriod()));
+		firstDateOfPeriodE.setDate(balanceDTO.getFirstDateOfPeriod());
                 ElementUtils.setSelectedCombobox(balanceDTO.getAccountIdLv3(), accountIdLv3E);
 		priceE.setText(PriceUtils.convertToVND(balanceDTO.getPrice()));
 		ElementUtils.setSelectedCombobox(balanceDTO.getStatus(), statusE);

@@ -21,8 +21,8 @@ public class OrderRepository {
 			"FROM ChiTietPhieuBanHang ctpbh join HangHoa hh on hh.MaHH = ctpbh.MaHH \n" +
 			"GROUP BY ctpbh.MaPBH ) ctpbhg on ctpbhg.MaPBH = pbh.MaPBH WHERE pbh.MaPBH like :keyword AND (:isExported is null or pbh.DaXuat =:isExported)\n" +
 			"AND (:isDeleted is null or (:isDeleted = false and (pbh.DaXoa = false or pbh.DaXoa is null)))\n" +
-			"AND (:fromDate is null or pbh.NgayTao >= cast(:fromDate as date))\n" +
-			"AND (:toDate is null or pbh.NgayTao <= cast(:toDate as date))\n";
+			"AND (:fromDate is null or pbh.NgayXuat >= cast(:fromDate as date))\n" +
+			"AND (:toDate is null or pbh.NgayXuat <= cast(:toDate as date))\n";
 	
 	private static final String DETAIL_ORDER_QUERY = "SELECT pbh.MaPBH, COALESCE(ctpbhg.TongTien, 0) as TongTien, pbh.MaKH, kh.Ten as TenKH, pbh.MaNV, nv.Ten as TenNV, pbh.NgayTao, pbh.GhiChu, pbh.DaXuat, pbh.DaXoa, pbh.NgayXuat " +
 			"FROM PhieuBanHang pbh left join KhachHang kh on kh.MaKH = pbh.MaKH left join NhanVien nv on nv.MaNV = pbh.MaNV " +

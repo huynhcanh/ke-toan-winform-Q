@@ -79,7 +79,7 @@ public class OrderService {
 						orderDTO.getId(),
 						orderDTO.getEmployeeName(),
 						orderDTO.getCustomerName(),
-						DateTimeUtils.toString(orderDTO.getCreatedDate()),
+						DateTimeUtils.toString(orderDTO.getExportedDate()),
 						PriceUtils.convertToVND(orderDTO.getTotalMoney()),
 						orderDTO.getNote()
 				};

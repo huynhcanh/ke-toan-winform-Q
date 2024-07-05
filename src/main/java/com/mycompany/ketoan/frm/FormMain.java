@@ -1,5 +1,6 @@
 package com.mycompany.ketoan.frm;
 
+import com.mycompany.ketoan.constants.ApplicationConstants;
 import static com.mycompany.ketoan.constants.ApplicationConstants.Application.Role.ACCOUNTANT;
 import static com.mycompany.ketoan.constants.ApplicationConstants.Application.Role.SALER;
 import com.mycompany.ketoan.dto.AccountEntryDTO;
@@ -124,7 +125,7 @@ public class FormMain extends javax.swing.JFrame {
         btnSua_CTHD = new javax.swing.JButton();
         lblTongTien_HoaDon2 = new javax.swing.JLabel();
         txtTimKiem_HoaDon = new javax.swing.JTextField();
-        jTabbedPaneSanPham = new javax.swing.JTabbedPane();
+        jPaneSanPham = new javax.swing.JTabbedPane();
         jPanelLoaiSanPham = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tbLoaiSanPham_LoaiSanPham = new javax.swing.JTable();
@@ -308,8 +309,8 @@ public class FormMain extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         cbbStatus_SDDK = new javax.swing.JComboBox<>();
         txtPrice_SDDK = new javax.swing.JTextField();
-        txtfirstDateOfPeriod_SDDK = new javax.swing.JTextField();
         cbbMaTietKhoan_SDDK = new javax.swing.JComboBox<>();
+        txtfirstDateOfPeriod_SDDK = new com.toedter.calendar.JDateChooser();
         jPanelChungTu = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -774,10 +775,10 @@ public class FormMain extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("PHIẾU BÁN HÀNG", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/HoaDon.png")), jPanelHoaDon, ""); // NOI18N
 
-        jTabbedPaneSanPham.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTabbedPaneSanPham.addComponentListener(new java.awt.event.ComponentAdapter() {
+        jPaneSanPham.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jPaneSanPham.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                jTabbedPaneSanPhamComponentShown(evt);
+                jPaneSanPhamComponentShown(evt);
             }
         });
 
@@ -941,7 +942,7 @@ public class FormMain extends javax.swing.JFrame {
                 .addContainerGap(246, Short.MAX_VALUE))
         );
 
-        jTabbedPaneSanPham.addTab("LOẠI HÀNG HOÁ", jPanelLoaiSanPham);
+        jPaneSanPham.addTab("LOẠI HÀNG HOÁ", jPanelLoaiSanPham);
 
         jPanelSanPham.setBackground(new java.awt.Color(255, 255, 255));
         jPanelSanPham.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -1184,9 +1185,11 @@ public class FormMain extends javax.swing.JFrame {
                     .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lab_HinhAnh_HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelSanPhamLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lab_HinhAnh_HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(154, Short.MAX_VALUE))
         );
         jPanelSanPhamLayout.setVerticalGroup(
@@ -1206,13 +1209,13 @@ public class FormMain extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lab_HinhAnh_HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(226, Short.MAX_VALUE))
+                        .addComponent(lab_HinhAnh_HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
-        jTabbedPaneSanPham.addTab("HÀNG HOÁ", jPanelSanPham);
+        jPaneSanPham.addTab("HÀNG HOÁ", jPanelSanPham);
 
-        jTabbedPane3.addTab("HÀNG HOÁ", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/SanPham.png")), jTabbedPaneSanPham); // NOI18N
+        jTabbedPane3.addTab("HÀNG HOÁ", new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ketoan/img/SanPham.png")), jPaneSanPham); // NOI18N
 
         jPanel_KhachHang.setBackground(new java.awt.Color(255, 255, 255));
         jPanel_KhachHang.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -2832,8 +2835,6 @@ public class FormMain extends javax.swing.JFrame {
 
         txtPrice_SDDK.setBackground(new java.awt.Color(241, 241, 241));
 
-        txtfirstDateOfPeriod_SDDK.setBackground(new java.awt.Color(241, 241, 241));
-
         cbbMaTietKhoan_SDDK.setBackground(new java.awt.Color(241, 241, 241));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -2852,8 +2853,8 @@ public class FormMain extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(32, 32, 32)))
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtfirstDateOfPeriod_SDDK)
-                            .addComponent(cbbMaTietKhoan_SDDK, javax.swing.GroupLayout.Alignment.TRAILING, 0, 171, Short.MAX_VALUE)))
+                            .addComponent(cbbMaTietKhoan_SDDK, 0, 171, Short.MAX_VALUE)
+                            .addComponent(txtfirstDateOfPeriod_SDDK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14)
@@ -2868,16 +2869,17 @@ public class FormMain extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(51, 51, 51))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtfirstDateOfPeriod_SDDK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnThem_SDDK))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(btnThem_SDDK))
+                    .addComponent(txtfirstDateOfPeriod_SDDK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -3311,15 +3313,18 @@ public class FormMain extends javax.swing.JFrame {
         if(role.equals(ACCOUNTANT)){
             
             for(int i = 0; i<= 8; i++){
-                if(i == 5 || i == 7){
+                if(i == 3 || i == 5 || i == 6 || i == 7 || i == 8){
                     this.jTabbedPane3.setEnabledAt(i,true);
                 } else {
-                    this.jTabbedPane3.setEnabledAt(i,false);
+                    ElementUtils.disableAllButtons(jPanelHoaDon);
+                    ElementUtils.disableAllButtons(jPaneSanPham);
+                    ElementUtils.disableAllButtons(jPanel_KhachHang);
+                    ElementUtils.disableAllButtons(jPanelNhanVien);
                 }
             }
         } else if (role.equals(SALER)){
             for(int i = 0; i<= 8; i++){
-                if(i == 0){
+                if(i == 0 || i == 1 || i == 2){
                     this.jTabbedPane3.setEnabledAt(i,true);
                 } else {
                     this.jTabbedPane3.setEnabledAt(i,false);
@@ -3504,7 +3509,9 @@ public class FormMain extends javax.swing.JFrame {
         ElementUtils.resetForm(txtTenKhachHang_KhachHang, 
                 this.txtSoDienThoai_KhachHang, txtDiaChi_KhachHang, txtMaSoThue_KhachHang);
         
-        btnThem_KhachHang.setEnabled(true);
+        if(SecurityUtils.isAdmin() || SecurityUtils.isSaler()){
+            btnThem_KhachHang.setEnabled(true);
+        }
     }
     
     private void jPanelLoaiSanPhamComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelLoaiSanPhamComponentShown
@@ -3636,14 +3643,16 @@ public class FormMain extends javax.swing.JFrame {
         
         BalanceService.getTables(this.tblSDDK);
 
+         AccountService.setComboBoxListLevel3(cbbMaTietKhoan_SDDK);
+        
+        cbbStatus_SDDK.setModel(ElementUtils.getDataCbb(List.of(new ComboxModel("DU_NO", "Dư Nợ"),
+                                                   new ComboxModel("DU_CO", "Dư Có"))));
+        
         this.resetFormBalance();
         
-        AccountService.setComboBoxListLevel3(cbbMaTietKhoan_SDDK);
        
-        List<ComboxModel> noDataComboBox = List.of(new ComboxModel("DU_NO", "Dư Nợ"),
-                                                   new ComboxModel("DU_CO", "Dư Có"));
         
-        cbbStatus_SDDK.setModel(ElementUtils.getDataCbb(noDataComboBox));
+        
     }//GEN-LAST:event_jPanelSDDKComponentShown
 
     private void resetFormBalance(){
@@ -3788,9 +3797,9 @@ public class FormMain extends javax.swing.JFrame {
         ProductService.getTables(this.tblSanPham, txtTimKiem_SanPham.getText());
     }//GEN-LAST:event_txtTimKiem_SanPhamKeyReleased
 
-    private void jTabbedPaneSanPhamComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPaneSanPhamComponentShown
+    private void jPaneSanPhamComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPaneSanPhamComponentShown
         this.reloadDataCategory();
-    }//GEN-LAST:event_jTabbedPaneSanPhamComponentShown
+    }//GEN-LAST:event_jPaneSanPhamComponentShown
 
     private void reloadDataCategory(){
         CategoryService.getTables(tbLoaiSanPham_LoaiSanPham);
@@ -3824,8 +3833,10 @@ public class FormMain extends javax.swing.JFrame {
     private void resetFormOrder(){
         ElementUtils.resetForm(cbbKhachHang_HoaDon, txtGhiChu_HoaDon, btnThem_HoaDon);
         
-        btnThem_HoaDon.setEnabled(true);
-        btnXuatHoaDon_PhieuBanHang.setEnabled(false);
+        if(SecurityUtils.isAdmin() || SecurityUtils.isSaler()){
+            btnThem_HoaDon.setEnabled(true);
+            btnXuatHoaDon_PhieuBanHang.setEnabled(false);
+        }
     }
     
     private boolean isValidatedFormOrder(){
@@ -3873,7 +3884,9 @@ public class FormMain extends javax.swing.JFrame {
         ElementUtils.resetForm(
                 this.txtTenLoaiSanPham_LoaiSanPham);
         
-        btnThem_LoaiSanPham.setEnabled(true);
+        if(SecurityUtils.isAdmin() || SecurityUtils.isSaler()){
+            btnThem_LoaiSanPham.setEnabled(true);
+        }
     }
     
     private void jTabbedPanelThuChiComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPanelThuChiComponentShown
@@ -3933,7 +3946,9 @@ public class FormMain extends javax.swing.JFrame {
     private void resetFormEmployee(){
         ElementUtils.resetForm(txtTenDN_NhanVien, txtMK_NhanVien, cbQuyen_NhanVien, txtTen_NhanVien, txtSDT_NhanVien, txtDiaChi_NhanVien);
         
-        btnThem_NhanVien.setEnabled(true);
+        if(SecurityUtils.isAdmin() || SecurityUtils.isSaler()){
+            btnThem_NhanVien.setEnabled(true);
+        }
     }
     
     private void jPanelNhanVienComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelNhanVienComponentShown
@@ -4472,14 +4487,14 @@ public class FormMain extends javax.swing.JFrame {
          
         if(ElementUtils.isValidated(txtfirstDateOfPeriod_SDDK, cbbMaTietKhoan_SDDK, txtPrice_SDDK, cbbStatus_SDDK)){
             
-            if(BalanceRepository.existBalance(Integer.valueOf(ElementUtils.getCbbSelected(cbbMaTietKhoan_SDDK).toString()), DateTimeUtils.toDate(txtfirstDateOfPeriod_SDDK.getText()))){
+            if(BalanceRepository.existBalance(Integer.valueOf(ElementUtils.getCbbSelected(cbbMaTietKhoan_SDDK).toString()), txtfirstDateOfPeriod_SDDK.getDate())){
                 AlertUtils.showAlertBalanceKeyExsit();
                 return;
             }
             
             BalanceDTO balanceDTO = new BalanceDTO();
             balanceDTO.setAccountIdLv3(Integer.valueOf(ElementUtils.getCbbSelected(cbbMaTietKhoan_SDDK).toString()));
-            balanceDTO.setFirstDateOfPeriod(DateTimeUtils.toDate(txtfirstDateOfPeriod_SDDK.getText()));
+            balanceDTO.setFirstDateOfPeriod(txtfirstDateOfPeriod_SDDK.getDate());
             balanceDTO.setPrice(PriceUtils.VNDconvertToPrice(txtPrice_SDDK.getText()));
             balanceDTO.setStatus(ElementUtils.getCbbSelected(cbbStatus_SDDK).toString());
            
@@ -4609,6 +4624,7 @@ public class FormMain extends javax.swing.JFrame {
             
             OrderDTO order = OrderRepository.findById(id);
             order.setExported(true);
+            order.setExportedDate(new Date());
             
             OrderRepository.update(order);
             
@@ -4698,7 +4714,7 @@ public class FormMain extends javax.swing.JFrame {
         dataStyle.setBorderLeft(BorderStyle.THIN);
 
         int rowNum = 4; // Bắt đầu từ hàng thứ 4
-        double totalAmount = 0;
+        BigDecimal totalAmount = BigDecimal.ZERO;
         for (OrderDTO data : orders) {
             Row row = sheet.createRow(rowNum);
             Cell cell0 = row.createCell(0);
@@ -4722,14 +4738,14 @@ public class FormMain extends javax.swing.JFrame {
             cell4.setCellStyle(dataStyle);
 
             Cell cell5 = row.createCell(5);
-            cell5.setCellValue(data.getTotalMoney().doubleValue());
+            cell5.setCellValue(PriceUtils.convertToVND(data.getTotalMoney()));
             cell5.setCellStyle(dataStyle);
 
             Cell cell6 = row.createCell(6);
             cell6.setCellValue(data.getNote());
             cell6.setCellStyle(dataStyle);
 
-            totalAmount += data.getTotalMoney().doubleValue();
+            totalAmount = totalAmount.add(data.getTotalMoney());
             rowNum++;
         }
 
@@ -4740,7 +4756,7 @@ public class FormMain extends javax.swing.JFrame {
         totalLabelCell.setCellStyle(headerStyle); // Sử dụng style của header để in đậm và căn giữa
 
         Cell totalAmountCell = totalRow.createCell(6);
-        totalAmountCell.setCellValue(totalAmount);
+        totalAmountCell.setCellValue(PriceUtils.convertToVND(totalAmount));
         totalAmountCell.setCellStyle(headerStyle); // Sử dụng style của header để in đậm và căn giữa
 
         // Tự động điều chỉnh chiều rộng các cột và thêm chiều rộng bổ sung
@@ -4856,6 +4872,8 @@ public class FormMain extends javax.swing.JFrame {
                 AlertUtils.showAlertAccountExist();
             }
             
+            AccountService.setComboBoxListLevel1(cbbNumberAccountLv1_Lv2_Account);
+            
             AccountService.getTables(this.tblTaiKhoan, "");
             this.resetFormAccount();
         }    
@@ -4937,6 +4955,8 @@ public class FormMain extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 AlertUtils.showAlertAccountExist();
             }
+            
+            AccountService.setComboBoxListLevel2(cbbNumberAccountLv2_Lv3_Account);
             
             AccountService.getTables(this.tblTaiKhoan, "");
             this.resetFormAccount();
@@ -5236,6 +5256,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTabbedPane jPaneSanPham;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -5277,7 +5298,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPaneNhanVien;
-    private javax.swing.JTabbedPane jTabbedPaneSanPham;
     private javax.swing.JTabbedPane jTabbedPanelThuChi;
     private javax.swing.JLabel lab_HinhAnh_HangHoa;
     private javax.swing.JLabel lblDiaChi_KhachHang;
@@ -5359,6 +5379,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JTextField txtTimKiem_TaiKhoan;
     private javax.swing.JTextField txtTongTien_PhieuChi;
     private javax.swing.JTextField txtTongTien_PhieuNhap;
-    private javax.swing.JTextField txtfirstDateOfPeriod_SDDK;
+    private com.toedter.calendar.JDateChooser txtfirstDateOfPeriod_SDDK;
     // End of variables declaration//GEN-END:variables
 }
