@@ -6,25 +6,25 @@
 INSERT INTO `NhanVien` (`TenDN`, `MatKhau`, `VaiTro`, `Ten`, `Sdt`, `DiaChi`)
 VALUES 
 ('admin', 'admin123', 'ADMIN', 'Nguyen Van A', '0912345678', '123 Nguyen Trai'),
-('tranthib', 'password123', 'ACCOUNANT', 'Tran Thi B', '0912345679', '456 Le Duan'),
+('tranthib', 'password123', 'ACCOUNTANT', 'Tran Thi B', '0912345679', '456 Le Duan'),
 ('phamthic', 'password123', 'SALER', 'Pham Thi C', '0912345680', '789 Tran Hung Dao'),
 ('lethid', 'password123', 'ADMIN', 'Le Thi D', '0912345681', '101 Hai Ba Trung'),
-('nguyenthie', 'password123', 'ACCOUNANT', 'Nguyen Thi E', '0912345682', '202 Phan Boi Chau'),
+('nguyenthie', 'password123', 'ACCOUNTANT', 'Nguyen Thi E', '0912345682', '202 Phan Boi Chau'),
 ('hoangvanf', 'password123', 'SALER', 'Hoang Van F', '0912345683', '303 Ton Duc Thang'),
 ('phamhg', 'password123', 'ADMIN', 'Pham H G', '0912345684', '404 Nguyen Hue'),
-('doanhh', 'password123', 'ACCOUNANT', 'Do Anh H', '0912345685', '505 Le Loi'),
+('doanhh', 'password123', 'ACCOUNTANT', 'Do Anh H', '0912345685', '505 Le Loi'),
 ('buidn', 'password123', 'SALER', 'Bui D N', '0912345686', '606 Tran Phu'),
 ('trandk', 'password123', 'ADMIN', 'Tran D K', '0912345687', '707 Le Thanh Ton'),
-('lethit', 'password123', 'ACCOUNANT', 'Le Thi T', '0912345688', '808 Ly Tu Trong'),
+('lethit', 'password123', 'ACCOUNTANT', 'Le Thi T', '0912345688', '808 Ly Tu Trong'),
 ('ngothig', 'password123', 'SALER', 'Ngo Thi G', '0912345689', '909 Nguyen Dinh Chieu'),
 ('phamvanh', 'password123', 'ADMIN', 'Pham Van H', '0912345690', '1111 Ba Trieu'),
-('nguyenthib', 'password123', 'ACCOUNANT', 'Nguyen Thi B', '0912345691', '1212 Hang Bai'),
+('nguyenthib', 'password123', 'ACCOUNTANT', 'Nguyen Thi B', '0912345691', '1212 Hang Bai'),
 ('dangthiv', 'password123', 'SALER', 'Dang Thi V', '0912345692', '1313 Cat Linh'),
 ('votuanm', 'password123', 'ADMIN', 'Vo Tuan M', '0912345693', '1414 Giang Vo'),
-('truongtnd', 'password123', 'ACCOUNANT', 'Truong T N D', '0912345694', '1515 Dien Bien Phu'),
+('truongtnd', 'password123', 'ACCOUNTANT', 'Truong T N D', '0912345694', '1515 Dien Bien Phu'),
 ('nguyenanhp', 'password123', 'SALER', 'Nguyen Anh P', '0912345695', '1616 Tay Son'),
 ('lethimy', 'password123', 'ADMIN', 'Le Thi My', '0912345696', '1717 Kim Ma'),
-('ngothiv', 'password123', 'ACCOUNANT', 'Ngo Thi V', '0912345697', '1818 Lac Long Quan');
+('ngothiv', 'password123', 'ACCOUNTANT', 'Ngo Thi V', '0912345697', '1818 Lac Long Quan');
 
 
 
