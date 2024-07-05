@@ -22,7 +22,7 @@ public class AccountRepository {
 			" FROM TieuKhoan tk2 join TaiKhoan tk1 on tk2.MaTaiKhoan = tk1.MaTaiKhoan union all \n" +
 			" SELECT tk12.MaTaiKhoan as Cap1, tk12.MaTieuKhoan as Cap2, tk3.MaTietKhoan as Cap3, tk3.TenTietKhoan as TenTK, 'LEVEL3' as Cap FROM TietKhoan tk3\n" +
 			"LEFT JOIN (SELECT tk2.MaTieuKhoan, tk1.MaTaiKhoan FROM TieuKhoan tk2 join TaiKhoan tk1 ON tk2.MaTaiKhoan = tk1.MaTaiKhoan) tk12 ON tk12.MaTieuKhoan = tk3.MaTieuKhoan) ua\n" +
-			" where (:keyword is null or (ua.Cap1 like :keyword or ua.Cap1 like :keyword or ua.Cap1 like :keyword)) ORDER BY ua.Cap1 asc, ua.Cap2 asc, ua.Cap3 asc";
+			" where (:keyword is null or (ua.Cap1 like :keyword or ua.Cap2 like :keyword or ua.Cap3 like :keyword)) ORDER BY ua.Cap1 asc, ua.Cap2 asc, ua.Cap3 asc";
 	
 	private static final String DETAIL_ACCOUNTLV1_QUERY = "SELECT MaTaiKhoan, TenTaiKhoan FROM TaiKhoan WHERE MaTaiKhoan=:MaTaiKhoan";
 	
