@@ -103,7 +103,7 @@ public class ElementUtils {
                     return false;
                 }
             } else if (component instanceof JComboBox) {
-                if (((JComboBox<?>) component).getSelectedItem() == null) {
+                if (getCbbSelected((JComboBox<?>) component) == null) {
                     AlertUtils.showAlertValidate();
                     return false;
                 }

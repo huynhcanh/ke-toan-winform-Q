@@ -910,11 +910,11 @@ public class FormMain extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThem_LoaiSanPham)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtTenLoaiSanPham_LoaiSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblTenLoaiSanPham_LoaiSanPham)))
+                        .addComponent(lblTenLoaiSanPham_LoaiSanPham))
+                    .addComponent(btnThem_LoaiSanPham))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSua_LoaiSanPham)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3539,7 +3539,7 @@ public class FormMain extends javax.swing.JFrame {
     private void btnThem_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_KhachHangActionPerformed
 
         if(ElementUtils.isValidated(txtTenKhachHang_KhachHang, 
-                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang, true)){
+                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang)){
             
             CustomerDTO customerDTO = new CustomerDTO();
             customerDTO.setName(txtTenKhachHang_KhachHang.getText());
@@ -3557,7 +3557,7 @@ public class FormMain extends javax.swing.JFrame {
     private void btnSua_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_KhachHangActionPerformed
         
         if(ElementUtils.isValidated(txtTenKhachHang_KhachHang, 
-                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang, false)){
+                txtSoDienThoai_KhachHang, txtDiaChi_KhachHang)){
             
             Integer id = ElementUtils.getId(tblKhachHang_KhachHang);
             CustomerDTO customerDTO = CustomerRepository.findById(id);
@@ -3938,9 +3938,9 @@ public class FormMain extends javax.swing.JFrame {
     private void jTabbedPaneNhanVienComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPaneNhanVienComponentShown
         EmployeeService.getTables(this.tblNhanVien_NhanVien, "");
 
-        this.resetFormEmployee();
-
         RoleService.setComboBoxList(cbQuyen_NhanVien);
+        
+        this.resetFormEmployee();
     }//GEN-LAST:event_jTabbedPaneNhanVienComponentShown
 
     private void resetFormEmployee(){
