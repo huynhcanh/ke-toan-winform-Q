@@ -2,6 +2,8 @@ package com.mycompany.ketoan.frm;
 
 import com.mycompany.ketoan.constants.ApplicationConstants.Alert;
 import com.mycompany.ketoan.constants.ApplicationConstants.Application;
+import static com.mycompany.ketoan.constants.ApplicationConstants.Application.Role.ACCOUNTANT;
+import static com.mycompany.ketoan.constants.ApplicationConstants.Application.Role.SALER;
 import com.mycompany.ketoan.constants.ApplicationConstants.Form;
 import com.mycompany.ketoan.dto.EmployeeDTO;
 import com.mycompany.ketoan.repository.EmployeeRepository;
@@ -133,17 +135,17 @@ public class FormLogin extends javax.swing.JFrame {
 
             FormMain frmMain = new FormMain();
             frmMain.setVisible(true);
-			frmMain.setLocationRelativeTo(null);
+            frmMain.setLocationRelativeTo(null);
 
             if (userDTO.getRole().equals(Application.Role.ADMIN)) {
                 AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_ADMIN_CONTENT);
             } else if (userDTO.getRole().equals(Application.Role.ACCOUNTANT)){
                 AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_ACCOUNTANT_CONTENT);
-                frmMain.disableTabs();
+                frmMain.disableTabs(ACCOUNTANT);
             }
             else {
                 AlertUtils.showAlertRole(Alert.ShowRole.LOGIN_WITH_SALER_CONTENT);
-                frmMain.disableTabs();
+                frmMain.disableTabs(SALER);
             }
             this.dispose();
         } else {

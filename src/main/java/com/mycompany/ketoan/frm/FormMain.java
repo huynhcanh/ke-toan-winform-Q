@@ -1,5 +1,7 @@
 package com.mycompany.ketoan.frm;
 
+import static com.mycompany.ketoan.constants.ApplicationConstants.Application.Role.ACCOUNTANT;
+import static com.mycompany.ketoan.constants.ApplicationConstants.Application.Role.SALER;
 import com.mycompany.ketoan.dto.AccountEntryDTO;
 import com.mycompany.ketoan.dto.AccountLv1DTO;
 import com.mycompany.ketoan.dto.AccountLv2DTO;
@@ -3317,10 +3319,26 @@ public class FormMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void disableTabs() {
-//        this.jTabbedPane3.setEnabledAt(3,false);
-//        this.jTabbedPane3.setEnabledAt(4,false);
-//        this.jTabbedPane3.setEnabledAt(5,false);
+    public void disableTabs(String role) {
+        
+        if(role.equals(ACCOUNTANT)){
+            
+            for(int i = 0; i<= 8; i++){
+                if(i == 5 || i == 7){
+                    this.jTabbedPane3.setEnabledAt(i,true);
+                } else {
+                    this.jTabbedPane3.setEnabledAt(i,false);
+                }
+            }
+        } else if (role.equals(SALER)){
+            for(int i = 0; i<= 8; i++){
+                if(i == 0){
+                    this.jTabbedPane3.setEnabledAt(i,true);
+                } else {
+                    this.jTabbedPane3.setEnabledAt(i,false);
+                }
+            }
+        }
     }
     private void bntSua_SanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSua_SanPhamActionPerformed
         
@@ -4607,13 +4625,27 @@ public class FormMain extends javax.swing.JFrame {
     }
     
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+       
+        Date startDate = fromDateFilter_Document.getDate() != null? fromDateFilter_Document.getDate(): null ;
+        Date endDate = toDateFilter_Document.getDate() != null? toDateFilter_Document.getDate(): null ;
         
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Report");
 
-        // Thêm 2 hàng trống phía trên tiêu đề
-        sheet.createRow(0);
-        sheet.createRow(1);
+        // Thêm thông tin ngày bắt đầu và ngày kết thúc
+        Row fromDateRow = sheet.createRow(0);
+        Cell fromDateCell = fromDateRow.createCell(0);
+        fromDateCell.setCellValue("Từ ngày: " + DateTimeUtils.toString(startDate));
+        CellStyle dateStyle = workbook.createCellStyle();
+        Font dateFont = workbook.createFont();
+        dateFont.setBold(true);
+        dateStyle.setFont(dateFont);
+        fromDateCell.setCellStyle(dateStyle);
+
+        Row toDateRow = sheet.createRow(1);
+        Cell toDateCell = toDateRow.createCell(0);
+        toDateCell.setCellValue("Đến ngày: " + DateTimeUtils.toString(endDate));
+        toDateCell.setCellStyle(dateStyle);
 
         // Thêm tiêu đề cho file export
         Row titleRow = sheet.createRow(2);
@@ -4634,11 +4666,8 @@ public class FormMain extends javax.swing.JFrame {
         CellStyle headerStyle = workbook.createCellStyle();
         Font headerFont = workbook.createFont();
         headerFont.setBold(true);
-        headerFont.setColor(IndexedColors.WHITE.getIndex());
         headerStyle.setFont(headerFont);
         headerStyle.setAlignment(HorizontalAlignment.CENTER);
-        headerStyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
-        headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         headerStyle.setBorderBottom(BorderStyle.THIN);
         headerStyle.setBorderTop(BorderStyle.THIN);
         headerStyle.setBorderRight(BorderStyle.THIN);
@@ -4654,7 +4683,7 @@ public class FormMain extends javax.swing.JFrame {
         }
 
         // Giả định OrderRepository là lớp bạn đã định nghĩa và có phương thức findAll
-        List<OrderDTO> orders = OrderRepository.findAll("", true, false, fromDateFilter_Document.getDate(), toDateFilter_Document.getDate());
+        List<OrderDTO> orders = OrderRepository.findAll("", true, false, startDate, endDate);
 
         // Tạo kiểu cho dữ liệu
         CellStyle dataStyle = workbook.createCellStyle();

@@ -40,7 +40,7 @@ public class ApplicationConstants {
 		public static class Role {
 			public static final String ADMIN = "ADMIN";
                         public static final String ACCOUNTANT = "ACCOUNTANT";
-                        
+                        public static final String SALER = "SALER";
 		}
 	}
 	
