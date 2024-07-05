@@ -3896,7 +3896,6 @@ public class FormMain extends javax.swing.JFrame {
         CustomerService.setComboBoxList(cbbKhachHang_PhieuThu);
         EmployeeService.setComboBoxList(cbbNhanVien_PhieuThu);
         
-
         AccountService.setComboBoxListLevel3(cbbMaTKN_PhieuThu);
       
         AccountService.setComboBoxListLevel3(cbbMaTKC_PhieuThu);
