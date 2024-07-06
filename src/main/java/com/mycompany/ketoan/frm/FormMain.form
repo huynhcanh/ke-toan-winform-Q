@@ -3227,14 +3227,14 @@
                               <Component id="jLabel67" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                                   <Component id="btnXuatPhieuThu_PhieuThu" min="-2" pref="105" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane10" alignment="0" pref="1304" max="32767" attributes="0"/>
                               <Component id="jLabel23" pref="1304" max="32767" attributes="0"/>
                               <Component id="txtTimKiem_PhieuThu" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="56" max="32767" attributes="0"/>
+                          <EmptySpace pref="59" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3393,20 +3393,19 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtTongTien_PhieuNhap" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <Component id="cbbKhachHang_PhieuThu" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <Component id="cbbNhanVien_PhieuThu" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="69" pref="43" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="cbbNhanVien_PhieuThu" min="-2" pref="174" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                                      <Component id="jLabel37" min="-2" pref="44" max="-2" attributes="0"/>
+                                      <Component id="jLabel37" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtTongTien_PhieuNhap" min="-2" pref="174" max="-2" attributes="0"/>
-                                          <Component id="cbbKhachHang_PhieuThu" min="-2" pref="174" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel11" max="32767" attributes="0"/>
                                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -4772,7 +4771,7 @@
                         <Column editable="false" title="S&#x1ed1; CT" type="java.lang.Object"/>
                         <Column editable="false" title="Kh&#xe1;ch H&#xe0;ng" type="java.lang.Object"/>
                         <Column editable="false" title="Nh&#xe2;n Vi&#xea;n L&#x1ead;p" type="java.lang.Object"/>
-                        <Column editable="false" title="Ng&#xe0;y L&#x1ead;p" type="java.lang.Object"/>
+                        <Column editable="false" title="Ng&#xe0;y Xu&#x1ea5;t" type="java.lang.Object"/>
                         <Column editable="false" title="T&#x1ed5;ng Ti&#x1ec1;n" type="java.lang.Object"/>
                         <Column editable="false" title="Ghi Ch&#xfa;" type="java.lang.Object"/>
                       </Table>
@@ -5207,7 +5206,7 @@
         <Container class="javax.swing.JPanel" name="jPanelLogout">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Events>
