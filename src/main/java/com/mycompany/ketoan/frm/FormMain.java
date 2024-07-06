@@ -4721,7 +4721,7 @@ public class FormMain extends javax.swing.JFrame {
             cell0.setCellStyle(dataStyle);
 
             Cell cell1 = row.createCell(1);
-            cell1.setCellValue(data.getId());
+            cell1.setCellValue(data.getId() + "/CT");
             cell1.setCellStyle(dataStyle);
 
             Cell cell2 = row.createCell(2);

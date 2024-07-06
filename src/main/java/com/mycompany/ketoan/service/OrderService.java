@@ -76,7 +76,7 @@ public class OrderService {
 				OrderDTO orderDTO = orders.get(i);
 				Object[] item = new Object[]{
 						i + 1,
-						orderDTO.getId(),
+						orderDTO.getId() + "/CT",
 						orderDTO.getEmployeeName(),
 						orderDTO.getCustomerName(),
 						DateTimeUtils.toString(orderDTO.getExportedDate()),
