@@ -123,21 +123,29 @@ public class ElementUtils {
         return true;
     }
     
-  public static void showImage(JLabel label, String path) {
+  
+public static void showImage(JLabel label, String path) {
     try {
         if (path == null || path.isEmpty()) {
             // Reset label to default state
             label.setIcon(null); // Remove current icon
         } else {
             BufferedImage bufferedImage = ImageIO.read(new File(path));
-            ImageIcon imageIcon = new ImageIcon(bufferedImage);
+            // Resize the image to fit the label's width while maintaining aspect ratio
+            int labelWidth = label.getWidth();
+            int originalWidth = bufferedImage.getWidth();
+            int originalHeight = bufferedImage.getHeight();
+            int newHeight = (labelWidth * originalHeight) / originalWidth;
+            
+            Image scaledImage = bufferedImage.getScaledInstance(labelWidth, newHeight, Image.SCALE_SMOOTH);
+            ImageIcon imageIcon = new ImageIcon(scaledImage);
             label.setIcon(imageIcon);
         }
     } catch (IOException e) {
         e.printStackTrace();
         JOptionPane.showMessageDialog(null, "Error: Unable to open image file", "Error", JOptionPane.ERROR_MESSAGE);
     }
-  }
+}
     
     public static void disableAllButtons(Container container) {
         // Duyệt qua tất cả các component trong container

@@ -5,6 +5,7 @@
 package com.mycompany.ketoan.helper;
 
 import java.awt.BorderLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -78,16 +79,20 @@ public class ImageUploader extends JFrame {
             File selectedFile = fileChooser.getSelectedFile();
             imagePath = selectedFile.getAbsolutePath(); // Save the image path
 
-            try {
-                // Read the image from the file
-                BufferedImage bufferedImage = ImageIO.read(selectedFile);
+             try {
+            // Read the image from the file
+            BufferedImage bufferedImage = ImageIO.read(selectedFile);
 
-                // Display the image in the label
-                ImageIcon imageIcon = new ImageIcon(bufferedImage);
-                imageLabel.setIcon(imageIcon);
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(this, "Error: Unable to open image file", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            // Scale the image to fit the label
+            ImageIcon imageIcon = new ImageIcon(bufferedImage);
+            Image image = imageIcon.getImage().getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+            imageIcon = new ImageIcon(image);
+
+            // Display the scaled image in the label
+            imageLabel.setIcon(imageIcon);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error: Unable to open image file", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         }
     }
 }
