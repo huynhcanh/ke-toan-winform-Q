@@ -88,7 +88,9 @@ public class ElementUtils {
                     ((JTextField) component).setText("");
                 } else if (component instanceof JComboBox) {
                     JComboBox<?> comboBox = (JComboBox<?>) component;
-                    comboBox.setSelectedIndex(0);
+                    if(comboBox != null && comboBox.getSelectedIndex() > 0){
+                        comboBox.setSelectedIndex(0);
+                    }
                 } else if (component instanceof JLabel) {
                    ((JLabel)component).setIcon(null);
                 } else if (component instanceof JDateChooser) {
