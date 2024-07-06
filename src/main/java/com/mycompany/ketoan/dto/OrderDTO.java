@@ -39,6 +39,9 @@ public class OrderDTO {
 	@JsonProperty("DaXuat")
 	private Boolean isExported;
 	
+	@JsonProperty("NgayXuat")
+	private Date exportedDate;
+	
 	@JsonProperty("DaXoa")
 	private Boolean isDeleted;
 	
@@ -57,7 +60,6 @@ public class OrderDTO {
 	public void setIsDeleted(Boolean isDeleted) {
 		this.isDeleted = isDeleted;
 	}
-	
 	
 	public Integer getId() {
 		return id;
@@ -129,5 +131,13 @@ public class OrderDTO {
 	
 	public void setExported(Boolean exported) {
 		isExported = exported;
+	}
+	
+	public Date getExportedDate() {
+		return exportedDate;
+	}
+	
+	public void setExportedDate(Date exportedDate) {
+		this.exportedDate = exportedDate;
 	}
 }

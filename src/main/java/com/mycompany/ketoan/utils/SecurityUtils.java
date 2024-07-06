@@ -1,6 +1,7 @@
 
 package com.mycompany.ketoan.utils;
 
+import com.mycompany.ketoan.constants.ApplicationConstants;
 import com.mycompany.ketoan.dto.EmployeeDTO;
 import com.mycompany.ketoan.security.Principal;
 
@@ -18,4 +19,16 @@ public class SecurityUtils {
 	public static Principal getUserCurrent() {
 		return principal;
 	}
+        
+        public static boolean isAdmin(){
+            return principal.getRole().equals(ApplicationConstants.Application.Role.ADMIN);
+        }
+        
+        public static boolean isAccountant(){
+            return principal.getRole().equals(ApplicationConstants.Application.Role.ACCOUNTANT);
+        }
+        
+         public static boolean isSaler(){
+            return principal.getRole().equals(ApplicationConstants.Application.Role.SALER);
+        }
 }
